@@ -11,5 +11,7 @@
         <page name='enumeration'/>
         <page name='closures'/>
         <page name='Bitwise Operators'/>
+        <page name='tuple'/>
+        <page name='Async'/>
     </pages>
 </playground>
