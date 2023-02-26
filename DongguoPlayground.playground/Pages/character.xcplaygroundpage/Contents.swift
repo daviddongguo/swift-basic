@@ -74,4 +74,15 @@ playground.starts(with: "abc")
 playground.hasPrefix("bc")
 playground.contains("cde")
 playground.contains("de")
-//: [Next](@next)
+
+
+let badStart = """
+    one
+    two
+    
+    """
+let end = """
+    three
+    """
+//print(badStart + end)
+

@@ -9,5 +9,7 @@
         <page name='optional'/>
         <page name='function'/>
         <page name='enumeration'/>
+        <page name='closures'/>
+        <page name='Bitwise Operators'/>
     </pages>
 </playground>
