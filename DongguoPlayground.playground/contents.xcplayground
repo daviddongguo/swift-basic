@@ -8,5 +8,6 @@
         <page name='fizz buzz'/>
         <page name='optional'/>
         <page name='function'/>
+        <page name='enumeration'/>
     </pages>
 </playground>
