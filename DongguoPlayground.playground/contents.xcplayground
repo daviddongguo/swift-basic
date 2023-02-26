@@ -7,5 +7,6 @@
         <page name='markdown comments'/>
         <page name='fizz buzz'/>
         <page name='optional'/>
+        <page name='function'/>
     </pages>
 </playground>
