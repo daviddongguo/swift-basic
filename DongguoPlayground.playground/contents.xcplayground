@@ -6,5 +6,6 @@
         <page name='numbers_of_island_1'/>
         <page name='markdown comments'/>
         <page name='fizz buzz'/>
+        <page name='optional'/>
     </pages>
 </playground>

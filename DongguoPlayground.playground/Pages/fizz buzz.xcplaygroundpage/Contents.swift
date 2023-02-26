@@ -7,12 +7,12 @@ for i in 1...30 {
 }
 
 func fizzBuzz(_ num: Int) -> String {
-    switch (f: num % 3 == 0, b: num % 5 == 0) {
-    case(f: true, b: true):
+    switch (num % 3 == 0, num % 5 == 0) {
+    case(true, true):
         return "Fizz Buzz"
-    case(f: true, b: false):
+    case(true, false):
         return "Fizz"
-    case(f: false, b: true):
+    case(false, true):
         return "Buzz"
     default:
         return ""
