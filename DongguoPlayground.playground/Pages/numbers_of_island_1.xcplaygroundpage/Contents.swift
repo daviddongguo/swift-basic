@@ -4,7 +4,10 @@ import Foundation
 import Cocoa
 
 var greeting = "Hello, playground"
-
+/**
+ ## Point
+ * a struct to define a (x, y) point
+ */
 struct Point {
     var x: Int
     var y: Int
@@ -29,7 +32,7 @@ p.x
 p.y
 
 
-p.isNext( Point(2, 2))
+p.isNext(Point(2, 2))
 p.isNext(Point(2, 3))
 
 enum Color {
