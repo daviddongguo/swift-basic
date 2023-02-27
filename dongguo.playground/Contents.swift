@@ -136,21 +136,24 @@ func hasPrefix(_ strs: [String], prefix: String) -> Bool {
  */
 func isValid(_ s: String) -> Bool {
     let characters = Array(s)
-    var preCharacter = characters[0]
-    for i in 1..<s.count {
-        if(i % 2 == 0){
-            preCharacter = characters[i]
+    var stack: [Character] = []
+    for character in characters {
+        if(isLeft(character)){
+            stack.append(character)
             continue
         }
-        if !isClosedCharacter(character1: preCharacter , character2: characters[i]) {
-            return false
+        if(isRight(character)){
+            let leftCharacter = stack.removeLast()
+            if(!isClosedCharacter(character1: leftCharacter, character2: character)){
+                return false
+            }
         }
     }
-    return true
+    
+    return stack.isEmpty
 }
 
 func isClosedCharacter(character1: Character, character2: Character) -> Bool {
-    print("\(character1) : \(character2)")
     switch character1 {
     case "(":
         return character2 == ")"
@@ -163,8 +166,46 @@ func isClosedCharacter(character1: Character, character2: Character) -> Bool {
     }
 }
 
+func isLeft(_ character: Character) -> Bool {
+    switch character {
+    case "(":
+        return true
+    case "[":
+        return true
+    case "{":
+        return true
+    default:
+        return false
+    }
+}
 
+func isRight(_ character: Character) -> Bool {
+    switch character {
+    case ")":
+        return true
+    case "]":
+        return true
+    case "}":
+        return true
+    default:
+        return false
+    }
+}
 
+func isValid2(_ s: String) -> Bool {
+    let characters = Array(s)
+    var preCharacter = characters[0]
+    for i in 1..<s.count {
+        if(i % 2 == 0){
+            preCharacter = characters[i]
+            continue
+        }
+        if !isClosedCharacter(character1: preCharacter , character2: characters[i]) {
+            return false
+        }
+    }
+    return true
+}
 
 /**
  * 6
