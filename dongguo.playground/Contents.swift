@@ -66,3 +66,31 @@ func isEqualList(list1: [Int], list2: [Int]) -> Bool {
 let list1 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
 let list2 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
 print("3_ Array equal: \(isEqualList(list1: list1, list2: list2))")
+
+/**
+ * 4
+ */
+func longestCommonPrefix(_ strs: [String]) -> String {
+    var prefix = ""
+    var shortestSize = Int.max
+    for str in strs {
+        shortestSize = min(shortestSize, str.count)
+    }
+    for i in 0..<shortestSize {
+        let index = strs[0].index(strs[0].startIndex, offsetBy: i)
+        let prefix = strs[0][...index]
+        for str in strs {
+            str.hasPrefix(prefix)
+        }
+    }
+    return "\(shortestSize)"
+}
+func hasPrefix(_ strs: [String], prefix: String) -> Bool {
+    
+    return true
+}
+
+let str1 = ["flower","flow","flight"]
+let str2 = ["dog","racecar","car"]
+print("4_ Longest common prefix: \(longestCommonPrefix(str1))")
+print("4_ Longest common prefix: \(longestCommonPrefix(str2))")
