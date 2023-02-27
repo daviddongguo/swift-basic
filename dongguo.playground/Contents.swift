@@ -41,7 +41,10 @@ func main() {
     print("")
     print("6_ Rotate matrix:")
     rotateMatrix(&matrix1)
-    printMatrix(&matrix1)
+    printMatrix(matrix1)
+    print("6_ Rotate matrix:")
+    rotateMatrix(&matrix2)
+    printMatrix(matrix2)
 }
 
 /**
@@ -132,34 +135,28 @@ func hasPrefix(_ strs: [String], prefix: String) -> Bool {
  * 5
  */
 func isValid(_ s: String) -> Bool {
-    var lastIndex = s.count - 1
     let characters = Array(s)
-    for i in 0..<s.count {
-        //        print(characters[i])
-        //        print(characters[lastIndex - i])
-        if !isClosedCharacter(character1: characters[i], character2: characters[lastIndex - i]) {
-            //            print(characters[i])
-            //            print(characters[lastIndex - i])
+    var preCharacter = characters[0]
+    for i in 1..<s.count {
+        if(i % 2 == 0){
+            preCharacter = characters[i]
+            continue
+        }
+        if !isClosedCharacter(character1: preCharacter , character2: characters[i]) {
             return false
         }
     }
     return true
 }
 func isClosedCharacter(character1: Character, character2: Character) -> Bool {
-    //    print("\(character1) : \(character2)")
+        print("\(character1) : \(character2)")
     switch character1 {
     case "(":
         return character2 == ")"
-    case ")":
-        return character2 == "("
     case "[":
         return character2 == "]"
-    case "]":
-        return character2 == "["
     case "{":
         return character2 == "}"
-    case "}":
-        return character2 == "{"
     default:
         return false
     }
@@ -170,6 +167,8 @@ func isClosedCharacter(character1: Character, character2: Character) -> Bool {
 
 /**
  * 6
+ * firstly, swap items based on the line i = j
+ * secondly, swap items based on the line j = size / 2
  */
 func rotateMatrix(_ matrix: inout [[Int]])  {
     let size = matrix.count
@@ -189,9 +188,7 @@ func rotateMatrix(_ matrix: inout [[Int]])  {
     }
 }
 
-
-
-func printMatrix(_ matrix: inout [[Int]])  {
+func printMatrix(_ matrix: [[Int]])  {
     for subArray in matrix {
         print(subArray)
     }
