@@ -100,3 +100,17 @@ let str1 = ["flower","flow","flight"]
 let str2 = ["dog","racecar","car"]
 print("4_ Longest common prefix: \(longestCommonPrefix(str1))")
 print("4_ Longest common prefix: \(longestCommonPrefix(str2))")
+
+/**
+ * 5
+ */
+func isValid(_ s: String) -> Bool {
+    return false
+}
+
+let s1 = "()"
+let s2 = "()[]{}"
+let s3 = "(]"
+print("5_ Valid input string: \(isValid(s1))")
+print("5_ Valid input string: \(isValid(s2))")
+print("5_ Valid input string: \(isValid(s3))")
