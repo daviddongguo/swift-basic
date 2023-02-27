@@ -5,6 +5,7 @@ main()
 
 func main() {
     let numberArray = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
+    
     // 1
     print("")
     print("1_ Occurrences of each number:")
@@ -60,7 +61,7 @@ func printCountOccurrencesOfArray(_ array: [Int]) -> Void {
     let sortedKeys = Array(map.keys).sorted(by: <)
     for key in sortedKeys {
         if let unwrapped = map[key] {
-        print("\(key) : \(unwrapped)")
+            print("\(key) : \(unwrapped)")
         }
     }
 }
@@ -69,7 +70,10 @@ func printCountOccurrencesOfArray(_ array: [Int]) -> Void {
  * 2
  */
 func searchingSecondNumber(array: [Int]) -> Int {
-    var firstMax = Int.min
+    guard array.count >= 2 else {
+        return 0
+    }
+    var firstMax = array[0]
     var secondMax = Int.min
     for number in array {
         if(number > firstMax){
