@@ -6,10 +6,21 @@ main()
 func main() {
     let numberArray = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
     // 1
-    countOccurrencesOfArray(numberArray)
+    //    countOccurrencesOfArray(numberArray)
     
     // 2
-    print("2_ Second largest element: \(searchingSecondNumber(array: numberArray))")
+    //    print("2_ Second largest element: \(searchingSecondNumber(array: numberArray))")
+    
+    // 3
+    //    let list1 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
+    //    let list2 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
+    //    print("3_ Array equal: \(isEqualList(list1: list1, list2: list2))")
+    
+    // 4
+    let str1 = ["flower","flow","flight"]
+    let str2 = ["dog","racecar","car"]
+    //    print("4_ Longest common prefix: \(longestCommonPrefix(str1))")
+    //    print("4_ Longest common prefix: \(longestCommonPrefix(str2))")
 }
 
 /**
@@ -63,9 +74,7 @@ func isEqualList(list1: [Int], list2: [Int]) -> Bool {
     return true
 }
 
-let list1 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
-let list2 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
-print("3_ Array equal: \(isEqualList(list1: list1, list2: list2))")
+
 
 /**
  * 4
@@ -96,16 +105,43 @@ func hasPrefix(_ strs: [String], prefix: String) -> Bool {
     return true
 }
 
-let str1 = ["flower","flow","flight"]
-let str2 = ["dog","racecar","car"]
-print("4_ Longest common prefix: \(longestCommonPrefix(str1))")
-print("4_ Longest common prefix: \(longestCommonPrefix(str2))")
+
 
 /**
  * 5
  */
 func isValid(_ s: String) -> Bool {
-    return false
+    var lastIndex = s.count - 1
+    let characters = Array(s)
+    for i in 0..<s.count {
+        //        print(characters[i])
+        //        print(characters[lastIndex - i])
+        if !isClosedCharacter(character1: characters[i], character2: characters[lastIndex - i]) {
+            //            print(characters[i])
+            //            print(characters[lastIndex - i])
+            return false
+        }
+    }
+    return true
+}
+func isClosedCharacter(character1: Character, character2: Character) -> Bool {
+    //    print("\(character1) : \(character2)")
+    switch character1 {
+    case "(":
+        return character2 == ")"
+    case ")":
+        return character2 == "("
+    case "[":
+        return character2 == "]"
+    case "]":
+        return character2 == "["
+    case "{":
+        return character2 == "}"
+    case "}":
+        return character2 == "{"
+    default:
+        return false
+    }
 }
 
 let s1 = "()"
