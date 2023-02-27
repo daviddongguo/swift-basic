@@ -148,8 +148,9 @@ func isValid(_ s: String) -> Bool {
     }
     return true
 }
+
 func isClosedCharacter(character1: Character, character2: Character) -> Bool {
-        print("\(character1) : \(character2)")
+    print("\(character1) : \(character2)")
     switch character1 {
     case "(":
         return character2 == ")"
