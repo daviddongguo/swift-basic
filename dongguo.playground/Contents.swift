@@ -150,3 +150,40 @@ let s3 = "(]"
 print("5_ Valid input string: \(isValid(s1))")
 print("5_ Valid input string: \(isValid(s2))")
 print("5_ Valid input string: \(isValid(s3))")
+
+
+/**
+ * 6
+ */
+func rotateMatrix(_ matrix: inout [[Int]])  {
+    let size = matrix.count
+    for i in 0..<size{
+        for j in 0..<i{
+            let temp = matrix[i][j]
+            matrix[i][j] = matrix[j][i]
+            matrix[j][i] = temp
+        }
+    }
+    for i in 0..<size{
+        for j in 0..<(size / 2){
+            let temp = matrix[i][j]
+            matrix[i][j] = matrix[i][size - 1 - j]
+            matrix[i][size - 1 - j] = temp
+        }
+    }
+}
+
+var matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
+var matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
+printMatrix(&matrix1)
+print("6_ Rotate matrix:")
+rotateMatrix(&matrix1)
+printMatrix(&matrix1)
+
+func printMatrix(_ matrix: inout [[Int]])  {
+    for subArray in matrix {
+        print(subArray)
+    }
+}
+
+
