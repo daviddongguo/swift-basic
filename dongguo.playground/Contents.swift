@@ -71,22 +71,28 @@ print("3_ Array equal: \(isEqualList(list1: list1, list2: list2))")
  * 4
  */
 func longestCommonPrefix(_ strs: [String]) -> String {
-    var prefix = ""
+    var longestPrefix = ""
     var shortestSize = Int.max
     for str in strs {
         shortestSize = min(shortestSize, str.count)
     }
     for i in 0..<shortestSize {
         let index = strs[0].index(strs[0].startIndex, offsetBy: i)
-        let prefix = strs[0][...index]
-        for str in strs {
-            str.hasPrefix(prefix)
+        let subSequence = strs[0][...index]
+        let prefix = String(subSequence)
+        if hasPrefix(strs, prefix: prefix) {
+            longestPrefix = prefix
         }
     }
-    return "\(shortestSize)"
+    return longestPrefix
 }
+
 func hasPrefix(_ strs: [String], prefix: String) -> Bool {
-    
+    for str in strs {
+        if !str.hasPrefix(prefix){
+            return false
+        }
+    }
     return true
 }
 
