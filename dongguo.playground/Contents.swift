@@ -7,7 +7,8 @@ func main() {
     let numberArray = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
     // 1
     print("")
-    countOccurrencesOfArray(numberArray)
+    print("1_ Occurrences of each number:")
+    printCountOccurrencesOfArray(numberArray)
     
     // 2
     print("")
@@ -50,15 +51,17 @@ func main() {
 /**
  * 1.
  */
-func countOccurrencesOfArray(_ array: [Int]) -> Void {
+func printCountOccurrencesOfArray(_ array: [Int]) -> Void {
     var map: [Int: Int] = [:]
     for number in array {
         map[number] = (map[number] ?? 0) + 1
     }
     
-    print("1_ Occurrences of each number:")
-    for (key, value) in map {
-        print("\(key) : \(value)")
+    let sortedKeys = Array(map.keys).sorted(by: <)
+    for key in sortedKeys {
+        if let unwrapped = map[key] {
+        print("\(key) : \(unwrapped)")
+        }
     }
 }
 
