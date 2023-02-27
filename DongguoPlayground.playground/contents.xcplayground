@@ -14,5 +14,6 @@
         <page name='Async'/>
         <page name='Actor'/>
         <page name='numbers_of_island_2'/>
+        <page name='BestTime'/>
     </pages>
 </playground>
