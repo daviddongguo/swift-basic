@@ -2,7 +2,6 @@
 <playground version='6.0' target-platform='macos' buildActiveScheme='true' executeOnSourceChanges='true' importAppTypes='true'>
     <pages>
         <page name='character'/>
-        <page name='numbers_of_island'/>
         <page name='numbers_of_island_1'/>
         <page name='markdown comments'/>
         <page name='fizz buzz'/>
@@ -13,5 +12,7 @@
         <page name='Bitwise Operators'/>
         <page name='tuple'/>
         <page name='Async'/>
+        <page name='Actor'/>
+        <page name='numbers_of_island_2'/>
     </pages>
 </playground>

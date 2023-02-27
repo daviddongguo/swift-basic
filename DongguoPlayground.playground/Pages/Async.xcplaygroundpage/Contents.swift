@@ -17,6 +17,7 @@ func show(_ photos: [String]) {
 }
 
 func doInternetWork () {
+    print("work start")
     Task {
         let photoNames = await listPhotos("")
         let firstPhoto = await downloadPhoto(named: photoNames[0])
@@ -25,12 +26,14 @@ func doInternetWork () {
         let photos = [firstPhoto, secondPhoto, thirdPhoto]
         show(photos)
     }
+    print("work end")
 }
 
 
 //doInternetWork()
 
 func doTest3 () {
+    print("work start")
     Task {
         let photoNames = await listPhotos()
         let photos: [String]
@@ -38,6 +41,7 @@ func doTest3 () {
             async let photo = downloadPhoto(named: name)
         }
     }
+    print("work end")
 }
 
 doTest3()
