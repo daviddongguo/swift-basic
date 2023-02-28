@@ -16,5 +16,10 @@
         <page name='numbers_of_island_2'/>
         <page name='BestTime'/>
         <page name='Besttime2'/>
+        <page name='doTryCatch'/>
+        <page name='BankAccountError'/>
+        <page name='OptionalTry'/>
+        <page name='FailableInitializer'/>
+        <page name='Typecasting'/>
     </pages>
 </playground>

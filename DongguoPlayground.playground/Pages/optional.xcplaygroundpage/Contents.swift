@@ -17,6 +17,9 @@ if intB != nil {
  */
 intB = 16
 print(intB!)
+let str = "5"
+print(String(describing: Int(str)))
+print(Int(str)!)
 //intB = nil
 // The unwrapping of optionals which are nil does not throw a Swift error (which could be propagated) and cannot be handled with try.
 //do {
@@ -24,10 +27,24 @@ print(intB!)
 //} catch {
 //    print("is a nil")
 //}
+
 //: - Using Optional binding **if-let**
 intB = nil
 if let unwrapped = intB {
     print("unwrapped value is \(unwrapped)")
+} else {
+    print("you use a nil, at using optional binding if let")
+}
+
+
+//: - using **guard**
+foo(nil)
+func foo(_ number: Int?) {
+    guard let unwrapped = number else {
+        print("You provide a nil at using guard")
+        return
+    }
+    print("your provide a number(\(unwrapped))")
 }
 
 //: - Using a nil coalescing operator **??**
@@ -35,7 +52,7 @@ if let unwrapped = intB {
 intB = nil
 var result = (intB ?? 0) + 100
 
-//: - Using Optional chaining
+//: - Using Optional chaining **?**
 var optionalString: String? = "Hello, world!"
 optionalString = nil
 if let unwrappedString = optionalString?.uppercased() {
@@ -43,6 +60,7 @@ if let unwrappedString = optionalString?.uppercased() {
 } else {
     print("The optional string is nil.")
 }
+
 
 //: ## Define
 intB == intC
