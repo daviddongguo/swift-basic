@@ -21,7 +21,11 @@ let intValue1 = Int(binaryString1, radix: 2)!
 let intValue2 = Int(binaryString2, radix: 2)!
 let intResult = intValue1 + intValue2
 let binaryStringResult = String(intResult, radix: 2)
-print(resultStr)
+print(binaryStringResult)
+
+import Foundation
+let paddedBinaryString = String(format: "%08d", Int(binaryStringResult)!)
+print(paddedBinaryString )
 
 
 //: [Next](@next)
