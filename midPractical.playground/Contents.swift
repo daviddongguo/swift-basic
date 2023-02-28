@@ -111,25 +111,25 @@ func isEqualList(list1: [Int], list2: [Int]) -> Bool {
 /**
  * 4
  */
-func longestCommonPrefix(_ strs: [String]) -> String {
+func longestCommonPrefix(_ strings: [String]) -> String {
     var longestPrefix = ""
     var shortestSize = Int.max
-    for str in strs {
+    for str in strings {
         shortestSize = min(shortestSize, str.count)
     }
     for i in 0..<shortestSize {
-        let index = strs[0].index(strs[0].startIndex, offsetBy: i)
-        let subSequence = strs[0][...index]
+        let index = strings[0].index(strings[0].startIndex, offsetBy: i)
+        let subSequence = strings[0][...index]
         let prefix = String(subSequence)
-        if hasPrefix(strs, prefix: prefix) {
+        if hasPrefix(strings, prefix: prefix) {
             longestPrefix = prefix
         }
     }
     return longestPrefix
 }
 
-func hasPrefix(_ strs: [String], prefix: String) -> Bool {
-    for str in strs {
+func hasPrefix(_ strings: [String], prefix: String) -> Bool {
+    for str in strings {
         if !str.hasPrefix(prefix){
             return false
         }
