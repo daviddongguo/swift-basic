@@ -18,6 +18,7 @@ if intB != nil {
 intB = 16
 print(intB!)
 //intB = nil
+// The unwrapping of optionals which are nil does not throw a Swift error (which could be propagated) and cannot be handled with try.
 //do {
 //    print(try intB!)
 //} catch {
