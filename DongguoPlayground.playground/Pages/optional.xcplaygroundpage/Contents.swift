@@ -1,3 +1,5 @@
+import Foundation
+
 var intA: Int = 15
 var intB: Int?
 var intC: Optional<Int> = Optional<Int>(15)
@@ -28,7 +30,11 @@ print(Int(str)!)
 //    print("is a nil")
 //}
 
-//: - Using Optional binding **if-let**
+//: - Using Optional Binding **if-let**
+/**
+ * Safely unwrap optionals by using an if let statement to bind the optional to a new variable.
+ * If the optional is nil, then the code in the else block will run.
+ */
 intB = nil
 if let unwrapped = intB {
     print("unwrapped value is \(unwrapped)")
@@ -36,19 +42,39 @@ if let unwrapped = intB {
     print("you use a nil, at using optional binding if let")
 }
 
+//: - using Multiple Optional Bindings
+/**
+ * Multiple optionals can be bound in the same if let statement,
+ * separating each binding with “,”.
+ * if let statements can also check to see if a boolean expression evaluates to true.
+ */
+var name: String? = "Codey"
+var email: String? = "codey@codecademy.com"
 
-//: - using **guard**
-foo(nil)
-func foo(_ number: Int?) {
-    guard let unwrapped = number else {
-        print("You provide a nil at using guard")
-        return
-    }
-    print("your provide a number(\(unwrapped))")
+print("\n\t using Multiple Optional Bindings")
+if let name = name, let email = email, email.contains("@") {
+  print("Welcome \(name)!  Your email address is \(email)")
+} else {
+  print("Name is nil, email is nil, or the email is invalid")
 }
 
+
+//: - using **guard**
+
+func displayMessageIfValid() {
+  guard let name = name, let email = email, email.contains("@") else {
+    return
+  }
+  print("Welcome \(name)!  Your email is \(email)")
+}
+print("\n\t using Guard statements")
+displayMessageIfValid()
+
 //: - Using a nil coalescing operator **??**
-// works as shorthand notation for the regular if-else block
+/**
+ * The nil-coalescing operator ?? unwraps an optional value
+ * and provides a default if the optional is nil
+ */
 intB = nil
 var result = (intB ?? 0) + 100
 
@@ -60,7 +86,15 @@ if let unwrappedString = optionalString?.uppercased() {
 } else {
     print("The optional string is nil.")
 }
-
+//: ## Optionals and Functions
+/**
+ * Functions can take in optional types and return optional types.
+ * A function should return nil when it isn’t able to return a sensible instance of the requested type.
+ */
+func getFirstInitial(_ name: String? = nil) -> String? {
+    return name?.uppercased()
+}
+let uppercasedName = getFirstInitial()
 
 //: ## Define
 intB == intC

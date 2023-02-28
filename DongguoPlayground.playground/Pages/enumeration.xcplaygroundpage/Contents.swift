@@ -54,4 +54,36 @@ let fredAncestors = FamilyTree.twoKnownParents(
     motherAncestors: .noKnownParents
 )
 
+//: ## switching on enumerations can also access the ssociated values of a case
+enum Dessert {
+    case cake(flavor: String)
+    case vanillaIceCream(scoops: Int)
+    case brownie
+}
+
+var customerOrder: Dessert = .cake(flavor: "Red Velvet")
+customerOrder = .vanillaIceCream(scoops: 8)
+
+
+switch customerOrder {
+  case let .cake(flavor):
+      print("You ordered a \(flavor) cake")
+  case let .vanillaIceCream(scoopCount):
+      print("You ordered \(scoopCount) scoops of vanilla ice cream")
+  case .brownie:
+      print("You ordered a brownie")
+}
+
+//: ## CaseIterable
+enum Season: CaseIterable {
+    case winter
+    case spring
+    case summer
+    case fall
+}
+
+for season in Season.allCases {
+    print(season)
+}
+
 //: [Next](@next)
