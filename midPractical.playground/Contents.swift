@@ -5,29 +5,29 @@ main()
 
 func main() {
     let numberArray = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
-    
+
     // 1
     print("")
     print("1_ Occurrences of each number:")
     printCountOccurrencesOfArray(numberArray)
-    
+
     // 2
     print("")
     print("2_ second largest element: \(searchingSecondNumber(array: numberArray))")
-    
+
     // 3
     let list1 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
     let list2 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
     print("")
     print("3_ Array equal: \(isEqualList(list1: list1, list2: list2))")
-    
+
     // 4
     let str1 = ["flower","flow","flight"]
     let str2 = ["dog","racecar","car"]
     print("")
     print("4_ Longest common prefix: \(longestCommonPrefix(str1))")
     print("4_ Longest common prefix: \(longestCommonPrefix(str2))")
-    
+
     // 5
     let s1 = "()"
     let s2 = "()[]{}"
@@ -36,7 +36,7 @@ func main() {
     print("5_ Valid input string: \(isValid(s1))")
     print("5_ Valid input string: \(isValid(s2))")
     print("5_ Valid input string: \(isValid(s3))")
-    
+
     // 6
     var matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
     var matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
@@ -53,14 +53,15 @@ func main() {
  * 1.
  */
 func printCountOccurrencesOfArray(_ array: [Int]) -> Void {
-    var map: [Int: Int] = [:]
+    var dictionary: [Int: Int] = [:]
     for number in array {
-        map[number] = (map[number] ?? 0) + 1
+        //        dictionary[number] = (dictionary[number] ?? 0) + 1
+        dictionary[number] = dictionary[number, default: 0] + 1
     }
-    
-    let sortedKeys = Array(map.keys).sorted(by: <)
+
+    let sortedKeys = Array(dictionary.keys).sorted(by: <)
     for key in sortedKeys {
-        if let unwrapped = map[key] {
+        if let unwrapped = dictionary[key] {
             print("\(key) : \(unwrapped)")
         }
     }
@@ -156,7 +157,7 @@ func isValid(_ s: String) -> Bool {
             }
         }
     }
-    
+
     return stack.isEmpty
 }
 
