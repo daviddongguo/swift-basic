@@ -5,7 +5,7 @@
         <page name='numbers_of_island_1'/>
         <page name='markdown comments'/>
         <page name='fizz buzz'/>
-        <page name='optional'/>
+        <page name='OptionalCase'/>
         <page name='function'/>
         <page name='enumeration'/>
         <page name='closures'/>
@@ -21,5 +21,7 @@
         <page name='OptionalTry'/>
         <page name='FailableInitializer'/>
         <page name='Typecasting'/>
+        <page name='FunctionTask'/>
+        <page name='MutatingMethods'/>
     </pages>
 </playground>

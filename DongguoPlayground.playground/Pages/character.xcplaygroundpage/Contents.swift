@@ -18,9 +18,9 @@ oneCoolDude
 var playground = "playground"
 //print("Number of characters in \"\(playground)\": \(playground.count)")
 //print("Unicode scalar of each character in a string:")
-for scalar in playground.unicodeScalars {
-    //    print(" \(scalar) - \(scalar.value) ")
-}
+//for scalar in playground.unicodeScalars {
+//        print(" \(scalar) - \(scalar.value) ")
+//}
 
 /**
  * A Unicode scalar representes a single character in the string. But they are not the hexadecimal Unicode numbers. Instead, each is represented as an unsigned 32-bit integer.
