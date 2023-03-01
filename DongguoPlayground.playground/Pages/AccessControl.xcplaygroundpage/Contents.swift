@@ -1,11 +1,17 @@
-//: # Access Control
-//: ## Access Levels
-//: - opne / public
-//: - internal (default)
-//: - fileprivate
-//: - private
-/**
- * Mark methods and properties as private to prevent them from being accessed outside of the structure, class, or enumeration’s definition.
+
+/*:
+ # Access Control
+ 
+ ## Access Levels
+ - opne / public
+ - internal (default)
+    - this means only your Swift code can read and write the property.
+    - If you ship your code as a framework for others to use, they won’t be able to read the property.
+ - fileprivate
+ only Swift code in the same file as the type can read and write the property.
+ - private
+ Mark methods and properties as private to prevent them from being accessed outside of the structure, class, or enumeration’s definition..
+ 
  */
 
 // public structures can be accessed in other modules
@@ -20,11 +26,13 @@ public struct User {
     private var visitCount = 0
 }
 
-//: #3 Read-oly Computed Properties
-/**
- * Read-only computed properties can be accessed, but not assigned to a new value.
- * To define a read-only computed property, either use the get keyword without a set keyword,
- * or omit keywords entirely.
+
+/*:
+ ## Read-oly Computed Properties
+ Read-only computed properties can be accessed, but not assigned to a new value.
+ To define a read-only computed property,
+ - either use the get keyword without a set keyword,
+ - or omit keywords entirely.
  */
 
 struct Room {
@@ -42,13 +50,14 @@ struct Room {
     }
 }
 
-//: ## Property Observers
-/**
- * Property observers execute code whenever a property is changed.
- * The willSet property observer is triggered right **before** the property is changed
- * and creates a newValue variable within the block’s scope.
- * The didSet property observer is triggered right **after** the property is changed
- * and creates an oldValue within the block’s scope.
+
+/*:
+ ## Property Observers
+ Property observers execute code whenever a property is changed.
+ The willSet property observer is triggered right **before** the property is changed
+ and creates a newValue variable within the block’s scope.
+ The didSet property observer is triggered right **after** the property is changed
+ and creates an oldValue within the block’s scope.
  */
 struct Employee {
     var hourlyWage = 15 {
@@ -67,10 +76,10 @@ struct Employee {
 var codey = Employee()
 codey.hourlyWage = 20
 
-//: ## Private Setters
-/**
- * Properties marked as private(set) can be accessed from outside the scope of its structure,
- * but only assigned within it. This allows the setter to be more restrictive than the getter.
+/*:
+  ## Private Setters
+  Properties marked as private(set) can be accessed from outside the scope of its structure,
+  but only assigned within it. This allows the setter to be more restrictive than the getter.
  */
 struct User2 {
     private(set) var name: String
@@ -88,10 +97,11 @@ print(currentUser.name)
 // currentUser.name = "Bob"
 
 
-//: ## Extensions
-/**
- *  The extension keyword is used to continue defining an existing class, structure, or enumeration from anywhere in a codebase.
- *  Extensions can have new methods, internal types, and computed properties,
- *  but can’t contain new stored properties.
+
+/*:
+  ## Extensions
+   The extension keyword is used to continue defining an existing class, structure, or enumeration from anywhere in a codebase.
+   Extensions can have new methods, internal types, and computed properties,
+   but can’t contain new stored properties.
  */
 
