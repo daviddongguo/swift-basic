@@ -23,5 +23,6 @@
         <page name='Typecasting'/>
         <page name='FunctionTask'/>
         <page name='MutatingMethods'/>
+        <page name='AccessControl'/>
     </pages>
 </playground>
