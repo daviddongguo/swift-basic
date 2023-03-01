@@ -13,6 +13,7 @@
 		FC47243129AFCC12003BEBEC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243029AFCC12003BEBEC /* Player.swift */; };
 		FC47243329AFCC63003BEBEC /* DiceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243229AFCC63003BEBEC /* DiceGame.swift */; };
 		FC47243529AFCE48003BEBEC /* MiniDiceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243429AFCE48003BEBEC /* MiniDiceGame.swift */; };
+		FC47243729AFE6D8003BEBEC /* RandomDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243629AFE6D8003BEBEC /* RandomDice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		FC47243029AFCC12003BEBEC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FC47243229AFCC63003BEBEC /* DiceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceGame.swift; sourceTree = "<group>"; };
 		FC47243429AFCE48003BEBEC /* MiniDiceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDiceGame.swift; sourceTree = "<group>"; };
+		FC47243629AFE6D8003BEBEC /* RandomDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				FC47242529AFB007003BEBEC /* main.swift */,
 				FC47242C29AFC91D003BEBEC /* Earnable.swift */,
 				FC47242E29AFCA2E003BEBEC /* MagicDice.swift */,
+				FC47243629AFE6D8003BEBEC /* RandomDice.swift */,
 				FC47243229AFCC63003BEBEC /* DiceGame.swift */,
 				FC47243429AFCE48003BEBEC /* MiniDiceGame.swift */,
 			);
@@ -141,6 +144,7 @@
 				FC47243329AFCC63003BEBEC /* DiceGame.swift in Sources */,
 				FC47242D29AFC91D003BEBEC /* Earnable.swift in Sources */,
 				FC47242F29AFCA2E003BEBEC /* MagicDice.swift in Sources */,
+				FC47243729AFE6D8003BEBEC /* RandomDice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

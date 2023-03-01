@@ -5,7 +5,8 @@
 //  Created by map07 on 2023-03-01.
 //
 
-let dice = MagicDice()
+//let dice = MagicDice()
+let dice = RandomDice()
 //dice.number = 5
 //print(dice.earnScore())
 
@@ -21,5 +22,4 @@ game.dicideOrder(finaList: &game.players, listToDecide: game.players)
 //for player in game.players {
 //    print(player.name, player.totalScore)
 //}
-
 
