@@ -9,5 +9,7 @@
  ## .subtracting()
  removes the values of one second set from another set and stores the remaining values in a new set.
  */
-
+let str = "abcdebacd"
+let arr = Array(str)
+let set = Set(arr)
 //: [Next](@next)
