@@ -50,7 +50,7 @@ class MiniDiceGame: DiceGame {
         }
         
         
-
+        
         
         
     }
@@ -58,11 +58,14 @@ class MiniDiceGame: DiceGame {
     private func initializeMap(_ list: [Player]) -> [Int : [Player]] {
         var map: [Int : [Player]] = [:]
         for player in list {
-            guard var players = map[player.totalScore] else {
+            if var players = map[player.totalScore] {
+                players.append(player)
+                map[player.totalScore] = players
+            }else{
                 map[player.totalScore] = [player]
-                continue
+                
             }
-            players.append(player)
+            
         }
         
         return map
