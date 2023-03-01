@@ -40,11 +40,12 @@ print(multipler)
 /**
  * A higher-order function is a function that takes another function as an argument
  */
-
-//: ## Escaping Closures
-//: A closure escapes a function when it’s called after the function returns.
-//: This can happen when the closure is assigned to a variable.
-//: Escaping closures must be marked with the @escaping tag in a function signature.
+/*:
+ ## Escaping Closures
+ * A closure escapes a function when it’s called after the function returns.
+ * This can happen when the closure is assigned to a variable.
+ * Escaping closures must be marked with the @escaping tag in a function signature.
+ */
 struct TextSaver {
   var saveAction: (String) -> Void = { print("Saving '\($0)' to disk") }
 
@@ -67,8 +68,11 @@ saver.saveAction("Hello World!")
 
 
 //: In Swift, the simplest form of a closure that can capture values is a nested function, written within the body of another function. A nested function can capture any of its outer function’s arguments and can also capture any constants and variables defined within the outer function.
+
+/// - return () -> Int, means that it returns a function, rather than a simple value
 func makeIncrementer(forIncrement amount: Int) -> () -> Int {
     var runningTotal = 0
+    /// - return an Int value eache time it's called
     func incrementer() -> Int {
         runningTotal += amount
         return runningTotal
@@ -76,4 +80,12 @@ func makeIncrementer(forIncrement amount: Int) -> () -> Int {
     // incrementer is returned by makeIncrementer as a closure
     return incrementer
 }
+
+let incrementByTen = makeIncrementer(forIncrement: 10)
+let incrementBySeven = makeIncrementer(forIncrement: 7)
+incrementByTen()
+incrementBySeven()
+incrementByTen()
+incrementBySeven()
+
 //: [Next](@next)
