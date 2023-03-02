@@ -17,9 +17,12 @@ let plyers = [playerA, playerB, playerC]
 
 let game = MiniDiceGame(players: plyers, dice: dice)
 game.dicideOrder1()
-game.dicideOrder(finaList: &game.players, listToDecide: game.players)
+var list: [Player] = []
+game.dicideOrder(finaList: &list, listToDecide: game.players)
 
-//for player in game.players {
-//    print(player.name, player.totalScore)
-//}
+print("the order of starting game")
+for player in list {
+    print(player.name, player.totalScore)
+}
+print("end print")
 

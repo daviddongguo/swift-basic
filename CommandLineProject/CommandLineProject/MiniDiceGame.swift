@@ -8,9 +8,8 @@ import Foundation
 
 class MiniDiceGame: DiceGame {
     func dicideOrder1(){
-        var i = 2
         for player in self.players {
-            player.totalScore = i
+            player.totalScore = 2
         }
         players = players.sorted(by: {(a, b) in a.totalScore > b.totalScore} )
     }
@@ -22,29 +21,23 @@ class MiniDiceGame: DiceGame {
         
         let map = initializeMap(listToDecide)
         
-        print("map")
-        for (key, value) in map {
-            print(key)
-            for player in value {
-                print(player.name, player.totalScore)
-            }
-        }
-        
-        
-        for i in Swift.stride(from: 6, to: 1, by: -1) {
+        for i in Swift.stride(from: 6, to: 0, by: -1) {
             
             guard let players = map[i] else {
                 continue
             }
             if players.count == 1 {
                 finaList.append(players[0])
+                continue
             }
             if players.count >= 2 {
                 print("start to dice")
+                players.forEach{(player) in print(player.name)}
                 for player in players {
                     player.totalScore = dice.earnScore()
                     print(player.name, player.totalScore)
                 }
+                dicideOrder(finaList: &finaList, listToDecide: players)
             }
             
         }
@@ -63,11 +56,8 @@ class MiniDiceGame: DiceGame {
                 map[player.totalScore] = players
             }else{
                 map[player.totalScore] = [player]
-                
             }
-            
         }
-        
         return map
     }
     
