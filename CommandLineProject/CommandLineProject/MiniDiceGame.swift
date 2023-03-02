@@ -41,11 +41,6 @@ class MiniDiceGame: DiceGame {
             }
             
         }
-        
-        
-        
-        
-        
     }
     
     private func initializeMap(_ list: [Player]) -> [Int : [Player]] {

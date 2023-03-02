@@ -7,9 +7,9 @@
 
 class DiceGame {
     var players: [Player]
-    let dice: Earnable
+    let dice: Rollable
     
-    init(players: [Player], dice: Earnable) {
+    init(players: [Player], dice: Rollable) {
         self.players = players
         self.dice = dice
     }    

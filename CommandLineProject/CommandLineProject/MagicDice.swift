@@ -7,9 +7,12 @@
 
 import Foundation
 
-class MagicDice: Earnable {
-    public var number: Int = 6
-    func earnScore() -> Int {
+class MagicDice: Rollable {
+    private var number: Int = 6
+    func roll() -> Int {
         return self.number
+    }
+    func setNumber(_ number: Int){
+        self.number = number
     }
 }

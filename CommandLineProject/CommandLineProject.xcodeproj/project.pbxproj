@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		FC47242629AFB007003BEBEC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47242529AFB007003BEBEC /* main.swift */; };
-		FC47242D29AFC91D003BEBEC /* Earnable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47242C29AFC91D003BEBEC /* Earnable.swift */; };
+		FC47242D29AFC91D003BEBEC /* Rollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47242C29AFC91D003BEBEC /* Rollable.swift */; };
 		FC47242F29AFCA2E003BEBEC /* MagicDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47242E29AFCA2E003BEBEC /* MagicDice.swift */; };
 		FC47243129AFCC12003BEBEC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243029AFCC12003BEBEC /* Player.swift */; };
 		FC47243329AFCC63003BEBEC /* DiceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243229AFCC63003BEBEC /* DiceGame.swift */; };
 		FC47243529AFCE48003BEBEC /* MiniDiceGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243429AFCE48003BEBEC /* MiniDiceGame.swift */; };
 		FC47243729AFE6D8003BEBEC /* RandomDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243629AFE6D8003BEBEC /* RandomDice.swift */; };
+		FC47243929B02C1F003BEBEC /* LadderAndSnakePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243829B02C1F003BEBEC /* LadderAndSnakePlayer.swift */; };
+		FC47243B29B02DBC003BEBEC /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47243A29B02DBC003BEBEC /* Setting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -31,12 +33,14 @@
 /* Begin PBXFileReference section */
 		FC47242229AFB007003BEBEC /* CommandLineProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CommandLineProject; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC47242529AFB007003BEBEC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		FC47242C29AFC91D003BEBEC /* Earnable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Earnable.swift; sourceTree = "<group>"; };
+		FC47242C29AFC91D003BEBEC /* Rollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rollable.swift; sourceTree = "<group>"; };
 		FC47242E29AFCA2E003BEBEC /* MagicDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicDice.swift; sourceTree = "<group>"; };
 		FC47243029AFCC12003BEBEC /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		FC47243229AFCC63003BEBEC /* DiceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceGame.swift; sourceTree = "<group>"; };
 		FC47243429AFCE48003BEBEC /* MiniDiceGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniDiceGame.swift; sourceTree = "<group>"; };
 		FC47243629AFE6D8003BEBEC /* RandomDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomDice.swift; sourceTree = "<group>"; };
+		FC47243829B02C1F003BEBEC /* LadderAndSnakePlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LadderAndSnakePlayer.swift; sourceTree = "<group>"; };
+		FC47243A29B02DBC003BEBEC /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,11 +75,13 @@
 			children = (
 				FC47243029AFCC12003BEBEC /* Player.swift */,
 				FC47242529AFB007003BEBEC /* main.swift */,
-				FC47242C29AFC91D003BEBEC /* Earnable.swift */,
+				FC47242C29AFC91D003BEBEC /* Rollable.swift */,
 				FC47242E29AFCA2E003BEBEC /* MagicDice.swift */,
 				FC47243629AFE6D8003BEBEC /* RandomDice.swift */,
 				FC47243229AFCC63003BEBEC /* DiceGame.swift */,
 				FC47243429AFCE48003BEBEC /* MiniDiceGame.swift */,
+				FC47243829B02C1F003BEBEC /* LadderAndSnakePlayer.swift */,
+				FC47243A29B02DBC003BEBEC /* Setting.swift */,
 			);
 			path = CommandLineProject;
 			sourceTree = "<group>";
@@ -141,8 +147,10 @@
 				FC47243129AFCC12003BEBEC /* Player.swift in Sources */,
 				FC47243529AFCE48003BEBEC /* MiniDiceGame.swift in Sources */,
 				FC47242629AFB007003BEBEC /* main.swift in Sources */,
+				FC47243929B02C1F003BEBEC /* LadderAndSnakePlayer.swift in Sources */,
 				FC47243329AFCC63003BEBEC /* DiceGame.swift in Sources */,
-				FC47242D29AFC91D003BEBEC /* Earnable.swift in Sources */,
+				FC47242D29AFC91D003BEBEC /* Rollable.swift in Sources */,
+				FC47243B29B02DBC003BEBEC /* Setting.swift in Sources */,
 				FC47242F29AFCA2E003BEBEC /* MagicDice.swift in Sources */,
 				FC47243729AFE6D8003BEBEC /* RandomDice.swift in Sources */,
 			);
