@@ -5,10 +5,11 @@
 //  Created by map07 on 2023-03-01.
 //
 
-//let dice = MagicDice()
-let dice = RandomDice()
+let dice = MagicDice()
+//let dice = RandomDice()
 //dice.number = 5
-(1...100).forEach { _ in
+(1...100).forEach { i in
+    dice.setNumber(i % 6 + 1)
     print(dice.roll())
 }
 

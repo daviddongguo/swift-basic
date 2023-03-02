@@ -34,7 +34,7 @@ class MiniDiceGame: DiceGame {
                 print("start to dice")
                 players.forEach{(player) in print(player.name)}
                 for player in players {
-                    player.totalScore = dice.earnScore()
+                    player.totalScore = dice.roll()
                     print(player.name, player.totalScore)
                 }
                 dicideOrder(finaList: &finaList, listToDecide: players)
