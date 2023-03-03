@@ -13,25 +13,32 @@ class ViewController: UIViewController {
     
     let firstName = "DONG"
     let secondName = "WU"
-    var firstNumber = 0.0
-    var secondNumber = 0.0
-    var resultNumber = 0.0
-    var currentOperator: Operator?
+    var firstNumber: Int = 0
+    var secondNumber: Int = 0
+    var resultNumber: Int = 0
+    var currentOperator: Int? = nil
     
-    enum Operator: Int {
-        case add, subtract, multiply, divide
-    }
+    let operators = ["+", "-", "*", "/"]
     
     private var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "\(secondName) \(firstName)"
+        label.text = "Dongguo"
+        label.textColor = .cyan
+        label.textAlignment = .center
+        label.font = UIFont(name: "Helvetica-Bold", size: 64)
+        return label
+    }()
+    
+    private var firstLable: UILabel = {
+        let label = UILabel()
+        label.text = ""
         label.textColor = .white
         label.textAlignment = .right
         label.font = UIFont(name: "Helvetica-Bold", size: 64)
         return label
     }()
     
-    private var resultLabel: UILabel = {
+    private var secondLabel: UILabel = {
         let label = UILabel()
         label.text = "0"
         label.textColor = .white
@@ -72,17 +79,7 @@ class ViewController: UIViewController {
         dotButton.layer.borderColor = UIColor.black.cgColor
         holder.addSubview(dotButton)
         
-        let operators = ["+", "-", "*", "/"]
-        for i in 0..<operators.count {
-            let numberButton = UIButton(frame: CGRect(x: buttonSize * 3, y: holder.frame.size.height - buttonSize * CGFloat(i + 1), width: buttonSize , height: buttonSize))
-            numberButton.tag = i + 1
-            numberButton.setTitle("\(operators[i])", for: .normal)
-            numberButton.setTitleColor(.black, for: .normal)
-            numberButton.backgroundColor = .systemRed
-            numberButton.layer.borderWidth = 2
-            numberButton.layer.borderColor = UIColor.black.cgColor
-            holder.addSubview(numberButton)
-        }
+        
         
         for x in 1...3 {
             let numberButton = UIButton(frame: CGRect(x: buttonSize * CGFloat(x - 1), y: holder.frame.size.height - buttonSize * 2, width: buttonSize , height: buttonSize))
@@ -120,16 +117,17 @@ class ViewController: UIViewController {
             holder.addSubview(numberButton)
         }
         
-//        let functions = ["^", "+/-", "%"]
-//        for i in 0..<functions.count {
-//            let numberButton = UIButton(frame: CGRect(x: buttonSize * CGFloat(i), y: holder.frame.size.height - buttonSize * 5, width: buttonSize , height: buttonSize))
-//            numberButton.setTitle("\(functions[i])", for: .normal)
-//            numberButton.setTitleColor(.black, for: .normal)
-//            numberButton.backgroundColor = .lightGray
-//            numberButton.layer.borderWidth = 2
-//            numberButton.layer.borderColor = UIColor.black.cgColor
-//            holder.addSubview(numberButton)
-//        }
+        //        let functions = ["^", "+/-", "%"]
+        //        for i in 0..<functions.count {
+        //            let numberButton = UIButton(frame: CGRect(x: buttonSize * CGFloat(i), y: holder.frame.size.height - buttonSize * 5, width: buttonSize , height: buttonSize))
+        //            numberButton.setTitle("\(functions[i])", for: .normal)
+        //            numberButton.setTitleColor(.black, for: .normal)
+        //            numberButton.backgroundColor = .lightGray
+        //            numberButton.layer.borderWidth = 2
+        //            numberButton.layer.borderColor = UIColor.black.cgColor
+        //            holder.addSubview(numberButton)
+        //        }
+        
         let runButton = UIButton(frame: CGRect(x: 0, y: holder.frame.size.height - buttonSize * 5, width: buttonSize * 3, height: buttonSize))
         runButton.setTitle("=", for: .normal)
         runButton.setTitleColor(.black, for: .normal)
@@ -148,48 +146,100 @@ class ViewController: UIViewController {
         clearButton.addTarget(self, action: #selector(clearResult), for: .touchUpInside)
         holder.addSubview(clearButton)
         
+        for i in 0..<operators.count {
+            let operatorButton = UIButton(frame: CGRect(x: buttonSize * 3, y: holder.frame.size.height - buttonSize * CGFloat(i + 1), width: buttonSize , height: buttonSize))
+            operatorButton.tag = i + 1
+            operatorButton.setTitle("\(operators[i])", for: .normal)
+            operatorButton.setTitleColor(.black, for: .normal)
+            operatorButton.backgroundColor = .systemRed
+            operatorButton.layer.borderWidth = 2
+            operatorButton.layer.borderColor = UIColor.black.cgColor
+            operatorButton.addTarget(self, action: #selector(operatorButtonPressed), for: .touchUpInside)
+            holder.addSubview(operatorButton)
+        }
+        
+        nameLabel.frame = CGRect(x: 20,
+                                 y: clearButton.frame.origin.y - 240.0,
+                                 width: view.frame.size.width - 24,
+                                 height: 80)
+        holder.addSubview(nameLabel)
         
         
-        resultLabel.frame = CGRect(x: 20,
+        firstLable.frame = CGRect(x: 20,
+                                  y: clearButton.frame.origin.y - 160.0,
+                                  width: view.frame.size.width - 24,
+                                  height: 80)
+        holder.addSubview(firstLable)
+        
+        secondLabel.frame = CGRect(x: 20,
                                    y: clearButton.frame.origin.y - 80.0,
                                    width: view.frame.size.width - 24,
                                    height: 80)
-        holder.addSubview(resultLabel)
+        holder.addSubview(secondLabel)
         
         // Actions
     }
     
     @objc func clearResult() {
-        resultLabel.text = "0"
+        secondLabel.text = "0"
+        firstLable.text = ""
+        firstNumber = 0
+        secondNumber = 0
+        nameLabel.text = firstName
     }
     
     @objc func numberPressed(_ sender: UIButton) {
         let tag = sender.tag - 1
-        if resultLabel.text == "0" {
-            resultLabel.text = "\(tag)"
-        }else if let wrapped = resultLabel.text{
-                resultLabel.text = "\(wrapped)\(tag)"
+        if operators.contains(secondLabel.text ?? ""){
+            firstLable.text = "\(firstNumber)"
+            nameLabel.text = secondLabel.text
+            secondLabel.text = "0"
+        }
+        
+        if secondLabel.text == "0" {
+            secondLabel.text = "\(tag)"
+        }else if let wrapped = secondLabel.text{
+            secondLabel.text = "\(wrapped)\(tag)"
         }
         
     }
     
     
-    @objc func operatorPressed(_ sender: UIButton) {
+    @objc func operatorButtonPressed(_ sender: UIButton) {
         let tag = sender.tag - 1
-        if let wrapped = Operator(rawValue: tag){
-            currentOperator = wrapped
-            if let doubleNumber = Double(resultLabel.text ?? "") {
-                firstNumber = doubleNumber
-            }
+        currentOperator = tag
+        
+        if let number = Int(secondLabel.text ?? "") {
+            firstNumber = number
+            firstLable.text = ("\(firstNumber)")
+            secondLabel.text = "\(operators[tag])"
         }
         
         
     }
     
     @objc func runButtonPressed(_ sender: UIButton) {
-        if(secondNumber == 0.0){
-            resultLabel.text = String(firstNumber)
+        if let number = Int(secondLabel.text ?? "") {
+            secondNumber = number
+            switch currentOperator {
+            case 0 :
+                firstLable.text = "\(firstNumber) + \(secondNumber)"
+                secondLabel.text = "= \(firstNumber + secondNumber)"
+            case 1 :
+                firstLable.text = "\(firstNumber) - \(secondNumber)"
+                secondLabel.text = "= \(firstNumber - secondNumber)"
+            case 2 :
+                firstLable.text = "\(firstNumber) * \(secondNumber)"
+                secondLabel.text = "= \(firstNumber * secondNumber)"
+            case 3 :
+                firstLable.text = "\(firstNumber) / \(secondNumber)"
+                secondLabel.text = "= \(firstNumber / secondNumber)"
+                
+            default :
+                break
+            }
         }
+        
     }
     
     
