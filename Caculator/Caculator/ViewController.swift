@@ -184,6 +184,10 @@ class ViewController: UIViewController {
                 firstLable.text = "\(firstNumber) * \(secondNumber)"
                 secondLabel.text = "= \(firstNumber * secondNumber)"
             case 3 :
+                if(secondNumber == 0) {
+                    secondLabel.text = "0 can not"
+                    break
+                }
                 firstLable.text = "\(firstNumber) / \(secondNumber)"
                 secondLabel.text = "= \(firstNumber / secondNumber)"
             default :
