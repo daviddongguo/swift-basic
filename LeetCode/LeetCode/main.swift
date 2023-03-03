@@ -30,7 +30,7 @@ func f1(_ str: String) -> Int {
     }
     return ma
 }
-print(sortedByFuequence(str))
+//print(sortedByFuequence(str))
 
 func sortedByFuequence(_ str: String) -> String {
     var map: [Character : Int] = [:]
@@ -47,6 +47,18 @@ func sortedByFuequence(_ str: String) -> String {
     
     return result
 }
+
+
+let prices = [3,2,6,5,0,3]
+let solution = Solution()
+
+print(solution.maxProfit(2, prices))
+
+
+
+
+
+
 
 
 

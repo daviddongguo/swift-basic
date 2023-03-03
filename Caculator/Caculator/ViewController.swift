@@ -143,8 +143,7 @@ class ViewController: UIViewController {
         let tag = sender.tag - 1
         // press number after pressing operator
         if operators.contains(secondLabel.text ?? ""){
-            firstLable.text = "\(firstNumber)"
-            nameLabel.text = secondLabel.text
+            firstLable.text = "\(firstNumber) \(secondLabel.text ?? "")"
             secondLabel.text = "0"
         }
         //TODO: press dot button

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FC47244929B0EEA2003BEBEC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47244829B0EEA2003BEBEC /* main.swift */; };
+		FC8BADED29B290480001CBCE /* BestTimeToSell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8BADEC29B290480001CBCE /* BestTimeToSell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		FC47244529B0EEA2003BEBEC /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC47244829B0EEA2003BEBEC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FC8BADEC29B290480001CBCE /* BestTimeToSell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTimeToSell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				FC47244829B0EEA2003BEBEC /* main.swift */,
+				FC8BADEC29B290480001CBCE /* BestTimeToSell.swift */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -121,6 +124,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC47244929B0EEA2003BEBEC /* main.swift in Sources */,
+				FC8BADED29B290480001CBCE /* BestTimeToSell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
