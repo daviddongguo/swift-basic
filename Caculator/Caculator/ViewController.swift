@@ -66,10 +66,12 @@ class ViewController: UIViewController {
         var text = "0"
         var tag = 1
         createNumberButton(buttonSize, x: 0, y: holder.frame.size.height - buttonSize, width: buttonSize * 2, backgroundColor: .lightGray, text: text, tag: tag)
+        
         // .
         text = "."
         tag = 100
         createNumberButton(buttonSize, x: buttonSize * 2, y: holder.frame.size.height - buttonSize, width: buttonSize, backgroundColor: .lightGray, text: text, tag: tag)
+        
         // 1...9
         for i in 1...9 {
             text = "\(i)"
