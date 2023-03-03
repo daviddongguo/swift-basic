@@ -12,11 +12,10 @@ class ViewController: UIViewController {
     @IBOutlet var holder: UIView!
     
     let firstName = "DONG"
-    let secondName = "WU"
     var firstNumber: Int = 0
     var secondNumber: Int = 0
     var resultNumber: Int = 0
-    var currentOperator: Int? = nil
+    var currentOperatorIndex: Int? = nil
     
     let operators = ["+", "-", "*", "/"]
     
@@ -58,76 +57,38 @@ class ViewController: UIViewController {
         setupNumberPad()
     }
     
+    
+    
     private func setupNumberPad() {
         let buttonSize: CGFloat = view.frame.size.width / 4
         
-        let zeroButton = UIButton(frame: CGRect(x: 0, y: holder.frame.size.height - buttonSize, width: buttonSize * 2, height: buttonSize))
-        zeroButton.tag = 1
-        zeroButton.setTitle("0", for: .normal)
-        zeroButton.setTitleColor(.black, for: .normal)
-        zeroButton.backgroundColor = .lightGray
-        zeroButton.layer.borderWidth = 2
-        zeroButton.layer.borderColor = UIColor.black.cgColor
-        zeroButton.addTarget(self, action: #selector(numberPressed(_ :)), for: .touchUpInside)
-        holder.addSubview(zeroButton)
-        
-        let dotButton = UIButton(frame: CGRect(x: buttonSize * 2, y: holder.frame.size.height - buttonSize, width: buttonSize, height: buttonSize))
-        dotButton.setTitle(".", for: .normal)
-        dotButton.setTitleColor(.black, for: .normal)
-        dotButton.backgroundColor = .lightGray
-        dotButton.layer.borderWidth = 2
-        dotButton.layer.borderColor = UIColor.black.cgColor
-        holder.addSubview(dotButton)
-        
-        
-        
-        for x in 1...3 {
-            let numberButton = UIButton(frame: CGRect(x: buttonSize * CGFloat(x - 1), y: holder.frame.size.height - buttonSize * 2, width: buttonSize , height: buttonSize))
-            numberButton.tag = x + 1
-            numberButton.setTitle("\(x)", for: .normal)
-            numberButton.setTitleColor(.black, for: .normal)
-            numberButton.backgroundColor = .lightGray
-            numberButton.layer.borderWidth = 2
-            numberButton.layer.borderColor = UIColor.black.cgColor
-            numberButton.addTarget(self, action: #selector(numberPressed(_ :)), for: .touchUpInside)
-            holder.addSubview(numberButton)
+        // 0
+        var text = "0"
+        var tag = 1
+        createNumberButton(buttonSize, x: 0, y: holder.frame.size.height - buttonSize, width: buttonSize * 2, backgroundColor: .lightGray, text: text, tag: tag)
+        // .
+        text = "."
+        tag = 100
+        createNumberButton(buttonSize, x: buttonSize * 2, y: holder.frame.size.height - buttonSize, width: buttonSize, backgroundColor: .lightGray, text: text, tag: tag)
+        // 1...9
+        for i in 1...9 {
+            text = "\(i)"
+            tag = i + 1
+            let x = buttonSize * CGFloat( (i - 1) % 3 )
+            let y = holder.frame.size.height - buttonSize * CGFloat( (i - 1) / 3 + 2)
+            createNumberButton(buttonSize, x: x, y: y, width: buttonSize, backgroundColor: .lightGray, text: text, tag: tag)
         }
         
-        for x in 4...6 {
-            let numberButton = UIButton(frame: CGRect(x: buttonSize * CGFloat(x - 4), y: holder.frame.size.height - buttonSize * 3, width: buttonSize , height: buttonSize))
-            numberButton.tag = x + 1
-            numberButton.setTitle("\(x)", for: .normal)
-            numberButton.setTitleColor(.black, for: .normal)
-            numberButton.backgroundColor = .lightGray
-            numberButton.layer.borderWidth = 2
-            numberButton.layer.borderColor = UIColor.black.cgColor
-            numberButton.addTarget(self, action: #selector(numberPressed(_ :)), for: .touchUpInside)
-            holder.addSubview(numberButton)
+        // +, -, *, /
+        for i in 0..<operators.count {
+            text = "\(operators[i])"
+            tag = i + 1
+            let x = buttonSize * 3
+            let y = holder.frame.size.height - buttonSize * CGFloat( i + 1)
+            createOperatorbutton(buttonSize, x: x, y: y, width: buttonSize, backgroundColor: .systemRed, text: text, tag: tag)
         }
         
-        for x in 7...9 {
-            let numberButton = UIButton(frame: CGRect(x: buttonSize * CGFloat(x - 7), y: holder.frame.size.height - buttonSize * 4, width: buttonSize , height: buttonSize))
-            numberButton.tag = x + 1
-            numberButton.setTitle("\(x)", for: .normal)
-            numberButton.setTitleColor(.black, for: .normal)
-            numberButton.backgroundColor = .lightGray
-            numberButton.layer.borderWidth = 2
-            numberButton.layer.borderColor = UIColor.black.cgColor
-            numberButton.addTarget(self, action: #selector(numberPressed(_ :)), for: .touchUpInside)
-            holder.addSubview(numberButton)
-        }
-        
-        //        let functions = ["^", "+/-", "%"]
-        //        for i in 0..<functions.count {
-        //            let numberButton = UIButton(frame: CGRect(x: buttonSize * CGFloat(i), y: holder.frame.size.height - buttonSize * 5, width: buttonSize , height: buttonSize))
-        //            numberButton.setTitle("\(functions[i])", for: .normal)
-        //            numberButton.setTitleColor(.black, for: .normal)
-        //            numberButton.backgroundColor = .lightGray
-        //            numberButton.layer.borderWidth = 2
-        //            numberButton.layer.borderColor = UIColor.black.cgColor
-        //            holder.addSubview(numberButton)
-        //        }
-        
+        // =
         let runButton = UIButton(frame: CGRect(x: 0, y: holder.frame.size.height - buttonSize * 5, width: buttonSize * 3, height: buttonSize))
         runButton.setTitle("=", for: .normal)
         runButton.setTitleColor(.black, for: .normal)
@@ -137,6 +98,7 @@ class ViewController: UIViewController {
         runButton.addTarget(self, action: #selector(runButtonPressed), for: .touchUpInside)
         holder.addSubview(runButton)
         
+        // AC
         let clearButton = UIButton(frame: CGRect(x: buttonSize * 3, y: holder.frame.size.height - buttonSize * 5, width: buttonSize, height: buttonSize))
         clearButton.setTitle("AC", for: .normal)
         clearButton.setTitleColor(.black, for: .normal)
@@ -146,24 +108,11 @@ class ViewController: UIViewController {
         clearButton.addTarget(self, action: #selector(clearResult), for: .touchUpInside)
         holder.addSubview(clearButton)
         
-        for i in 0..<operators.count {
-            let operatorButton = UIButton(frame: CGRect(x: buttonSize * 3, y: holder.frame.size.height - buttonSize * CGFloat(i + 1), width: buttonSize , height: buttonSize))
-            operatorButton.tag = i + 1
-            operatorButton.setTitle("\(operators[i])", for: .normal)
-            operatorButton.setTitleColor(.black, for: .normal)
-            operatorButton.backgroundColor = .systemRed
-            operatorButton.layer.borderWidth = 2
-            operatorButton.layer.borderColor = UIColor.black.cgColor
-            operatorButton.addTarget(self, action: #selector(operatorButtonPressed), for: .touchUpInside)
-            holder.addSubview(operatorButton)
-        }
-        
         nameLabel.frame = CGRect(x: 20,
                                  y: clearButton.frame.origin.y - 240.0,
                                  width: view.frame.size.width - 24,
                                  height: 80)
         holder.addSubview(nameLabel)
-        
         
         firstLable.frame = CGRect(x: 20,
                                   y: clearButton.frame.origin.y - 160.0,
@@ -177,9 +126,9 @@ class ViewController: UIViewController {
                                    height: 80)
         holder.addSubview(secondLabel)
         
-        // Actions
     }
     
+    // Actions
     @objc func clearResult() {
         secondLabel.text = "0"
         firstLable.text = ""
@@ -190,10 +139,15 @@ class ViewController: UIViewController {
     
     @objc func numberPressed(_ sender: UIButton) {
         let tag = sender.tag - 1
+        // press number after pressing operator
         if operators.contains(secondLabel.text ?? ""){
             firstLable.text = "\(firstNumber)"
             nameLabel.text = secondLabel.text
             secondLabel.text = "0"
+        }
+        //TODO: press dot button
+        if tag > 9 {
+            return
         }
         
         if secondLabel.text == "0" {
@@ -201,27 +155,23 @@ class ViewController: UIViewController {
         }else if let wrapped = secondLabel.text{
             secondLabel.text = "\(wrapped)\(tag)"
         }
-        
     }
     
     
     @objc func operatorButtonPressed(_ sender: UIButton) {
         let tag = sender.tag - 1
-        currentOperator = tag
-        
+        currentOperatorIndex = tag
         if let number = Int(secondLabel.text ?? "") {
             firstNumber = number
             firstLable.text = ("\(firstNumber)")
             secondLabel.text = "\(operators[tag])"
         }
-        
-        
     }
     
     @objc func runButtonPressed(_ sender: UIButton) {
         if let number = Int(secondLabel.text ?? "") {
             secondNumber = number
-            switch currentOperator {
+            switch currentOperatorIndex {
             case 0 :
                 firstLable.text = "\(firstNumber) + \(secondNumber)"
                 secondLabel.text = "= \(firstNumber + secondNumber)"
@@ -234,15 +184,37 @@ class ViewController: UIViewController {
             case 3 :
                 firstLable.text = "\(firstNumber) / \(secondNumber)"
                 secondLabel.text = "= \(firstNumber / secondNumber)"
-                
             default :
                 break
             }
+            nameLabel.text = "\(firstName)"
         }
         
     }
     
+    fileprivate func createNumberButton(_ buttonSize: CGFloat, x: Double, y: Double, width: Double, backgroundColor: UIColor, text: String, tag: Int) {
+        let button = UIButton(frame: CGRect(x: x, y: y, width: width, height: buttonSize))
+        button.tag = tag
+        button.setTitle(text, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = backgroundColor
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(numberPressed(_ :)), for: .touchUpInside)
+        holder.addSubview(button)
+    }
     
+    fileprivate func createOperatorbutton(_ buttonSize: CGFloat, x: Double, y: Double, width: Double, backgroundColor: UIColor, text: String, tag: Int) {
+        let button = UIButton(frame: CGRect(x: x, y: y, width: width, height: buttonSize))
+        button.tag = tag
+        button.setTitle(text, for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = backgroundColor
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(operatorButtonPressed(_ :)), for: .touchUpInside)
+        holder.addSubview(button)
+    }
     
 }
 
