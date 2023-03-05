@@ -146,6 +146,15 @@ class ViewController: UIViewController {
             firstLable.text = "\(firstNumber) \(secondLabel.text ?? "")"
             secondLabel.text = "0"
         }
+        
+        // press number after pressing run operator
+        if var text = secondLabel.text, text.contains("="){
+            firstLable.text = text
+            secondLabel.text = "0"
+            firstNumber = 0
+            secondNumber = 0
+            nameLabel.text = firstName
+        }
         //TODO: press dot button
         if tag > 9 {
             return
@@ -221,5 +230,12 @@ class ViewController: UIViewController {
         holder.addSubview(button)
     }
     
+    fileprivate func clear() -> Void {
+        secondLabel.text = "0"
+        firstLable.text = ""
+        firstNumber = 0
+        secondNumber = 0
+        nameLabel.text = firstName
+    }
 }
 
