@@ -7,27 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FC8BAE1629B38AE70001CBCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8BAE1529B38AE70001CBCE /* AppDelegate.swift */; };
-		FC8BAE1829B38AE70001CBCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8BAE1729B38AE70001CBCE /* SceneDelegate.swift */; };
-		FC8BAE1A29B38AE70001CBCE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8BAE1929B38AE70001CBCE /* ViewController.swift */; };
-		FC8BAE1D29B38AE70001CBCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8BAE1B29B38AE70001CBCE /* Main.storyboard */; };
-		FC8BAE1F29B38AE90001CBCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8BAE1E29B38AE90001CBCE /* Assets.xcassets */; };
-		FC8BAE2229B38AE90001CBCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8BAE2029B38AE90001CBCE /* LaunchScreen.storyboard */; };
+		638595C329B42CD200370A6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638595C229B42CD200370A6F /* AppDelegate.swift */; };
+		638595C529B42CD200370A6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638595C429B42CD200370A6F /* SceneDelegate.swift */; };
+		638595C729B42CD200370A6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638595C629B42CD200370A6F /* ViewController.swift */; };
+		638595CA29B42CD200370A6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638595C829B42CD200370A6F /* Main.storyboard */; };
+		638595CC29B42CD300370A6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638595CB29B42CD300370A6F /* Assets.xcassets */; };
+		638595CF29B42CD300370A6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638595CD29B42CD300370A6F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FC8BAE1229B38AE70001CBCE /* LadderGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LadderGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC8BAE1529B38AE70001CBCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC8BAE1729B38AE70001CBCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FC8BAE1929B38AE70001CBCE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FC8BAE1C29B38AE70001CBCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FC8BAE1E29B38AE90001CBCE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FC8BAE2129B38AE90001CBCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FC8BAE2329B38AE90001CBCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		638595BF29B42CD200370A6F /* temp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = temp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		638595C229B42CD200370A6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		638595C429B42CD200370A6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		638595C629B42CD200370A6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		638595C929B42CD200370A6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		638595CB29B42CD300370A6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		638595CE29B42CD300370A6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		638595D029B42CD300370A6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FC8BAE0F29B38AE70001CBCE /* Frameworks */ = {
+		638595BC29B42CD200370A6F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,72 +37,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FC8BAE0929B38AE70001CBCE = {
+		638595B629B42CD200370A6F = {
 			isa = PBXGroup;
 			children = (
-				FC8BAE1429B38AE70001CBCE /* LadderGame */,
-				FC8BAE1329B38AE70001CBCE /* Products */,
+				638595C129B42CD200370A6F /* temp */,
+				638595C029B42CD200370A6F /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FC8BAE1329B38AE70001CBCE /* Products */ = {
+		638595C029B42CD200370A6F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC8BAE1229B38AE70001CBCE /* LadderGame.app */,
+				638595BF29B42CD200370A6F /* temp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FC8BAE1429B38AE70001CBCE /* LadderGame */ = {
+		638595C129B42CD200370A6F /* temp */ = {
 			isa = PBXGroup;
 			children = (
-				FC8BAE1529B38AE70001CBCE /* AppDelegate.swift */,
-				FC8BAE1729B38AE70001CBCE /* SceneDelegate.swift */,
-				FC8BAE1929B38AE70001CBCE /* ViewController.swift */,
-				FC8BAE1B29B38AE70001CBCE /* Main.storyboard */,
-				FC8BAE1E29B38AE90001CBCE /* Assets.xcassets */,
-				FC8BAE2029B38AE90001CBCE /* LaunchScreen.storyboard */,
-				FC8BAE2329B38AE90001CBCE /* Info.plist */,
+				638595C229B42CD200370A6F /* AppDelegate.swift */,
+				638595C429B42CD200370A6F /* SceneDelegate.swift */,
+				638595C629B42CD200370A6F /* ViewController.swift */,
+				638595C829B42CD200370A6F /* Main.storyboard */,
+				638595CB29B42CD300370A6F /* Assets.xcassets */,
+				638595CD29B42CD300370A6F /* LaunchScreen.storyboard */,
+				638595D029B42CD300370A6F /* Info.plist */,
 			);
-			path = LadderGame;
+			path = temp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC8BAE1129B38AE70001CBCE /* LadderGame */ = {
+		638595BE29B42CD200370A6F /* temp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC8BAE2629B38AE90001CBCE /* Build configuration list for PBXNativeTarget "LadderGame" */;
+			buildConfigurationList = 638595D329B42CD300370A6F /* Build configuration list for PBXNativeTarget "temp" */;
 			buildPhases = (
-				FC8BAE0E29B38AE70001CBCE /* Sources */,
-				FC8BAE0F29B38AE70001CBCE /* Frameworks */,
-				FC8BAE1029B38AE70001CBCE /* Resources */,
+				638595BB29B42CD200370A6F /* Sources */,
+				638595BC29B42CD200370A6F /* Frameworks */,
+				638595BD29B42CD200370A6F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = LadderGame;
-			productName = LadderGame;
-			productReference = FC8BAE1229B38AE70001CBCE /* LadderGame.app */;
+			name = temp;
+			productName = temp;
+			productReference = 638595BF29B42CD200370A6F /* temp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FC8BAE0A29B38AE70001CBCE /* Project object */ = {
+		638595B729B42CD200370A6F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					FC8BAE1129B38AE70001CBCE = {
+					638595BE29B42CD200370A6F = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = FC8BAE0D29B38AE70001CBCE /* Build configuration list for PBXProject "LadderGame" */;
+			buildConfigurationList = 638595BA29B42CD200370A6F /* Build configuration list for PBXProject "temp" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -110,55 +110,55 @@
 				en,
 				Base,
 			);
-			mainGroup = FC8BAE0929B38AE70001CBCE;
-			productRefGroup = FC8BAE1329B38AE70001CBCE /* Products */;
+			mainGroup = 638595B629B42CD200370A6F;
+			productRefGroup = 638595C029B42CD200370A6F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FC8BAE1129B38AE70001CBCE /* LadderGame */,
+				638595BE29B42CD200370A6F /* temp */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FC8BAE1029B38AE70001CBCE /* Resources */ = {
+		638595BD29B42CD200370A6F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC8BAE2229B38AE90001CBCE /* LaunchScreen.storyboard in Resources */,
-				FC8BAE1F29B38AE90001CBCE /* Assets.xcassets in Resources */,
-				FC8BAE1D29B38AE70001CBCE /* Main.storyboard in Resources */,
+				638595CF29B42CD300370A6F /* LaunchScreen.storyboard in Resources */,
+				638595CC29B42CD300370A6F /* Assets.xcassets in Resources */,
+				638595CA29B42CD200370A6F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FC8BAE0E29B38AE70001CBCE /* Sources */ = {
+		638595BB29B42CD200370A6F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC8BAE1A29B38AE70001CBCE /* ViewController.swift in Sources */,
-				FC8BAE1629B38AE70001CBCE /* AppDelegate.swift in Sources */,
-				FC8BAE1829B38AE70001CBCE /* SceneDelegate.swift in Sources */,
+				638595C729B42CD200370A6F /* ViewController.swift in Sources */,
+				638595C329B42CD200370A6F /* AppDelegate.swift in Sources */,
+				638595C529B42CD200370A6F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FC8BAE1B29B38AE70001CBCE /* Main.storyboard */ = {
+		638595C829B42CD200370A6F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FC8BAE1C29B38AE70001CBCE /* Base */,
+				638595C929B42CD200370A6F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		FC8BAE2029B38AE90001CBCE /* LaunchScreen.storyboard */ = {
+		638595CD29B42CD300370A6F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				FC8BAE2129B38AE90001CBCE /* Base */,
+				638595CE29B42CD300370A6F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -166,7 +166,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		FC8BAE2429B38AE90001CBCE /* Debug */ = {
+		638595D129B42CD300370A6F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -226,7 +226,7 @@
 			};
 			name = Debug;
 		};
-		FC8BAE2529B38AE90001CBCE /* Release */ = {
+		638595D229B42CD300370A6F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -280,7 +280,7 @@
 			};
 			name = Release;
 		};
-		FC8BAE2729B38AE90001CBCE /* Debug */ = {
+		638595D429B42CD300370A6F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -288,30 +288,26 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LadderGame/Info.plist;
+				INFOPLIST_FILE = temp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.dongguo.LadderGame;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.dongguo.temp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		FC8BAE2829B38AE90001CBCE /* Release */ = {
+		638595D529B42CD300370A6F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -319,51 +315,47 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = LadderGame/Info.plist;
+				INFOPLIST_FILE = temp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = xyz.dongguo.LadderGame;
+				PRODUCT_BUNDLE_IDENTIFIER = xyz.dongguo.temp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 2;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FC8BAE0D29B38AE70001CBCE /* Build configuration list for PBXProject "LadderGame" */ = {
+		638595BA29B42CD200370A6F /* Build configuration list for PBXProject "temp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FC8BAE2429B38AE90001CBCE /* Debug */,
-				FC8BAE2529B38AE90001CBCE /* Release */,
+				638595D129B42CD300370A6F /* Debug */,
+				638595D229B42CD300370A6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC8BAE2629B38AE90001CBCE /* Build configuration list for PBXNativeTarget "LadderGame" */ = {
+		638595D329B42CD300370A6F /* Build configuration list for PBXNativeTarget "temp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FC8BAE2729B38AE90001CBCE /* Debug */,
-				FC8BAE2829B38AE90001CBCE /* Release */,
+				638595D429B42CD300370A6F /* Debug */,
+				638595D529B42CD300370A6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FC8BAE0A29B38AE70001CBCE /* Project object */;
+	rootObject = 638595B729B42CD200370A6F /* Project object */;
 }
