@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0zI-yg-Nk0">
-    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -14,11 +14,32 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MiniGameViewController" customModule="LadderAndSnake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-kr-jZI">
+                                <rect key="frame" x="176" y="279" width="1014" height="550"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Zu5-Kq-omf">
+                                        <rect key="frame" x="27" y="-230" width="960" height="600"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="960" id="3Tf-OZ-9q3"/>
+                                            <constraint firstAttribute="height" constant="600" id="CaB-gK-LRC"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Zu5-Kq-omf" secondAttribute="bottom" constant="180" id="9MD-nI-Pl6"/>
+                                    <constraint firstItem="Zu5-Kq-omf" firstAttribute="centerX" secondItem="zWb-kr-jZI" secondAttribute="centerX" id="OHx-Q8-nEj"/>
+                                    <constraint firstAttribute="height" constant="550" id="PUB-mo-1rX"/>
+                                </constraints>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unc-Xp-TQx">
-                                <rect key="frame" x="535" y="696" width="110.5" height="52"/>
+                                <rect key="frame" x="628" y="846" width="110.5" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="msb-9R-xkl"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Start Game">
                                     <color key="baseBackgroundColor" systemColor="linkColor"/>
@@ -27,55 +48,59 @@
                                     <segue destination="nem-BP-lRI" kind="show" id="TXP-NN-tD9"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-kr-jZI">
-                                <rect key="frame" x="176" y="211" width="828" height="452"/>
-                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
-                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snake_ladder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="HHH-ug-jf3">
+                                <rect key="frame" x="593" y="74" width="180" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="1oy-RS-G2t"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="tintColor"/>
                         <constraints>
-                            <constraint firstItem="zWb-kr-jZI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0G9-km-j0G"/>
-                            <constraint firstItem="zWb-kr-jZI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="137" id="23j-Eu-VvP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Unc-Xp-TQx" secondAttribute="bottom" constant="52" id="FPk-6O-qLn"/>
-                            <constraint firstItem="zWb-kr-jZI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="176" id="L1j-3Z-2Kb"/>
-                            <constraint firstItem="Unc-Xp-TQx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Q9a-wg-vb0"/>
-                            <constraint firstItem="Unc-Xp-TQx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VYq-e4-0cR"/>
-                            <constraint firstItem="Unc-Xp-TQx" firstAttribute="top" secondItem="zWb-kr-jZI" secondAttribute="bottom" constant="33" id="pYx-r1-oRj"/>
-                            <constraint firstItem="zWb-kr-jZI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qzk-W4-pK7"/>
+                            <constraint firstItem="zWb-kr-jZI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="176" id="49b-dh-ZF2"/>
+                            <constraint firstItem="zWb-kr-jZI" firstAttribute="top" secondItem="HHH-ug-jf3" secondAttribute="bottom" constant="25" id="Bnj-xH-Y0c"/>
+                            <constraint firstItem="HHH-ug-jf3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="K21-UF-hcH"/>
+                            <constraint firstItem="Unc-Xp-TQx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="VhC-rQ-IC6"/>
+                            <constraint firstItem="HHH-ug-jf3" firstAttribute="centerX" secondItem="Unc-Xp-TQx" secondAttribute="centerX" id="Vzs-Kf-CSo"/>
+                            <constraint firstItem="HHH-ug-jf3" firstAttribute="centerX" secondItem="zWb-kr-jZI" secondAttribute="centerX" id="YDY-9o-KhJ"/>
+                            <constraint firstItem="Unc-Xp-TQx" firstAttribute="top" secondItem="zWb-kr-jZI" secondAttribute="bottom" constant="17" id="c71-Wz-Mix"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Unc-Xp-TQx" secondAttribute="bottom" constant="61" id="qKr-Tb-g8J"/>
+                            <constraint firstItem="zWb-kr-jZI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sC2-2Q-HS1"/>
+                            <constraint firstItem="HHH-ug-jf3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="593" id="wWT-1H-Y7Q"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="og2-uA-L1K"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="704.74576271186447" y="8.7804878048780495"/>
+            <point key="canvasLocation" x="704.53879941434843" y="8.203125"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="m3H-hF-LtC">
             <objects>
                 <viewController id="nem-BP-lRI" customClass="ViewController" customModule="LadderAndSnake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYD-do-ioI">
-                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snakes-ladders-board-bg" translatesAutoresizingMaskIntoConstraints="NO" id="gEG-c5-u82" userLabel="board">
-                                <rect key="frame" x="110" y="-200" width="960" height="960"/>
+                                <rect key="frame" x="203" y="4" width="960" height="960"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="960" id="51Q-Ds-en8"/>
                                     <constraint firstAttribute="height" constant="960" id="wOa-8K-yO4"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number06" translatesAutoresizingMaskIntoConstraints="NO" id="Wag-i6-li3">
-                                <rect key="frame" x="1062.5" y="640" width="120" height="120"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="number06" translatesAutoresizingMaskIntoConstraints="NO" id="Wag-i6-li3">
+                                <rect key="frame" x="1206" y="844" width="120" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="3Qf-Xu-baH"/>
                                     <constraint firstAttribute="height" constant="120" id="TfH-4a-9tz"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PI9-lj-wjd">
-                                <rect key="frame" x="1085" y="473" width="75" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PI9-lj-wjd">
+                                <rect key="frame" x="1229" y="687" width="75" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="oez-6R-5WK"/>
                                 </constraints>
@@ -111,7 +136,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0zI-yg-Nk0" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uXZ-H8-fkg">
-                        <rect key="frame" x="0.0" y="24" width="1180" height="50"/>
+                        <rect key="frame" x="0.0" y="24" width="1366" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -126,6 +151,7 @@
     </scenes>
     <resources>
         <image name="number06" width="692" height="692"/>
+        <image name="snake_ladder_icon" width="500" height="500"/>
         <image name="snakes-ladders-board-bg" width="1300" height="1300"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
