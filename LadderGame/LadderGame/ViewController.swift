@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     
     private func createPlayer(n: Int, cellSize: Double) -> UIButton {
         
-        let image = UIImage(named: "newHorse.png")
+        let image = UIImage(named: "horse.png")
         let x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
         let y = 9 - (n - 1) / 10
         let player = UIButton(

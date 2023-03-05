@@ -43,23 +43,14 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                     </button>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BEC-QL-l6t" userLabel="MessageView">
-                                        <rect key="frame" x="340" y="170" width="500" height="480"/>
-                                        <color key="backgroundColor" systemColor="systemTealColor"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="snF-b7-A3y" firstAttribute="leading" secondItem="uQn-A5-6v4" secondAttribute="trailing" constant="43" id="02C-BN-uVY"/>
-                                    <constraint firstItem="BEC-QL-l6t" firstAttribute="leading" secondItem="zYF-sZ-fWd" secondAttribute="leading" constant="266" id="0U6-Un-as7"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="centerX" secondItem="zYF-sZ-fWd" secondAttribute="centerX" id="2Vg-Ue-hiV"/>
-                                    <constraint firstItem="BEC-QL-l6t" firstAttribute="centerX" secondItem="zYF-sZ-fWd" secondAttribute="centerX" id="3CE-TR-ODO"/>
                                     <constraint firstItem="Zg1-cC-yUX" firstAttribute="centerX" secondItem="snF-b7-A3y" secondAttribute="centerX" id="4zL-wi-kcH"/>
-                                    <constraint firstItem="BEC-QL-l6t" firstAttribute="top" secondItem="zYF-sZ-fWd" secondAttribute="top" constant="340" id="FaT-LJ-mHA"/>
-                                    <constraint firstItem="BEC-QL-l6t" firstAttribute="centerY" secondItem="zYF-sZ-fWd" secondAttribute="centerY" id="GCW-HP-RHK"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="centerX" secondItem="zYF-sZ-fWd" secondAttribute="centerX" id="HQe-Fu-z1K"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="bottom" secondItem="snF-b7-A3y" secondAttribute="bottom" id="WkH-KF-Bnb"/>
-                                    <constraint firstAttribute="bottom" secondItem="BEC-QL-l6t" secondAttribute="bottom" constant="223" id="bYJ-f3-iUz"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="centerY" secondItem="zYF-sZ-fWd" secondAttribute="centerY" id="hYq-S5-Rj1"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="centerY" secondItem="zYF-sZ-fWd" secondAttribute="centerY" id="oWi-8D-fBP"/>
                                     <constraint firstItem="snF-b7-A3y" firstAttribute="top" secondItem="Zg1-cC-yUX" secondAttribute="bottom" constant="87" id="vAu-Q8-d4e"/>
@@ -79,7 +70,6 @@
                         <outlet property="diceView" destination="zYF-sZ-fWd" id="dOo-uh-lto"/>
                         <outlet property="goButton" destination="Zg1-cC-yUX" id="vQU-yh-CHt"/>
                         <outlet property="holder" destination="uQn-A5-6v4" id="5TF-AZ-Ar0"/>
-                        <outlet property="messageView" destination="BEC-QL-l6t" id="D4f-2B-xUC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
