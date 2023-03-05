@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     @IBOutlet var holder: UIView!
     
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +26,33 @@ class ViewController: UIViewController {
     }
     
     private func setupBoardPad() {
-        moveTo(n: 18)
+        let cellSize: CGFloat = holder.frame.size.width / 10
+
+        var player = createPlayer(n: 18, cellSize: cellSize)
+        holder.addSubview(player)
+        
+        for n in 1...80 {
+            moveTo(player, n: n, cellSize: cellSize)
+        }
+        
     }
     
-    private func moveTo(n: Int) {
-        let cellSize: CGFloat = holder.frame.size.width / 10
+    private func moveTo(_ button: UIButton, n: Int, cellSize: Double) {
+        var x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
+        var y = 9 - (n - 1) / 10
+        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
         
-        let x: Int = (n / 10 % 2 == 0) ? (n - 1) % 10 - 1  : (10 - n % 10)
-        let y: Int = (n - 1) / 10 + 1
+    }
+
+    
+    private func createPlayer(n: Int, cellSize: Double) -> UIButton {
+        
+        var x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
+        var y = 9 - (n - 1) / 10
         let player = UIButton(
             frame: CGRect(
                 x: cellSize * Double(x),
-                y: holder.frame.size.height - cellSize * Double(y),
+                y: cellSize * Double(y),
                 width: cellSize,
                 height: cellSize))
         player.setTitle("king", for: .normal)
@@ -44,7 +61,8 @@ class ViewController: UIViewController {
         player.layer.borderWidth = 2
         player.layer.borderColor = UIColor.black.cgColor
         
-        holder.addSubview(player)
+
+        return  player
     }
     
 }
