@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     let diceArray = [UIImage(named: "number01"), UIImage(named: "number02")]
     var player: UIButton?
     var cellSize: Double = 0
+    var position: Int = 1
     
     
     override func viewDidLoad() {
@@ -49,7 +50,8 @@ class ViewController: UIViewController {
     }
     
     @objc func goButtonPressed(_ sender: UIButton) {
-        moveTo(player!, n: 21, cellSize: cellSize)
+        position += 6
+        moveTo(player!, n: position , cellSize: cellSize)
         
     }
 }
@@ -64,7 +66,7 @@ private func moveTo(_ button: UIButton, n: Int, cellSize: Double) {
 
 private func createPlayer(n: Int, cellSize: Double) -> UIButton {
     
-    let image = UIImage(named: "king.png")
+    let image = UIImage(named: "newHorse.png")
     
     var x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
     var y = 9 - (n - 1) / 10
@@ -76,7 +78,7 @@ private func createPlayer(n: Int, cellSize: Double) -> UIButton {
             height: cellSize))
     //        player.setTitle("king", for: .normal)
     player.setTitleColor(.black, for: .normal)
-    player.backgroundColor = .red
+//    player.backgroundColor = .red
     player.setBackgroundImage(image, for: UIControl.State.normal)
     player.layer.borderWidth = 2
     player.layer.borderColor = UIColor.black.cgColor
