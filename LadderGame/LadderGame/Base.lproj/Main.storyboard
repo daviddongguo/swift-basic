@@ -35,8 +35,8 @@
                                             <constraint firstAttribute="width" constant="150" id="xK9-xy-9K6"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zg1-cC-yUX">
-                                        <rect key="frame" x="1030.5" y="453" width="75" height="80"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zg1-cC-yUX">
+                                        <rect key="frame" x="1032" y="463" width="75" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="nZR-Dm-H29"/>
                                         </constraints>
@@ -67,6 +67,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="diceView" destination="zYF-sZ-fWd" id="dOo-uh-lto"/>
+                        <outlet property="goButton" destination="Zg1-cC-yUX" id="vQU-yh-CHt"/>
                         <outlet property="holder" destination="uQn-A5-6v4" id="5TF-AZ-Ar0"/>
                     </connections>
                 </viewController>
