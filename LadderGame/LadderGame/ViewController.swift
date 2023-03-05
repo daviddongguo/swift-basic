@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var holder: UIView!
     
+    @IBOutlet weak var messageView: UIView!
     
     @IBOutlet weak var goButton: UIButton!
     
