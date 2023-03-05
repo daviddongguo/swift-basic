@@ -40,7 +40,7 @@ class ViewController: UIViewController {
     
     private func setupBoardPad() {
         
-
+        
         holder.addSubview(player!)
         
         goButton.addTarget(self, action: #selector(goButtonPressed),  for: .touchUpInside)
@@ -50,41 +50,41 @@ class ViewController: UIViewController {
     }
     
     @objc func goButtonPressed(_ sender: UIButton) {
+        let start = position + 1
         position += 6
-        moveTo(player!, n: position , cellSize: cellSize)
-        
+        for n in start...position{
+            Task {
+                await moveTo(player!, n: n, cellSize: cellSize)
+            }
+        }
     }
-}
-
-private func moveTo(_ button: UIButton, n: Int, cellSize: Double) {
-    var x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
-    var y = 9 - (n - 1) / 10
-    button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
+    
+    @objc func moveTo(_ button: UIButton, n: Int, cellSize: Double) async -> Void {
+        print(n)
+        let x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
+        let y = 9 - (n - 1) / 10
+        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
+    }
+    
+    
+    private func createPlayer(n: Int, cellSize: Double) -> UIButton {
+        
+        let image = UIImage(named: "newHorse.png")
+        let x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
+        let y = 9 - (n - 1) / 10
+        let player = UIButton(
+            frame: CGRect(
+                x: cellSize * Double(x),
+                y: cellSize * Double(y),
+                width: cellSize,
+                height: cellSize))
+        player.setTitleColor(.black, for: .normal)
+        player.setBackgroundImage(image, for: UIControl.State.normal)
+        player.layer.borderWidth = 2
+        player.layer.borderColor = UIColor.black.cgColor
+        
+        return  player
+    }
+    
     
 }
-
-
-private func createPlayer(n: Int, cellSize: Double) -> UIButton {
-    
-    let image = UIImage(named: "newHorse.png")
-    
-    var x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
-    var y = 9 - (n - 1) / 10
-    let player = UIButton(
-        frame: CGRect(
-            x: cellSize * Double(x),
-            y: cellSize * Double(y),
-            width: cellSize,
-            height: cellSize))
-    //        player.setTitle("king", for: .normal)
-    player.setTitleColor(.black, for: .normal)
-//    player.backgroundColor = .red
-    player.setBackgroundImage(image, for: UIControl.State.normal)
-    player.layer.borderWidth = 2
-    player.layer.borderColor = UIColor.black.cgColor
-    
-    
-    return  player
-}
-
-
