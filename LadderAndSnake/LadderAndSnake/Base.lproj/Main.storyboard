@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0zI-yg-Nk0">
+    <device id="ipad10_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Mini Game View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MiniGameViewController" customModule="LadderAndSnake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unc-Xp-TQx">
+                                <rect key="frame" x="535" y="696" width="110.5" height="52"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Start Game">
+                                    <color key="baseBackgroundColor" systemColor="linkColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="nem-BP-lRI" kind="show" id="TXP-NN-tD9"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-kr-jZI">
+                                <rect key="frame" x="176" y="211" width="828" height="452"/>
+                                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="tintColor"/>
+                        <constraints>
+                            <constraint firstItem="zWb-kr-jZI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="0G9-km-j0G"/>
+                            <constraint firstItem="zWb-kr-jZI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="137" id="23j-Eu-VvP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Unc-Xp-TQx" secondAttribute="bottom" constant="52" id="FPk-6O-qLn"/>
+                            <constraint firstItem="zWb-kr-jZI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="176" id="L1j-3Z-2Kb"/>
+                            <constraint firstItem="Unc-Xp-TQx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Q9a-wg-vb0"/>
+                            <constraint firstItem="Unc-Xp-TQx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="VYq-e4-0cR"/>
+                            <constraint firstItem="Unc-Xp-TQx" firstAttribute="top" secondItem="zWb-kr-jZI" secondAttribute="bottom" constant="33" id="pYx-r1-oRj"/>
+                            <constraint firstItem="zWb-kr-jZI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="qzk-W4-pK7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="og2-uA-L1K"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="704.74576271186447" y="8.7804878048780495"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="m3H-hF-LtC">
+            <objects>
+                <viewController id="nem-BP-lRI" customClass="ViewController" customModule="LadderAndSnake" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zYD-do-ioI">
+                        <rect key="frame" x="0.0" y="0.0" width="1180" height="820"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snakes-ladders-board-bg" translatesAutoresizingMaskIntoConstraints="NO" id="gEG-c5-u82" userLabel="board">
+                                <rect key="frame" x="110" y="-200" width="960" height="960"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="960" id="51Q-Ds-en8"/>
+                                    <constraint firstAttribute="height" constant="960" id="wOa-8K-yO4"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="number06" translatesAutoresizingMaskIntoConstraints="NO" id="Wag-i6-li3">
+                                <rect key="frame" x="1062.5" y="640" width="120" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="3Qf-Xu-baH"/>
+                                    <constraint firstAttribute="height" constant="120" id="TfH-4a-9tz"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PI9-lj-wjd">
+                                <rect key="frame" x="1085" y="473" width="75" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="oez-6R-5WK"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kiR-RG-Rqq"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PI9-lj-wjd" firstAttribute="centerX" secondItem="Wag-i6-li3" secondAttribute="centerX" id="9Uv-Iw-9kh"/>
+                            <constraint firstItem="kiR-RG-Rqq" firstAttribute="bottom" secondItem="gEG-c5-u82" secondAttribute="bottom" constant="40" id="A4B-ua-gnY"/>
+                            <constraint firstItem="gEG-c5-u82" firstAttribute="centerX" secondItem="zYD-do-ioI" secondAttribute="centerX" id="CFG-ih-kN4"/>
+                            <constraint firstItem="kiR-RG-Rqq" firstAttribute="bottom" secondItem="Wag-i6-li3" secondAttribute="bottom" constant="40" id="GB1-Yz-Hcl"/>
+                            <constraint firstItem="kiR-RG-Rqq" firstAttribute="trailing" secondItem="PI9-lj-wjd" secondAttribute="trailing" constant="20" id="XXQ-rb-pw7"/>
+                            <constraint firstItem="Wag-i6-li3" firstAttribute="top" secondItem="PI9-lj-wjd" secondAttribute="bottom" constant="87" id="uOt-Rg-2iK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="91g-Hj-n7e"/>
+                    <connections>
+                        <outlet property="diceView" destination="Wag-i6-li3" id="jj9-Df-DHt"/>
+                        <outlet property="goButton" destination="PI9-lj-wjd" id="ezd-F7-nj2"/>
+                        <outlet property="holder" destination="gEG-c5-u82" id="scE-uU-ZDL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A4Z-d9-O2c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1389.6610169491526" y="8.7804878048780495"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jKW-ql-60T">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0zI-yg-Nk0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uXZ-H8-fkg">
+                        <rect key="frame" x="0.0" y="24" width="1180" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="sdh-Fd-nze"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="orx-fk-LXD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4.0677966101694913" y="8.7804878048780495"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="number06" width="692" height="692"/>
+        <image name="snakes-ladders-board-bg" width="1300" height="1300"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

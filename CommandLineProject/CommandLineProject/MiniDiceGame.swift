@@ -9,9 +9,9 @@ import Foundation
 class MiniDiceGame: DiceGame {
     func dicideOrder1(){
         for player in self.players {
-            player.totalScore = 2
+            player.position = 2
         }
-        players = players.sorted(by: {(a, b) in a.totalScore > b.totalScore} )
+        players = players.sorted(by: {(a, b) in a.position > b.position} )
     }
     
     func dicideOrder(finaList: inout [Player], listToDecide: [Player]) -> Void {
@@ -34,8 +34,8 @@ class MiniDiceGame: DiceGame {
                 print("start to dice")
                 players.forEach{(player) in print(player.name)}
                 for player in players {
-                    player.totalScore = dice.roll()
-                    print(player.name, player.totalScore)
+                    player.position = dice.roll()
+                    print(player.name, player.position)
                 }
                 dicideOrder(finaList: &finaList, listToDecide: players)
             }
@@ -46,11 +46,11 @@ class MiniDiceGame: DiceGame {
     private func initializeMap(_ list: [Player]) -> [Int : [Player]] {
         var map: [Int : [Player]] = [:]
         for player in list {
-            if var players = map[player.totalScore] {
+            if var players = map[player.position] {
                 players.append(player)
-                map[player.totalScore] = players
+                map[player.position] = players
             }else{
-                map[player.totalScore] = [player]
+                map[player.position] = [player]
             }
         }
         return map

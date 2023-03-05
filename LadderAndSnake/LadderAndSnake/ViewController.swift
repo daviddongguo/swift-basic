@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  LadderGame
+//  LadderAndSnake
 //
-//  Created by map07 on 2023-03-04.
+//  Created by david on 2023-03-05.
 //
 
 import UIKit
@@ -10,9 +10,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var holder: UIView!
-    
     @IBOutlet weak var goButton: UIButton!
-    
     @IBOutlet weak var diceView: UIView!
     
     let diceArray = [UIImage(named: "number01"), UIImage(named: "number02")]
@@ -78,6 +76,6 @@ class ViewController: UIViewController {
         
         return  player
     }
-    
-    
+
 }
+
