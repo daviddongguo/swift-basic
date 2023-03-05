@@ -35,8 +35,11 @@
                                             <constraint firstAttribute="width" constant="150" id="xK9-xy-9K6"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zg1-cC-yUX">
-                                        <rect key="frame" x="1031" y="498" width="75" height="35"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zg1-cC-yUX">
+                                        <rect key="frame" x="1030.5" y="453" width="75" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="nZR-Dm-H29"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="Button"/>
                                     </button>
@@ -47,7 +50,6 @@
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="centerX" secondItem="zYF-sZ-fWd" secondAttribute="centerX" id="2Vg-Ue-hiV"/>
                                     <constraint firstItem="Zg1-cC-yUX" firstAttribute="centerX" secondItem="snF-b7-A3y" secondAttribute="centerX" id="4zL-wi-kcH"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="centerX" secondItem="zYF-sZ-fWd" secondAttribute="centerX" id="HQe-Fu-z1K"/>
-                                    <constraint firstItem="Zg1-cC-yUX" firstAttribute="leading" secondItem="uQn-A5-6v4" secondAttribute="trailing" constant="81" id="Rzg-GH-A5d"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="bottom" secondItem="snF-b7-A3y" secondAttribute="bottom" id="WkH-KF-Bnb"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="centerY" secondItem="zYF-sZ-fWd" secondAttribute="centerY" id="hYq-S5-Rj1"/>
                                     <constraint firstItem="uQn-A5-6v4" firstAttribute="centerY" secondItem="zYF-sZ-fWd" secondAttribute="centerY" id="oWi-8D-fBP"/>
