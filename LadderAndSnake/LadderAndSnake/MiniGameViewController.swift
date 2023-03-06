@@ -11,9 +11,7 @@ class MiniGameViewController: UIViewController {
     
     @IBOutlet var loginCard: UIView!
     
-    var collumnSize: Double = 0
-    var rowSize: Double = 0
-    var numberOfPlayers: Int = 2
+    var numberOfPlayers: Int = 4
     private let palyerImages: [UIImage?] = [
         UIImage(named: "king.png"),
         UIImage(named: "horse"),
@@ -27,6 +25,10 @@ class MiniGameViewController: UIViewController {
         UIImage(named: "number05"),
         UIImage(named: "number06"),
     ]
+    
+    var collumnSize: Double = 0
+    var rowSize: Double = 0
+    
     var seleted2playersButton: UIButton?
     var seleted4playersButton: UIButton?
     var textField1: UITextField?
@@ -57,23 +59,58 @@ class MiniGameViewController: UIViewController {
     
     private func setupCard() {
         
+        for subview in loginCard.subviews {
+            subview.removeFromSuperview()
+        }
         
         loginCard.addSubview(seleted2playersButton!)
         loginCard.addSubview(seleted4playersButton!)
+        
         loginCard.addSubview(createPlayer1())
         loginCard.addSubview(createTextField1())
         loginCard.addSubview(createPlayer2())
         loginCard.addSubview(createTextField2())
+        loginCard.addSubview(createDivce(0))
+        loginCard.addSubview(createDivce(1))
+        
+        
         loginCard.addSubview(createPlayer3())
         loginCard.addSubview(createTextField3())
         loginCard.addSubview(createPlayer4())
         loginCard.addSubview(createTextField4())
         
-        loginCard.addSubview(createDivce(0))
-        loginCard.addSubview(createDivce(1))
         loginCard.addSubview(createDivce(2))
         loginCard.addSubview(createDivce(3))
         
+    }
+    
+    
+    
+    private func setupCardWithTwoPlayers() {
+        
+        for subview in loginCard.subviews {
+            subview.removeFromSuperview()
+        }
+        
+        loginCard.addSubview(seleted2playersButton!)
+        loginCard.addSubview(seleted4playersButton!)
+        
+        loginCard.addSubview(createPlayer1())
+        loginCard.addSubview(createTextField1())
+        loginCard.addSubview(createPlayer2())
+        loginCard.addSubview(createTextField2())
+        loginCard.addSubview(createDivce(0))
+        loginCard.addSubview(createDivce(1))
+    }
+    
+    private func addTwoPlayers() {
+        loginCard.addSubview(createPlayer3())
+        loginCard.addSubview(createTextField3())
+        loginCard.addSubview(createPlayer4())
+        loginCard.addSubview(createTextField4())
+        
+        loginCard.addSubview(createDivce(2))
+        loginCard.addSubview(createDivce(3))
     }
     
     private func createSelectButton1() -> UIButton {
@@ -86,29 +123,28 @@ class MiniGameViewController: UIViewController {
                 height: rowSize))
         button.setTitleColor(.black, for: .normal)
         button.setTitle("2 Players", for: .normal)
-        button.backgroundColor = .red
-//        button.layer.borderWidth = 2
+        button.backgroundColor = .darkGray
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 8
+        
         if let attrFont = UIFont(name: "Helvetica", size: 24) {
-                    let title = button.titleLabel!.text!
-                    let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
+            let title = button.titleLabel!.text!
+            let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
             button.setAttributedTitle(attrTitle, for: UIControl.State.normal)
-                }
+        }
         button.tag = 2
         button.addTarget(self, action: #selector(selectPlayersPressed), for: .touchUpInside)
-        
         return  button
     }
     @objc func selectPlayersPressed(_ sender: UIButton) {
         numberOfPlayers = sender.tag
         if(numberOfPlayers == 2){
-            seleted2playersButton?.backgroundColor = .red
+            setupCardWithTwoPlayers()
+            seleted2playersButton?.backgroundColor = .white
             seleted4playersButton?.backgroundColor = .darkGray
-            self.textField3?.isEnabled = false
-            self.textField4?.isEnabled = false
         }else{
-            seleted4playersButton?.backgroundColor = .red
+            setupCard()
+            seleted4playersButton?.backgroundColor = .white
             seleted2playersButton?.backgroundColor = .darkGray
         }
         
@@ -124,16 +160,14 @@ class MiniGameViewController: UIViewController {
                 height: rowSize))
         button.setTitleColor(.black, for: .normal)
         button.setTitle("4 Players", for: .normal)
-        button.backgroundColor = .darkGray
-//        button.layer.borderWidth = 2
+        button.backgroundColor = .white
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 8
-        
         if let attrFont = UIFont(name: "Helvetica", size: 24) {
-                    let title = button.titleLabel!.text!
-                    let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
+            let title = button.titleLabel!.text!
+            let attrTitle = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: attrFont])
             button.setAttributedTitle(attrTitle, for: UIControl.State.normal)
-                }
+        }
         button.tag = 4
         button.addTarget(self, action: #selector(selectPlayersPressed), for: .touchUpInside)
         return  button
@@ -170,7 +204,7 @@ class MiniGameViewController: UIViewController {
         return  textField
     }
     
-
+    
     private func createDivce(_ i: Int) -> UIButton {
         
         let player = UIButton(
@@ -184,7 +218,7 @@ class MiniGameViewController: UIViewController {
         
         return  player
     }
-
+    
     
     
     private func createPlayer2() -> UIButton {
@@ -251,7 +285,7 @@ class MiniGameViewController: UIViewController {
         return  textField
     }
     
-   
+    
     
     
     
