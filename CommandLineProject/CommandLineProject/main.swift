@@ -13,9 +13,9 @@ let dice = MagicDice()
     print(dice.roll())
 }
 
-let playerA = Player("A")
-let playerB = Player("B")
-let playerC = Player("C")
+let playerA = Player("A", type: 0)
+let playerB = Player("B", type: 1)
+let playerC = Player("C", type: 3)
 let plyers = [playerA, playerB, playerC]
 
 

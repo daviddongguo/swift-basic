@@ -9,7 +9,7 @@ import Foundation
 class MiniDiceGame: DiceGame {
     func dicideOrder1(){
         for player in self.players {
-            player.position = 2
+            player.moveTo(2)
         }
         players = players.sorted(by: {(a, b) in a.position > b.position} )
     }
