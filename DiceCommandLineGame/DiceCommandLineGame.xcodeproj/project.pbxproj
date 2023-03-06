@@ -30,7 +30,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FC47242229AFB007003BEBEC /* CommandLineProject */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CommandLineProject; sourceTree = BUILT_PRODUCTS_DIR; };
+		FC47242229AFB007003BEBEC /* DiceCommandLineGame */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DiceCommandLineGame; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC47242529AFB007003BEBEC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FC47242C29AFC91D003BEBEC /* Rollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rollable.swift; sourceTree = "<group>"; };
 		FC47242E29AFCA2E003BEBEC /* MagicDice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicDice.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		FC47242329AFB007003BEBEC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FC47242229AFB007003BEBEC /* CommandLineProject */,
+				FC47242229AFB007003BEBEC /* DiceCommandLineGame */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,9 +86,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FC47242129AFB007003BEBEC /* CommandLineProject */ = {
+		FC47242129AFB007003BEBEC /* DiceCommandLineGame */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FC47242929AFB007003BEBEC /* Build configuration list for PBXNativeTarget "CommandLineProject" */;
+			buildConfigurationList = FC47242929AFB007003BEBEC /* Build configuration list for PBXNativeTarget "DiceCommandLineGame" */;
 			buildPhases = (
 				FC47241E29AFB007003BEBEC /* Sources */,
 				FC47241F29AFB007003BEBEC /* Frameworks */,
@@ -98,9 +98,9 @@
 			);
 			dependencies = (
 			);
-			name = CommandLineProject;
+			name = DiceCommandLineGame;
 			productName = CommandLineProject;
-			productReference = FC47242229AFB007003BEBEC /* CommandLineProject */;
+			productReference = FC47242229AFB007003BEBEC /* DiceCommandLineGame */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -118,7 +118,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FC47241D29AFB007003BEBEC /* Build configuration list for PBXProject "CommandLineProject" */;
+			buildConfigurationList = FC47241D29AFB007003BEBEC /* Build configuration list for PBXProject "DiceCommandLineGame" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -131,7 +131,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FC47242129AFB007003BEBEC /* CommandLineProject */,
+				FC47242129AFB007003BEBEC /* DiceCommandLineGame */,
 			);
 		};
 /* End PBXProject section */
@@ -291,7 +291,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FC47241D29AFB007003BEBEC /* Build configuration list for PBXProject "CommandLineProject" */ = {
+		FC47241D29AFB007003BEBEC /* Build configuration list for PBXProject "DiceCommandLineGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC47242729AFB007003BEBEC /* Debug */,
@@ -300,7 +300,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FC47242929AFB007003BEBEC /* Build configuration list for PBXNativeTarget "CommandLineProject" */ = {
+		FC47242929AFB007003BEBEC /* Build configuration list for PBXNativeTarget "DiceCommandLineGame" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FC47242A29AFB007003BEBEC /* Debug */,
