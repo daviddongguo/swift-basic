@@ -17,9 +17,21 @@ class ClientDataCollection {
      * a.
      * add: This method can be used to insert one or more new clients to the ArrayList (Overload or any other way)
      */
-    func add(_ clients: Client...) {
+    func add(_ clients: Client?... ) throws {
+        if(clients.isEmpty) {
+            return
+        }
         for client in clients {
-            self.clientList.append(client)
+            if let unwrapped = client {
+                let clientInList = self.clientList.first{$0.userName == unwrapped.userName}
+                if clientInList != nil {
+                    throw ClientError.duplicateUserName(message: "\(unwrapped.userName) duplicate userName")
+                }
+                
+                self.clientList.append(unwrapped)
+            }
+            
+            
         }
     }
     
@@ -27,8 +39,8 @@ class ClientDataCollection {
      * b.
      * update: Find a client by userName and update the client address
      */
-    func update(userName: String = "", address: Address) {
-        if var client = findClientByUserName(userName) {
+    func update(userName: String = "", address: Address) -> Void {
+        if let client = findClientByUserName(userName) {
             client.updateAddress(address)
         }
     }
@@ -38,7 +50,7 @@ class ClientDataCollection {
      * delete: Remove a client by userName
      */
     func delete(userName: String = ""){
-        if var client = findClientByUserName(userName) {
+        if let client = findClientByUserName(userName) {
             if let index = clientList.firstIndex(of: client){
                 self.clientList.remove(at: index)
             }
@@ -63,10 +75,11 @@ class ClientDataCollection {
     }
     
     /**
-           * print the clients array list
+     * print the clients array list
      */
-    func printClientList() {
-        for client in self.clientList {
+    static func printClientList(_ clientList: [Client]) {
+        print("\n\(clientList.count) clients as below: ")
+        for client in clientList {
             print(client.description)
         }
     }
