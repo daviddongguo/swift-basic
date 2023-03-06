@@ -58,3 +58,9 @@ class Solution {
         return prices[end] - cost
     }
 }
+
+
+let prices = [3,2,6,5,0,3]
+let solution = Solution()
+
+//print(solution.maxProfit(2, prices))

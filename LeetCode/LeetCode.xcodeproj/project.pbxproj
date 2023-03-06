@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		633142F229B625E9002AFC17 /* SortedByFuequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633142F129B625E9002AFC17 /* SortedByFuequence.swift */; };
+		633142F429B62628002AFC17 /* LongestPreString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633142F329B62628002AFC17 /* LongestPreString.swift */; };
 		FC47244929B0EEA2003BEBEC /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC47244829B0EEA2003BEBEC /* main.swift */; };
 		FC8BADED29B290480001CBCE /* BestTimeToSell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8BADEC29B290480001CBCE /* BestTimeToSell.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		633142F129B625E9002AFC17 /* SortedByFuequence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedByFuequence.swift; sourceTree = "<group>"; };
+		633142F329B62628002AFC17 /* LongestPreString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LongestPreString.swift; sourceTree = "<group>"; };
 		FC47244529B0EEA2003BEBEC /* LeetCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LeetCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC47244829B0EEA2003BEBEC /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FC8BADEC29B290480001CBCE /* BestTimeToSell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTimeToSell.swift; sourceTree = "<group>"; };
@@ -61,6 +65,8 @@
 			children = (
 				FC47244829B0EEA2003BEBEC /* main.swift */,
 				FC8BADEC29B290480001CBCE /* BestTimeToSell.swift */,
+				633142F129B625E9002AFC17 /* SortedByFuequence.swift */,
+				633142F329B62628002AFC17 /* LongestPreString.swift */,
 			);
 			path = LeetCode;
 			sourceTree = "<group>";
@@ -123,8 +129,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				633142F229B625E9002AFC17 /* SortedByFuequence.swift in Sources */,
 				FC47244929B0EEA2003BEBEC /* main.swift in Sources */,
 				FC8BADED29B290480001CBCE /* BestTimeToSell.swift in Sources */,
+				633142F429B62628002AFC17 /* LongestPreString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
