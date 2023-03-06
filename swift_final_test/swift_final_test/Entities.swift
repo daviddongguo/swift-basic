@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 struct Address {
     let apartmentNumber: Int?
     let buildingNumber: Int
