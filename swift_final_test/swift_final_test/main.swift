@@ -1,4 +1,3 @@
-
 enum ClientError: Error{
     case invalidNamelength(message: String = "")
     case duplicateUserName(message: String = "... duplicate userName")
@@ -209,11 +208,9 @@ class ClientDataCollection {
      * print the clients array list
      */
     static func printClientList(_ clientList: [Client]) {
-        var n = 1
         print("There are \(clientList.count) clients as below: ")
-        for client in clientList {
-            print("\(n): \(client.description)")
-            n += 1
+        for(i, client) in clientList.enumerated() {
+            print("\(i + 1): \(client.description)")
         }
     }
     
@@ -227,7 +224,7 @@ let addressArray: [Address] = [
 
 
 // a. Initialize all inherited attributes plus all client attributes
-var list = ClientDataCollection()
+var clientCollection = ClientDataCollection()
 
 var John_Abbott: Client!
 var Adam_Abbott: Client!
@@ -242,8 +239,8 @@ do {
     Anthoyn_Hopkins = try Client(SIN: 444, firstName: "Anthony", lastName: "Hopkins", userName: "anthony", addresses: [addressArray[2]], phone: "111222333")
     
     // b. add them to DataCollection data structure
-    try list.add(John_Abbott)
-    try list.add(Adam_Abbott, Tom_Sawyer, Anthoyn_Hopkins)
+    try clientCollection.add(John_Abbott)
+    try clientCollection.add(Adam_Abbott, Tom_Sawyer, Anthoyn_Hopkins)
     
 }catch {
     print("error")
@@ -251,22 +248,19 @@ do {
 
 
 
-
-
-
 print("\n// 1- Print ArrayList of clients in ClientDataCollection ")
-ClientDataCollection.printClientList(list.clientList)
+ClientDataCollection.printClientList(clientCollection.clientList)
 
 print("\n// 2- Find and Print clients by lastName: Abbott")
-ClientDataCollection.printClientList(list.find(lastName: "Abbott"))
+ClientDataCollection.printClientList(clientCollection.find(lastName: "Abbott"))
 
 print("\n// 3- Update Anthony Hopkins address to Canada, Montreal...")
-list.update(userName: "anthony", address: addressArray[0])
-ClientDataCollection.printClientList(list.clientList)
+clientCollection.update(userName: "anthony", address: addressArray[0])
+ClientDataCollection.printClientList(clientCollection.clientList)
 
 print("\n// 4- Delete Anthony Hopkins")
-list.delete(userName: "anthony")
-ClientDataCollection.printClientList(list.clientList)
+clientCollection.delete(userName: "anthony")
+ClientDataCollection.printClientList(clientCollection.clientList)
 
 print("\n// 5- Try to enter Anthony Hopkins again with the wrong information")
 do {
@@ -283,8 +277,8 @@ do {
 do {
     let anthony = try Client(SIN: 444, firstName: "Anthony", lastName: "Hopkins", userName: "anthony", addresses: [addressArray[2]], phone: "111222333")
     print("\t can not have a dulplicate client with the same userName")
-    try list.add(anthony)
-    try list.add(anthony)
+    try clientCollection.add(anthony)
+    try clientCollection.add(anthony)
 }catch ClientError.invalidNamelength(let invalid) {
     print("Error: \(invalid)")
 }catch ClientError.duplicateUserName(let invalid) {
