@@ -8,4 +8,6 @@
 import Foundation
 
 print("Hello, World!")
+var clientList = ClientDataCollection()
+clientList.printClientList()
 
