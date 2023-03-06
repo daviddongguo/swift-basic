@@ -11,6 +11,7 @@ class MiniGameViewController: UIViewController {
     
     @IBOutlet var loginCard: UIView!
     
+    
     var numberOfPlayers: Int = 4
     private let palyerImages: [UIImage?] = [
         UIImage(named: "king.png"),
