@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 
-import Foundation
+//import Foundation
 //: # Closures
 /**
  * Closures are self-contained blocks of functionality.
