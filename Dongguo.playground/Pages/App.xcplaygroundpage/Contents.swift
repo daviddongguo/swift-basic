@@ -1,3 +1,8 @@
+enum ClientError: Error{
+    case tooLongName(message: String = "")
+    case duplicateUserName(message: String = "... duplicate userName")
+}
+
 struct Address {
     let apartmentNumber: Int?
     let buildingNumber: Int
@@ -33,15 +38,12 @@ struct Address {
     
 }
 
-enum ClientError: Error{
-    case tooLongName(message: String = "")
-    case duplicateUserName(message: String = "... duplicate userName")
-}
+
 
 class Person: Equatable {
     let SIN: Int
-    var firstName: String
-    var lastName: String
+    private(set) var firstName: String
+    private(set) var lastName: String
     
     init?(SIN: Int, firstName: String, lastName: String) throws {
         guard firstName.count <= 20 else {
@@ -99,7 +101,6 @@ class Client: Person {
         }
     }
     
-    
     func updateAddress(_ address: Address) {
         self.addresses = []
         self.addresses.append(address)
@@ -107,7 +108,6 @@ class Client: Person {
     
     // Proper use of toString() in Swift
     override var description: String {
-        
         var phoneString = ""
         if let unwrapped = phone {
             phoneString = "phone: \(unwrapped), "
@@ -284,8 +284,4 @@ do {
 }catch {
     print("Error: Unknown Error")
 }
-
-
-
-print(addressArray[0].description)
 
