@@ -180,9 +180,16 @@ class ClientDataCollection {
      * c.
      * delete: Remove a client by userName
      */
-    func delete(userName: String = ""){
-        if let clientIndex = clientList.firstIndex(where: { $0.userName == userName }) {
-            clientList.remove(at: clientIndex)
+    func delete(userName: String = "") -> Bool {
+        guard !userName.isEmpty else {
+            return false
+        }
+        
+        if let index = clientList.firstIndex(where: { $0.userName == userName }) {
+            clientList.remove(at: index)
+            return true
+        } else {
+            return false
         }
     }
     
@@ -193,6 +200,8 @@ class ClientDataCollection {
     func find(lastName: String = "") -> [Client] {
         return self.clientList.filter{$0.lastName == lastName}
     }
+    
+    
     
     
     /**
