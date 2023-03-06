@@ -1,9 +1,9 @@
 enum ClientError: Error{
-    case tooLongName(message: String = "")
+    case invalidNamelength(message: String = "")
     case duplicateUserName(message: String = "... duplicate userName")
 }
 
-struct Address {
+struct Address: Hashable{
     let apartmentNumber: Int?
     let buildingNumber: Int
     let street: String
@@ -20,6 +20,15 @@ struct Address {
         self.province = province
         self.country = country
         self.postalCode = postalCode
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(apartmentNumber)
+        hasher.combine(buildingNumber)
+        hasher.combine(street)
+        hasher.combine(city)
+        hasher.combine(province)
+        hasher.combine(country)
     }
     
     var description: String {
@@ -47,12 +56,12 @@ class Person: Equatable {
     
     init?(SIN: Int, firstName: String, lastName: String) throws {
         guard firstName.count <= 20 else {
-            throw ClientError.tooLongName(message: "\(firstName) bad firstName")
+            throw ClientError.invalidNamelength(message: "\(firstName) bad firstName")
         }
         self.firstName = firstName
         
         guard lastName.count <= 20 else {
-            throw ClientError.tooLongName(message: "\(lastName) bad lastName")
+            throw ClientError.invalidNamelength(message: "\(lastName) bad lastName")
         }
         self.lastName = lastName
         
@@ -61,14 +70,14 @@ class Person: Equatable {
     
     func setFirstName(_ firstName: String) throws {
         guard firstName.count <= 20 else {
-            throw ClientError.tooLongName(message: "\(firstName) bad firstName")
+            throw ClientError.invalidNamelength(message: "\(firstName) bad firstName")
         }
         self.firstName = firstName
     }
     
     func setLastName(_ lastName: String) throws {
         guard lastName.count <= 20 else {
-            throw ClientError.tooLongName(message: "\(lastName) bad lastName")
+            throw ClientError.invalidNamelength(message: "\(lastName) bad lastName")
         }
         self.lastName = lastName
     }
@@ -87,10 +96,10 @@ class Person: Equatable {
 class Client: Person {
     var userName: String
     var password: String? = nil
-    var addresses: [Address] = []
+    var addresses: Set<Address> = []
     var phone: String?
     
-    init?(SIN: Int, firstName: String, lastName: String, userName: String, addresses: [Address], phone: String? = nil) throws {
+    init?(SIN: Int, firstName: String, lastName: String, userName: String, addresses: Set<Address>, phone: String? = nil) throws {
         self.userName = userName
         self.addresses = addresses
         self.phone = phone
@@ -102,8 +111,7 @@ class Client: Person {
     }
     
     func updateAddress(_ address: Address) {
-        self.addresses = []
-        self.addresses.append(address)
+        self.addresses.insert(address)
     }
     
     // Proper use of toString() in Swift
@@ -114,8 +122,11 @@ class Client: Person {
         }
         
         var addressesString = "["
-        for i in 0..<addresses.count {
-            addressesString.append("\(i + 1): \(addresses[i].description)")
+        for (i, address) in addresses.enumerated() {
+            addressesString.append("\(i + 1): \(address.description)")
+            if i != addresses.count - 1 {
+                addressesString.append(", ")
+            }
         }
         addressesString.append("]")
         
@@ -141,20 +152,17 @@ class ClientDataCollection {
      * add: This method can be used to insert one or more new clients to the ArrayList (Overload or any other way)
      */
     func add(_ clients: Client?... ) throws {
-        if(clients.isEmpty) {
+        guard !clients.isEmpty else {
             return
         }
+        
         for client in clients {
-            if let unwrapped = client {
-                let clientInList = self.clientList.first{$0.userName == unwrapped.userName}
-                if clientInList != nil {
-                    throw ClientError.duplicateUserName(message: "\(unwrapped.userName) duplicate userName")
+            if let client = client {
+                if clientList.contains(where: { $0.userName == client.userName }) {
+                    throw ClientError.duplicateUserName(message: "Duplicate user name for \(client)")
                 }
-                
-                self.clientList.append(unwrapped)
+                self.clientList.append(client)
             }
-            
-            
         }
     }
     
@@ -173,12 +181,11 @@ class ClientDataCollection {
      * delete: Remove a client by userName
      */
     func delete(userName: String = ""){
-        if let client = findClientByUserName(userName) {
-            if let index = clientList.firstIndex(of: client){
-                self.clientList.remove(at: index)
-            }
+        if let clientIndex = clientList.firstIndex(where: { $0.userName == userName }) {
+            clientList.remove(at: clientIndex)
         }
     }
+    
     /**
      * d.
      * find: find clients by lastName and return an array of clients
@@ -201,11 +208,9 @@ class ClientDataCollection {
      * print the clients array list
      */
     static func printClientList(_ clientList: [Client]) {
-        var n = 1
         print("There are \(clientList.count) clients as below: ")
-        for client in clientList {
-            print("\(n): \(client.description)")
-            n += 1
+        for(i, client) in clientList.enumerated() {
+            print("\(i + 1): \(client.description)")
         }
     }
     
@@ -219,7 +224,7 @@ let addressArray: [Address] = [
 
 
 // a. Initialize all inherited attributes plus all client attributes
-var list = ClientDataCollection()
+var clientCollection = ClientDataCollection()
 
 var John_Abbott: Client!
 var Adam_Abbott: Client!
@@ -234,8 +239,8 @@ do {
     Anthoyn_Hopkins = try Client(SIN: 444, firstName: "Anthony", lastName: "Hopkins", userName: "anthony", addresses: [addressArray[2]], phone: "111222333")
     
     // b. add them to DataCollection data structure
-    try list.add(John_Abbott)
-    try list.add(Adam_Abbott, Tom_Sawyer, Anthoyn_Hopkins)
+    try clientCollection.add(John_Abbott)
+    try clientCollection.add(Adam_Abbott, Tom_Sawyer, Anthoyn_Hopkins)
     
 }catch {
     print("error")
@@ -243,28 +248,25 @@ do {
 
 
 
-
-
-
 print("\n// 1- Print ArrayList of clients in ClientDataCollection ")
-ClientDataCollection.printClientList(list.clientList)
+ClientDataCollection.printClientList(clientCollection.clientList)
 
 print("\n// 2- Find and Print clients by lastName: Abbott")
-ClientDataCollection.printClientList(list.find(lastName: "Abbott"))
+ClientDataCollection.printClientList(clientCollection.find(lastName: "Abbott"))
 
 print("\n// 3- Update Anthony Hopkins address to Canada, Montreal...")
-list.update(userName: "anthony", address: addressArray[0])
-ClientDataCollection.printClientList(list.clientList)
+clientCollection.update(userName: "anthony", address: addressArray[0])
+ClientDataCollection.printClientList(clientCollection.clientList)
 
 print("\n// 4- Delete Anthony Hopkins")
-list.delete(userName: "anthony")
-ClientDataCollection.printClientList(list.clientList)
+clientCollection.delete(userName: "anthony")
+ClientDataCollection.printClientList(clientCollection.clientList)
 
 print("\n// 5- Try to enter Anthony Hopkins again with the wrong information")
 do {
     print("\t firstName and lastName can not be logner than 20 characters")
     let _: Client? = try Client(SIN: 444, firstName: "Anthony", lastName: "123456789101112Anthony", userName: "anthony", addresses: [addressArray[2]], phone: "111222333")
-}catch ClientError.tooLongName(let invalid) {
+}catch ClientError.invalidNamelength(let invalid) {
     print("Error: \(invalid)")
 }catch ClientError.duplicateUserName(let invalid) {
     print("Error: \(invalid)")
@@ -275,13 +277,12 @@ do {
 do {
     let anthony = try Client(SIN: 444, firstName: "Anthony", lastName: "Hopkins", userName: "anthony", addresses: [addressArray[2]], phone: "111222333")
     print("\t can not have a dulplicate client with the same userName")
-    try list.add(anthony)
-    try list.add(anthony)
-}catch ClientError.tooLongName(let invalid) {
+    try clientCollection.add(anthony)
+    try clientCollection.add(anthony)
+}catch ClientError.invalidNamelength(let invalid) {
     print("Error: \(invalid)")
 }catch ClientError.duplicateUserName(let invalid) {
     print("Error: \(invalid)")
 }catch {
     print("Error: Unknown Error")
 }
-
