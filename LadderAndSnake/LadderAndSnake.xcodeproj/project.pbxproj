@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		633142EF29B576E1002AFC17 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633142ED29B576E1002AFC17 /* Player.swift */; };
+		633142F029B576E1002AFC17 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633142EE29B576E1002AFC17 /* Setting.swift */; };
 		638F7FF229B547D800B92663 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F7FF129B547D800B92663 /* AppDelegate.swift */; };
 		638F7FF429B547D800B92663 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F7FF329B547D800B92663 /* SceneDelegate.swift */; };
 		638F7FF629B547D800B92663 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F7FF529B547D800B92663 /* ViewController.swift */; };
@@ -14,10 +16,11 @@
 		638F7FFB29B547D900B92663 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 638F7FFA29B547D900B92663 /* Assets.xcassets */; };
 		638F7FFE29B547D900B92663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 638F7FFC29B547D900B92663 /* LaunchScreen.storyboard */; };
 		638F800629B5507A00B92663 /* MiniGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638F800529B5507A00B92663 /* MiniGameViewController.swift */; };
-		638F800829B5551200B92663 /* Model in Resources */ = {isa = PBXBuildFile; fileRef = 638F800729B5551200B92663 /* Model */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		633142ED29B576E1002AFC17 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		633142EE29B576E1002AFC17 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		638F7FEE29B547D800B92663 /* LadderAndSnake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LadderAndSnake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		638F7FF129B547D800B92663 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		638F7FF329B547D800B92663 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +30,6 @@
 		638F7FFD29B547D900B92663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		638F7FFF29B547D900B92663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		638F800529B5507A00B92663 /* MiniGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniGameViewController.swift; sourceTree = "<group>"; };
-		638F800729B5551200B92663 /* Model */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Model; path = ../../LadderGame/LadderGame/Model; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,15 +62,16 @@
 		638F7FF029B547D800B92663 /* LadderAndSnake */ = {
 			isa = PBXGroup;
 			children = (
-				638F800729B5551200B92663 /* Model */,
+				633142ED29B576E1002AFC17 /* Player.swift */,
+				633142EE29B576E1002AFC17 /* Setting.swift */,
 				638F7FF129B547D800B92663 /* AppDelegate.swift */,
 				638F7FF329B547D800B92663 /* SceneDelegate.swift */,
 				638F7FF529B547D800B92663 /* ViewController.swift */,
+				638F800529B5507A00B92663 /* MiniGameViewController.swift */,
 				638F7FF729B547D800B92663 /* Main.storyboard */,
 				638F7FFA29B547D900B92663 /* Assets.xcassets */,
 				638F7FFC29B547D900B92663 /* LaunchScreen.storyboard */,
 				638F7FFF29B547D900B92663 /* Info.plist */,
-				638F800529B5507A00B92663 /* MiniGameViewController.swift */,
 			);
 			path = LadderAndSnake;
 			sourceTree = "<group>";
@@ -133,7 +136,6 @@
 			files = (
 				638F7FFE29B547D900B92663 /* LaunchScreen.storyboard in Resources */,
 				638F7FFB29B547D900B92663 /* Assets.xcassets in Resources */,
-				638F800829B5551200B92663 /* Model in Resources */,
 				638F7FF929B547D800B92663 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,7 +149,9 @@
 			files = (
 				638F7FF629B547D800B92663 /* ViewController.swift in Sources */,
 				638F800629B5507A00B92663 /* MiniGameViewController.swift in Sources */,
+				633142F029B576E1002AFC17 /* Setting.swift in Sources */,
 				638F7FF229B547D800B92663 /* AppDelegate.swift in Sources */,
+				633142EF29B576E1002AFC17 /* Player.swift in Sources */,
 				638F7FF429B547D800B92663 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

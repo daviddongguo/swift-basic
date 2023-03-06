@@ -22,8 +22,8 @@ struct Player {
 }
 
 var players: [Player] = [
-    .init("King", type: 0),
-    .init("Horse", type: 1),
-    .init("Queen", type: 2),
-    .init("Knight", type: 3),
+    .init("Please", type: 0),
+    .init("Enter", type: 1),
+    .init("Your", type: 2),
+    .init("Name", type: 3),
 ]
