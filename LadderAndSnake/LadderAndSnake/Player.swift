@@ -7,14 +7,15 @@
 struct Player {
     var name: String
     let type: Int
-    var position: Int = 0
+    var position: Int
     var isWin: Bool {
-        return self.position == Setting.boardSize
+        return position == Setting.boardSize
     }
     
     init(_ name: String, type: Int, position: Int = 1) {
         self.name = name
         self.type = type
+        self.position = position
     }
     mutating func moveTo(_ newPosition: Int){
         self.position = newPosition
@@ -25,9 +26,4 @@ struct Player {
     }
 }
 
-var players: [Player] = [
-    .init("Please", type: 0, position: 1),
-    .init("Enter", type: 1, position: 2),
-    .init("Your", type: 2, position: 3),
-    .init("Name", type: 3, position: 4),
-]
+

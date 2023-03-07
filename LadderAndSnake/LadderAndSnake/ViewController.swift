@@ -13,28 +13,27 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var diceContainer: UIView!
     
-    var cellSize: Double = 0
     var diceWidthSize: Double = 0
-    var playerButtons: [UIButton] = []
     var diceButton: UIButton!
     var dice = RandomDice()
-    var currentIndexOfPlayer = 0
     
+    var cellSize: Double = 0
+    var playerButtons: [UIButton] = []
+    var currentIndexOfPlayer = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        cellSize = holder.frame.size.width / 10
         diceWidthSize = diceContainer.frame.size.width
-        
-        for player in players {
-            playerButtons.append(createPlayerButton(n: player.position, type: player.type))
-        }
+        cellSize = holder.frame.size.width / 10
         
         diceButton = createDivce()
-        
+        for player in Setting.playerList {
+            playerButtons.append(createPlayerButton(n: player.position, type: player.type))
+        }
     }
+    
     private func createDivce() -> UIButton {
         let ui = UIButton( frame: CGRect( x: 0, y: 0, width: diceWidthSize, height: diceWidthSize))
         ui.setBackgroundImage(Setting.diceArray[5], for: UIControl.State.normal)
@@ -45,13 +44,14 @@ class ViewController: UIViewController {
     @objc func dicePressed(_ sender: UIButton) {
         print("dice pressed")
         
-        let position = Int.random(in: 1...Setting.maxNumberOfDice)
-        players[currentIndexOfPlayer].moveTo(position)
+        let position = 3
         sender.setBackgroundImage(Setting.diceArray[position - 1], for: UIControl.State.normal)
-        sender.isEnabled = false
         
         
-        if players[currentIndexOfPlayer].isWin {
+        
+        moveOnBoard(playerButtons[currentIndexOfPlayer], position: position)
+        if Setting.playerList[currentIndexOfPlayer].isWin {
+            print(Setting.playerList[currentIndexOfPlayer].isWin)
             sender.isEnabled = false
         }else {
             currentIndexOfPlayer += 1

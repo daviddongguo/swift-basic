@@ -13,7 +13,12 @@ class MiniGameViewController: UIViewController {
     
     @IBOutlet weak var startGameButton: UIButton!
     
-
+    var players: [Player] = [
+        .init("Please", type: 0, position: 1),
+        .init("Enter", type: 1, position: 2),
+        .init("Your", type: 2, position: 3),
+        .init("Name", type: 3, position: 4),
+    ]
     
     var collumnSize: Double = 0
     var rowSize: Double = 0
@@ -30,7 +35,7 @@ class MiniGameViewController: UIViewController {
         collumnSize = loginCard.frame.size.width / 8
         rowSize = loginCard.frame.size.height / 8
         
-//        startGameButton.isEnabled = false
+        //        startGameButton.isEnabled = false
         
         seleted2playersButton = createSelectButton1()
         seleted4playersButton = createSelectButton2()
@@ -361,8 +366,17 @@ class MiniGameViewController: UIViewController {
     }
     
     @objc func startGameButtonPressed(_ sender: UIButton) {
+        Setting.playerList =  [
+            .init("Please", type: 0, position: 1),
+            .init("Enter", type: 1, position: 2),
+            .init("Your", type: 2, position: 3),
+            .init("Name", type: 3, position: 4),
+        ]
         for subview in loginCard.subviews {
             subview.removeFromSuperview()
+        }
+        for p in Setting.playerList {
+            print(p.description.debugDescription)
         }
     }
 }

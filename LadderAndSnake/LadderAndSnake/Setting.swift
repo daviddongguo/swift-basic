@@ -24,4 +24,5 @@ struct Setting {
         UIImage(named: "number05"),
         UIImage(named: "number06"),
     ]
+    static var playerList: [Player] = []
 }
