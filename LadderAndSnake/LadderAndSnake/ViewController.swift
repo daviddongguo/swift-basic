@@ -13,28 +13,30 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var diceContainer: UIView!
     
-    var diceWidthSize: Double = 0
-    var diceButton: UIButton!
     var dice = RandomDice()
     var map = Board().map
-    
-    var cellSize: Double = 0
-    var playerButtons: [UIButton] = []
     var currentIndex = 0
     var players: [Player] = []
+    // goto line 49
+        
+    
+    var diceWidthSize: Double = 0
+    var diceButton: UIButton!
+    var cellSize: Double = 0
+    var playerButtons: [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        diceWidthSize = diceContainer.frame.size.width
-        cellSize = holder.frame.size.width / 10
-        
-        diceButton = createDivce()
         for player in Setting.playerList {
             playerButtons.append(createPlayerButton(n: player.position, type: player.type))
             players.append(player)
         }
+        
+        diceWidthSize = diceContainer.frame.size.width
+        cellSize = holder.frame.size.width / 10
+        diceButton = createDivce()
     }
     
     private func createDivce() -> UIButton {
