@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     var cellSize: Double = 0
     var position: Int = 1
     var playerButtons: [UIButton] = []
+    var dice = RandomDice()
     
     
     override func viewDidLoad() {
@@ -26,7 +27,19 @@ class ViewController: UIViewController {
         for player in players {
             playerButtons.append(createPlayerButton(n: player.position, type: player.type, cellSize: cellSize))
         }
+        diceView.addTarget(self, action: #selector(dicePressed),  for: .touchUpInside)
         
+    }
+    
+    @objc func dicePressed(_ sender: UIButton) {
+        let position = Int.random(in: 1...Setting.maxNumberOfDice)
+        players[i].moveTo(position)
+        sender.setBackgroundImage(Setting.diceArray[position - 1], for: UIControl.State.normal)
+        sender.isEnabled = false
+        
+        // disable enter player name
+        textFields[i].backgroundColor = .yellow
+        textFields[i].isEnabled = false
     }
     
     
