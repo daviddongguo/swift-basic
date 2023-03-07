@@ -50,12 +50,15 @@ class ViewController: UIViewController {
         
         moveOnBoard(playerButtons[currentIndexOfPlayer], position: players[currentIndexOfPlayer].position)
         
-        if Setting.playerList[currentIndexOfPlayer].isWin {
-            print(Setting.playerList[currentIndexOfPlayer].isWin)
+        playerButtons[currentIndexOfPlayer].backgroundColor = UIColor.clear
+        
+        if players[currentIndexOfPlayer].isWin {
+            print(players[currentIndexOfPlayer].isWin)
             sender.isEnabled = false
         }else {
             currentIndexOfPlayer += 1
             currentIndexOfPlayer = currentIndexOfPlayer % Setting.numberOfPlayers
+            playerButtons[currentIndexOfPlayer].backgroundColor = .black
         }
     }
     
