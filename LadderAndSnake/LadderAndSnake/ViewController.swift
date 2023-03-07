@@ -49,7 +49,6 @@ class ViewController: UIViewController {
         
         var debuggingMsg = "\(players[currentIndex].name) get \(step) steps from  \(players[currentIndex].position)"
         
-        
         sender.setBackgroundImage(Setting.diceArray[step - 1], for: UIControl.State.normal)
         
         var position: Int = players[currentIndex].position + step
@@ -62,8 +61,8 @@ class ViewController: UIViewController {
                 break
             }
         }
-        
         print(debuggingMsg)
+        
         players[currentIndex].moveTo(position)
         moveOnBoard(playerButtons[currentIndex], position: players[currentIndex].position)
         
