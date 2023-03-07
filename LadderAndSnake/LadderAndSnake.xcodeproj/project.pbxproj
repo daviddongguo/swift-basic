@@ -21,6 +21,7 @@
 		63D5B18529B6B585006E4B98 /* RandomDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D5B18229B6B585006E4B98 /* RandomDice.swift */; };
 		63D5B18629B6B585006E4B98 /* Rollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D5B18329B6B585006E4B98 /* Rollable.swift */; };
 		63D5B18729B6B585006E4B98 /* MagicDice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D5B18429B6B585006E4B98 /* MagicDice.swift */; };
+		FCFCFBD429B6F9DA0069AE19 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCFCFBD329B6F9DA0069AE19 /* Board.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		63D5B18229B6B585006E4B98 /* RandomDice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RandomDice.swift; path = ../../DiceCommandLineGame/CommandLineProject/RandomDice.swift; sourceTree = "<group>"; };
 		63D5B18329B6B585006E4B98 /* Rollable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Rollable.swift; path = ../../DiceCommandLineGame/CommandLineProject/Rollable.swift; sourceTree = "<group>"; };
 		63D5B18429B6B585006E4B98 /* MagicDice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MagicDice.swift; path = ../../DiceCommandLineGame/CommandLineProject/MagicDice.swift; sourceTree = "<group>"; };
+		FCFCFBD329B6F9DA0069AE19 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Board.swift; path = "../../../../../../../Users/map07/Documents/donguo/swift-basic/LadderAndSnake/LadderAndSnake/Board.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				63D5B18429B6B585006E4B98 /* MagicDice.swift */,
 				63D5B18229B6B585006E4B98 /* RandomDice.swift */,
 				63D5B18329B6B585006E4B98 /* Rollable.swift */,
+				FCFCFBD329B6F9DA0069AE19 /* Board.swift */,
 			);
 			path = LadderAndSnake;
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 			files = (
 				63D5B18129B6B549006E4B98 /* DiceGame.swift in Sources */,
 				63D5B17F29B6B50C006E4B98 /* MiniDiceGame.swift in Sources */,
+				FCFCFBD429B6F9DA0069AE19 /* Board.swift in Sources */,
 				63D5B18529B6B585006E4B98 /* RandomDice.swift in Sources */,
 				638F7FF629B547D800B92663 /* ViewController.swift in Sources */,
 				63D5B18729B6B585006E4B98 /* MagicDice.swift in Sources */,
