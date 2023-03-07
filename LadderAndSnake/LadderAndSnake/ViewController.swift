@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         for player in Setting.playerList {
-            playerButtons.append(createPlayerButton(n: player.position, type: player.type))
+            playerButtons.append(createPlayerButton(n: player.position, type: player.type, name: player.name))
             players.append(player)
         }
         
@@ -108,7 +108,7 @@ class ViewController: UIViewController {
     }
     
     
-    private func createPlayerButton(n: Int, type: Int) -> UIButton {
+    private func createPlayerButton(n: Int, type: Int, name: String) -> UIButton {
         let image = Setting.palyerImages[type]
         let x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
         let y = 9 - (n - 1) / 10
@@ -118,6 +118,7 @@ class ViewController: UIViewController {
                 y: cellSize * Double(y),
                 width: cellSize,
                 height: cellSize))
+        button.setTitle(name, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.setBackgroundImage(image, for: UIControl.State.normal)
         button.layer.borderWidth = 2

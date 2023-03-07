@@ -23,10 +23,10 @@ class MiniGameViewController: UIViewController {
     
     
     var initPlayers: [Player] = [
-        .init("Please", type: 0, position: 0),
-        .init("Enter", type: 1, position: 0),
-        .init("Your", type: 2, position: 0),
-        .init("Name", type: 3, position: 0),
+        .init("King", type: 0, position: 0),
+        .init("Horse", type: 1, position: 0),
+        .init("Quee", type: 2, position: 0),
+        .init("Knight", type: 3, position: 0),
     ]
     
     var names: [String] = ["King", "Horse", "Queen", "Knight"]
@@ -334,6 +334,12 @@ class MiniGameViewController: UIViewController {
                 dices[0].isEnabled = true
                 dices[1].isEnabled = true
             }else{
+                if let name = textFields[0].text {
+                    initPlayers[0].name = name
+                }
+                if let name = textFields[1].text {
+                    initPlayers[1].name = name
+                }
                 if initPlayers[0].position > initPlayers[1].position {
                     finallist.append(initPlayers[0])
                     finallist.append(initPlayers[1])
