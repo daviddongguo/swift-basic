@@ -11,31 +11,17 @@ class MiniGameViewController: UIViewController {
     
     @IBOutlet var loginCard: UIView!
     
+    @IBOutlet weak var startGameButton: UIButton!
     
-    var numberOfPlayers: Int = 4
-    private let palyerImages: [UIImage?] = [
-        UIImage(named: "king.png"),
-        UIImage(named: "horse"),
-        UIImage(named: "queen"),
-        UIImage(named: "knight")]
-    let diceArray = [
-        UIImage(named: "number01"),
-        UIImage(named: "number02"),
-        UIImage(named: "number03"),
-        UIImage(named: "number04"),
-        UIImage(named: "number05"),
-        UIImage(named: "number06"),
-    ]
+
     
     var collumnSize: Double = 0
     var rowSize: Double = 0
     
     var seleted2playersButton: UIButton?
     var seleted4playersButton: UIButton?
-    var textField1: UITextField?
-    var textField2: UITextField?
-    var textField3: UITextField?
-    var textField4: UITextField?
+    var textFields: [UITextField] = []
+    var dices: [UIButton] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,12 +29,22 @@ class MiniGameViewController: UIViewController {
         // Do any additional setup after loading the view.
         collumnSize = loginCard.frame.size.width / 8
         rowSize = loginCard.frame.size.height / 8
+        
+        startGameButton.isEnabled = false
+        
         seleted2playersButton = createSelectButton1()
         seleted4playersButton = createSelectButton2()
-        textField1 = createTextField1()
-        textField2 = createTextField2()
-        textField3 = createTextField3()
-        textField4 = createTextField4()
+        
+        textFields.append(createTextField1())
+        textFields.append(createTextField2())
+        textFields.append(createTextField3())
+        textFields.append(createTextField4())
+        
+        dices.append(createDivce(0))
+        dices.append(createDivce(1))
+        dices.append(createDivce(2))
+        dices.append(createDivce(3))
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -66,25 +62,22 @@ class MiniGameViewController: UIViewController {
         
         loginCard.addSubview(seleted2playersButton!)
         loginCard.addSubview(seleted4playersButton!)
-        
         loginCard.addSubview(createPlayer1())
-        loginCard.addSubview(createTextField1())
         loginCard.addSubview(createPlayer2())
-        loginCard.addSubview(createTextField2())
-        loginCard.addSubview(createDivce(0))
-        loginCard.addSubview(createDivce(1))
-        
-        
         loginCard.addSubview(createPlayer3())
-        loginCard.addSubview(createTextField3())
         loginCard.addSubview(createPlayer4())
-        loginCard.addSubview(createTextField4())
+        loginCard.addSubview(textFields[0])
+        loginCard.addSubview(textFields[1])
+        loginCard.addSubview(textFields[2])
+        loginCard.addSubview(textFields[3])
+        loginCard.addSubview(dices[0])
+        loginCard.addSubview(dices[1])
+        loginCard.addSubview(dices[2])
+        loginCard.addSubview(dices[3])
         
-        loginCard.addSubview(createDivce(2))
-        loginCard.addSubview(createDivce(3))
+        startGameButton.addTarget(self, action: #selector(startGameButtonPressed),  for: .touchUpInside)
         
     }
-    
     
     
     private func setupCardWithTwoPlayers() {
@@ -97,25 +90,16 @@ class MiniGameViewController: UIViewController {
         loginCard.addSubview(seleted4playersButton!)
         
         loginCard.addSubview(createPlayer1())
-        loginCard.addSubview(createTextField1())
         loginCard.addSubview(createPlayer2())
-        loginCard.addSubview(createTextField2())
-        loginCard.addSubview(createDivce(0))
-        loginCard.addSubview(createDivce(1))
+        loginCard.addSubview(textFields[0])
+        loginCard.addSubview(textFields[1])
+        loginCard.addSubview(dices[0])
+        loginCard.addSubview(dices[1])
     }
     
-    private func addTwoPlayers() {
-        loginCard.addSubview(createPlayer3())
-        loginCard.addSubview(createTextField3())
-        loginCard.addSubview(createPlayer4())
-        loginCard.addSubview(createTextField4())
-        
-        loginCard.addSubview(createDivce(2))
-        loginCard.addSubview(createDivce(3))
-    }
+    
     
     private func createSelectButton1() -> UIButton {
-        
         let button = UIButton(
             frame: CGRect(
                 x: collumnSize * Double(2),
@@ -134,22 +118,10 @@ class MiniGameViewController: UIViewController {
             button.setAttributedTitle(attrTitle, for: UIControl.State.normal)
         }
         button.tag = 2
-        button.addTarget(self, action: #selector(selectPlayersPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(selectPlayersButtonPressed), for: .touchUpInside)
         return  button
     }
-    @objc func selectPlayersPressed(_ sender: UIButton) {
-        numberOfPlayers = sender.tag
-        if(numberOfPlayers == 2){
-            setupCardWithTwoPlayers()
-            seleted2playersButton?.backgroundColor = .white
-            seleted4playersButton?.backgroundColor = .darkGray
-        }else{
-            setupCard()
-            seleted4playersButton?.backgroundColor = .white
-            seleted2playersButton?.backgroundColor = .darkGray
-        }
-        
-    }
+    
     
     private func createSelectButton2() -> UIButton {
         
@@ -170,7 +142,7 @@ class MiniGameViewController: UIViewController {
             button.setAttributedTitle(attrTitle, for: UIControl.State.normal)
         }
         button.tag = 4
-        button.addTarget(self, action: #selector(selectPlayersPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(selectPlayersButtonPressed), for: .touchUpInside)
         return  button
     }
     
@@ -190,35 +162,23 @@ class MiniGameViewController: UIViewController {
     }
     
     private func createTextField1() -> UITextField {
-        let textField = UITextField(
+        let ui = UITextField(
             frame: CGRect(
                 x: collumnSize * Double(0.5),
                 y: rowSize * Double(4.5),
                 width: collumnSize,
                 height: rowSize * Double(0.6)))
-        textField.backgroundColor = .white
-        textField.textAlignment = .center
-        textField.attributedPlaceholder = NSAttributedString(
+        ui.backgroundColor = .white
+        ui.textAlignment = .center
+        ui.attributedPlaceholder = NSAttributedString(
             string: players[0].name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
-        return  textField
+        return  ui
     }
     
     
-    private func createDivce(_ i: Int) -> UIButton {
-        
-        let player = UIButton(
-            frame: CGRect(
-                x: collumnSize * Double(0.7 + 2.0 * Double(i)),
-                y: rowSize * Double(6),
-                width: collumnSize * Double(0.6),
-                height: collumnSize * Double(0.6)))
-        player.setTitleColor(.black, for: .normal)
-        player.setBackgroundImage(diceArray[i], for: UIControl.State.normal)
-        
-        return  player
-    }
+    
     
     
     
@@ -238,19 +198,19 @@ class MiniGameViewController: UIViewController {
     }
     
     private func createTextField2() -> UITextField {
-        let textField = UITextField(
+        let ui = UITextField(
             frame: CGRect(
                 x: collumnSize * Double(2.5),
                 y: rowSize * Double(4.5),
                 width: collumnSize,
                 height: rowSize * Double(0.6)))
-        textField.backgroundColor = .white
-        textField.textAlignment = .center
-        textField.attributedPlaceholder = NSAttributedString(
+        ui.backgroundColor = .white
+        ui.textAlignment = .center
+        ui.attributedPlaceholder = NSAttributedString(
             string: players[1].name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
-        return  textField
+        return  ui
     }
     
     
@@ -271,19 +231,19 @@ class MiniGameViewController: UIViewController {
     }
     
     private func createTextField3() -> UITextField {
-        let textField = UITextField(
+        let ui = UITextField(
             frame: CGRect(
                 x: collumnSize * Double(4.5),
                 y: rowSize * Double(4.5),
                 width: collumnSize,
                 height: rowSize * Double(0.6)))
-        textField.backgroundColor = .white
-        textField.textAlignment = .center
-        textField.attributedPlaceholder = NSAttributedString(
+        ui.backgroundColor = .white
+        ui.textAlignment = .center
+        ui.attributedPlaceholder = NSAttributedString(
             string: players[2].name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
-        return  textField
+        return  ui
     }
     
     
@@ -307,19 +267,102 @@ class MiniGameViewController: UIViewController {
     }
     
     private func createTextField4() -> UITextField {
-        let textField = UITextField(
+        let ui = UITextField(
             frame: CGRect(
                 x: collumnSize * Double(6.5),
                 y: rowSize * Double(4.5),
                 width: collumnSize,
                 height: rowSize * Double(0.6)))
-        textField.backgroundColor = .white
-        textField.textAlignment = .center
-        textField.attributedPlaceholder = NSAttributedString(
+        ui.backgroundColor = .white
+        ui.textAlignment = .center
+        ui.attributedPlaceholder = NSAttributedString(
             string: players[3].name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
-        return  textField
+        return  ui
     }
     
+    private func createDivce(_ i: Int) -> UIButton {
+        let ui = UIButton(
+            frame: CGRect(
+                x: collumnSize * Double(0.7 + 2.0 * Double(i)),
+                y: rowSize * Double(6),
+                width: collumnSize * Double(0.6),
+                height: collumnSize * Double(0.6)))
+        ui.setTitleColor(.black, for: .normal)
+        ui.setBackgroundImage(Setting.diceArray[i], for: UIControl.State.normal)
+        ui.tag = i
+        ui.addTarget(self, action: #selector(diceButtonPressed),  for: .touchUpInside)
+        return  ui
+    }
+    
+    //Actions
+    @objc func diceButtonPressed(_ sender: UIButton) {
+        let i = sender.tag
+        let position = Int.random(in: 1...Setting.maxNumberOfDice)
+        players[i].moveTo(position)
+        sender.setBackgroundImage(Setting.diceArray[position - 1], for: UIControl.State.normal)
+        sender.isEnabled = false
+        
+        // disable enter player name
+        textFields[i].backgroundColor = .yellow
+        textFields[i].isEnabled = false
+        
+        
+        // check the duplicate postion
+        if i == 1  && Setting.numberOfPlayers == 2   && players[0].position == players[1].position {
+            dices[0].isEnabled = true
+            dices[1].isEnabled = true
+        }
+        for i in 0...3 {
+            for j in 0...3 {
+                if(i == j) {
+                    continue
+                }
+                if(players[i].position == players[j].position) {
+                    dices[i].isEnabled = true
+                    dices[j].isEnabled = true
+                }
+            }
+        }
+        
+        if Setting.numberOfPlayers == 4 {
+            
+        }
+        
+        // ready to start game
+        if(dices[0].isEnabled == false
+           && dices[1].isEnabled == false
+           && dices[2].isEnabled == false
+           && dices[3].isEnabled == false){
+            startGameButton.isEnabled = true
+        }
+        
+        if(Setting.numberOfPlayers == 2
+           && dices[0].isEnabled == false
+           && dices[0].isEnabled == false){
+            startGameButton.isEnabled = true
+        }
+        
+        print(players[i].description)
+    }
+    
+    @objc func selectPlayersButtonPressed(_ sender: UIButton) {
+        Setting.numberOfPlayers = sender.tag
+        if(Setting.numberOfPlayers == 2){
+            setupCardWithTwoPlayers()
+            seleted2playersButton?.backgroundColor = .white
+            seleted4playersButton?.backgroundColor = .darkGray
+        }else{
+            setupCard()
+            seleted4playersButton?.backgroundColor = .white
+            seleted2playersButton?.backgroundColor = .darkGray
+        }
+    }
+    
+    @objc func startGameButtonPressed(_ sender: UIButton) {
+        for subview in loginCard.subviews {
+            subview.removeFromSuperview()
+        }
+    }
 }

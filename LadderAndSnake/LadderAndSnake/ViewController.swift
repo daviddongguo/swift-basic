@@ -14,16 +14,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var diceView: UIView!
     
     let diceArray = [UIImage(named: "number01"), UIImage(named: "number02")]
-    var player: UIButton?
     var cellSize: Double = 0
     var position: Int = 1
+    var playerButtons: [UIButton] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         cellSize = holder.frame.size.width / 10
-        player = createPlayer(n: 18, cellSize: cellSize)
+        for player in players {
+            playerButtons.append(createPlayerButton(n: player.position, type: player.type, cellSize: cellSize))
+        }
         
     }
     
@@ -36,21 +38,22 @@ class ViewController: UIViewController {
     }
     
     private func setupBoardPad() {
-        holder.addSubview(player!)
+        for player in playerButtons {
+        holder.addSubview(player)
+            
+        }
         goButton.addTarget(self, action: #selector(goButtonPressed),  for: .touchUpInside)
     }
     
     @objc func goButtonPressed(_ sender: UIButton) {
-        let start = position + 1
-        position += 6
-        for n in start...position{
-            Task {
-                await moveTo(player!, n: n, cellSize: cellSize)
-            }
+        var step = 6
+        for i in 0..<Setting.numberOfPlayers{
+            players[i].moveTo(players[i].position + step)
+            moveTo(playerButtons[i], n: players[i].position,  cellSize: cellSize)
         }
     }
     
-    @objc func moveTo(_ button: UIButton, n: Int, cellSize: Double) async -> Void {
+    @objc func moveTo(_ button: UIButton, n: Int, cellSize: Double)  {
         print(n)
         let x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
         let y = 9 - (n - 1) / 10
@@ -58,9 +61,9 @@ class ViewController: UIViewController {
     }
     
     
-    private func createPlayer(n: Int, cellSize: Double) -> UIButton {
+    private func createPlayerButton(n: Int, type: Int, cellSize: Double) -> UIButton {
         
-        let image = UIImage(named: "horse.png")
+        let image = Setting.palyerImages[type]
         let x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
         let y = 9 - (n - 1) / 10
         let player = UIButton(
@@ -76,6 +79,6 @@ class ViewController: UIViewController {
         
         return  player
     }
-
+    
 }
 

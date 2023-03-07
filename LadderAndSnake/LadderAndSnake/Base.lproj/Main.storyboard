@@ -25,7 +25,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unc-Xp-TQx">
-                                <rect key="frame" x="628" y="846" width="110.5" height="97"/>
+                                <rect key="frame" x="627.5" y="846" width="111" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="msb-9R-xkl"/>
                                 </constraints>
@@ -62,6 +62,7 @@
                     <navigationItem key="navigationItem" id="og2-uA-L1K"/>
                     <connections>
                         <outlet property="loginCard" destination="zWb-kr-jZI" id="6Yz-Rp-CMD"/>
+                        <outlet property="startGameButton" destination="Unc-Xp-TQx" id="7Wh-gG-SfH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

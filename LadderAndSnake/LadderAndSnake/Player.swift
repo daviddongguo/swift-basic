@@ -5,7 +5,7 @@
 //  Created by map07 on 2023-03-01.
 //
 struct Player {
-    let name: String
+    var name: String
     let type: Int
     var position: Int = 0
     var isWin: Bool {
@@ -18,6 +18,10 @@ struct Player {
     }
     mutating func moveTo(_ newPosition: Int){
         self.position = newPosition
+    }
+    
+    var description: String {
+        return "Player(name: \(name), type: \(type), position: \(position), isWin: \(isWin)"
     }
 }
 
