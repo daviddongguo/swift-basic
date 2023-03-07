@@ -15,7 +15,11 @@ class MiniGameViewController: UIViewController {
     
     var dice = RandomDice()
     var finallist: [Player] = []
+    var tempList: [Player] = []
     // goto line 384
+    
+    var unUsedIndex: [Int] = [0, 1, 2, 3]
+    // goto line 346
     
     
     var initPlayers: [Player] = [
@@ -43,7 +47,7 @@ class MiniGameViewController: UIViewController {
         rowSize = loginCard.frame.size.height / 8
         
         //TODO: disable startGameButton when finish debugging
-        //        startGameButton.isEnabled = false
+        startGameButton.isEnabled = false
         
         seleted2playersButton = createSelectButton1()
         seleted4playersButton = createSelectButton2()
@@ -311,75 +315,103 @@ class MiniGameViewController: UIViewController {
     
     //Actions
     @objc func diceButtonPressed(_ sender: UIButton) {
-        let i = sender.tag
-        let score = dice.roll()
-        initPlayers[i].moveTo(score)
+        let index = sender.tag
+                let score = dice.roll()
+//        let score = 3
+        initPlayers[index].moveTo(score)
         
-        // diable dice button and text field
+        // change dice image on score and disable text field
         sender.setBackgroundImage(Setting.diceArray[score - 1], for: UIControl.State.normal)
         sender.isEnabled = false
-        textFields[i].backgroundColor = .yellow
-        textFields[i].isEnabled = false
+        textFields[index].backgroundColor = .yellow
+        textFields[index].isEnabled = false
         
         
-        var indexs: [Int] = []
-        while finallist.count < Setting.numberOfPlayer {
-            if(!allPlayersRolled()){
-                break
+        // add players into final list
+        // 2 players
+        if(Setting.numberOfPlayer == 2 && allPlayersRolled()){
+            if initPlayers[0].position == initPlayers[1].position {
+                dices[0].isEnabled = true
+                dices[1].isEnabled = true
             }else{
-                for score in stride(from: 6, through: 1, by: -1) {
-                    var count = 0
-                    var index = 0
-                    for i in 0..<initPlayers.count {
-                        if(indexs.contains(i)){
-                            break
-                        }
-                        if(score == initPlayers[i].position) {
-                            if(count == 0){
-                                index = i
-                            }
-                            count += 1
-                        }
-                    }
-                    if(count == 1){
-                        indexs.append(index)
-                        finallist.append(Player( textFields[index].text ?? "\(names[index])", type: index, position: index))
-                        print("list count: \(finallist.count)")
-                    }
+                if initPlayers[0].position > initPlayers[1].position {
+                    finallist.append(initPlayers[0])
+                    finallist.append(initPlayers[1])
+                }else{
+                    finallist.append(initPlayers[1])
+                    finallist.append(initPlayers[0])
                 }
-                
-                for i in 0..<initPlayers.count {
-                    if(!indexs.contains(i)){
-                        dices[i].isEnabled = true
-                    }
-                }
-                break
+                startGameButton.isEnabled = true
             }
         }
         
-        // ready to start game
-        if(dices[0].isEnabled == false
-           && dices[1].isEnabled == false
-           && dices[2].isEnabled == false
-           && dices[3].isEnabled == false){
-            startGameButton.isEnabled = true
-        }
-        
-        if(Setting.numberOfPlayer == 2
-           && dices[0].isEnabled == false
-           && dices[0].isEnabled == false){
-            startGameButton.isEnabled = true
+        // 4 players
+        if Setting.numberOfPlayer == 4 && allPlayersRolled(){
+            if unUsedIndex.isEmpty {
+                startGameButton.isEnabled = true
+            }
+            if unUsedIndex.count == 1 {
+                finallist.append(initPlayers[unUsedIndex[0]])
+                startGameButton.isEnabled = true
+            }
+            
+            // 2 or more players will roll again
+            for score in stride(from: 6, through: 1, by: -1) {
+                var count = 0
+                var indexToRemove: Int?
+                var unDecided: [Int] = []
+                
+                // [0, 1, 2, 3]
+                for indexValue in unUsedIndex {
+                    if(score == initPlayers[indexValue].position) {
+                        if(count == 0){
+                            indexToRemove = indexValue
+                        }
+                        count += 1
+                        unDecided.append(indexValue)
+                    }
+                }
+                if(count == 1 ){
+                    if let unwrapped = indexToRemove {
+                        if let indexOfInUnsedIndex = unUsedIndex.firstIndex(of: unwrapped){
+                            unUsedIndex.remove(at: indexOfInUnsedIndex)
+                            finallist.append(Player( textFields[unwrapped].text ?? "\(names[unwrapped])", type: unwrapped, position: unwrapped))
+                            print("list count: \(finallist.count)")
+                        }
+                    }
+                } // end of add one player
+            }// end of score loop from 6 through 1
+            
+            for i in unUsedIndex {
+                dices[i].isEnabled = true
+                for p in finallist {
+                    print(p.description)
+                }
+            }
         }
         
     }
+    
     fileprivate func allPlayersRolled() -> Bool {
-        for player in initPlayers {
-            if(player.position == 0){
+        for i in 0..<Setting.numberOfPlayer {
+            if initPlayers[i].position == 0 {
                 return false
             }
         }
+        print("All players rolled at first round")
         return true
     }
+    
+    fileprivate func playersContainsNumber() -> Bool {
+        for i in 0..<Setting.numberOfPlayer {
+            if initPlayers[i].name == "0" && initPlayers[i].name == "1" && initPlayers[i].name == "2" && initPlayers[i].name == "3" {
+                return false
+            }
+        }
+        print("All players rolled at first round")
+        return true
+    }
+    
     
     @objc func selectNumberOfplayers(_ sender: UIButton) {
         Setting.numberOfPlayer = sender.tag
@@ -398,17 +430,17 @@ class MiniGameViewController: UIViewController {
     }
     
     @objc func startGameButtonPressed(_ sender: UIButton) {
-        let mocklist = [
-            Player("King", type: 0, position: 0),
-            Player("Horse", type: 1, position: 0),
-            Player("Queen", type: 2, position: 0),
-            Player("Knight", type: 3, position: 0),
-        ]
-//        Setting.playerList = finallist
-        Setting.playerList = mocklist
-        for subview in loginCard.subviews {
-            subview.removeFromSuperview()
-        }
+        //        let mocklist = [
+        //            Player("King", type: 0, position: 0),
+        //            Player("Horse", type: 1, position: 0),
+        //            Player("Queen", type: 2, position: 0),
+        //            Player("Knight", type: 3, position: 0),
+        //        ]
+        //        Setting.playerList = mocklist
+        Setting.playerList = finallist
+        //        for subview in loginCard.subviews {
+        //            subview.removeFromSuperview()
+        //        }
         for var p in Setting.playerList {
             p.moveTo(0)
             print(p.description.debugDescription)
