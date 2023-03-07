@@ -13,15 +13,14 @@ class MiniGameViewController: UIViewController {
     
     @IBOutlet weak var startGameButton: UIButton!
     
-    
     var dice = RandomDice()
-    
-    var players: [Player] = [
+    var initPlayers: [Player] = [
         .init("Please", type: 0, position: 0),
         .init("Enter", type: 1, position: 0),
         .init("Your", type: 2, position: 0),
         .init("Name", type: 3, position: 0),
     ]
+    
     var names: [String] = ["King", "Horse", "Queen", "Knight"]
     var finallist: [Player] = []
     
@@ -118,7 +117,7 @@ class MiniGameViewController: UIViewController {
                 height: rowSize))
         button.setTitleColor(.black, for: .normal)
         button.setTitle("2 Players", for: .normal)
-        button.backgroundColor = .darkGray
+        button.backgroundColor = .white
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.cornerRadius = 8
         
@@ -181,7 +180,7 @@ class MiniGameViewController: UIViewController {
         ui.backgroundColor = .white
         ui.textAlignment = .center
         ui.attributedPlaceholder = NSAttributedString(
-            string: players[0].name,
+            string: initPlayers[0].name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         return  ui
@@ -217,7 +216,7 @@ class MiniGameViewController: UIViewController {
         ui.backgroundColor = .white
         ui.textAlignment = .center
         ui.attributedPlaceholder = NSAttributedString(
-            string: players[1].name,
+            string: initPlayers[1].name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         return  ui
@@ -250,7 +249,7 @@ class MiniGameViewController: UIViewController {
         ui.backgroundColor = .white
         ui.textAlignment = .center
         ui.attributedPlaceholder = NSAttributedString(
-            string: players[2].name,
+            string: initPlayers[2].name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         return  ui
@@ -286,7 +285,7 @@ class MiniGameViewController: UIViewController {
         ui.backgroundColor = .white
         ui.textAlignment = .center
         ui.attributedPlaceholder = NSAttributedString(
-            string: players[3].name,
+            string: initPlayers[3].name,
             attributes: [NSAttributedString.Key.foregroundColor: UIColor.black]
         )
         return  ui
@@ -310,7 +309,7 @@ class MiniGameViewController: UIViewController {
     @objc func diceButtonPressed(_ sender: UIButton) {
         let i = sender.tag
         let score = dice.roll()
-        players[i].moveTo(score)
+        initPlayers[i].moveTo(score)
         
         // diable dice button and text field
         sender.setBackgroundImage(Setting.diceArray[score - 1], for: UIControl.State.normal)
@@ -327,11 +326,11 @@ class MiniGameViewController: UIViewController {
                 for score in stride(from: 6, through: 1, by: -1) {
                     var count = 0
                     var index = 0
-                    for i in 0..<players.count {
+                    for i in 0..<initPlayers.count {
                         if(indexs.contains(i)){
                             break
                         }
-                        if(score == players[i].position) {
+                        if(score == initPlayers[i].position) {
                             if(count == 0){
                                 index = i
                             }
@@ -345,7 +344,7 @@ class MiniGameViewController: UIViewController {
                     }
                 }
                 
-                for i in 0..<players.count {
+                for i in 0..<initPlayers.count {
                     if(!indexs.contains(i)){
                         dices[i].isEnabled = true
                     }
@@ -370,7 +369,7 @@ class MiniGameViewController: UIViewController {
         
     }
     fileprivate func allPlayersRolled() -> Bool {
-        for player in players {
+        for player in initPlayers {
             if(player.position == 0){
                 return false
             }
@@ -382,23 +381,24 @@ class MiniGameViewController: UIViewController {
         Setting.numberOfPlayers = sender.tag
         if(Setting.numberOfPlayers == 2){
             setupCardWithTwoPlayers()
-            seleted2playersButton?.backgroundColor = .white
-            seleted4playersButton?.backgroundColor = .darkGray
+            seleted2playersButton?.isEnabled = false
+            seleted4playersButton?.isEnabled = true
         }else{
             setupCard()
-            seleted4playersButton?.backgroundColor = .white
-            seleted2playersButton?.backgroundColor = .darkGray
+            seleted2playersButton?.isEnabled = true
+            seleted4playersButton?.isEnabled = false
         }
     }
     
     @objc func startGameButtonPressed(_ sender: UIButton) {
-        finallist = [
+        let mocklist = [
             Player("King", type: 0, position: 0),
             Player("Horse", type: 1, position: 0),
             Player("Queen", type: 2, position: 0),
             Player("Knight", type: 3, position: 0),
         ]
-        Setting.playerList = finallist
+//        Setting.playerList = finallist
+        Setting.playerList = mocklist
         for subview in loginCard.subviews {
             subview.removeFromSuperview()
         }
