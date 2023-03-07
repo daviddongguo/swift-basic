@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     var cellSize: Double = 0
     var playerButtons: [UIButton] = []
     var currentIndexOfPlayer = 0
+    var players: [Player] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         diceButton = createDivce()
         for player in Setting.playerList {
             playerButtons.append(createPlayerButton(n: player.position, type: player.type))
+            players.append(player)
         }
     }
     
@@ -42,14 +44,12 @@ class ViewController: UIViewController {
     }
     
     @objc func dicePressed(_ sender: UIButton) {
-        print("dice pressed")
-        
-        let position = 3
+        let position =  dice.roll()
         sender.setBackgroundImage(Setting.diceArray[position - 1], for: UIControl.State.normal)
+        players[currentIndexOfPlayer].moveByStep(position)
         
+        moveOnBoard(playerButtons[currentIndexOfPlayer], position: players[currentIndexOfPlayer].position)
         
-        
-        moveOnBoard(playerButtons[currentIndexOfPlayer], position: position)
         if Setting.playerList[currentIndexOfPlayer].isWin {
             print(Setting.playerList[currentIndexOfPlayer].isWin)
             sender.isEnabled = false

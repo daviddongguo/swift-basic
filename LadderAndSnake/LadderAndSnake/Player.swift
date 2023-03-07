@@ -21,6 +21,10 @@ struct Player {
         self.position = newPosition
     }
     
+    mutating func moveByStep(_ step: Int){
+        self.position += step
+    }
+    
     var description: String {
         return "Player(name: \(name), type: \(type), position: \(position), isWin: \(isWin)"
     }
