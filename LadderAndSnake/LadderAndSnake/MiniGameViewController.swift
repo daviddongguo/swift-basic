@@ -316,8 +316,8 @@ class MiniGameViewController: UIViewController {
     //Actions
     @objc func diceButtonPressed(_ sender: UIButton) {
         let index = sender.tag
-                let score = dice.roll()
-//        let score = 3
+        let score = dice.roll()
+        //        let score = 3
         initPlayers[index].moveTo(score)
         
         // change dice image on score and disable text field
@@ -340,6 +340,8 @@ class MiniGameViewController: UIViewController {
                 if let name = textFields[1].text {
                     initPlayers[1].name = name
                 }
+                initPlayers[0].position = 0
+                initPlayers[1].position = 0
                 if initPlayers[0].position > initPlayers[1].position {
                     finallist.append(initPlayers[0])
                     finallist.append(initPlayers[1])
@@ -394,6 +396,10 @@ class MiniGameViewController: UIViewController {
                     print(p.description)
                 }
             }
+        }
+        
+        if(finallist.count == 4) {
+            startGameButton.isEnabled = true
         }
         
     }
