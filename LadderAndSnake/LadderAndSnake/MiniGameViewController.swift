@@ -319,20 +319,38 @@ class MiniGameViewController: UIViewController {
         textFields[i].isEnabled = false
         
         
+        var indexs: [Int] = []
         while finallist.count < Setting.numberOfPlayers {
             if(!allPlayersRolled()){
                 break
             }else{
-                //                var n: Int = 0
-                for score in stride(from: 6, to: 1, by: -1) {
+                for score in stride(from: 6, through: 1, by: -1) {
+                    var count = 0
+                    var index = 0
                     for i in 0..<players.count {
-                        if(score == players[i].position) {
-                            finallist.append(Player( textFields[i].text ?? "\(names[i])", type: i, position: 0))
-                            print("list count: \(finallist.count)")
+                        if(indexs.contains(i)){
+                            break
                         }
+                        if(score == players[i].position) {
+                            if(count == 0){
+                                index = i
+                            }
+                            count += 1
+                        }
+                    }
+                    if(count == 1){
+                        indexs.append(index)
+                        finallist.append(Player( textFields[index].text ?? "\(names[index])", type: index, position: index))
+                        print("list count: \(finallist.count)")
                     }
                 }
                 
+                for i in 0..<players.count {
+                    if(!indexs.contains(i)){
+                        dices[i].isEnabled = true
+                    }
+                }
+                break
             }
         }
         
@@ -378,7 +396,8 @@ class MiniGameViewController: UIViewController {
         for subview in loginCard.subviews {
             subview.removeFromSuperview()
         }
-        for p in Setting.playerList {
+        for var p in Setting.playerList {
+            p.moveTo(0)
             print(p.description.debugDescription)
         }
     }
