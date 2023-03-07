@@ -14,6 +14,10 @@ class MiniGameViewController: UIViewController {
     @IBOutlet weak var startGameButton: UIButton!
     
     var dice = RandomDice()
+    var finallist: [Player] = []
+    // goto line 384
+    
+    
     var initPlayers: [Player] = [
         .init("Please", type: 0, position: 0),
         .init("Enter", type: 1, position: 0),
@@ -22,7 +26,6 @@ class MiniGameViewController: UIViewController {
     ]
     
     var names: [String] = ["King", "Horse", "Queen", "Knight"]
-    var finallist: [Player] = []
     
     var collumnSize: Double = 0
     var rowSize: Double = 0
@@ -39,6 +42,7 @@ class MiniGameViewController: UIViewController {
         collumnSize = loginCard.frame.size.width / 8
         rowSize = loginCard.frame.size.height / 8
         
+        //TODO: disable startGameButton when finish debugging
         //        startGameButton.isEnabled = false
         
         seleted2playersButton = createSelectButton1()
@@ -127,7 +131,7 @@ class MiniGameViewController: UIViewController {
             button.setAttributedTitle(attrTitle, for: UIControl.State.normal)
         }
         button.tag = 2
-        button.addTarget(self, action: #selector(selectPlayersButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(selectNumberOfplayers), for: .touchUpInside)
         return  button
     }
     
@@ -151,7 +155,7 @@ class MiniGameViewController: UIViewController {
             button.setAttributedTitle(attrTitle, for: UIControl.State.normal)
         }
         button.tag = 4
-        button.addTarget(self, action: #selector(selectPlayersButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(selectNumberOfplayers), for: .touchUpInside)
         return  button
     }
     
@@ -319,7 +323,7 @@ class MiniGameViewController: UIViewController {
         
         
         var indexs: [Int] = []
-        while finallist.count < Setting.numberOfPlayers {
+        while finallist.count < Setting.numberOfPlayer {
             if(!allPlayersRolled()){
                 break
             }else{
@@ -361,7 +365,7 @@ class MiniGameViewController: UIViewController {
             startGameButton.isEnabled = true
         }
         
-        if(Setting.numberOfPlayers == 2
+        if(Setting.numberOfPlayer == 2
            && dices[0].isEnabled == false
            && dices[0].isEnabled == false){
             startGameButton.isEnabled = true
@@ -377,13 +381,16 @@ class MiniGameViewController: UIViewController {
         return true
     }
     
-    @objc func selectPlayersButtonPressed(_ sender: UIButton) {
-        Setting.numberOfPlayers = sender.tag
-        if(Setting.numberOfPlayers == 2){
+    @objc func selectNumberOfplayers(_ sender: UIButton) {
+        Setting.numberOfPlayer = sender.tag
+        if Setting.numberOfPlayer == 2 {
+            print("number of player: \(Setting.numberOfPlayer)")
             setupCardWithTwoPlayers()
             seleted2playersButton?.isEnabled = false
             seleted4playersButton?.isEnabled = true
         }else{
+            // Setting.numberOfPlayers == 4
+            print("number of player: \(Setting.numberOfPlayer)")
             setupCard()
             seleted2playersButton?.isEnabled = true
             seleted4playersButton?.isEnabled = false

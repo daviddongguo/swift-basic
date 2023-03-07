@@ -79,7 +79,7 @@ class ViewController: UIViewController {
             print("\(players[currentIndex].name) position:  \(players[currentIndex].position)")
         }else {
             currentIndex += 1
-            currentIndex = currentIndex % Setting.numberOfPlayers
+            currentIndex = currentIndex % Setting.numberOfPlayer
             playerButtons[currentIndex].backgroundColor = .black
         }
     }
