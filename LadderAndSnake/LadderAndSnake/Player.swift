@@ -12,7 +12,7 @@ struct Player {
         return self.position == Setting.boardSize
     }
     
-    init(_ name: String, type: Int) {
+    init(_ name: String, type: Int, position: Int = 1) {
         self.name = name
         self.type = type
     }
@@ -26,8 +26,8 @@ struct Player {
 }
 
 var players: [Player] = [
-    .init("Please", type: 0),
-    .init("Enter", type: 1),
-    .init("Your", type: 2),
-    .init("Name", type: 3),
+    .init("Please", type: 0, position: 1),
+    .init("Enter", type: 1, position: 2),
+    .init("Your", type: 2, position: 3),
+    .init("Name", type: 3, position: 4),
 ]

@@ -30,7 +30,7 @@ class MiniGameViewController: UIViewController {
         collumnSize = loginCard.frame.size.width / 8
         rowSize = loginCard.frame.size.height / 8
         
-        startGameButton.isEnabled = false
+//        startGameButton.isEnabled = false
         
         seleted2playersButton = createSelectButton1()
         seleted4playersButton = createSelectButton2()

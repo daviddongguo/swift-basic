@@ -10,10 +10,13 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var holder: UIView!
-    @IBOutlet weak var diceButton: UIButton!
+    
+    @IBOutlet weak var diceContainer: UIView!
     
     var cellSize: Double = 0
+    var diceWidthSize: Double = 0
     var playerButtons: [UIButton] = []
+    var diceButton: UIButton!
     var dice = RandomDice()
     var currentIndexOfPlayer = 0
     
@@ -23,16 +26,24 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         cellSize = holder.frame.size.width / 10
+        diceWidthSize = diceContainer.frame.size.width
+        
         for player in players {
             playerButtons.append(createPlayerButton(n: player.position, type: player.type))
         }
         
-        diceButton.setBackgroundImage(Setting.diceArray[5], for: UIControl.State.normal)
-        diceButton.addTarget(self, action: #selector(dicePressed),  for: .touchUpInside)
+        diceButton = createDivce()
         
+    }
+    private func createDivce() -> UIButton {
+        let ui = UIButton( frame: CGRect( x: 0, y: 0, width: diceWidthSize, height: diceWidthSize))
+        ui.setBackgroundImage(Setting.diceArray[5], for: UIControl.State.normal)
+        ui.addTarget(self, action: #selector(dicePressed),  for: .touchUpInside)
+        return  ui
     }
     
     @objc func dicePressed(_ sender: UIButton) {
+        print("dice pressed")
         
         let position = Int.random(in: 1...Setting.maxNumberOfDice)
         players[currentIndexOfPlayer].moveTo(position)
@@ -57,13 +68,13 @@ class ViewController: UIViewController {
     }
     
     private func setupBoardPad() {
-        for player in playerButtons {
-        holder.addSubview(player)
-            
+        for button in playerButtons {
+            holder.addSubview(button)
         }
+        diceContainer.addSubview(diceButton)
     }
     
-
+    
     
     @objc func moveOnBoard(_ button: UIButton, position: Int)  {
         print(position)
