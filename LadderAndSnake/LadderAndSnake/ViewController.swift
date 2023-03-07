@@ -10,36 +10,42 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var holder: UIView!
-    @IBOutlet weak var goButton: UIButton!
-    @IBOutlet weak var diceView: UIView!
+    @IBOutlet weak var diceButton: UIButton!
     
-    let diceArray = [UIImage(named: "number01"), UIImage(named: "number02")]
     var cellSize: Double = 0
-    var position: Int = 1
     var playerButtons: [UIButton] = []
     var dice = RandomDice()
+    var currentIndexOfPlayer = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view.
         cellSize = holder.frame.size.width / 10
         for player in players {
-            playerButtons.append(createPlayerButton(n: player.position, type: player.type, cellSize: cellSize))
+            playerButtons.append(createPlayerButton(n: player.position, type: player.type))
         }
-        diceView.addTarget(self, action: #selector(dicePressed),  for: .touchUpInside)
+        
+        diceButton.setBackgroundImage(Setting.diceArray[5], for: UIControl.State.normal)
+        diceButton.addTarget(self, action: #selector(dicePressed),  for: .touchUpInside)
         
     }
     
     @objc func dicePressed(_ sender: UIButton) {
+        
         let position = Int.random(in: 1...Setting.maxNumberOfDice)
-        players[i].moveTo(position)
+        players[currentIndexOfPlayer].moveTo(position)
         sender.setBackgroundImage(Setting.diceArray[position - 1], for: UIControl.State.normal)
         sender.isEnabled = false
         
-        // disable enter player name
-        textFields[i].backgroundColor = .yellow
-        textFields[i].isEnabled = false
+        
+        if players[currentIndexOfPlayer].isWin {
+            sender.isEnabled = false
+        }else {
+            currentIndexOfPlayer += 1
+            currentIndexOfPlayer = currentIndexOfPlayer % Setting.numberOfPlayers
+        }
     }
     
     
@@ -55,42 +61,34 @@ class ViewController: UIViewController {
         holder.addSubview(player)
             
         }
-        goButton.addTarget(self, action: #selector(goButtonPressed),  for: .touchUpInside)
     }
     
-    @objc func goButtonPressed(_ sender: UIButton) {
-        var step = 6
-        for i in 0..<Setting.numberOfPlayers{
-            players[i].moveTo(players[i].position + step)
-            moveTo(playerButtons[i], n: players[i].position,  cellSize: cellSize)
-        }
-    }
+
     
-    @objc func moveTo(_ button: UIButton, n: Int, cellSize: Double)  {
-        print(n)
-        let x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
-        let y = 9 - (n - 1) / 10
+    @objc func moveOnBoard(_ button: UIButton, position: Int)  {
+        print(position)
+        let x = ((position - 1) / 10 % 2 == 0) ? (position - 1) % 10 : 9 - (position - 1) % 10
+        let y = 9 - (position - 1) / 10
         button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
     }
     
     
-    private func createPlayerButton(n: Int, type: Int, cellSize: Double) -> UIButton {
-        
+    private func createPlayerButton(n: Int, type: Int) -> UIButton {
         let image = Setting.palyerImages[type]
         let x = ((n - 1) / 10 % 2 == 0) ? (n - 1) % 10 : 9 - (n - 1) % 10
         let y = 9 - (n - 1) / 10
-        let player = UIButton(
+        let button = UIButton(
             frame: CGRect(
                 x: cellSize * Double(x),
                 y: cellSize * Double(y),
                 width: cellSize,
                 height: cellSize))
-        player.setTitleColor(.black, for: .normal)
-        player.setBackgroundImage(image, for: UIControl.State.normal)
-        player.layer.borderWidth = 2
-        player.layer.borderColor = UIColor.black.cgColor
+        button.setTitleColor(.black, for: .normal)
+        button.setBackgroundImage(image, for: UIControl.State.normal)
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.black.cgColor
         
-        return  player
+        return  button
     }
     
 }
