@@ -13,12 +13,17 @@ class MiniGameViewController: UIViewController {
     
     @IBOutlet weak var startGameButton: UIButton!
     
+    
+    var dice = RandomDice()
+    
     var players: [Player] = [
-        .init("Please", type: 0, position: 1),
-        .init("Enter", type: 1, position: 2),
-        .init("Your", type: 2, position: 3),
-        .init("Name", type: 3, position: 4),
+        .init("Please", type: 0, position: 0),
+        .init("Enter", type: 1, position: 0),
+        .init("Your", type: 2, position: 0),
+        .init("Name", type: 3, position: 0),
     ]
+    var names: [String] = ["King", "Horse", "Queen", "Knight"]
+    var finallist: [Player] = []
     
     var collumnSize: Double = 0
     var rowSize: Double = 0
@@ -258,7 +263,7 @@ class MiniGameViewController: UIViewController {
     
     private func createPlayer4() -> UIButton {
         
-        let image = UIImage(named: "queen.png")
+        let image = UIImage(named: "knight.png")
         let player = UIButton(
             frame: CGRect(
                 x: collumnSize * Double(6.5),
@@ -304,35 +309,31 @@ class MiniGameViewController: UIViewController {
     //Actions
     @objc func diceButtonPressed(_ sender: UIButton) {
         let i = sender.tag
-        let position = Int.random(in: 1...Setting.maxNumberOfDice)
-        players[i].moveTo(position)
-        sender.setBackgroundImage(Setting.diceArray[position - 1], for: UIControl.State.normal)
-        sender.isEnabled = false
+        let score = dice.roll()
+        players[i].moveTo(score)
         
-        // disable enter player name
+        // diable dice button and text field
+        sender.setBackgroundImage(Setting.diceArray[score - 1], for: UIControl.State.normal)
+        sender.isEnabled = false
         textFields[i].backgroundColor = .yellow
         textFields[i].isEnabled = false
         
         
-        // check the duplicate postion
-        if i == 1  && Setting.numberOfPlayers == 2   && players[0].position == players[1].position {
-            dices[0].isEnabled = true
-            dices[1].isEnabled = true
-        }
-        for i in 0...3 {
-            for j in 0...3 {
-                if(i == j) {
-                    continue
+        while finallist.count < Setting.numberOfPlayers {
+            if(!allPlayersRolled()){
+                break
+            }else{
+                //                var n: Int = 0
+                for score in stride(from: 6, to: 1, by: -1) {
+                    for i in 0..<players.count {
+                        if(score == players[i].position) {
+                            finallist.append(Player( textFields[i].text ?? "\(names[i])", type: i, position: 0))
+                            print("list count: \(finallist.count)")
+                        }
+                    }
                 }
-                if(players[i].position == players[j].position) {
-                    dices[i].isEnabled = true
-                    dices[j].isEnabled = true
-                }
+                
             }
-        }
-        
-        if Setting.numberOfPlayers == 4 {
-            
         }
         
         // ready to start game
@@ -349,7 +350,14 @@ class MiniGameViewController: UIViewController {
             startGameButton.isEnabled = true
         }
         
-        print(players[i].description)
+    }
+    fileprivate func allPlayersRolled() -> Bool {
+        for player in players {
+            if(player.position == 0){
+                return false
+            }
+        }
+        return true
     }
     
     @objc func selectPlayersButtonPressed(_ sender: UIButton) {
@@ -366,12 +374,7 @@ class MiniGameViewController: UIViewController {
     }
     
     @objc func startGameButtonPressed(_ sender: UIButton) {
-        Setting.playerList =  [
-            .init("King", type: 0, position: 0),
-            .init("Horse", type: 1, position: 0),
-            .init("Queen", type: 2, position: 0),
-            .init("Knight", type: 3, position: 0),
-        ]
+        Setting.playerList = finallist
         for subview in loginCard.subviews {
             subview.removeFromSuperview()
         }
