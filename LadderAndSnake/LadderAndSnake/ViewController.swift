@@ -47,12 +47,15 @@ class ViewController: UIViewController {
     @objc func dicePressed(_ sender: UIButton) {
         let step =  dice.roll()
         
-        var debuggingMsg = "\(players[currentIndex].name) get \(step) steps from  \(players[currentIndex].position)"
-        
+        // change dice background image on step
         sender.setBackgroundImage(Setting.diceArray[step - 1], for: UIControl.State.normal)
         
+        // move current player position
+        var debuggingMsg = "\(players[currentIndex].name) get \(step) steps from  \(players[currentIndex].position)"
         var position: Int = players[currentIndex].position + step
         debuggingMsg += " move to \(position)"
+        
+        // continue move on the map of board
         while true {
             if let unwrapped = map[position] {
                 position = unwrapped
@@ -63,11 +66,12 @@ class ViewController: UIViewController {
         }
         print(debuggingMsg)
         
+        // move the icon of the current player on board
         players[currentIndex].moveTo(position)
         moveOnBoard(playerButtons[currentIndex], position: players[currentIndex].position)
-        
         playerButtons[currentIndex].backgroundColor = UIColor.clear
         
+        // prepare for the next player
         if players[currentIndex].isWin {
             sender.isEnabled = false
             print("\(players[currentIndex].name) position:  \(players[currentIndex].position)")
