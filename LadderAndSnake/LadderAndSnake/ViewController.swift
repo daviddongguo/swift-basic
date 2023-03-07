@@ -16,10 +16,11 @@ class ViewController: UIViewController {
     var diceWidthSize: Double = 0
     var diceButton: UIButton!
     var dice = RandomDice()
+    var map = Board().map
     
     var cellSize: Double = 0
     var playerButtons: [UIButton] = []
-    var currentIndexOfPlayer = 0
+    var currentIndex = 0
     var players: [Player] = []
     
     override func viewDidLoad() {
@@ -44,21 +45,37 @@ class ViewController: UIViewController {
     }
     
     @objc func dicePressed(_ sender: UIButton) {
-        let position =  dice.roll()
-        sender.setBackgroundImage(Setting.diceArray[position - 1], for: UIControl.State.normal)
-        players[currentIndexOfPlayer].moveByStep(position)
+        let step =  dice.roll()
         
-        moveOnBoard(playerButtons[currentIndexOfPlayer], position: players[currentIndexOfPlayer].position)
+        print("\(players[currentIndex].name): \(players[currentIndex].position)")
+        print("step: \(step)")
         
-        playerButtons[currentIndexOfPlayer].backgroundColor = UIColor.clear
+        sender.setBackgroundImage(Setting.diceArray[step - 1], for: UIControl.State.normal)
         
-        if players[currentIndexOfPlayer].isWin {
-            print(players[currentIndexOfPlayer].isWin)
+        var position: Int = players[currentIndex].position + step
+        print("position : \(position)")
+        while true {
+            if let unwrapped = map[position] {
+                position = unwrapped
+                print("move... : \(position)")
+            }else {
+                break
+            }
+        }
+        
+        
+        players[currentIndex].moveTo(position)
+        
+        moveOnBoard(playerButtons[currentIndex], position: players[currentIndex].position)
+        
+        playerButtons[currentIndex].backgroundColor = UIColor.clear
+        
+        if players[currentIndex].isWin {
             sender.isEnabled = false
         }else {
-            currentIndexOfPlayer += 1
-            currentIndexOfPlayer = currentIndexOfPlayer % Setting.numberOfPlayers
-            playerButtons[currentIndexOfPlayer].backgroundColor = .black
+            currentIndex += 1
+            currentIndex = currentIndex % Setting.numberOfPlayers
+            playerButtons[currentIndex].backgroundColor = .black
         }
     }
     
@@ -80,7 +97,6 @@ class ViewController: UIViewController {
     
     
     @objc func moveOnBoard(_ button: UIButton, position: Int)  {
-        print(position)
         let x = ((position - 1) / 10 % 2 == 0) ? (position - 1) % 10 : 9 - (position - 1) % 10
         let y = 9 - (position - 1) / 10
         button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )

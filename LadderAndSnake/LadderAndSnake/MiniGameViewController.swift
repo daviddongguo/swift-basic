@@ -367,10 +367,10 @@ class MiniGameViewController: UIViewController {
     
     @objc func startGameButtonPressed(_ sender: UIButton) {
         Setting.playerList =  [
-            .init("Please", type: 0, position: 1),
-            .init("Enter", type: 1, position: 2),
-            .init("Your", type: 2, position: 3),
-            .init("Name", type: 3, position: 4),
+            .init("King", type: 0, position: 0),
+            .init("Horse", type: 1, position: 0),
+            .init("Queen", type: 2, position: 0),
+            .init("Knight", type: 3, position: 0),
         ]
         for subview in loginCard.subviews {
             subview.removeFromSuperview()
