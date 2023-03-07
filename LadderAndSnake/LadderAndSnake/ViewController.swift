@@ -47,31 +47,31 @@ class ViewController: UIViewController {
     @objc func dicePressed(_ sender: UIButton) {
         let step =  dice.roll()
         
-        print("\(players[currentIndex].name): \(players[currentIndex].position)")
-        print("step: \(step)")
+        var debuggingMsg = "\(players[currentIndex].name) get \(step) steps from  \(players[currentIndex].position)"
+        
         
         sender.setBackgroundImage(Setting.diceArray[step - 1], for: UIControl.State.normal)
         
         var position: Int = players[currentIndex].position + step
-        print("position : \(position)")
+        debuggingMsg += " move to \(position)"
         while true {
             if let unwrapped = map[position] {
                 position = unwrapped
-                print("move... : \(position)")
+                debuggingMsg += " move to \(position)"
             }else {
                 break
             }
         }
         
-        
+        print(debuggingMsg)
         players[currentIndex].moveTo(position)
-        
         moveOnBoard(playerButtons[currentIndex], position: players[currentIndex].position)
         
         playerButtons[currentIndex].backgroundColor = UIColor.clear
         
         if players[currentIndex].isWin {
             sender.isEnabled = false
+            print("\(players[currentIndex].name) position:  \(players[currentIndex].position)")
         }else {
             currentIndex += 1
             currentIndex = currentIndex % Setting.numberOfPlayers
