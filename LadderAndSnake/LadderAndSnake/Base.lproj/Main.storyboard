@@ -78,15 +78,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snakes-ladders-board-bg" translatesAutoresizingMaskIntoConstraints="NO" id="gEG-c5-u82" userLabel="board">
-                                <rect key="frame" x="203" y="4" width="960" height="960"/>
+                                <rect key="frame" x="203" y="32" width="960" height="960"/>
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="gEG-c5-u82" secondAttribute="height" multiplier="1:1" id="4Ix-ZU-kuB"/>
                                     <constraint firstAttribute="width" constant="960" id="51Q-Ds-en8"/>
                                     <constraint firstAttribute="height" constant="960" id="wOa-8K-yO4"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8x-UR-XDb">
-                                <rect key="frame" x="1171" y="844" width="120" height="120"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p8x-UR-XDb">
+                                <rect key="frame" x="1171" y="452" width="120" height="120"/>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="6Hu-Xk-z67"/>
@@ -97,9 +98,9 @@
                         <viewLayoutGuide key="safeArea" id="kiR-RG-Rqq"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="kiR-RG-Rqq" firstAttribute="bottom" secondItem="gEG-c5-u82" secondAttribute="bottom" constant="40" id="A4B-ua-gnY"/>
                             <constraint firstItem="kiR-RG-Rqq" firstAttribute="bottom" secondItem="p8x-UR-XDb" secondAttribute="bottom" constant="40" id="BGt-6V-dFm"/>
                             <constraint firstItem="gEG-c5-u82" firstAttribute="centerX" secondItem="zYD-do-ioI" secondAttribute="centerX" id="CFG-ih-kN4"/>
+                            <constraint firstItem="gEG-c5-u82" firstAttribute="centerY" secondItem="zYD-do-ioI" secondAttribute="centerY" id="Pab-Vc-R3U"/>
                             <constraint firstItem="p8x-UR-XDb" firstAttribute="leading" secondItem="gEG-c5-u82" secondAttribute="trailing" constant="8" id="evk-TT-s27"/>
                         </constraints>
                     </view>
