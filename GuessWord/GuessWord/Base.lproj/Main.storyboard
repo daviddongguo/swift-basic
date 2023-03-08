@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8kx-vA-MKG">
-                                <rect key="frame" x="0.0" y="24" width="820" height="1156"/>
+                                <rect key="frame" x="0.0" y="24" width="820" height="1240"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A32-ZH-D7x" userLabel="Tree">
-                                        <rect key="frame" x="0.0" y="0.0" width="820" height="380"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="820" height="408"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree" translatesAutoresizingMaskIntoConstraints="NO" id="ZEV-7H-EV3" userLabel="Tree">
-                                                <rect key="frame" x="-614" y="0.0" width="2048" height="380"/>
+                                                <rect key="frame" x="-614" y="0.0" width="2048" height="408"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,9 +35,9 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKW-Nv-SlP">
-                                        <rect key="frame" x="0.0" y="388" width="820" height="380"/>
+                                        <rect key="frame" x="0.0" y="416" width="820" height="408"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mgs-Eh-OsU" userLabel="Stack">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="mgs-Eh-OsU" userLabel="Stack">
                                                 <rect key="frame" x="20" y="20" width="780" height="360"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="PjQ-w8-zNw">
@@ -199,11 +199,13 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="mgs-Eh-OsU" firstAttribute="leading" secondItem="MKW-Nv-SlP" secondAttribute="leading" constant="20" id="DOI-Sg-Bya"/>
+                                            <constraint firstItem="mgs-Eh-OsU" firstAttribute="top" secondItem="MKW-Nv-SlP" secondAttribute="top" constant="20" id="Zeq-7y-niV"/>
                                             <constraint firstAttribute="trailing" secondItem="mgs-Eh-OsU" secondAttribute="trailing" constant="20" id="aSh-Cq-KF1"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="mgs-Eh-OsU" secondAttribute="bottom" constant="20" id="epm-Mw-Z1J"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKf-1y-XZq" userLabel="ScoreLabel">
-                                        <rect key="frame" x="0.0" y="776" width="820" height="380"/>
+                                        <rect key="frame" x="0.0" y="832" width="820" height="408"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="c9Z-at-irF">
                                                 <rect key="frame" x="253" y="40" width="314" height="90"/>
@@ -240,7 +242,6 @@
                             <constraint firstItem="8kx-vA-MKG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3fD-aj-Tvk"/>
                             <constraint firstItem="8kx-vA-MKG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4g4-Ta-7RM"/>
                             <constraint firstAttribute="trailing" secondItem="8kx-vA-MKG" secondAttribute="trailing" id="aiV-4P-8MC"/>
-                            <constraint firstAttribute="bottom" secondItem="8kx-vA-MKG" secondAttribute="bottom" id="kly-2c-Ybe"/>
                         </constraints>
                     </view>
                 </viewController>
