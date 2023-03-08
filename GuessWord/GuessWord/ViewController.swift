@@ -9,7 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let word = "apple"
+    let words: [String] = ["dolby", "vision", "animal", "sounds", "colorfully", "dynamic"]
+    let n: Int = 0
+    var word: String!
     var incorrectMoveRemaining = 5
     var wons = 0
     var losses = 0
@@ -25,9 +27,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        word = words[0]
         for button in letterButtons {
             button.addTarget(self, action: #selector(letterPressed),  for: .touchUpInside)
         }
+        updateGameStatus()
     }
     
     @objc func letterPressed(_ sender: UIButton) {
@@ -44,10 +48,13 @@ class ViewController: UIViewController {
             losses += 1
             incorrectMoveRemaining -= 1
         }
-        formattedWordForRrepsentation()
+        updateGameStatus()
+        if(validate()){
+            print("you win")
+        }
     }
     
-    fileprivate func formattedWordForRrepsentation() {
+    fileprivate func updateGameStatus() {
         var formatetedWord = ""
         for letter in word {
             if guessedLettersArray.contains(letter) {
@@ -60,6 +67,10 @@ class ViewController: UIViewController {
         }
         resultLabel.text = formatetedWord
         scoreLable.text = "Wins: \(wons) / Losses: \(losses)"
+    }
+    
+    fileprivate func validate() -> Bool {
+        return !(resultLabel.text?.contains("_") ?? false)
     }
 }
 
