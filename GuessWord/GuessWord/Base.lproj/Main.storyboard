@@ -75,8 +75,43 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="3yy-iT-Bbd">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="TLt-CX-7mB">
                                                         <rect key="frame" x="0.0" y="91.5" width="780" height="85.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbp-7w-p70">
+                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="85.5"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="G"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahu-DX-s5c">
+                                                                <rect key="frame" x="131" y="0.0" width="125" height="85.5"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="H"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmQ-Zy-4cS">
+                                                                <rect key="frame" x="262" y="0.0" width="125" height="85.5"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="I"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVl-yY-kuH">
+                                                                <rect key="frame" x="393" y="0.0" width="125" height="85.5"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="J"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atm-5j-SYR">
+                                                                <rect key="frame" x="524" y="0.0" width="125" height="85.5"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="K"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-3z-ET5">
+                                                                <rect key="frame" x="655" y="0.0" width="125" height="85.5"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="filled" title="L"/>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="3yy-iT-Bbd">
+                                                        <rect key="frame" x="0.0" y="183" width="780" height="85.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AU-Yr-PeN">
                                                                 <rect key="frame" x="0.0" y="0.0" width="125" height="85.5"/>
@@ -111,7 +146,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="xWM-HO-mcB">
-                                                        <rect key="frame" x="0.0" y="183" width="780" height="85.5"/>
+                                                        <rect key="frame" x="0.0" y="274.5" width="780" height="85.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgK-W1-YDe">
                                                                 <rect key="frame" x="0.0" y="0.0" width="92.5" height="85.5"/>
@@ -152,41 +187,6 @@
                                                                 <rect key="frame" x="688" y="0.0" width="92" height="85.5"/>
                                                                 <state key="normal" title="Button"/>
                                                                 <buttonConfiguration key="configuration" style="filled" title="Z"/>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="TLt-CX-7mB">
-                                                        <rect key="frame" x="0.0" y="274.5" width="780" height="85.5"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbp-7w-p70">
-                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="85.5"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="filled" title="G"/>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahu-DX-s5c">
-                                                                <rect key="frame" x="131" y="0.0" width="125" height="85.5"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="filled" title="H"/>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XmQ-Zy-4cS">
-                                                                <rect key="frame" x="262" y="0.0" width="125" height="85.5"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="filled" title="I"/>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xVl-yY-kuH">
-                                                                <rect key="frame" x="393" y="0.0" width="125" height="85.5"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="filled" title="J"/>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="atm-5j-SYR">
-                                                                <rect key="frame" x="524" y="0.0" width="125" height="85.5"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="filled" title="K"/>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9U-3z-ET5">
-                                                                <rect key="frame" x="655" y="0.0" width="125" height="85.5"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="filled" title="L"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
@@ -244,6 +244,36 @@
                             <constraint firstAttribute="trailing" secondItem="8kx-vA-MKG" secondAttribute="trailing" id="aiV-4P-8MC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="resultLabel" destination="wv0-dV-gu0" id="eBs-aD-NlR"/>
+                        <outlet property="scoreLable" destination="Gik-6J-KPn" id="Wzg-6n-BU4"/>
+                        <outletCollection property="letterButtons" destination="CG5-EL-KSy" collectionClass="NSMutableArray" id="gql-uB-L2h"/>
+                        <outletCollection property="letterButtons" destination="ERU-9S-e3o" collectionClass="NSMutableArray" id="TKc-CY-2y0"/>
+                        <outletCollection property="letterButtons" destination="xJO-iH-qZK" collectionClass="NSMutableArray" id="PHJ-Hy-L6X"/>
+                        <outletCollection property="letterButtons" destination="nGd-EO-Sok" collectionClass="NSMutableArray" id="s0v-FU-jun"/>
+                        <outletCollection property="letterButtons" destination="IXP-9U-fmk" collectionClass="NSMutableArray" id="5L9-Ys-Qqs"/>
+                        <outletCollection property="letterButtons" destination="nFY-v2-asT" collectionClass="NSMutableArray" id="LRY-dN-18q"/>
+                        <outletCollection property="letterButtons" destination="2AU-Yr-PeN" collectionClass="NSMutableArray" id="zgS-iS-cye"/>
+                        <outletCollection property="letterButtons" destination="f02-0j-wCt" collectionClass="NSMutableArray" id="agf-ZF-bnC"/>
+                        <outletCollection property="letterButtons" destination="yIh-gz-NVH" collectionClass="NSMutableArray" id="Z3c-9c-97P"/>
+                        <outletCollection property="letterButtons" destination="oM1-SG-f05" collectionClass="NSMutableArray" id="4Uo-Ya-eO6"/>
+                        <outletCollection property="letterButtons" destination="nBV-wI-2Zn" collectionClass="NSMutableArray" id="g10-lT-TNO"/>
+                        <outletCollection property="letterButtons" destination="TAE-bd-QOo" collectionClass="NSMutableArray" id="vVs-SX-Eh4"/>
+                        <outletCollection property="letterButtons" destination="kgK-W1-YDe" collectionClass="NSMutableArray" id="NYs-l8-aaR"/>
+                        <outletCollection property="letterButtons" destination="lP3-Lb-0Cu" collectionClass="NSMutableArray" id="NlV-tr-HQP"/>
+                        <outletCollection property="letterButtons" destination="k4A-CH-zZJ" collectionClass="NSMutableArray" id="Agq-5u-qv9"/>
+                        <outletCollection property="letterButtons" destination="TR5-gD-4U6" collectionClass="NSMutableArray" id="Mbf-eg-lIx"/>
+                        <outletCollection property="letterButtons" destination="eMd-5r-xoj" collectionClass="NSMutableArray" id="h18-fu-29C"/>
+                        <outletCollection property="letterButtons" destination="5kJ-nX-8gR" collectionClass="NSMutableArray" id="dNm-VI-ZpP"/>
+                        <outletCollection property="letterButtons" destination="vVq-cu-gJM" collectionClass="NSMutableArray" id="fOb-QT-Z7q"/>
+                        <outletCollection property="letterButtons" destination="T9h-CB-Vp6" collectionClass="NSMutableArray" id="wZ7-y4-Dc8"/>
+                        <outletCollection property="letterButtons" destination="Gbp-7w-p70" collectionClass="NSMutableArray" id="Wey-hO-8Vr"/>
+                        <outletCollection property="letterButtons" destination="ahu-DX-s5c" collectionClass="NSMutableArray" id="7eY-On-R1J"/>
+                        <outletCollection property="letterButtons" destination="XmQ-Zy-4cS" collectionClass="NSMutableArray" id="hE5-hn-Nhn"/>
+                        <outletCollection property="letterButtons" destination="xVl-yY-kuH" collectionClass="NSMutableArray" id="8Wa-Xb-0tA"/>
+                        <outletCollection property="letterButtons" destination="atm-5j-SYR" collectionClass="NSMutableArray" id="crD-vT-SOC"/>
+                        <outletCollection property="letterButtons" destination="W9U-3z-ET5" collectionClass="NSMutableArray" id="LVw-Nc-29u"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
