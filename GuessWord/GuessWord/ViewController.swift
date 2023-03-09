@@ -16,8 +16,17 @@ class ViewController: UIViewController {
     var wons = 0
     var losses = 0
     var guessedLettersArray: [Character] = []
+    let appleTreeImages = [
+        UIImage(named: "appleTree00"),
+        UIImage(named: "appleTree01"),
+        UIImage(named: "appleTree02"),
+        UIImage(named: "appleTree03"),
+        UIImage(named: "appleTree04"),
+        UIImage(named: "appleTree05"),
+    ]
     
-
+    @IBOutlet weak var treeView: UIImageView!
+    
     @IBOutlet weak var scoreLable: UILabel!
     
     @IBOutlet weak var resultLabel: UILabel!
@@ -65,8 +74,18 @@ class ViewController: UIViewController {
             }
             formatetedWord += " "
         }
+        treeView.image = appleTreeImages[incorrectMoveRemaining]
         resultLabel.text = formatetedWord
         scoreLable.text = "Wins: \(wons) / Losses: \(losses)"
+        if(incorrectMoveRemaining <= 0){
+            disableLetterButtons()
+        }
+    }
+    
+    fileprivate func disableLetterButtons() {
+        for button in letterButtons {
+            button.isEnabled = false
+        }
     }
     
     fileprivate func validate() -> Bool {

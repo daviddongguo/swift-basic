@@ -247,6 +247,7 @@
                     <connections>
                         <outlet property="resultLabel" destination="wv0-dV-gu0" id="eBs-aD-NlR"/>
                         <outlet property="scoreLable" destination="Gik-6J-KPn" id="Wzg-6n-BU4"/>
+                        <outlet property="treeView" destination="ZEV-7H-EV3" id="Uap-Ju-eeW"/>
                         <outletCollection property="letterButtons" destination="CG5-EL-KSy" collectionClass="NSMutableArray" id="gql-uB-L2h"/>
                         <outletCollection property="letterButtons" destination="ERU-9S-e3o" collectionClass="NSMutableArray" id="TKc-CY-2y0"/>
                         <outletCollection property="letterButtons" destination="xJO-iH-qZK" collectionClass="NSMutableArray" id="PHJ-Hy-L6X"/>
