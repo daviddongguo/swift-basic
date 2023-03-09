@@ -246,9 +246,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="idO-zX-QQx"/>
                     <connections>
-                        <outlet property="resultLabel" destination="wv0-dV-gu0" id="eBs-aD-NlR"/>
+                        <outlet property="correctWordLabel" destination="wv0-dV-gu0" id="eBs-aD-NlR"/>
                         <outlet property="scoreLable" destination="Gik-6J-KPn" id="Wzg-6n-BU4"/>
-                        <outlet property="treeView" destination="ZEV-7H-EV3" id="Uap-Ju-eeW"/>
+                        <outlet property="treeImageView" destination="ZEV-7H-EV3" id="Uap-Ju-eeW"/>
                         <outletCollection property="letterButtons" destination="5kJ-nX-8gR" collectionClass="NSMutableArray" id="dNm-VI-ZpP"/>
                         <outletCollection property="letterButtons" destination="T9h-CB-Vp6" collectionClass="NSMutableArray" id="wZ7-y4-Dc8"/>
                         <outletCollection property="letterButtons" destination="Gbp-7w-p70" collectionClass="NSMutableArray" id="Wey-hO-8Vr"/>
@@ -281,21 +281,6 @@
             </objects>
             <point key="canvasLocation" x="804.14634146341461" y="-2.0338983050847457"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Xpi-V9-sYF">
-            <objects>
-                <viewController id="6Pm-RT-yRj" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="r9P-wV-ebd">
-                        <rect key="frame" x="0.0" y="0.0" width="820" height="1180"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="mPo-gm-Zl0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2kQ-xR-ihB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1528" y="-2"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="bqc-kp-zI9">
             <objects>
@@ -317,9 +302,6 @@
     </scenes>
     <resources>
         <image name="tree" width="2048" height="2048"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

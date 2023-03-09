@@ -30,6 +30,7 @@ struct Game {
             guessedLettersArray.append(letter)
         } else {
             incorrectMovesRemaining -= 1
+            print("incorrectMovesRemaining: \(incorrectMovesRemaining)")
         }
     }
 }

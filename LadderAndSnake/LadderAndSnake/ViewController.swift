@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     var currentIndex = 0
     var players: [Player] = []
     // goto line 49
-        
+    
     
     var diceWidthSize: Double = 0
     var diceButton: UIButton!
@@ -52,32 +52,32 @@ class ViewController: UIViewController {
         let move: Int =  dice.roll()
         let start: Int = players[currentIndex].position
         
-        // change dice background image on step
+        // change dice background image on move
         sender.setBackgroundImage(Setting.diceArray[move - 1], for: UIControl.State.normal)
         
         // move current player position
         var debuggingMsg = "\(players[currentIndex].name) get \(move) steps from  \(players[currentIndex].position)"
+        print(debuggingMsg)
         var end: Int = players[currentIndex].position + move
         
         for step in start...end {
             moveOnBoard(playerButtons[currentIndex], to: step)
+            sleep(1)
         }
-        debuggingMsg += " move to \(end)"
         
         // continue move on the map of board
         while true {
             if let unwrapped = map[end] {
                 end = unwrapped
-                debuggingMsg += " move to \(end)"
+                moveOnBoard(playerButtons[currentIndex], to: end)
             }else {
                 break
             }
         }
-        print(debuggingMsg)
         
         // move the icon of the current player on board
         players[currentIndex].moveTo(end)
-        moveOnBoard(playerButtons[currentIndex], to: players[currentIndex].position)
+        //        moveOnBoard(playerButtons[currentIndex], to: players[currentIndex].position)
         playerButtons[currentIndex].backgroundColor = UIColor.clear
         
         // prepare for the next player
@@ -105,7 +105,7 @@ class ViewController: UIViewController {
         }
         for i in 0..<Setting.numberOfPlayer {
             moveOnBoard(playerButtons[i], to: players[i].position )
-//            holder.addSubview(playerButton)
+            //            holder.addSubview(playerButton)
         }
         diceContainer.addSubview(diceButton)
     }
@@ -117,17 +117,26 @@ class ViewController: UIViewController {
         
         let endX = ((end - 1) / 10 % 2 == 0) ? (end - 1) % 10 : 9 - (end - 1) % 10
         let endY = 9 - (end - 1) / 10
-//        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
+        //        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
         
         // define animator here
-        var animator = UIViewPropertyAnimator(duration: 1, curve: .linear) {
-            [unowned self, button] in
-//            button.center.x = self.view.frame.width
-        button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
-//            button.frame = button.frame.offsetBy(dx: 0, dy: 300)
-//            button.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
-        }
-        animator.startAnimation()
+        //        var animator = UIViewPropertyAnimator(0.3, delay: 0.0, curve: .linear) {
+        //            [unowned self, button] in
+        //            button.center.x = self.view.frame.width
+        //        button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
+        //            button.frame = button.frame.offsetBy(dx: 0, dy: 300)
+        //            button.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
+        //        }
+        //
+        //        animator.startAnimation()
+        
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5,
+                                                       delay: 0, options: [],
+                                                       animations: {
+            [self] in
+            button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize )
+        })
+        print("move to \(end)")
     }
     
     
