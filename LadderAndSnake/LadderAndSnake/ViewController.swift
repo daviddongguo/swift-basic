@@ -57,14 +57,18 @@ class ViewController: UIViewController {
         
         // move current player position
         var debuggingMsg = "\(players[currentIndex].name) get \(move) steps from  \(players[currentIndex].position)"
-        var position: Int = players[currentIndex].position + move
-        debuggingMsg += " move to \(position)"
+        var end: Int = players[currentIndex].position + move
+        
+        for step in start...end {
+            moveOnBoard(playerButtons[currentIndex], to: step)
+        }
+        debuggingMsg += " move to \(end)"
         
         // continue move on the map of board
         while true {
-            if let unwrapped = map[position] {
-                position = unwrapped
-                debuggingMsg += " move to \(position)"
+            if let unwrapped = map[end] {
+                end = unwrapped
+                debuggingMsg += " move to \(end)"
             }else {
                 break
             }
@@ -72,7 +76,7 @@ class ViewController: UIViewController {
         print(debuggingMsg)
         
         // move the icon of the current player on board
-        players[currentIndex].moveTo(position)
+        players[currentIndex].moveTo(end)
         moveOnBoard(playerButtons[currentIndex], to: players[currentIndex].position)
         playerButtons[currentIndex].backgroundColor = UIColor.clear
         
@@ -116,7 +120,7 @@ class ViewController: UIViewController {
 //        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
         
         // define animator here
-        var animator = UIViewPropertyAnimator(duration: 0.2, curve: .linear) {
+        var animator = UIViewPropertyAnimator(duration: 1, curve: .linear) {
             [unowned self, button] in
 //            button.center.x = self.view.frame.width
         button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
