@@ -25,7 +25,6 @@ class ViewController: UIViewController {
     var cellSize: Double = 0
     var playerButtons: [UIButton] = []
     
-    var animator: UIViewPropertyAnimator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +39,6 @@ class ViewController: UIViewController {
         cellSize = holder.frame.size.width / 10
         diceButton = createDivce()
         
-        var button = playerButtons[0]
-        animator = UIViewPropertyAnimator(duration: 2, curve: .easeInOut) {
-            [unowned self, button] in
-            button.center.x = self.view.frame.width
-            button.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
-        }
     }
     
     private func createDivce() -> UIButton {
@@ -56,14 +49,15 @@ class ViewController: UIViewController {
     }
     
     @objc func dicePressed(_ sender: UIButton) {
-        let step =  dice.roll()
+        let move: Int =  dice.roll()
+        let start: Int = players[currentIndex].position
         
         // change dice background image on step
-        sender.setBackgroundImage(Setting.diceArray[step - 1], for: UIControl.State.normal)
+        sender.setBackgroundImage(Setting.diceArray[move - 1], for: UIControl.State.normal)
         
         // move current player position
-        var debuggingMsg = "\(players[currentIndex].name) get \(step) steps from  \(players[currentIndex].position)"
-        var position: Int = players[currentIndex].position + step
+        var debuggingMsg = "\(players[currentIndex].name) get \(move) steps from  \(players[currentIndex].position)"
+        var position: Int = players[currentIndex].position + move
         debuggingMsg += " move to \(position)"
         
         // continue move on the map of board
@@ -79,7 +73,7 @@ class ViewController: UIViewController {
         
         // move the icon of the current player on board
         players[currentIndex].moveTo(position)
-        moveOnBoard(playerButtons[currentIndex], position: players[currentIndex].position)
+        moveOnBoard(playerButtons[currentIndex], to: players[currentIndex].position)
         playerButtons[currentIndex].backgroundColor = UIColor.clear
         
         // prepare for the next player
@@ -105,17 +99,30 @@ class ViewController: UIViewController {
         for button in playerButtons {
             holder.addSubview(button)
         }
+        for i in 0..<Setting.numberOfPlayer {
+            moveOnBoard(playerButtons[i], to: players[i].position )
+//            holder.addSubview(playerButton)
+        }
         diceContainer.addSubview(diceButton)
     }
     
     
     
-    @objc func moveOnBoard(_ button: UIButton, position: Int)  {
-        let x = ((position - 1) / 10 % 2 == 0) ? (position - 1) % 10 : 9 - (position - 1) % 10
-        let y = 9 - (position - 1) / 10
-        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
+    @objc func moveOnBoard(_ button: UIButton, to end: Int)  {
+        
+        
+        let endX = ((end - 1) / 10 % 2 == 0) ? (end - 1) % 10 : 9 - (end - 1) % 10
+        let endY = 9 - (end - 1) / 10
+//        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
         
         // define animator here
+        var animator = UIViewPropertyAnimator(duration: 0.2, curve: .linear) {
+            [unowned self, button] in
+//            button.center.x = self.view.frame.width
+        button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
+//            button.frame = button.frame.offsetBy(dx: 0, dy: 300)
+//            button.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
+        }
         animator.startAnimation()
     }
     

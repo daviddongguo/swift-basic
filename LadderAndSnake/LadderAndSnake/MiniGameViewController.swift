@@ -443,10 +443,10 @@ class MiniGameViewController: UIViewController {
     
     @objc func startGameButtonPressed(_ sender: UIButton) {
                 let mocklist = [
-                    Player("King", type: 0, position: 0),
-                    Player("Horse", type: 1, position: 0),
-                    Player("Queen", type: 2, position: 0),
-                    Player("Knight", type: 3, position: 0),
+                    Player("King", type: 0, position: 1),
+                    Player("Horse", type: 1, position: 2),
+                    Player("Queen", type: 2, position: 3),
+                    Player("Knight", type: 3, position: 4),
                 ]
                 Setting.playerList = mocklist
 //        Setting.playerList = finallist
@@ -454,7 +454,6 @@ class MiniGameViewController: UIViewController {
         //            subview.removeFromSuperview()
         //        }
         for var p in Setting.playerList {
-            p.moveTo(0)
             print(p.description.debugDescription)
         }
     }
