@@ -25,6 +25,8 @@ class ViewController: UIViewController {
     var cellSize: Double = 0
     var playerButtons: [UIButton] = []
     
+    var animator: UIViewPropertyAnimator!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +39,13 @@ class ViewController: UIViewController {
         diceWidthSize = diceContainer.frame.size.width
         cellSize = holder.frame.size.width / 10
         diceButton = createDivce()
+        
+        var button = playerButtons[0]
+        animator = UIViewPropertyAnimator(duration: 2, curve: .easeInOut) {
+            [unowned self, button] in
+            button.center.x = self.view.frame.width
+            button.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
+        }
     }
     
     private func createDivce() -> UIButton {
@@ -105,6 +114,9 @@ class ViewController: UIViewController {
         let x = ((position - 1) / 10 % 2 == 0) ? (position - 1) % 10 : 9 - (position - 1) % 10
         let y = 9 - (position - 1) / 10
         button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
+        
+        // define animator here
+        animator.startAnimation()
     }
     
     

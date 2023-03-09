@@ -47,7 +47,7 @@ class MiniGameViewController: UIViewController {
         rowSize = loginCard.frame.size.height / 8
         
         //TODO: disable startGameButton when finish debugging
-        startGameButton.isEnabled = false
+//        startGameButton.isEnabled = false
         
         seleted2playersButton = createSelectButton1()
         seleted4playersButton = createSelectButton2()
@@ -442,14 +442,14 @@ class MiniGameViewController: UIViewController {
     }
     
     @objc func startGameButtonPressed(_ sender: UIButton) {
-        //        let mocklist = [
-        //            Player("King", type: 0, position: 0),
-        //            Player("Horse", type: 1, position: 0),
-        //            Player("Queen", type: 2, position: 0),
-        //            Player("Knight", type: 3, position: 0),
-        //        ]
-        //        Setting.playerList = mocklist
-        Setting.playerList = finallist
+                let mocklist = [
+                    Player("King", type: 0, position: 0),
+                    Player("Horse", type: 1, position: 0),
+                    Player("Queen", type: 2, position: 0),
+                    Player("Knight", type: 3, position: 0),
+                ]
+                Setting.playerList = mocklist
+//        Setting.playerList = finallist
         //        for subview in loginCard.subviews {
         //            subview.removeFromSuperview()
         //        }
