@@ -90,7 +90,7 @@ class ViewController: UIViewController {
         }
     }
     
-
+    
     
     
     override func viewDidLayoutSubviews() {
@@ -111,35 +111,35 @@ class ViewController: UIViewController {
         diceContainer.addSubview(diceButton)
     }
     
-//    func moveByStep(_ button: UIButton,from start: Int, to end: Int, completion: @escaping () -> Void) {
-//
-//        guard start < end else { return completion()}
-//
-//        let endX = ((end - 1) / 10 % 2 == 0) ? (end - 1) % 10 : 9 - (end - 1) % 10
-//        let endY = 9 - (end - 1) / 10
-//        UIViewPropertyAnimator
-//            .runningPropertyAnimator(
-//                withDuration: 0.1,
-//                delay: 0.2,
-//                options: [],
-//                animations: {
-//                    [self] in {
-//                        print("move to \(end)")
-//                        button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize )
-//                    }
-//                },
-//                completion: completion
-//            )
-//    }
-//
-//    @objc func move(_ button: UIButton,from start: Int, to end: Int) {
-//        guard start < end  else { return }
-//        moveByStep(button, from: start, to: end) {
-//            self.moveByStep {
-//                move(button, from: start + 1, to: end)
-//            }
-//        }
-//    }
+    //    func moveByStep(_ button: UIButton,from start: Int, to end: Int, completion: @escaping () -> Void) {
+    //
+    //        guard start < end else { return completion()}
+    //
+    //        let endX = ((end - 1) / 10 % 2 == 0) ? (end - 1) % 10 : 9 - (end - 1) % 10
+    //        let endY = 9 - (end - 1) / 10
+    //        UIViewPropertyAnimator
+    //            .runningPropertyAnimator(
+    //                withDuration: 0.1,
+    //                delay: 0.2,
+    //                options: [],
+    //                animations: {
+    //                    [self] in {
+    //                        print("move to \(end)")
+    //                        button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize )
+    //                    }
+    //                },
+    //                completion: completion
+    //            )
+    //    }
+    //
+    //    @objc func move(_ button: UIButton,from start: Int, to end: Int) {
+    //        guard start < end  else { return }
+    //        moveByStep(button, from: start, to: end) {
+    //            self.moveByStep {
+    //                move(button, from: start + 1, to: end)
+    //            }
+    //        }
+    //    }
     
     
     @objc func moveOnBoard(_ button: UIButton, to end: Int) {
@@ -149,30 +149,24 @@ class ViewController: UIViewController {
         let endY = 9 - (end - 1) / 10
         //        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
         
-//         define animator here
-                var animator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
-                    [unowned self, button] in
-                    button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
-                }
+//        var animator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
+//            [unowned self, button] in
+//            button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
+//        }
+//        
+//        animator.startAnimation()
         
-                animator.startAnimation()
+        let viewColorAnimator: UIViewPropertyAnimator = UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 0.4,
+            delay: 0.0,
+            options: [],
+            animations: {[self] in
+                button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize ) },
+            completion: nil
+        )
         
+        viewColorAnimator.startAnimation()
         
-        
-        
-//        UIViewPropertyAnimator
-//            .runningPropertyAnimator(
-//                withDuration: 0.1,
-//                delay: 0.2,
-//                options: [],
-//                animations: {
-//                    [self] in {
-//                        print("move to \(end)")
-//                        button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize )
-//                    }
-//                }
-//                //                completion: completion
-//            )
         
     }
     
