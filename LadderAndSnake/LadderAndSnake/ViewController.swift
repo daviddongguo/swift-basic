@@ -62,7 +62,6 @@ class ViewController: UIViewController {
         
         for step in start...end {
             moveOnBoard(playerButtons[currentIndex], to: step)
-            sleep(1)
         }
         
         // continue move on the map of board
@@ -120,22 +119,19 @@ class ViewController: UIViewController {
         //        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
         
         // define animator here
-        //        var animator = UIViewPropertyAnimator(0.3, delay: 0.0, curve: .linear) {
-        //            [unowned self, button] in
-        //            button.center.x = self.view.frame.width
-        //        button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
-        //            button.frame = button.frame.offsetBy(dx: 0, dy: 300)
-        //            button.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
-        //        }
-        //
-        //        animator.startAnimation()
+        var animator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
+            [unowned self, button] in
+            button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
+        }
         
-        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5,
-                                                       delay: 0, options: [],
-                                                       animations: {
-            [self] in
-            button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize )
-        })
+        animator.startAnimation()
+        
+//        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.5,
+//                                                       delay: 0, options: [],
+//                                                       animations: {
+//            [self] in
+//            button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize )
+//        })
         print("move to \(end)")
     }
     
