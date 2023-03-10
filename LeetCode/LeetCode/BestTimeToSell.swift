@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class Solution {
+class Concatenation {
     
     func maxProfit(_ k: Int, _ prices: [Int]) -> Int {
         var map: [Int : [Int]] = [:]
@@ -61,6 +61,6 @@ class Solution {
 
 
 let prices = [3,2,6,5,0,3]
-let solution = Solution()
+//let solution = Solution1680()
 
 //print(solution.maxProfit(2, prices))
