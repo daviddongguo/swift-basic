@@ -9,12 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let words: [String] = ["dolby", "vision", "animal", "sounds", "colorfully", "dynamic"]
-    let n: Int = 0
-    var word: String!
-    var incorrectMoveRemaining = 5
-    var wons = 0
-    var losses = 0
+    private var currentGame: Game!
+    private var listOfWords: [String] = ["bee", "sheep", "apple", "banana", "lemon", "orange"]
+    var incorrectMovesAllowed = 5
+    var totalWins = 0 {
+        didSet {
+            newRound()
+        }
+    }
+    var totalLosses = 0 {
+        didSet {
+            newRound()
+        }
+    }
+   
     var guessedLettersArray: [Character] = []
     let appleTreeImages = [
         UIImage(named: "appleTree00"),
@@ -25,72 +33,80 @@ class ViewController: UIViewController {
         UIImage(named: "appleTree05"),
     ]
     
-    @IBOutlet weak var treeView: UIImageView!
+    @IBOutlet weak var treeImageView: UIImageView!
     
     @IBOutlet weak var scoreLable: UILabel!
     
-    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var correctWordLabel: UILabel!
     
     @IBOutlet var letterButtons: [UIButton]!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        word = words[0]
         for button in letterButtons {
-            button.addTarget(self, action: #selector(letterPressed),  for: .touchUpInside)
+            button.addTarget(self, action: #selector(buttonPressed),  for: .touchUpInside)
         }
-        updateGameStatus()
+        
+        newRound()
     }
     
-    @objc func letterPressed(_ sender: UIButton) {
-        guard let text = sender.titleLabel?.text?.lowercased() else {
+    fileprivate func newRound() {
+        
+        if !listOfWords.isEmpty {
+            let newWord = listOfWords.removeFirst()
+            currentGame = Game(word: newWord, incorrectMovesRemaining: incorrectMovesAllowed, guessedLettersArray: [])
+            enableLetterButtons(true)
+            updateUI()
+        }else{
+            enableLetterButtons(false)
+        }
+    }
+    
+    fileprivate func enableLetterButtons(_ bool: Bool) {
+        for button in letterButtons {
+            button.isEnabled = bool
+        }
+    }
+    
+    @objc func buttonPressed(_ sender: UIButton) {
+        sender.isEnabled = false
+        
+        // let letterString = sender.title(for: .normal)
+        guard let letterString = sender.titleLabel?.text?.lowercased() else {
             print("no text in this button")
             return
         }
-            print(text)
-        let character = Character(text)
-        if word.contains(character) {
-            wons += 1
-            guessedLettersArray.append(character)
-        }else {
-            losses += 1
-            incorrectMoveRemaining -= 1
+        
+        let letter = Character(letterString)
+        currentGame.validatePlayerGuessed(letter: letter)
+        
+        UpdateGameState()
+ 
+    }
+    fileprivate func updateUI() {
+        var rightLettersArray = [String]()
+        for letter in currentGame.formattedWordForPresentation {
+            rightLettersArray.append(String(letter))
         }
-        updateGameStatus()
-        if(validate()){
-            print("you win")
+        
+        treeImageView.image = appleTreeImages[currentGame.incorrectMovesRemaining]
+        scoreLable.text = "Wins: \(totalWins) / Losses: \(totalLosses)"
+        correctWordLabel.text = rightLettersArray.joined(separator: " ")
+    }
+    
+    fileprivate func UpdateGameState() {
+        if currentGame.incorrectMovesRemaining <= 0 {
+            totalLosses += 1
+        } else if currentGame.word == currentGame.formattedWordForPresentation {
+            totalWins += 1
+        } else {
+            updateUI()
         }
     }
     
-    fileprivate func updateGameStatus() {
-        var formatetedWord = ""
-        for letter in word {
-            if guessedLettersArray.contains(letter) {
-                formatetedWord += String(letter).uppercased()
-            }
-            else {
-                formatetedWord += "_"
-            }
-            formatetedWord += " "
-        }
-        treeView.image = appleTreeImages[incorrectMoveRemaining]
-        resultLabel.text = formatetedWord
-        scoreLable.text = "Wins: \(wons) / Losses: \(losses)"
-        if(incorrectMoveRemaining <= 0){
-            disableLetterButtons()
-        }
-    }
-    
-    fileprivate func disableLetterButtons() {
-        for button in letterButtons {
-            button.isEnabled = false
-        }
-    }
-    
-    fileprivate func validate() -> Bool {
-        return !(resultLabel.text?.contains("_") ?? false)
-    }
+
 }
 
 
