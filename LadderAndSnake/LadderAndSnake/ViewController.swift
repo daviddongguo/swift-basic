@@ -62,6 +62,7 @@ class ViewController: UIViewController {
         
         for step in start...end {
             moveOnBoard(playerButtons[currentIndex], to: step)
+            sleep(1)
         }
         
         // continue move on the map of board
