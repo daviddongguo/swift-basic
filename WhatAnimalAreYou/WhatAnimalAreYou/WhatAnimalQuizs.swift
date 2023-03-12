@@ -13,10 +13,6 @@ var list: [Quiz] = [
          answers: [
             Answer(id: 1,
                    text: "is there a large tree in front of the cottage?",
-                   addLikehood: [
-                    personality.likeOwl(),
-                    personality.likeButterfly()
-                   ]
          ])
 ]
 }
