@@ -16,6 +16,7 @@
 		63A66C2629BD334200591D7E /* Personality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A66C2529BD334200591D7E /* Personality.swift */; };
 		63A66C2829BD377600591D7E /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A66C2729BD377600591D7E /* Quiz.swift */; };
 		63A66C2A29BD3A7300591D7E /* WhatAnimalQuizs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A66C2929BD3A7300591D7E /* WhatAnimalQuizs.swift */; };
+		63FFCD6529BE2F6E000EB677 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFCD6429BE2F6E000EB677 /* ResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		63A66C2529BD334200591D7E /* Personality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Personality.swift; sourceTree = "<group>"; };
 		63A66C2729BD377600591D7E /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		63A66C2929BD3A7300591D7E /* WhatAnimalQuizs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatAnimalQuizs.swift; sourceTree = "<group>"; };
+		63FFCD6429BE2F6E000EB677 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				63A66C1129BD330B00591D7E /* AppDelegate.swift */,
 				63A66C1329BD330B00591D7E /* SceneDelegate.swift */,
 				63A66C1529BD330B00591D7E /* ViewController.swift */,
+				63FFCD6429BE2F6E000EB677 /* ResultViewController.swift */,
 				63A66C1729BD330B00591D7E /* Main.storyboard */,
 				63A66C1A29BD330B00591D7E /* Assets.xcassets */,
 				63A66C1C29BD330B00591D7E /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				63A66C1629BD330B00591D7E /* ViewController.swift in Sources */,
 				63A66C2829BD377600591D7E /* Quiz.swift in Sources */,
+				63FFCD6529BE2F6E000EB677 /* ResultViewController.swift in Sources */,
 				63A66C1229BD330B00591D7E /* AppDelegate.swift in Sources */,
 				63A66C2629BD334200591D7E /* Personality.swift in Sources */,
 				63A66C2A29BD3A7300591D7E /* WhatAnimalQuizs.swift in Sources */,
