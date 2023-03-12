@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RVh-6x-s54">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JNK-qT-jM0">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,96 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Welcome-->
-        <scene sceneID="wBy-4B-rIS">
-            <objects>
-                <viewController title="Welcome" id="RVh-6x-s54" userLabel="Welcome" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SDF-eF-YBI">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="238" translatesAutoresizingMaskIntoConstraints="NO" id="8DC-ur-1is">
-                                <rect key="frame" x="-103.66666666666669" y="126" width="600.33333333333337" height="600"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="260" translatesAutoresizingMaskIntoConstraints="NO" id="0XI-Ry-LER">
-                                        <rect key="frame" x="134.33333333333337" y="0.0" width="332" height="23.666666666666668"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lion" translatesAutoresizingMaskIntoConstraints="NO" id="r91-xb-aiG">
-                                                <rect key="frame" x="0.0" y="0.0" width="36" height="23.666666666666668"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="36" id="dox-ZX-uYj"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lion" translatesAutoresizingMaskIntoConstraints="NO" id="8Sx-VX-O68">
-                                                <rect key="frame" x="296" y="0.0" width="36" height="23.666666666666668"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="36" id="i2y-mv-cNS"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="upP-4w-7gR">
-                                        <rect key="frame" x="163.00000000000003" y="261.66666666666669" width="274.66666666666674" height="77"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Which animal are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTu-cH-kIy">
-                                                <rect key="frame" x="0.0" y="0.0" width="274.66666666666669" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wud-L0-8vU">
-                                                <rect key="frame" x="41.333333333333329" y="77" width="191.66666666666669" height="0.0"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Begin personality quiz">
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="baseBackgroundColor" systemColor="systemOrangeColor"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <segue destination="v5e-R0-Dpg" kind="show" id="L8B-Ps-avO"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="tintColor" systemColor="systemOrangeColor"/>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="260" translatesAutoresizingMaskIntoConstraints="NO" id="yVJ-e2-52u">
-                                        <rect key="frame" x="134.33333333333337" y="576.66666666666663" width="332" height="23.333333333333371"/>
-                                        <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lion" translatesAutoresizingMaskIntoConstraints="NO" id="02i-cb-2iI">
-                                                <rect key="frame" x="0.0" y="0.0" width="36" height="23.333333333333332"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="36" id="vdN-xB-Gli"/>
-                                                </constraints>
-                                            </imageView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lion" translatesAutoresizingMaskIntoConstraints="NO" id="c3b-R5-AgY">
-                                                <rect key="frame" x="296" y="0.0" width="36" height="23.333333333333332"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="36" id="WH1-jZ-oKj"/>
-                                                </constraints>
-                                            </imageView>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" priority="750" constant="600" id="OQQ-iI-Szd"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="P8i-IP-WYD"/>
-                                    <constraint firstAttribute="height" priority="750" constant="300" id="R5z-0f-2qE"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="600" id="d32-3x-AmX"/>
-                                    <constraint firstAttribute="height" priority="750" constant="600" id="eMJ-Bj-5vk"/>
-                                </constraints>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="ZHc-Zl-gzv"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="8DC-ur-1is" firstAttribute="centerX" secondItem="SDF-eF-YBI" secondAttribute="centerX" id="4xf-Fx-1or"/>
-                            <constraint firstItem="8DC-ur-1is" firstAttribute="centerY" secondItem="SDF-eF-YBI" secondAttribute="centerY" id="RQJ-Ly-JMw"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YGb-0C-lCd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="200.76335877862596" y="-80.281690140845072"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="Kmq-vj-D9c">
             <objects>
@@ -289,6 +199,24 @@ You discover a small river running alongside it. \n
             </objects>
             <point key="canvasLocation" x="3124.4274809160306" y="-77.464788732394368"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="vWl-Fr-leb">
+            <objects>
+                <viewController id="JNK-qT-jM0" sceneMemberID="viewController">
+                    <button key="view" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="17K-Yb-CCe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                        <connections>
+                            <segue destination="v5e-R0-Dpg" kind="show" id="hwW-VO-yLc"/>
+                        </connections>
+                    </button>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAA-Ai-o80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="208" y="-70"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jU4-au-GlH">
             <objects>
@@ -310,7 +238,6 @@ You discover a small river running alongside it. \n
         </scene>
     </scenes>
     <resources>
-        <image name="lion" width="863" height="863"/>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
