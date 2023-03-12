@@ -113,7 +113,16 @@ class AnswerNumberValue: Answer {
         default:
             break
         }
+        
+     
+      
+            print("lion: \(personality.lionLikelihood)")
+            print("owl: \(personality.owlLikelihood)")
+            print("dolphin: \(personality.dolphinLikelihood)")
+            print("butterfly: \(personality.butterflyLikelihood)")
+
     }
+  
     
 }
 
@@ -153,10 +162,10 @@ let quiz2 = Quiz(personality: personality,
 
 let quiz3 = Quiz(personality: personality,
                  question: """
-                            You spot a delicate vase filled with freshly picked flowers.
-                            The number of flowers is?
+                            You spot a vase filled with flowers.
+                            The number of flowers is: 
                           """,
-                 answers:  [AnswerNumberValue(personality: personality, id: 0, numberValue: 0, lionRange: 0...24, owlRange: 25...49, dophinRange: 50...74, butterflyRange: 75...100)]     )
+                 answers:  [AnswerNumberValue(personality: personality, id: 0, numberValue: 0, lionRange: 0...3, owlRange: 4...6, dophinRange: 7...9, butterflyRange: 10...12)]     )
 
 let quiz4 = Quiz(personality: personality,
                  question: """
