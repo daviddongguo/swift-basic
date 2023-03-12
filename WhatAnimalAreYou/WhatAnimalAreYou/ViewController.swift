@@ -1,15 +1,14 @@
 //
 //  ViewController.swift
-//  IntroduceViewController
+//  WhatAnimalAreYou
 //
-//  Created by map07 on 2023-03-09.
+//  Created by david on 2023-03-11.
 //
 
 import UIKit
 
 class ViewController: UIViewController {
-     weak var quetion1: UIView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

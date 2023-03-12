@@ -17,9 +17,14 @@ class ViewController: UIViewController {
     var animation_active = false
     let animation_duration = 2 //For easy maintenance
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        let layer = CALayer()
+        layer.backgroundColor = UIColor.systemRed.cgColor
+        layer.frame = CGRect(x: 100, y: 100, width: 120, height: 120)
+        view.layer.addSublayer(layer)
         
         // Slider
         let slider = UISlider()
@@ -29,6 +34,7 @@ class ViewController: UIViewController {
         slider.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         slider.addTarget(self, action: #selector(sliderChanged), for: .valueChanged)
         
+        // Button
         let buttonSize = view.frame.width / 5
         let runButton = UIButton(frame: CGRect(x: 0, y: view.frame.size.height - buttonSize * 5, width: buttonSize * 3, height: buttonSize))
         runButton.setTitle("=", for: .normal)
@@ -39,6 +45,7 @@ class ViewController: UIViewController {
         runButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         view.addSubview(runButton)
         
+        // RedBox
         redBox = UIView(frame: CGRect(x: -64, y: 0, width: 128, height: 128))
         redBox.translatesAutoresizingMaskIntoConstraints = false
         redBox.backgroundColor = UIColor.red
@@ -54,14 +61,29 @@ class ViewController: UIViewController {
         animator1 = UIViewPropertyAnimator(duration: 2, curve: .easeInOut) { [unowned self, redBox] in
             redBox!.center.x = self.view.frame.width
             redBox!.alpha = 0
-//            redBox!.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
+            //            redBox!.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
         }
         animator2 = UIViewPropertyAnimator(duration: 2, curve: .easeInOut) { [unowned self, redBox] in
             redBox!.center.x = self.view.frame.width
             redBox!.alpha = 1
-//            redBox!.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
+            //            redBox!.transform = CGAffineTransform(rotationAngle: CGFloat.pi).scaledBy(x: 0.001, y: 0.001)
         }
         //        animator.startAnimation()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0 ) {self.animateMovement(layer)}
+        
+    }
+    
+    func animateMovement(_ layer: CALayer) {
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.fromValue = CGPoint(x: layer.frame.origin.x + layer.frame.width / 2, y: layer.frame.origin.y)
+        animation.toValue = CGPoint(x: 300, y: 400)
+        animation.duration = 2
+        animation.fillMode = .forwards
+        animation.isRemovedOnCompletion = false
+        animation.beginTime = CACurrentMediaTime()
+        layer.add(animation, forKey: nil)
+        
         
     }
     
@@ -74,62 +96,42 @@ class ViewController: UIViewController {
     
     @objc func buttonPressed(_ sender: UIButton) {
         animator1.startAnimation()
-//        fadeSequence(redBox, repeat: 3)
-    }
-    func swipe_down() {
-        if animation_active == false {
-            animation_active == true
-            //Animation code goes here. Variable 'animation_active' should be used when performing the animation for easy matinence
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(animation_duration), execute: {
-                self.animator1!.startAnimation()
-                self.animation_active = false
-            })
-        }
-    }
-     
-
-    func swipe_up() { //This is exactly the same as swipe_up. Yet it will prevent the swipe animation from occuring when the swipe down animation is occuruing thanks to the variable 'animation_active'
-        if animation_active == false {
-            animation_active == true
-            //Animation code goes here. Variable 'animation_active' should be used when performing the animation for easy matinence
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(animation_duration), execute: {
-                self.animator2!.startAnimation()
-                self.animation_active = false
-            })
-        }
+        //        fadeSequence(redBox, repeat: 3)
     }
     
     
-//    func fadeIn(_ view: UIView, completion: @escaping () -> Void) {
-//        guard alpha == 0 else { return completion() }
-//        UIViewPropertyAnimator.runningPropertyAnimator(
-//            withDuration: 3.0, delay: 2.0, options:[.curveLinear],
-//            animations: {
-//                view.alpha = 1
-//            },
-//            completion: completion
-//        )
-//    }
-//
-//    func fadeOut(_ view: UIView, completion: @escaping () -> Void) {
-//        guard alpha == 1 else { return completion() }
-//        UIViewPropertyAnimator.runningPropertyAnimator(
-//            withDuration: 3.0, delay: 2.0, options:[.curveLinear],
-//            animations: {
-//                view.alpha = 0
-//            },
-//            completion: completion
-//        )
-//    }
-//
-//    func fadeSequence(_ view: UIView, repeat n: Int = 1) {
-//        guard n > 0 else { return }
-//        fadeIn(view) {
-//            fadeOut(view) {
-//                fadeSequence(view, repeat: n-1)
-//            }
-//        }
-//    }
+    
+    
+    //    func fadeIn(_ view: UIView, completion: @escaping () -> Void) {
+    //        guard alpha == 0 else { return completion() }
+    //        UIViewPropertyAnimator.runningPropertyAnimator(
+    //            withDuration: 3.0, delay: 2.0, options:[.curveLinear],
+    //            animations: {
+    //                view.alpha = 1
+    //            },
+    //            completion: completion
+    //        )
+    //    }
+    //
+    //    func fadeOut(_ view: UIView, completion: @escaping () -> Void) {
+    //        guard alpha == 1 else { return completion() }
+    //        UIViewPropertyAnimator.runningPropertyAnimator(
+    //            withDuration: 3.0, delay: 2.0, options:[.curveLinear],
+    //            animations: {
+    //                view.alpha = 0
+    //            },
+    //            completion: completion
+    //        )
+    //    }
+    //
+    //    func fadeSequence(_ view: UIView, repeat n: Int = 1) {
+    //        guard n > 0 else { return }
+    //        fadeIn(view) {
+    //            fadeOut(view) {
+    //                fadeSequence(view, repeat: n-1)
+    //            }
+    //        }
+    //    }
     
 }
 

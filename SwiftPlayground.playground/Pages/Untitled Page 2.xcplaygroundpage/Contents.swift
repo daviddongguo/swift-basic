@@ -1,6 +1,24 @@
 //: [Previous](@previous)
 
-var n = 18
+import Foundation
 
-let x: Int = (n / 10 % 2) == 0 ? (n - 1) % 10 + 1  : (10 - n % 10)
-let y: Int = (n - 1) / 10 + 1
+class Solution {
+    func concatenatedBinary(_ n: Int) -> Int {
+        
+        let mod = 1000000007
+        var res = 0
+        
+        // to maintain 2^(n_binary_length)
+        var power = 1
+        for i in 1...n {
+            if i >= power {
+                power = power * 2
+            }
+            res = (((res * power) % mod) + i) % mod
+        }
+        return res
+    }
+}
+
+let solution = Solution()
+print(solution.concatenatedBinary(97947))

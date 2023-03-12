@@ -4,7 +4,7 @@
 main()
 
 func main() {
-    let numberArray = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
+    let numberArray = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2, 2, 2]
 
     // 1
     print("")
@@ -16,13 +16,13 @@ func main() {
     print("2_ second largest element: \(searchingSecondNumber(array: numberArray))")
 
     // 3
-    let list1 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
+    let list1 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 3]
     let list2 = [1, 2, 3, 2, 1, 6, 3, 4, 5, 2]
     print("")
     print("3_ Array equal: \(isEqualList(list1: list1, list2: list2))")
 
     // 4
-    let str1 = ["flower","flow","flight"]
+    let str1 = ["abflower","abflow","abflight"]
     let str2 = ["dog","racecar","car"]
     print("")
     print("4_ Longest common prefix: \(longestCommonPrefix(str1))")
@@ -38,7 +38,7 @@ func main() {
     print("5_ Valid input string: \(isValid(s3))")
 
     // 6
-    var matrix1 = [[1,2,3],[4,5,6],[7,8,9]]
+    var matrix1 = [[1,2,99],[4,5,6],[7,8,9]]
     var matrix2 = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]
     print("")
     print("6_ Rotate matrix:")
@@ -55,7 +55,6 @@ func main() {
 func printCountOccurrencesOfArray(_ array: [Int]) -> Void {
     var dictionary: [Int: Int] = [:]
     for number in array {
-        //        dictionary[number] = (dictionary[number] ?? 0) + 1
         dictionary[number] = dictionary[number, default: 0] + 1
     }
 
@@ -200,20 +199,7 @@ func isRight(_ character: Character) -> Bool {
     }
 }
 
-func isValid2(_ s: String) -> Bool {
-    let characters = Array(s)
-    var preCharacter = characters[0]
-    for i in 1..<s.count {
-        if(i % 2 == 0){
-            preCharacter = characters[i]
-            continue
-        }
-        if !isClosedCharacter(character1: preCharacter , character2: characters[i]) {
-            return false
-        }
-    }
-    return true
-}
+
 
 /**
  * 6
