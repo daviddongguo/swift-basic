@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JNK-qT-jM0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3i2-5O-JG8">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -199,24 +199,6 @@ You discover a small river running alongside it. \n
             </objects>
             <point key="canvasLocation" x="3124.4274809160306" y="-77.464788732394368"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="vWl-Fr-leb">
-            <objects>
-                <viewController id="JNK-qT-jM0" sceneMemberID="viewController">
-                    <button key="view" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="17K-Yb-CCe">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        <connections>
-                            <segue destination="v5e-R0-Dpg" kind="show" id="hwW-VO-yLc"/>
-                        </connections>
-                    </button>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAA-Ai-o80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="208" y="-70"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="jU4-au-GlH">
             <objects>
@@ -235,6 +217,47 @@ You discover a small river running alongside it. \n
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hD3-np-JRF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1270.9923664122136" y="-77.464788732394368"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="cSz-G2-hBg">
+            <objects>
+                <viewController id="3i2-5O-JG8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Y8H-iv-AxF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="uwV-x2-SfJ">
+                                <rect key="frame" x="68.333333333333343" y="384.33333333333331" width="256.66666666666663" height="83.666666666666686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which animal are you" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fQ-KR-SKH">
+                                        <rect key="frame" x="0.0" y="0.0" width="256.66666666666669" height="34.333333333333336"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fM-3T-XZC">
+                                        <rect key="frame" x="32.333333333333357" y="49.333333333333371" width="191.66666666666663" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Begin personality quiz"/>
+                                        <connections>
+                                            <segue destination="v5e-R0-Dpg" kind="show" id="LzP-Xi-Ibq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JQ1-1c-cCu"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uwV-x2-SfJ" firstAttribute="centerX" secondItem="Y8H-iv-AxF" secondAttribute="centerX" id="pPr-MQ-AQA"/>
+                            <constraint firstItem="uwV-x2-SfJ" firstAttribute="centerY" secondItem="Y8H-iv-AxF" secondAttribute="centerY" id="t0V-Er-GHi"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QgY-Qy-oC6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-40.458015267175568" y="-63.380281690140848"/>
         </scene>
     </scenes>
     <resources>
