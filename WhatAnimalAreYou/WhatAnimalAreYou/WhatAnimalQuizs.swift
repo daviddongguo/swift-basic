@@ -1,11 +1,6 @@
 import Foundation
 
-enum AnimalEnum: Int{
-    case lion = 0
-    case owl = 1
-    case dolphin = 2
-    case butterfly = 3
-}
+
 
 class Personality {
     var lionLikelihood: Int = 0
