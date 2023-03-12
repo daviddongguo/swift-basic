@@ -9,6 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    
+    
+    
     private var currentGame: Game!
     private var listOfWords: [String] = ["bee", "sheep", "apple", "banana", "lemon", "orange"]
     var incorrectMovesAllowed = 5
@@ -40,6 +43,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var correctWordLabel: UILabel!
     
     @IBOutlet var letterButtons: [UIButton]!
+    
+    
+    
     
     
     override func viewDidLoad() {

@@ -26,12 +26,57 @@
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree" translatesAutoresizingMaskIntoConstraints="NO" id="ZEV-7H-EV3" userLabel="Tree">
                                                 <rect key="frame" x="-614" y="0.0" width="2048" height="408"/>
                                             </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="WIg-qp-BCN">
+                                                <rect key="frame" x="314" y="179" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Cyd-fi-pcW"/>
+                                                    <constraint firstAttribute="width" constant="50" id="dY1-Az-qTT"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="118-pM-Kpm">
+                                                <rect key="frame" x="279" y="96" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="YI0-p4-ZsS"/>
+                                                    <constraint firstAttribute="height" constant="50" id="bGB-yc-cx7"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="8c8-8H-AiG">
+                                                <rect key="frame" x="428" y="152" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="4sH-f2-mlo"/>
+                                                    <constraint firstAttribute="height" constant="50" id="Kgx-Pc-V5o"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="7mG-ko-5u0">
+                                                <rect key="frame" x="501" y="76" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="R0p-7F-i4e"/>
+                                                    <constraint firstAttribute="width" constant="50" id="jzB-f8-yO5"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="XJK-zu-CWt">
+                                                <rect key="frame" x="537" y="205" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="50" id="NQA-f1-duU"/>
+                                                    <constraint firstAttribute="height" constant="50" id="WQI-L7-GFd"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="ZEV-7H-EV3" secondAttribute="bottom" id="Bxl-y0-sVU"/>
+                                            <constraint firstItem="118-pM-Kpm" firstAttribute="leading" secondItem="A32-ZH-D7x" secondAttribute="leading" constant="279" id="E1t-7x-fdq"/>
+                                            <constraint firstItem="WIg-qp-BCN" firstAttribute="centerY" secondItem="ZEV-7H-EV3" secondAttribute="centerY" id="Iqf-g9-rDz"/>
+                                            <constraint firstItem="8c8-8H-AiG" firstAttribute="top" secondItem="A32-ZH-D7x" secondAttribute="top" constant="152" id="Jqn-Go-7xF"/>
                                             <constraint firstItem="ZEV-7H-EV3" firstAttribute="top" secondItem="A32-ZH-D7x" secondAttribute="top" id="O5E-c6-cFg"/>
+                                            <constraint firstAttribute="trailing" secondItem="XJK-zu-CWt" secondAttribute="trailing" constant="233" id="T6K-w1-aBh"/>
                                             <constraint firstItem="ZEV-7H-EV3" firstAttribute="centerX" secondItem="A32-ZH-D7x" secondAttribute="centerX" id="fX1-Ux-Yhh"/>
+                                            <constraint firstItem="WIg-qp-BCN" firstAttribute="top" secondItem="118-pM-Kpm" secondAttribute="bottom" constant="33" id="hPS-41-WhR"/>
+                                            <constraint firstItem="7mG-ko-5u0" firstAttribute="top" secondItem="A32-ZH-D7x" secondAttribute="top" constant="76" id="hWh-tr-eY8"/>
+                                            <constraint firstItem="WIg-qp-BCN" firstAttribute="leading" secondItem="A32-ZH-D7x" secondAttribute="leading" constant="314" id="sdP-wL-Lcx"/>
+                                            <constraint firstAttribute="trailing" secondItem="7mG-ko-5u0" secondAttribute="trailing" constant="269" id="tPS-Y7-NRh"/>
+                                            <constraint firstItem="XJK-zu-CWt" firstAttribute="top" secondItem="7mG-ko-5u0" secondAttribute="bottom" constant="79" id="uWv-jI-jlB"/>
+                                            <constraint firstItem="8c8-8H-AiG" firstAttribute="leading" secondItem="WIg-qp-BCN" secondAttribute="trailing" constant="64" id="uY4-Cl-rte"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKW-Nv-SlP">
@@ -301,6 +346,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="apple" width="209" height="255"/>
         <image name="tree" width="2048" height="2048"/>
         <systemColor name="systemMintColor">
             <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
