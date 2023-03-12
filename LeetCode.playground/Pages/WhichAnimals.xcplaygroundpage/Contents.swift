@@ -169,28 +169,27 @@ let quiz4 = Quiz(personality: personality,
 
 
 
-//let quizs: [Quiz] = [quiz1, quiz2, quiz3, quiz4]
-//
-//let answer1: AnswerTrueOfFalse = quiz1.answers[1] as! AnswerTrueOfFalse
-//let answer2: AnswerTrueOfFalse = quiz1.answers[2] as! AnswerTrueOfFalse
-//let answer3: AnswerNumberValue = quiz3.answers[0] as! AnswerNumberValue
-//answer1.selected = true
-//answer1.submit()
-//answer2.selected = true
-//answer2.submit()
-//answer3.numberValue = 95
-//answer3.submit()
-//
-////print(quizs)
-//for q in quizs {
-//    for a in q.answers {
-//        print("lion: \(a.personality.lionLikelihood)")
-//        print("owl: \(a.personality.owlLikelihood)")
-//        print("dolphin: \(a.personality.dolphinLikelihood)")
-//        print("butterfly: \(a.personality.butterflyLikelihood)")
-//    }
-//}
+let quizs: [Quiz] = [quiz1, quiz2, quiz3, quiz4]
 
+let answer1: AnswerTrueOfFalse = quiz1.answers[1] as! AnswerTrueOfFalse
+let answer2: AnswerTrueOfFalse = quiz1.answers[2] as! AnswerTrueOfFalse
+let answer3: AnswerNumberValue = quiz3.answers[0] as! AnswerNumberValue
+answer1.selected = true
+answer1.submit()
+answer2.selected = true
+answer2.submit()
+answer3.numberValue = 95
+answer3.submit()
+
+//print(quizs)
+for q in quizs {
+    for a in q.answers {
+        print("lion: \(a.personality.lionLikelihood)")
+        print("owl: \(a.personality.owlLikelihood)")
+        print("dolphin: \(a.personality.dolphinLikelihood)")
+        print("butterfly: \(a.personality.butterflyLikelihood)")
+    }
+}
 
 
 
