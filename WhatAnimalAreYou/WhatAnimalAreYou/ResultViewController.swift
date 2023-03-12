@@ -8,11 +8,19 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
+    
+    @IBOutlet weak var resultLabel: UILabel!
+    
+    @IBOutlet weak var resultImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        resultLabel.text = "\(personality.like)"
+        print(personality.like.rawValue)
+        
+        
     }
     
 

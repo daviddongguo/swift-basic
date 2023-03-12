@@ -1,10 +1,10 @@
 import Foundation
 
-enum AnimalEnum {
-    case lion
-    case owl
-    case dolphin
-    case butterfly
+enum AnimalEnum: Int{
+    case lion = 0
+    case owl = 1
+    case dolphin = 2
+    case butterfly = 3
 }
 
 class Personality {
@@ -114,15 +114,15 @@ class AnswerNumberValue: Answer {
             break
         }
         
-     
-      
-            print("lion: \(personality.lionLikelihood)")
-            print("owl: \(personality.owlLikelihood)")
-            print("dolphin: \(personality.dolphinLikelihood)")
-            print("butterfly: \(personality.butterflyLikelihood)")
-
+        
+        
+        print("lion: \(personality.lionLikelihood)")
+        print("owl: \(personality.owlLikelihood)")
+        print("dolphin: \(personality.dolphinLikelihood)")
+        print("butterfly: \(personality.butterflyLikelihood)")
+        
     }
-  
+    
     
 }
 
@@ -163,7 +163,7 @@ let quiz2 = Quiz(personality: personality,
 let quiz3 = Quiz(personality: personality,
                  question: """
                             You spot a vase filled with flowers.
-                            The number of flowers is: 
+                            The number of flowers is:
                           """,
                  answers:  [AnswerNumberValue(personality: personality, id: 0, numberValue: 0, lionRange: 0...3, owlRange: 4...6, dophinRange: 7...9, butterflyRange: 10...12)]     )
 

@@ -186,7 +186,7 @@ You discover a small river running alongside it. \n
         <!--Result-->
         <scene sceneID="vKT-EF-9Ur">
             <objects>
-                <viewController id="dXQ-Nv-OO0" userLabel="Result" sceneMemberID="viewController">
+                <viewController id="dXQ-Nv-OO0" userLabel="Result" customClass="ResultViewController" customModule="WhatAnimalAreYou" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LqS-wv-1bn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,6 +215,10 @@ You discover a small river running alongside it. \n
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2yl-Y5-nP1"/>
+                    <connections>
+                        <outlet property="resultImage" destination="vJU-8X-sM1" id="M8i-h0-KTJ"/>
+                        <outlet property="resultLabel" destination="oF6-iI-Gph" id="yQ4-4W-ZxJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CCk-h4-NWe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
