@@ -68,15 +68,36 @@
             </objects>
             <point key="canvasLocation" x="2197.709923664122" y="-77.464788732394368"/>
         </scene>
-        <!--View Controller-->
+        <!--Result-->
         <scene sceneID="vKT-EF-9Ur">
             <objects>
-                <viewController id="dXQ-Nv-OO0" sceneMemberID="viewController">
+                <viewController id="dXQ-Nv-OO0" userLabel="Result" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LqS-wv-1bn">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qDc-Qb-PxZ">
+                                <rect key="frame" x="24" y="310" width="345" height="163.33333333333337"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oF6-iI-Gph">
+                                        <rect key="frame" x="152" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vJU-8X-sM1">
+                                        <rect key="frame" x="46" y="35.333333333333314" width="253" height="128"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="2B2-CQ-1hB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qDc-Qb-PxZ" firstAttribute="leading" secondItem="2B2-CQ-1hB" secondAttribute="leading" constant="24" id="H4f-cd-VBr"/>
+                            <constraint firstItem="qDc-Qb-PxZ" firstAttribute="centerX" secondItem="LqS-wv-1bn" secondAttribute="centerX" id="N4j-zG-mnn"/>
+                            <constraint firstItem="qDc-Qb-PxZ" firstAttribute="centerY" secondItem="LqS-wv-1bn" secondAttribute="centerY" id="dve-Yb-1XP"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2yl-Y5-nP1"/>
                 </viewController>
