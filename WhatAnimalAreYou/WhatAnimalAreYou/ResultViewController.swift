@@ -18,7 +18,7 @@ class ResultViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         resultLabel.text = "You are a \(personality.like)"
-        resultImage.image = images[personality.like.rawValue]
+        resultImage.image = animalImages[personality.like.rawValue]
         
         resultImage.layer.cornerRadius = resultImage.frame.size.width / 2
     }
