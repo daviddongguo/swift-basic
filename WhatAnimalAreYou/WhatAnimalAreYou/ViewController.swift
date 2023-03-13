@@ -11,50 +11,49 @@ class ViewController: UIViewController {
     
 
     let quizs: [Quiz] = [quiz1, quiz2, quiz3, quiz4]
-    let currentQuizIndex = 2
-    var currentQuiz: Quiz!
-    var currentAnswer: Answer!
+    let quiz3Index = 2
+    var quiz3Answer: Answer!
 
     
+    // quiz 3
     @IBOutlet weak var quiz3View: UIStackView!
     
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var quiz3titleLabel: UILabel!
     
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var quiz3DescriptionLabel: UILabel!
         
-    @IBOutlet weak var numberOfFlowersSlider: UISlider!
+    @IBOutlet weak var quiz3NumberOfFlowersSlider: UISlider!
     
-    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var quiz3NextButton: UIButton!
     
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var quiz3SubmitButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currentQuiz = quizs[currentQuizIndex]
-        currentAnswer = currentQuiz.answers[0]
+        quiz3Answer = quiz3.answers[0]
         
-        titleLabel.text = "Question \(currentQuizIndex + 1)"
-        descriptionLabel.text = currentQuiz.question.description
-        descriptionLabel.numberOfLines = 0
+        quiz3titleLabel.text = "Question \(quiz3Index + 1)"
+        quiz3DescriptionLabel.text = quiz3.question.description
+        quiz3DescriptionLabel.numberOfLines = 0
         
-        numberOfFlowersSlider.addTarget(self, action: #selector(numberOfFlowersChanged), for: .valueChanged)
+        quiz3NumberOfFlowersSlider.addTarget(self, action: #selector(numberOfFlowersChanged), for: .valueChanged)
         
-        nextButton.isEnabled = false
-        nextButton.isHidden = true
-        submitButton.isEnabled = false
-        submitButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
+        quiz3NextButton.isEnabled = false
+        quiz3NextButton.isHidden = true
+        quiz3SubmitButton.isEnabled = false
+        quiz3SubmitButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
     }
     
     @objc func numberOfFlowersChanged(_ sender: UISlider) {
         
         let numberOfFlowers = Int(sender.value)
-        (currentAnswer as! AnswerNumberValue).numberValue = numberOfFlowers
-        descriptionLabel.text = quizs[currentQuizIndex].question.description + " " + String(numberOfFlowers)
-        submitButton.isEnabled = true
+        (quiz3Answer as! AnswerNumberValue).numberValue = numberOfFlowers
+        quiz3DescriptionLabel.text = quizs[quiz3Index].question.description + " " + String(numberOfFlowers)
+        quiz3SubmitButton.isEnabled = true
     }
     
     @objc func submitButtonPressed(_ sender: UIButton) {
-        quizs[currentQuizIndex].answers[0].submit()
+        quizs[quiz3Index].answers[0].submit()
     }
 
 }
