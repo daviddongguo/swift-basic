@@ -13,11 +13,11 @@
         <scene sceneID="Kmq-vj-D9c">
             <objects>
                 <viewController id="J79-Ry-CAy" customClass="ViewController" customModule="WhatAnimalAreYou" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7sY-Lb-Cyd" userLabel="question3">
+                    <view key="view" contentMode="scaleToFill" id="7sY-Lb-Cyd" userLabel="quiz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hGZ-YO-p5w">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hGZ-YO-p5w" userLabel="question3">
                                 <rect key="frame" x="16" y="241.33333333333334" width="361" height="300.33333333333326"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ef0-qk-bqS" userLabel="TitleView">
