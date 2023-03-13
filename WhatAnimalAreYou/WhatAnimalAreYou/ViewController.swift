@@ -54,10 +54,12 @@ class ViewController: UIViewController {
         
         quiz3NumberOfFlowersSlider.addTarget(self, action: #selector(numberOfFlowersChanged), for: .valueChanged)
         
-        quiz3SubmitButton.isHidden = true
-        quiz3SubmitButton.isEnabled = false
+  
+        quiz3NextButton.isHidden = true
         quiz3NextButton.isEnabled = false
-        quiz3NextButton.addTarget(self, action: #selector(quiz3NextButtonPressed), for: .touchUpInside)
+        quiz3SubmitButton.isHidden = false
+        quiz3SubmitButton.isEnabled = true
+        quiz3SubmitButton.addTarget(self, action: #selector(quiz3SubmitButtonPressed), for: .touchUpInside)
         
         // quiz 4
         temperaturePicker.delegate = self
@@ -72,10 +74,8 @@ class ViewController: UIViewController {
         quiz3NextButton.isEnabled = true
     }
     
-    @objc func quiz3NextButtonPressed(_ sender: UIButton) {
+    @objc func quiz3SubmitButtonPressed(_ sender: UIButton) {
         quizs[quiz3Index].answers[0].submit()
-        quiz4View.isHidden = false
-        quiz3View.isHidden = true
     }
 
 }

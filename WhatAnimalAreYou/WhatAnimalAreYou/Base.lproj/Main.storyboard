@@ -97,6 +97,9 @@ You discover a small river running alongside it. \n
                                                         <rect key="frame" x="0.0" y="39.333333333333314" width="300" height="34.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                                        <connections>
+                                                            <segue destination="dXQ-Nv-OO0" kind="show" id="Q7f-65-rcl"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -243,7 +246,7 @@ You discover a small river running alongside it. \n
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="hGZ-YO-p5w"/>
+                                <exclude reference="F57-DA-XF9"/>
                             </mask>
                         </variation>
                     </view>
@@ -373,6 +376,9 @@ You discover a small river running alongside it. \n
             <point key="canvasLocation" x="-40.458015267175568" y="-63.380281690140848"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Q7f-65-rcl"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBrownColor">
             <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
