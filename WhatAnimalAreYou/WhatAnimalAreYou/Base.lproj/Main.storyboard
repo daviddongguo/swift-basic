@@ -136,9 +136,10 @@ You discover a small river running alongside it. \n
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQV-7u-OZU" userLabel="TitleView">
                                         <rect key="frame" x="30.666666666666657" y="0.0" width="300" height="50"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question 4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-da-HgZ" userLabel="TitleLable">
-                                                <rect key="frame" x="0.0" y="3.0000000000000018" width="300" height="28.666666666666671"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="444444444" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-da-HgZ" userLabel="TitleLable">
+                                                <rect key="frame" x="0.0" y="3" width="300" height="90"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="height" constant="90" id="shV-3c-6Ny"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="z9E-LF-Jd1"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -153,31 +154,25 @@ You discover a small river running alongside it. \n
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MOq-WG-A72" userLabel="AnswersBody">
-                                        <rect key="frame" x="0.66666666666665719" y="56" width="360" height="160"/>
+                                        <rect key="frame" x="0.66666666666665719" y="56" width="360" height="185"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imx-SO-V3n" userLabel="DescriptionLabel">
-                                                <rect key="frame" x="0.0" y="0.0" width="360" height="28.666666666666668"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imx-SO-V3n" userLabel="DescriptionLabel">
+                                                <rect key="frame" x="2" y="0.0" width="355.66666666666669" height="90"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="28.666666666666668" id="bco-LP-1NO"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="90" id="ctf-Rb-cBN"/>
                                                 </constraints>
-                                                <string key="text">As you walk around to the back of the cottage.                         
-
-You discover a small river running alongside it. \n
-                            You dip your toes in the water. \n
-                            The tempture of the water is?</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKB-I8-foN" userLabel="AnswersView">
-                                                <rect key="frame" x="6" y="43.666666666666679" width="348" height="116.33333333333331"/>
+                                                <rect key="frame" x="6" y="105" width="348" height="80"/>
                                                 <subviews>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXo-k3-NeF">
-                                                        <rect key="frame" x="84" y="0.0" width="180" height="103"/>
+                                                        <rect key="frame" x="84" y="0.0" width="180" height="67"/>
                                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="180" id="kWi-87-JX9"/>
-                                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="uqy-Qn-dOS"/>
                                                         </constraints>
                                                     </pickerView>
                                                 </subviews>
@@ -187,18 +182,19 @@ You discover a small river running alongside it. \n
                                                     <constraint firstItem="DXo-k3-NeF" firstAttribute="top" secondItem="xKB-I8-foN" secondAttribute="top" id="R7l-mF-5Yz"/>
                                                     <constraint firstAttribute="trailing" secondItem="DXo-k3-NeF" secondAttribute="trailing" constant="84" id="ci3-2z-Mni"/>
                                                     <constraint firstAttribute="bottom" secondItem="DXo-k3-NeF" secondAttribute="bottom" constant="13" id="tQU-Zm-xVv"/>
+                                                    <constraint firstAttribute="height" constant="80" id="us2-IM-1Sk"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="B4h-cY-ed5"/>
                                             <constraint firstItem="xKB-I8-foN" firstAttribute="leading" secondItem="MOq-WG-A72" secondAttribute="leading" constant="6" id="ZGj-y6-ZCm"/>
-                                            <constraint firstAttribute="height" constant="160" id="wij-5S-8AY"/>
                                             <constraint firstItem="xKB-I8-foN" firstAttribute="centerX" secondItem="MOq-WG-A72" secondAttribute="centerX" id="xPA-vj-uLN"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kda-Ce-0Vf" userLabel="Buttons">
-                                        <rect key="frame" x="30.666666666666657" y="222" width="300" height="501"/>
+                                        <rect key="frame" x="30.666666666666657" y="247" width="300" height="476"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oXc-aL-tOi" userLabel="SubmittButtonsView">
                                                 <rect key="frame" x="0.0" y="12" width="300" height="73.666666666666671"/>
@@ -212,9 +208,6 @@ You discover a small river running alongside it. \n
                                                         <rect key="frame" x="0.0" y="39.333333333333314" width="300" height="34.333333333333343"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Submit"/>
-                                                        <connections>
-                                                            <segue destination="dXQ-Nv-OO0" kind="show" id="IY4-e0-xjY"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -267,10 +260,10 @@ You discover a small river running alongside it. \n
                         <outlet property="quiz3SubmitButton" destination="7T6-L3-QHl" id="eKf-p6-6Te"/>
                         <outlet property="quiz3View" destination="hGZ-YO-p5w" id="y8n-fz-gEM"/>
                         <outlet property="quiz3titleLabel" destination="DLg-Bu-CP2" id="TIS-gc-4Ul"/>
-                        <outlet property="quiz4Description" destination="imx-SO-V3n" id="SDU-Ye-6fS"/>
+                        <outlet property="quiz4Description" destination="imx-SO-V3n" id="97c-va-OUR"/>
                         <outlet property="quiz4NextButton" destination="K3H-mR-dM2" id="f9A-Hs-qn7"/>
-                        <outlet property="quiz4SubmitButton" destination="iJu-G5-GiC" id="aIh-op-rbQ"/>
-                        <outlet property="quiz4TitleLabel" destination="HNM-da-HgZ" id="UuR-lw-4Hq"/>
+                        <outlet property="quiz4SubmitButton" destination="iJu-G5-GiC" id="04q-cx-g5W"/>
+                        <outlet property="quiz4TitleLabel" destination="HNM-da-HgZ" id="I43-Mz-ksV"/>
                         <outlet property="quiz4View" destination="F57-DA-XF9" id="Ywo-ZW-gNT"/>
                         <outlet property="temperaturePicker" destination="DXo-k3-NeF" id="THC-cw-RRK"/>
                     </connections>
@@ -385,9 +378,6 @@ You discover a small river running alongside it. \n
             <point key="canvasLocation" x="-40.458015267175568" y="-63.380281690140848"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="Q7f-65-rcl"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -202,10 +202,10 @@ let quiz3 = Quiz(personality: personality,
 
 let quiz4 = Quiz(personality: personality,
                  question: """
-                            As you walk around to the back of the cottage.
-                            You discover a small river running alongside it.
-                            You dip your toes in the water.
-                            The temperature of the water is:
+                            As you walk around to the back of it.
+                            You discover a small river.
+                            You dip your toes into the water.
+                            The temperature of it is:
                           """,
                  answers:  [AnswerSingleSelection(personality: personality, id: 0, selectedString: "", lionString: TemperatureOfRiverEnum.colder.rawValue, owlString: TemperatureOfRiverEnum.cold.rawValue, dophinString: TemperatureOfRiverEnum.normal.rawValue, butterflyString: TemperatureOfRiverEnum.warmer.rawValue)]
 )
