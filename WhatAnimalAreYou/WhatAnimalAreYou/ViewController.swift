@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     var currentQuiz: Quiz!
     var currentAnswer: Answer!
 
-    @IBOutlet var quiz3View: UIView!
+    
+    @IBOutlet weak var quiz3View: UIStackView!
     
     @IBOutlet weak var titleLabel: UILabel!
     

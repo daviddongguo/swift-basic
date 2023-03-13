@@ -145,7 +145,7 @@ You discover a small river running alongside it. \n
                         <outlet property="descriptionLabel" destination="cuM-gN-40c" id="sto-m9-Icg"/>
                         <outlet property="nextButton" destination="C6l-WD-JBi" id="J9Q-8h-LWh"/>
                         <outlet property="numberOfFlowersSlider" destination="nkD-Bb-0pb" id="xaT-bZ-tK5"/>
-                        <outlet property="quiz3View" destination="7sY-Lb-Cyd" id="ojl-3M-tm7"/>
+                        <outlet property="quiz3View" destination="hGZ-YO-p5w" id="y8n-fz-gEM"/>
                         <outlet property="submitButton" destination="7T6-L3-QHl" id="6k3-cZ-bV4"/>
                         <outlet property="titleLabel" destination="DLg-Bu-CP2" id="TIS-gc-4Ul"/>
                     </connections>
