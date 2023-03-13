@@ -172,15 +172,16 @@ import Foundation
 let personality: Personality = Personality()
 let quiz1 = Quiz(personality: personality,
                  question: """
-                    Now, please imagine yourself in a forest.
-                    As you walk forward, you see a small cottage before you.
+                    Imagine yourself in a forest.
+                    As you walk forward,
+                    you see a small cottage before you.
                     And you notice...
                  """,
                  answers: [
-                    AnswerTrueOfFalse(personality: personality, id: 0, text: "A massive tree standing in front of it?",  animalLikehoods: [.owl, .lion], selected: false),
-                    AnswerTrueOfFalse(personality: personality, id: 1, text: "A vast meadow surrounding it?",  animalLikehoods: [.lion, .butterfly], selected: false),
-                    AnswerTrueOfFalse(personality: personality, id: 2, text: "A myriad of colorful flowers coverring it",  animalLikehoods: [.butterfly, .dolphin], selected: false),
-                    AnswerTrueOfFalse(personality: personality, id: 3, text: "The door is wide open",  animalLikehoods: [], selected: false),
+                    AnswerTrueOfFalse(personality: personality, id: 0, text: "A massive tree",  animalLikehoods: [.owl, .lion], selected: false),
+                    AnswerTrueOfFalse(personality: personality, id: 1, text: "A vast meadow",  animalLikehoods: [.lion, .butterfly], selected: false),
+                    AnswerTrueOfFalse(personality: personality, id: 2, text: "A myriad of colorful flowers",  animalLikehoods: [.butterfly, .dolphin], selected: false),
+                    AnswerTrueOfFalse(personality: personality, id: 3, text: "The door is open",  animalLikehoods: [], selected: false),
                  ])
 let quiz2 = Quiz(personality: personality,
                  question: """

@@ -11,12 +11,31 @@ class ViewController: UIViewController {
     
 
     let quizs: [Quiz] = [quiz1, quiz2, quiz3, quiz4]
+    let quiz1Index = 0
+    var quiz1Answers: [Answer]!
     let quiz3Index = 2
     var quiz3Answer: Answer!
     let quiz4Index = 3
     var quiz4Answer: Answer!
 
+    // quiz 1
     
+    @IBOutlet weak var quiz1View: UIStackView!
+    
+    @IBOutlet weak var quiz1TitleLabel: UILabel!
+    
+    @IBOutlet weak var quiz1DescriptionLabel: UILabel!
+    
+    
+    @IBOutlet var quiz1AnswerTitleLabel: [UILabel]!
+    
+    @IBOutlet var quiz1AnswerSwitchs: [UISwitch]!
+    
+    @IBOutlet weak var quiz1NextButton: UIButton!
+    
+    @IBOutlet weak var quiz1SubmitButton: UIButton!
+    
+        
     // quiz 3
     @IBOutlet weak var quiz3View: UIStackView!
     
@@ -48,6 +67,21 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        quiz3View.isHidden = true
+        quiz4View.isHidden = true
+        // Quiz 1
+        quiz1TitleLabel.text = "Question \(quiz1Index + 1)"
+        quiz1DescriptionLabel.text = quiz1.question.description
+        
+        for i in  0..<quiz1AnswerTitleLabel.count {
+            quiz1AnswerTitleLabel[i].text = quiz1.answers[i].text
+        }
+        
+        for ui in  quiz1AnswerSwitchs {
+            ui.transform = CGAffineTransformMakeScale(0.7, 0.7);
+        }
+        
+        // Quiz 3
         quiz3Answer = quiz3.answers[0]
         
         quiz3titleLabel.text = "Question \(quiz3Index + 1)"
@@ -121,5 +155,18 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         quiz4SubmitButton.isEnabled = true
     }
     
+}
+extension UISwitch {
+
+    func set(width: CGFloat, height: CGFloat) {
+
+        let standardHeight: CGFloat = 3
+        let standardWidth: CGFloat = 5
+
+        let heightRatio = height / standardHeight
+        let widthRatio = width / standardWidth
+
+        transform = CGAffineTransform(scaleX: widthRatio, y: heightRatio)
+    }
 }
 
