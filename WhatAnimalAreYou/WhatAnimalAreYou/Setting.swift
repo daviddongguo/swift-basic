@@ -20,3 +20,10 @@ let animalImages: [UIImage?] = [
     UIImage(named: "dolphin.png"),
     UIImage(named: "butterfly.png")
 ]
+
+enum TemperatureOfRiverEnum: String {
+    case colder = "very cold"
+    case cold = "cold"
+    case normal = "normal"
+    case warmer = "warmer"
+}
