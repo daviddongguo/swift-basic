@@ -14,7 +14,7 @@ enum AnimalEnum: Int{
     case butterfly = 3
 }
 
-let images: [UIImage?] = [
+let animalImages: [UIImage?] = [
     UIImage(named: "lion.png"),
     UIImage(named: "owl.png"),
     UIImage(named: "dolphin.png"),
