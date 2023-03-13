@@ -77,6 +77,46 @@ class AnswerTrueOfFalse: Answer {
     }
 }
 
+class AnswerSingleSelection: Answer {
+    var selectedString: String = ""
+    let lionString: String?
+    let owlString: String?
+    let dophinString: String?
+    let butterflyString: String?
+    
+    init(personality: Personality, id: Int, text: String? = "", selectedString: String, lionString: String?, owlString: String?, dophinString: String?, butterflyString: String?) {
+        self.selectedString = selectedString
+        self.lionString = lionString
+        self.owlString = owlString
+        self.dophinString = dophinString
+        self.butterflyString = butterflyString
+        super.init(personality: personality, id: id, text: text)
+    }
+    
+    override func submit() {
+        switch selectedString {
+        case selectedString:
+            self.personality.addLikehood([.lion])
+        case owlString:
+            self.personality.addLikehood([.owl])
+        case dophinString:
+            self.personality.addLikehood([.dolphin])
+        case butterflyString:
+            self.personality.addLikehood([.butterfly])
+        default:
+            break
+        }
+        
+        print("lion: \(personality.lionLikelihood)")
+        print("owl: \(personality.owlLikelihood)")
+        print("dolphin: \(personality.dolphinLikelihood)")
+        print("butterfly: \(personality.butterflyLikelihood)")
+        
+    }
+    
+    
+}
+
 class AnswerNumberValue: Answer {
     var numberValue: Int = 0
     let lionRange: ClosedRange<Int>
@@ -108,8 +148,6 @@ class AnswerNumberValue: Answer {
         default:
             break
         }
-        
-        
         
         print("lion: \(personality.lionLikelihood)")
         print("owl: \(personality.owlLikelihood)")
@@ -158,7 +196,7 @@ let quiz2 = Quiz(personality: personality,
 let quiz3 = Quiz(personality: personality,
                  question: """
                             You spot a vase filled with flowers.
-                            The number of flowers is:
+                            The number of flowers is
                           """,
                  answers:  [AnswerNumberValue(personality: personality, id: 0, numberValue: 0, lionRange: 0...3, owlRange: 4...6, dophinRange: 7...9, butterflyRange: 10...12)]     )
 
@@ -167,9 +205,10 @@ let quiz4 = Quiz(personality: personality,
                             As you walk around to the back of the cottage.
                             You discover a small river running alongside it.
                             You dip your toes in the water.
-                            The tempture of the water is?
+                            The temperature of the water is:
                           """,
-                 answers:  [AnswerNumberValue(personality: personality, id: 0, numberValue: 0, lionRange: 50...74, owlRange: 25...49, dophinRange: 0...24, butterflyRange: 75...100)]     )
+                 answers:  [AnswerSingleSelection(personality: personality, id: 0, selectedString: "", lionString: TemperatureOfRiverEnum.colder.rawValue, owlString: TemperatureOfRiverEnum.cold.rawValue, dophinString: TemperatureOfRiverEnum.normal.rawValue, butterflyString: TemperatureOfRiverEnum.warmer.rawValue)]
+)
 
 
 
