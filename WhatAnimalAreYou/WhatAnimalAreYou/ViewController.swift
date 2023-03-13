@@ -12,6 +12,8 @@ class ViewController: UIViewController {
 
     let quizs: [Quiz] = [quiz1, quiz2, quiz3, quiz4]
     let currentQuizIndex = 2
+    var currentQuiz: Quiz!
+    var currentAnswer: Answer!
 
     @IBOutlet var quiz3View: UIView!
     
@@ -19,7 +21,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var descriptionLabel: UILabel!
         
-    @IBOutlet weak var numberOfFlowers: UISlider!
+    @IBOutlet weak var numberOfFlowersSlider: UISlider!
     
     @IBOutlet weak var nextButton: UIButton!
     
@@ -27,12 +29,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-//        quiz3View.isHidden = true
-        titleLabel.text = "Question \(currentQuizIndex)"
-        descriptionLabel.text = quizs[currentQuizIndex].question.description
+        currentQuiz = quizs[currentQuizIndex]
+        currentAnswer = currentQuiz.answers[0]
+        
+        titleLabel.text = "Question \(currentQuizIndex + 1)"
+        descriptionLabel.text = currentQuiz.question.description
         descriptionLabel.numberOfLines = 0
-        numberOfFlowers.addTarget(self, action: #selector(numberOfFlowersChanged), for: .valueChanged)
+        
+        numberOfFlowersSlider.addTarget(self, action: #selector(numberOfFlowersChanged), for: .valueChanged)
+        
         nextButton.isEnabled = false
         nextButton.isHidden = true
         submitButton.isEnabled = false
@@ -42,18 +47,13 @@ class ViewController: UIViewController {
     @objc func numberOfFlowersChanged(_ sender: UISlider) {
         
         let numberOfFlowers = Int(sender.value)
-        (quizs[currentQuizIndex].answers[0] as! AnswerNumberValue).numberValue = numberOfFlowers
-        let answer = quizs[currentQuizIndex].answers[0] as! AnswerNumberValue
-        print(answer.numberValue)
-        descriptionLabel.text = quizs[currentQuizIndex].question.description + String(numberOfFlowers)
+        (currentAnswer as! AnswerNumberValue).numberValue = numberOfFlowers
+        descriptionLabel.text = quizs[currentQuizIndex].question.description + " " + String(numberOfFlowers)
         submitButton.isEnabled = true
     }
     
     @objc func submitButtonPressed(_ sender: UIButton) {
-        let answer = quizs[currentQuizIndex].answers[0]
-        answer.submit()
-        print(personality.like)
-
+        quizs[currentQuizIndex].answers[0].submit()
     }
 
 }
