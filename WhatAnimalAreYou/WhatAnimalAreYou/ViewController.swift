@@ -78,7 +78,7 @@ class ViewController: UIViewController {
         quiz4NextButton.isHidden = true
         quiz4NextButton.isEnabled = false
         quiz4SubmitButton.isHidden = false
-        quiz4SubmitButton.isEnabled = true
+        quiz4SubmitButton.isEnabled = false
         quiz4SubmitButton.addTarget(self, action: #selector(quiz4SubmitButtonPressed), for: .touchUpInside)
         
     }
@@ -118,6 +118,7 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         let selectedString = temperatureStrArray[selectedValue]
         print("the temperature is \(selectedString)")
         quiz4Description.text = quiz4.question.description + " " + String(selectedString)
+        quiz4SubmitButton.isEnabled = true
     }
     
 }

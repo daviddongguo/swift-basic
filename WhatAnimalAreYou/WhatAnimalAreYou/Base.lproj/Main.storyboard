@@ -130,7 +130,7 @@ You discover a small river running alongside it. \n
                                     <constraint firstItem="3mu-JE-VJ0" firstAttribute="centerX" secondItem="hGZ-YO-p5w" secondAttribute="centerX" id="pZc-G2-1C8"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="F57-DA-XF9" userLabel="question4">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="F57-DA-XF9" userLabel="question4">
                                 <rect key="frame" x="16" y="164" width="361" height="723"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQV-7u-OZU" userLabel="TitleView">
@@ -149,12 +149,13 @@ You discover a small river running alongside it. \n
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="3qc-DQ-6JP"/>
                                             <constraint firstItem="HNM-da-HgZ" firstAttribute="top" secondItem="WQV-7u-OZU" secondAttribute="top" constant="3" id="OtP-A1-zB9"/>
                                             <constraint firstItem="HNM-da-HgZ" firstAttribute="centerX" secondItem="WQV-7u-OZU" secondAttribute="centerX" id="dux-wl-dzb"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="MOq-WG-A72" userLabel="AnswersBody">
-                                        <rect key="frame" x="0.66666666666665719" y="56" width="360" height="185"/>
+                                        <rect key="frame" x="0.66666666666665719" y="65" width="360" height="185"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="imx-SO-V3n" userLabel="DescriptionLabel">
                                                 <rect key="frame" x="2" y="0.0" width="355.66666666666669" height="90"/>
@@ -188,13 +189,13 @@ You discover a small river running alongside it. \n
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="160" id="B4h-cY-ed5"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="B4h-cY-ed5"/>
                                             <constraint firstItem="xKB-I8-foN" firstAttribute="leading" secondItem="MOq-WG-A72" secondAttribute="leading" constant="6" id="ZGj-y6-ZCm"/>
                                             <constraint firstItem="xKB-I8-foN" firstAttribute="centerX" secondItem="MOq-WG-A72" secondAttribute="centerX" id="xPA-vj-uLN"/>
                                         </constraints>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kda-Ce-0Vf" userLabel="Buttons">
-                                        <rect key="frame" x="30.666666666666657" y="247" width="300" height="476"/>
+                                        <rect key="frame" x="30.666666666666657" y="265" width="300" height="458"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oXc-aL-tOi" userLabel="SubmittButtonsView">
                                                 <rect key="frame" x="0.0" y="12" width="300" height="73.666666666666671"/>
@@ -224,10 +225,9 @@ You discover a small river running alongside it. \n
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="kda-Ce-0Vf" firstAttribute="top" secondItem="MOq-WG-A72" secondAttribute="bottom" constant="6" id="4og-qM-HiU"/>
                                     <constraint firstItem="MOq-WG-A72" firstAttribute="centerX" secondItem="F57-DA-XF9" secondAttribute="centerX" id="TRf-t4-jSK"/>
-                                    <constraint firstItem="MOq-WG-A72" firstAttribute="top" secondItem="F57-DA-XF9" secondAttribute="top" constant="56" id="X9s-f2-hAl"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="460" id="iIv-0l-soJ"/>
+                                    <constraint firstItem="MOq-WG-A72" firstAttribute="top" secondItem="WQV-7u-OZU" secondAttribute="bottom" constant="15" id="YeO-mv-OTt"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="iIv-0l-soJ"/>
                                 </constraints>
                             </stackView>
                         </subviews>
