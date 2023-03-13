@@ -28,6 +28,22 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var quiz3SubmitButton: UIButton!
     
+    // Quiz 4
+    var temperatureStrArray: [String] = ["colder", "cold", "normal", "warm"]
+    
+    @IBOutlet weak var quiz4View: UIStackView!
+    
+
+    @IBOutlet weak var temperaturePicker: UIPickerView!
+    
+    @IBOutlet weak var quiz4TitleLabel: UILabel!
+    
+    @IBOutlet weak var quiz4Description: UILabel!
+    
+    @IBOutlet weak var quiz4NextButton: UIButton!
+    
+    @IBOutlet weak var quiz4SubmitButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         quiz3Answer = quiz3.answers[0]
@@ -38,10 +54,14 @@ class ViewController: UIViewController {
         
         quiz3NumberOfFlowersSlider.addTarget(self, action: #selector(numberOfFlowersChanged), for: .valueChanged)
         
-        quiz3NextButton.isEnabled = false
-        quiz3NextButton.isHidden = true
+        quiz3SubmitButton.isHidden = true
         quiz3SubmitButton.isEnabled = false
-        quiz3SubmitButton.addTarget(self, action: #selector(submitButtonPressed), for: .touchUpInside)
+        quiz3NextButton.isEnabled = false
+        quiz3NextButton.addTarget(self, action: #selector(quiz3NextButtonPressed), for: .touchUpInside)
+        
+        // quiz 4
+        temperaturePicker.delegate = self
+        temperaturePicker.dataSource = self
     }
     
     @objc func numberOfFlowersChanged(_ sender: UISlider) {
@@ -49,12 +69,27 @@ class ViewController: UIViewController {
         let numberOfFlowers = Int(sender.value)
         (quiz3Answer as! AnswerNumberValue).numberValue = numberOfFlowers
         quiz3DescriptionLabel.text = quizs[quiz3Index].question.description + " " + String(numberOfFlowers)
-        quiz3SubmitButton.isEnabled = true
+        quiz3NextButton.isEnabled = true
     }
     
-    @objc func submitButtonPressed(_ sender: UIButton) {
+    @objc func quiz3NextButtonPressed(_ sender: UIButton) {
         quizs[quiz3Index].answers[0].submit()
+        quiz4View.isHidden = false
+        quiz3View.isHidden = true
     }
 
+}
+
+extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return temperatureStrArray.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return temperatureStrArray[row]
+    }
+    
 }
 

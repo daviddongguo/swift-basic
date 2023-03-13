@@ -22,8 +22,8 @@ let animalImages: [UIImage?] = [
 ]
 
 enum TemperatureOfRiverEnum: String {
-    case colder = "very cold"
+    case colder = "colder"
     case cold = "cold"
     case normal = "normal"
-    case warmer = "warmer"
+    case warmer = "warm"
 }
