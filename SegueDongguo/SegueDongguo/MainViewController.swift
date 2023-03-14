@@ -27,7 +27,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         gotoNextButton.addTarget(self, action: #selector(gotoNextButtonPressed), for: .touchUpInside)
-//        gotoOrangeButton.addTarget(self, action: #selector(gotoOrangeButtonPressed), for: .touchUpInside)
         segueSwitch.addTarget(self, action: #selector(segueSwitchValueChanged), for: .valueChanged)
     }
     
@@ -39,10 +38,6 @@ class MainViewController: UIViewController {
             performSegue(withIdentifier: "toGreen", sender: self)
         }
     }
-    
-//    @objc func gotoOrangeButtonPressed(_ sender: UIButton) {
-//            performSegue(withIdentifier: "toOrange", sender: self)
-//    }
     
 
     
@@ -70,8 +65,6 @@ class MainViewController: UIViewController {
     }
     
     // This method will be called before a storyboard segue from a button
-    // NOT programatic or storyboard segue which is connected to the whole View Controller and
-    // we run it with swift by: performSegue(withIdentifier: "toYellow", sender: nil)
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
         print("shouldPerformSegue")
