@@ -8,7 +8,16 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var mainTextField: UITextField!
+    
+    @IBOutlet weak var segueSwitch: UISwitch!
+    
+    @IBOutlet weak var gotoNextButton: UIButton!
+    
+    @IBOutlet weak var gotoOrangeButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

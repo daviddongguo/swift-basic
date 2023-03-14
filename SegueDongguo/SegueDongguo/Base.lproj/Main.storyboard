@@ -75,6 +75,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="gotoNextButton" destination="i1K-E9-lUb" id="9BU-GS-hpJ"/>
+                        <outlet property="gotoOrangeButton" destination="NKI-qQ-kn5" id="98w-cJ-sRD"/>
+                        <outlet property="mainTextField" destination="9GJ-f9-1Um" id="LSS-gp-iwr"/>
+                        <outlet property="segueSwitch" destination="5w6-WD-rnB" id="Vnb-Oq-Nz7"/>
                         <segue destination="lPe-bs-VFg" kind="show" identifier="toGreen" id="Mb8-5Z-4iW"/>
                         <segue destination="mza-cj-Hs0" kind="show" identifier="toYellow" id="vSe-5y-CqG"/>
                         <segue destination="UxN-Fj-iQP" kind="show" identifier="toOrange" id="Aak-CW-ZmZ"/>
