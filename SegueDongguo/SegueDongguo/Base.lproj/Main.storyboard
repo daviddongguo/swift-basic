@@ -149,7 +149,79 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1w-4F-VCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="-332"/>
+            <point key="canvasLocation" x="1326" y="-361"/>
+        </scene>
+        <!--YellowViewController-->
+        <scene sceneID="6QU-ot-xqr">
+            <objects>
+                <viewController id="mza-cj-Hs0" userLabel="YellowViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qT8-eQ-kRt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Adt-oe-Jt6">
+                                <rect key="frame" x="28.666666666666657" y="276.33333333333326" width="335.66666666666674" height="299.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3D6-hZ-eP2" userLabel="GreenVCLabel">
+                                        <rect key="frame" x="139.66666666666669" y="0.0" width="56.666666666666657" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9FS-QY-YMg" userLabel="GreenVCTextField">
+                                        <rect key="frame" x="0.0" y="66.333333333333371" width="335.66666666666669" height="34.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="IYl-hu-efa" userLabel="Hidden">
+                                        <rect key="frame" x="168" y="132.66666666666669" width="0.0" height="34.333333333333343"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgN-KK-rGD" userLabel="GreenLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDY-zf-rQR">
+                                                <rect key="frame" x="0.0" y="0.0" width="2" height="31"/>
+                                            </switch>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yellow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hT-22-F1w" userLabel="YellowLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI6-cM-WGO" userLabel="GoBackButton">
+                                        <rect key="frame" x="124" y="199" width="88" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go Back"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdQ-iw-2NF" userLabel="Hidden">
+                                        <rect key="frame" x="0.0" y="265.33333333333331" width="335.66666666666669" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go to orange VC - should perform Segue">
+                                            <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9FS-QY-YMg" firstAttribute="leading" secondItem="Adt-oe-Jt6" secondAttribute="leading" id="i4N-Di-lA1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vnC-zo-wgF"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="Adt-oe-Jt6" firstAttribute="centerY" secondItem="qT8-eQ-kRt" secondAttribute="centerY" id="cfa-PI-Uvi"/>
+                            <constraint firstItem="Adt-oe-Jt6" firstAttribute="centerX" secondItem="qT8-eQ-kRt" secondAttribute="centerX" id="zrI-H7-klp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lhc-bj-SW6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="356"/>
         </scene>
     </scenes>
     <resources>
