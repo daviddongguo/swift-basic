@@ -11,8 +11,6 @@ class YellowViewController: UIViewController {
     
     
     @IBOutlet weak var yellowVCLabel: UILabel!
-    
-    
     @IBOutlet weak var yellowVCTextField: UITextField!
     @IBOutlet weak var goBackButton: UIButton!
     
@@ -20,29 +18,16 @@ class YellowViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         goBackButton.addTarget(self, action: #selector(goBackButtonPressed), for: .touchUpInside)
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         if let unwrapped = text {
             yellowVCLabel.text = unwrapped
         }
     }
-
     
     @objc func goBackButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "fromYellow", sender: self)
-
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
