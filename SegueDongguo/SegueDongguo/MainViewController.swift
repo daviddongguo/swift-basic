@@ -10,7 +10,12 @@ import UIKit
 class MainViewController: UIViewController {
     
     
-    @IBOutlet weak var mainTextField: UITextField!
+    @IBOutlet weak var mainTextField: UITextField! {
+        didSet{
+            mainTextField.delegate = self
+            print("set text field: \(mainTextField.text ?? "no content")")
+        }
+    }
     
     @IBOutlet weak var segueSwitch: UISwitch!
     
@@ -21,8 +26,29 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        gotoNextButton.addTarget(self, action: #selector(gotoNextButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func gotoNextButtonPressed(_ sender: UIButton) {
+        print("button pressed")
+        if segueSwitch.isOn{
+            performSegue(withIdentifier: "toYellow", sender: nil)
+        }else{
+            performSegue(withIdentifier: "toGreen", sender: nil)
+        }
     }
 
 
+} // end of class
+
+extension MainViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Dissmiss the keyboard by pressing enter
+        // 1- Conform to UITextFieldDelegate
+        // 2- In target text field didSet set the myTextField.delegate = self
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
