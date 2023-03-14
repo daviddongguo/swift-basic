@@ -56,13 +56,12 @@ class ViewController: UIViewController {
         sender.setBackgroundImage(Setting.diceArray[move - 1], for: UIControl.State.normal)
         
         // move current player position
-        var debuggingMsg = "\(players[currentIndex].name) get \(move) steps from  \(players[currentIndex].position)"
+        let debuggingMsg = "\(players[currentIndex].name) get \(move) steps from  \(players[currentIndex].position)"
         print(debuggingMsg)
         var end: Int = players[currentIndex].position + move
         
         for step in start...end {
             moveOnBoard(playerButtons[currentIndex], to: step)
-            sleep(1)
         }
         
         // continue move on the map of board
@@ -106,7 +105,7 @@ class ViewController: UIViewController {
             holder.addSubview(button)
         }
         for i in 0..<Setting.numberOfPlayer {
-            moveOnBoard(playerButtons[i], to: players[i].position )
+            moveOnBoard(playerButtons[i], to: players[i].position)
             //            holder.addSubview(playerButton)
         }
         diceContainer.addSubview(diceButton)
@@ -143,27 +142,18 @@ class ViewController: UIViewController {
     //    }
     
     
-    @objc func moveOnBoard(_ button: UIButton, to end: Int) {
+    @objc func moveOnBoard(_ button: UIButton, to end: Int ) {
         
         
         let endX = ((end - 1) / 10 % 2 == 0) ? (end - 1) % 10 : 9 - (end - 1) % 10
         let endY = 9 - (end - 1) / 10
-        //        button.frame = CGRectMake(cellSize * Double(x), cellSize * Double(y), cellSize, cellSize )
-        
-//        var animator = UIViewPropertyAnimator(duration: 0.5, curve: .linear) {
-//            [unowned self, button] in
-//            button.frame = CGRectMake(cellSize * Double(endX), cellSize * Double(endY), cellSize, cellSize )
-//        }
-//        
-//        animator.startAnimation()
         
         let viewColorAnimator: UIViewPropertyAnimator = UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: 0.4,
             delay: 0.0,
             options: [],
             animations: {[self] in
-                button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize ) },
-            completion: nil
+                button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize ) }
         )
         
         viewColorAnimator.startAnimation()
