@@ -60,6 +60,9 @@
                                         <rect key="frame" x="0.0" y="265.33333333333331" width="335.66666666666669" height="34.333333333333314"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Go to orange VC - should perform Segue"/>
+                                        <connections>
+                                            <segue destination="UxN-Fj-iQP" kind="show" identifier="toOrange" id="xsR-EG-Acz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -82,7 +85,6 @@
                         <outlet property="segueSwitch" destination="5w6-WD-rnB" id="Vnb-Oq-Nz7"/>
                         <segue destination="lPe-bs-VFg" kind="show" identifier="toGreen" id="Mb8-5Z-4iW"/>
                         <segue destination="mza-cj-Hs0" kind="show" identifier="toYellow" id="vSe-5y-CqG"/>
-                        <segue destination="UxN-Fj-iQP" kind="show" identifier="toOrange" id="Aak-CW-ZmZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

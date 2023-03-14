@@ -27,7 +27,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         gotoNextButton.addTarget(self, action: #selector(gotoNextButtonPressed), for: .touchUpInside)
-        gotoOrangeButton.addTarget(self, action: #selector(gotoOrangeButtonPressed), for: .touchUpInside)
+//        gotoOrangeButton.addTarget(self, action: #selector(gotoOrangeButtonPressed), for: .touchUpInside)
         segueSwitch.addTarget(self, action: #selector(segueSwitchValueChanged), for: .valueChanged)
     }
     
@@ -40,11 +40,9 @@ class MainViewController: UIViewController {
         }
     }
     
-    @objc func gotoOrangeButtonPressed(_ sender: UIButton) {
-     
-            performSegue(withIdentifier: "toOrange", sender: self)
-
-    }
+//    @objc func gotoOrangeButtonPressed(_ sender: UIButton) {
+//            performSegue(withIdentifier: "toOrange", sender: self)
+//    }
     
 
     
@@ -67,7 +65,7 @@ class MainViewController: UIViewController {
             let vc = unwindSegue.source as! YellowViewController
             mainTextField.text = vc.yellowVCTextField.text!
         default:
-            mainTextField.text = "N/A"
+            mainTextField.text = ""
         }
     }
     
@@ -78,8 +76,10 @@ class MainViewController: UIViewController {
                                      sender: Any?) -> Bool {
         print("shouldPerformSegue")
         if identifier  == "toOrange" && mainTextField.text == "orange" {
+            print("can jump to orange")
             return true
         } else{
+            print("can not jump to orange")
             return false
         }
     }
