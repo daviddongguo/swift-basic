@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainViewController-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="MainViewController" customClass="MainViewController" customModule="SegueDongguo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Nn8-iT-2eg">
+                                <rect key="frame" x="28.666666666666657" y="276.33333333333326" width="335.66666666666674" height="299.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQt-pG-t0U" userLabel="Hidden">
+                                        <rect key="frame" x="139.66666666666669" y="0.0" width="56.666666666666657" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9GJ-f9-1Um" userLabel="MainTextField">
+                                        <rect key="frame" x="0.0" y="66.333333333333371" width="335.66666666666669" height="34.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="CfU-d0-GU0">
+                                        <rect key="frame" x="38" y="132.66666666666669" width="259.66666666666669" height="34.333333333333343"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiT-Ct-pmY" userLabel="GreenLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="46.333333333333336" height="34.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5w6-WD-rnB">
+                                                <rect key="frame" x="104.33333333333331" y="0.0" width="51" height="34.333333333333336"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yellow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6mX-y9-bTj" userLabel="YellowLabel">
+                                                <rect key="frame" x="211.33333333333331" y="0.0" width="48.333333333333314" height="34.333333333333336"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i1K-E9-lUb" userLabel="GoToNextVCButton">
+                                        <rect key="frame" x="103.33333333333333" y="199" width="129.33333333333337" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go to next VC"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKI-qQ-kn5" userLabel="GoToOrangeVCButton">
+                                        <rect key="frame" x="0.0" y="265.33333333333331" width="335.66666666666669" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go to orange VC - should perform Segue"/>
+                                        <connections>
+                                            <segue destination="UxN-Fj-iQP" kind="show" identifier="toOrange" id="xsR-EG-Acz"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9GJ-f9-1Um" firstAttribute="leading" secondItem="Nn8-iT-2eg" secondAttribute="leading" id="5wg-I8-agj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Nn8-iT-2eg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="QA7-l7-SaR"/>
+                            <constraint firstItem="Nn8-iT-2eg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uSN-vg-c1c"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OcP-RF-xr7"/>
+                    <connections>
+                        <outlet property="gotoNextButton" destination="i1K-E9-lUb" id="9BU-GS-hpJ"/>
+                        <outlet property="gotoOrangeButton" destination="NKI-qQ-kn5" id="98w-cJ-sRD"/>
+                        <outlet property="mainTextField" destination="9GJ-f9-1Um" id="LSS-gp-iwr"/>
+                        <outlet property="segueSwitch" destination="5w6-WD-rnB" id="Vnb-Oq-Nz7"/>
+                        <segue destination="lPe-bs-VFg" kind="show" identifier="toGreen" id="Mb8-5Z-4iW"/>
+                        <segue destination="mza-cj-Hs0" kind="show" identifier="toYellow" id="vSe-5y-CqG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="291" y="-252"/>
+        </scene>
+        <!--GreenViewController-->
+        <scene sceneID="GpU-cz-Xnc">
+            <objects>
+                <viewController id="lPe-bs-VFg" userLabel="GreenViewController" customClass="GreenViewController" customModule="SegueDongguo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AL1-77-u9G">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="L13-EF-Ddc">
+                                <rect key="frame" x="28.666666666666657" y="241.66666666666666" width="335.66666666666674" height="299.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3gM-s7-jtO" userLabel="GreenVCLabel">
+                                        <rect key="frame" x="139.66666666666669" y="0.0" width="56.666666666666657" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hiK-rq-B0w" userLabel="GreenVCTextField">
+                                        <rect key="frame" x="0.0" y="66.333333333333343" width="335.66666666666669" height="34.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="w9s-cW-8ix" userLabel="Hidden">
+                                        <rect key="frame" x="168" y="132.66666666666666" width="0.0" height="34.333333333333343"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buZ-JZ-Lho" userLabel="GreenLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Seo-gy-app">
+                                                <rect key="frame" x="0.0" y="0.0" width="2" height="31"/>
+                                            </switch>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yellow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Uy-nQ-1bY" userLabel="YellowLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yZ-Md-Stu" userLabel="GoBackButton">
+                                        <rect key="frame" x="124" y="199.00000000000003" width="88" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go Back"/>
+                                        <connections>
+                                            <segue destination="M5N-x7-ksD" kind="unwind" identifier="fromGreen" unwindAction="unwindToFirstVC:" id="31r-45-A5C"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3J-Vb-d57" userLabel="Hidden">
+                                        <rect key="frame" x="0.0" y="265.33333333333337" width="335.66666666666669" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go to orange VC - should perform Segue">
+                                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hiK-rq-B0w" firstAttribute="leading" secondItem="L13-EF-Ddc" secondAttribute="leading" id="ZCu-jM-8Sq"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="wS0-Rz-y6A"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="L13-EF-Ddc" firstAttribute="centerY" secondItem="AL1-77-u9G" secondAttribute="centerY" id="LdK-nx-Q2l"/>
+                            <constraint firstItem="L13-EF-Ddc" firstAttribute="centerX" secondItem="AL1-77-u9G" secondAttribute="centerX" id="jHB-iV-5Bf"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zmu-O9-Ywi"/>
+                    <connections>
+                        <outlet property="greenVCLabel" destination="3gM-s7-jtO" id="CMo-dJ-3OZ"/>
+                        <outlet property="greenVCTextField" destination="hiK-rq-B0w" id="eP2-Wh-fMO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1w-4F-VCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="M5N-x7-ksD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1326" y="-361"/>
+        </scene>
+        <!--OrangeViewController-->
+        <scene sceneID="uW3-qu-0kt">
+            <objects>
+                <viewController id="UxN-Fj-iQP" userLabel="OrangeViewController" customClass="OrangeViewController" customModule="SegueDongguo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bhF-YG-6Qe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Dkp-sq-S2z">
+                                <rect key="frame" x="28.666666666666657" y="241.66666666666666" width="335.66666666666674" height="299.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpL-pZ-zQI" userLabel="Hidden">
+                                        <rect key="frame" x="139.66666666666669" y="0.0" width="56.666666666666657" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" systemColor="systemOrangeColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8St-zG-zrw" userLabel="Hidden">
+                                        <rect key="frame" x="0.0" y="66.333333333333343" width="335.66666666666669" height="34.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="27v-t3-5Sc" userLabel="Hidden">
+                                        <rect key="frame" x="168" y="132.66666666666666" width="0.0" height="34.333333333333343"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ShQ-3C-FeC" userLabel="GreenLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6NW-RJ-0V6">
+                                                <rect key="frame" x="0.0" y="0.0" width="2" height="31"/>
+                                            </switch>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yellow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD5-bW-Qc1" userLabel="YellowLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zew-bz-D9z" userLabel="GoBackButton">
+                                        <rect key="frame" x="124" y="199.00000000000003" width="88" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go Back"/>
+                                        <connections>
+                                            <segue destination="CcM-hv-t1W" kind="unwind" identifier="fromOrange" unwindAction="unwindToFirstVC:" id="gU3-eg-aH5"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biD-61-8qW" userLabel="Hidden">
+                                        <rect key="frame" x="0.0" y="265.33333333333337" width="335.66666666666669" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go to orange VC - should perform Segue">
+                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="8St-zG-zrw" firstAttribute="leading" secondItem="Dkp-sq-S2z" secondAttribute="leading" id="ntr-36-ryk"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2Kt-Df-P8n"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="Dkp-sq-S2z" firstAttribute="centerY" secondItem="bhF-YG-6Qe" secondAttribute="centerY" id="6vE-Uu-zfx"/>
+                            <constraint firstItem="Dkp-sq-S2z" firstAttribute="centerX" secondItem="bhF-YG-6Qe" secondAttribute="centerX" id="KwV-uT-SkE"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="fFZ-fL-ztg"/>
+                    <connections>
+                        <outlet property="goBackButton" destination="Zew-bz-D9z" id="LDe-tD-IjQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OQF-zQ-ok2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="CcM-hv-t1W" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="68" y="777"/>
+        </scene>
+        <!--YellowViewController-->
+        <scene sceneID="6QU-ot-xqr">
+            <objects>
+                <viewController id="mza-cj-Hs0" userLabel="YellowViewController" customClass="YellowViewController" customModule="SegueDongguo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qT8-eQ-kRt">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Adt-oe-Jt6">
+                                <rect key="frame" x="28.666666666666657" y="241.66666666666666" width="335.66666666666674" height="299.66666666666674"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3D6-hZ-eP2" userLabel="GreenVCLabel">
+                                        <rect key="frame" x="139.66666666666669" y="0.0" width="56.666666666666657" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9FS-QY-YMg" userLabel="GreenVCTextField">
+                                        <rect key="frame" x="0.0" y="66.333333333333343" width="335.66666666666669" height="34.333333333333343"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="58" translatesAutoresizingMaskIntoConstraints="NO" id="IYl-hu-efa" userLabel="Hidden">
+                                        <rect key="frame" x="168" y="132.66666666666666" width="0.0" height="34.333333333333343"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Green" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgN-KK-rGD" userLabel="GreenLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemGreenColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NDY-zf-rQR">
+                                                <rect key="frame" x="0.0" y="0.0" width="2" height="31"/>
+                                            </switch>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yellow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hT-22-F1w" userLabel="YellowLabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" systemColor="systemYellowColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZI6-cM-WGO" userLabel="GoBackButton">
+                                        <rect key="frame" x="124" y="199.00000000000003" width="88" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go Back"/>
+                                        <connections>
+                                            <segue destination="qcs-kc-86f" kind="unwind" identifier="fromYellow" unwindAction="unwindToFirstVC:" id="aeZ-yV-yDy"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IdQ-iw-2NF" userLabel="Hidden">
+                                        <rect key="frame" x="0.0" y="265.33333333333337" width="335.66666666666669" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Go to orange VC - should perform Segue">
+                                            <color key="baseForegroundColor" systemColor="systemYellowColor"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9FS-QY-YMg" firstAttribute="leading" secondItem="Adt-oe-Jt6" secondAttribute="leading" id="i4N-Di-lA1"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vnC-zo-wgF"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="Adt-oe-Jt6" firstAttribute="centerY" secondItem="qT8-eQ-kRt" secondAttribute="centerY" id="cfa-PI-Uvi"/>
+                            <constraint firstItem="Adt-oe-Jt6" firstAttribute="centerX" secondItem="qT8-eQ-kRt" secondAttribute="centerX" id="zrI-H7-klp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="In8-Fo-7oj"/>
+                    <connections>
+                        <outlet property="goBackButton" destination="ZI6-cM-WGO" id="fug-t9-Cgt"/>
+                        <outlet property="yellowVCLabel" destination="3D6-hZ-eP2" id="T4n-2j-Xug"/>
+                        <outlet property="yellowVCTextField" destination="9FS-QY-YMg" id="iZe-Xk-iw4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lhc-bj-SW6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="qcs-kc-86f" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1274" y="356"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
