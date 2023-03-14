@@ -75,16 +75,7 @@ class ViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 1, animations: {
-            self.bgImage.alpha = 0.6
-        }){ (true) in
-            UIView.animate(withDuration: 1, animations: {
-                self.titleLable.alpha = 1
-            }))
-            
-        }
-    }
+
     
     func animateFun() {
         
