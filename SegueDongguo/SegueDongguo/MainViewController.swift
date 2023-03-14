@@ -13,7 +13,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var mainTextField: UITextField! {
         didSet{
             mainTextField.delegate = self
-            print("set text field: \(mainTextField.text ?? "no content")")
         }
     }
     
@@ -47,11 +46,7 @@ class MainViewController: UIViewController {
 
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? GreenViewController {
-            destination.text = mainTextField.text
-        }
-    }
+
     
     @objc func segueSwitchValueChanged(_ sender: UISwitch) {
         let bool = sender.isOn
@@ -68,12 +63,34 @@ class MainViewController: UIViewController {
         case "fromGreen":
             let vc = unwindSegue.source as! GreenViewController
             mainTextField.text = vc.greenVCTextField.text!
-            
         case "fromYellow":
             let vc = unwindSegue.source as! YellowViewController
-//            mainTextField.text = vc.yellowTextField.text!
+            mainTextField.text = vc.yellowVCTextField.text!
         default:
             mainTextField.text = "N/A"
+        }
+    }
+    
+    // This method will be called before a storyboard segue from a button
+    // NOT programatic or storyboard segue which is connected to the whole View Controller and
+    // we run it with swift by: performSegue(withIdentifier: "toYellow", sender: nil)
+    override func shouldPerformSegue(withIdentifier identifier: String,
+                                     sender: Any?) -> Bool {
+        print("shouldPerformSegue")
+        if identifier  == "toOrange" && mainTextField.text == "orange" {
+            return true
+        } else{
+            return false
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? GreenViewController {
+            destination.text = mainTextField.text
+        }
+        
+        if let destination = segue.destination as? YellowViewController {
+            destination.text = mainTextField.text
         }
     }
 

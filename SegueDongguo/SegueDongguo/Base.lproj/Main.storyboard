@@ -323,6 +323,8 @@
                     <navigationItem key="navigationItem" id="In8-Fo-7oj"/>
                     <connections>
                         <outlet property="goBackButton" destination="ZI6-cM-WGO" id="fug-t9-Cgt"/>
+                        <outlet property="yellowVCLabel" destination="3D6-hZ-eP2" id="T4n-2j-Xug"/>
+                        <outlet property="yellowVCTextField" destination="9FS-QY-YMg" id="iZe-Xk-iw4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lhc-bj-SW6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

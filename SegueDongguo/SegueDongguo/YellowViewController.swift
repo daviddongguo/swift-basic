@@ -8,13 +8,24 @@
 import UIKit
 
 class YellowViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var yellowVCLabel: UILabel!
+    
+    
+    @IBOutlet weak var yellowVCTextField: UITextField!
     @IBOutlet weak var goBackButton: UIButton!
+    
+    var text: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         goBackButton.addTarget(self, action: #selector(goBackButtonPressed), for: .touchUpInside)
+        
+        if let unwrapped = text {
+            yellowVCLabel.text = unwrapped
+        }
     }
 
     
