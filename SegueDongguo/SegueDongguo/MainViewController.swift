@@ -28,6 +28,16 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
         gotoNextButton.addTarget(self, action: #selector(gotoNextButtonPressed), for: .touchUpInside)
         gotoOrangeButton.addTarget(self, action: #selector(gotoOrangeButtonPressed), for: .touchUpInside)
+        segueSwitch.addTarget(self, action: #selector(segueSwitchValueChanged), for: .valueChanged)
+    }
+    
+    @objc func segueSwitchValueChanged(_ sender: UISwitch) {
+        let bool = sender.isOn
+        if bool {
+            gotoNextButton.titleLabel?.textColor = .systemYellow
+        }else{
+            gotoNextButton.titleLabel?.textColor = .green
+        }
     }
     
     @objc func gotoNextButtonPressed(_ sender: UIButton) {

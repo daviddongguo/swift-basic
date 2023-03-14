@@ -19,7 +19,7 @@ class YellowViewController: UIViewController {
 
     
     @objc func goBackButtonPressed(_ sender: UIButton) {
-        performSegue(withIdentifier: "fromOrange", sender: self)
+        performSegue(withIdentifier: "fromYellow", sender: self)
 
     }
     
