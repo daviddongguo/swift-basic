@@ -9,10 +9,18 @@ import UIKit
 
 class YellowViewController: UIViewController {
 
+    @IBOutlet weak var goBackButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        goBackButton.addTarget(self, action: #selector(goBackButtonPressed), for: .touchUpInside)
+    }
+
+    
+    @objc func goBackButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "fromOrange", sender: self)
+
     }
     
 

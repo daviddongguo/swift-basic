@@ -249,7 +249,7 @@
         <!--YellowViewController-->
         <scene sceneID="6QU-ot-xqr">
             <objects>
-                <viewController id="mza-cj-Hs0" userLabel="YellowViewController" sceneMemberID="viewController">
+                <viewController id="mza-cj-Hs0" userLabel="YellowViewController" customClass="YellowViewController" customModule="SegueDongguo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qT8-eQ-kRt">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -317,6 +317,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="In8-Fo-7oj"/>
+                    <connections>
+                        <outlet property="goBackButton" destination="ZI6-cM-WGO" id="fug-t9-Cgt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lhc-bj-SW6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="qcs-kc-86f" userLabel="Exit" sceneMemberID="exit"/>
