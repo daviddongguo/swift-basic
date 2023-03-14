@@ -25,11 +25,9 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         gotoNextButton.addTarget(self, action: #selector(gotoNextButtonPressed), for: .touchUpInside)
         segueSwitch.addTarget(self, action: #selector(segueSwitchValueChanged), for: .valueChanged)
     }
-    
     
     @objc func gotoNextButtonPressed(_ sender: UIButton) {
         if segueSwitch.isOn{
@@ -38,8 +36,6 @@ class MainViewController: UIViewController {
             performSegue(withIdentifier: "toGreen", sender: self)
         }
     }
-    
-
     
     @objc func segueSwitchValueChanged(_ sender: UISwitch) {
         let bool = sender.isOn
@@ -50,24 +46,10 @@ class MainViewController: UIViewController {
         }
     }
     
-    @IBAction func unwindToFirstVC(_ unwindSegue: UIStoryboardSegue) {
-        
-        switch unwindSegue.identifier {
-        case "fromGreen":
-            let vc = unwindSegue.source as! GreenViewController
-            mainTextField.text = vc.greenVCTextField.text!
-        case "fromYellow":
-            let vc = unwindSegue.source as! YellowViewController
-            mainTextField.text = vc.yellowVCTextField.text!
-        default:
-            mainTextField.text = ""
-        }
-    }
-    
     // This method will be called before a storyboard segue from a button
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
-        print("shouldPerformSegue")
+   
         if identifier  == "toOrange" && mainTextField.text == "orange" {
             print("can jump to orange")
             return true
@@ -86,8 +68,19 @@ class MainViewController: UIViewController {
             destination.text = mainTextField.text
         }
     }
-
-
+    
+    @IBAction func unwindToFirstVC(_ unwindSegue: UIStoryboardSegue) {
+        switch unwindSegue.identifier {
+        case "fromGreen":
+            let vc = unwindSegue.source as! GreenViewController
+            mainTextField.text = vc.greenVCTextField.text!
+        case "fromYellow":
+            let vc = unwindSegue.source as! YellowViewController
+            mainTextField.text = vc.yellowVCTextField.text!
+        default:
+            mainTextField.text = ""
+        }
+    }
 } // end of class
 
 extension MainViewController: UITextFieldDelegate{

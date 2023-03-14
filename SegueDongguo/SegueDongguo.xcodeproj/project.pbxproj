@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FCE8001429C107020022F42E /* delete.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8001329C107020022F42E /* delete.swift */; };
 		FCE8FFB829C0B0C00022F42E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8FFB729C0B0C00022F42E /* AppDelegate.swift */; };
 		FCE8FFBA29C0B0C00022F42E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8FFB929C0B0C00022F42E /* SceneDelegate.swift */; };
 		FCE8FFBC29C0B0C00022F42E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE8FFBB29C0B0C00022F42E /* MainViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FCE8001329C107020022F42E /* delete.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = delete.swift; sourceTree = "<group>"; };
 		FCE8FFB429C0B0C00022F42E /* SegueDongguo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SegueDongguo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE8FFB729C0B0C00022F42E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCE8FFB929C0B0C00022F42E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				FCE8FFB729C0B0C00022F42E /* AppDelegate.swift */,
 				FCE8FFB929C0B0C00022F42E /* SceneDelegate.swift */,
 				FCE8FFBB29C0B0C00022F42E /* MainViewController.swift */,
+				FCE8001329C107020022F42E /* delete.swift */,
 				FCE8FFCD29C0B1A30022F42E /* YellowViewController.swift */,
 				FCE8FFCF29C0B1B80022F42E /* OrangeViewController.swift */,
 				FCE8FFBD29C0B0C00022F42E /* Main.storyboard */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE8001429C107020022F42E /* delete.swift in Sources */,
 				FCE8FFCC29C0B1650022F42E /* GreenViewController.swift in Sources */,
 				FCE8FFBC29C0B0C00022F42E /* MainViewController.swift in Sources */,
 				FCE8FFD029C0B1B80022F42E /* OrangeViewController.swift in Sources */,

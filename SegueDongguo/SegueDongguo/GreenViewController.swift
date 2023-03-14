@@ -25,9 +25,7 @@ class GreenViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let unwrapped = text {
-            greenVCLabel.text = unwrapped
-        }
+            greenVCLabel.text = text ?? ""
     }
 
 }
