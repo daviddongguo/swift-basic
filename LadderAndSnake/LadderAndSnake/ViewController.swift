@@ -108,7 +108,7 @@ class ViewController: UIViewController {
         animator.addCompletion{_ in self.diceUI.isEnabled = true}
         animator.addCompletion{_ in self.currentPlayerUI.backgroundColor = UIColor.clear}
         animator.addCompletion{_ in self.currentIndex = (self.currentIndex + 1) % Setting.numberOfPlayer}
-        animator.addCompletion{_ in self.playerButtons[self.currentIndex].backgroundColor = .purple}
+        animator.addCompletion{_ in self.playerButtons[self.currentIndex].backgroundColor = .gray}
     }
     
     
@@ -128,7 +128,7 @@ class ViewController: UIViewController {
             curve: .linear,
             animations: {[self] in
                 button.frame = CGRectMake(self.boardCellSize * Double(endX), self.boardCellSize * Double(endY), self.boardCellSize, self.boardCellSize )
-                button.backgroundColor = .purple
+                button.backgroundColor = .gray
             }
         )
         
