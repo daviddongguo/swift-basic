@@ -27,15 +27,21 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         gotoNextButton.addTarget(self, action: #selector(gotoNextButtonPressed), for: .touchUpInside)
+        gotoOrangeButton.addTarget(self, action: #selector(gotoOrangeButtonPressed), for: .touchUpInside)
     }
     
     @objc func gotoNextButtonPressed(_ sender: UIButton) {
-        print("button pressed")
         if segueSwitch.isOn{
             performSegue(withIdentifier: "toYellow", sender: nil)
         }else{
             performSegue(withIdentifier: "toGreen", sender: nil)
         }
+    }
+    
+    @objc func gotoOrangeButtonPressed(_ sender: UIButton) {
+     
+            performSegue(withIdentifier: "toOrange", sender: nil)
+
     }
 
 
