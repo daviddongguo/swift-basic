@@ -43,6 +43,25 @@ class MainViewController: UIViewController {
             performSegue(withIdentifier: "toOrange", sender: nil)
 
     }
+    
+    @IBAction func unwindToFirstVC(_ unwindSegue: UIStoryboardSegue) {
+        
+        switch unwindSegue.identifier {
+        case "fromGreen":
+            let vc = unwindSegue.source as! GreenViewController
+//            mainTextField.text = vc.greenTextField.text!
+            
+            //.......................................
+//            print("personArray:        \(personArray)")
+            //.......................................
+            
+        case "fromYellow":
+            let vc = unwindSegue.source as! YellowViewController
+//            mainTextField.text = vc.yellowTextField.text!
+        default:
+            mainTextField.text = "N/A"
+        }
+    }
 
 
 } // end of class

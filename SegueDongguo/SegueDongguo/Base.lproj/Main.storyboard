@@ -74,6 +74,7 @@
                             <constraint firstItem="Nn8-iT-2eg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uSN-vg-c1c"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="OcP-RF-xr7"/>
                     <connections>
                         <outlet property="gotoNextButton" destination="i1K-E9-lUb" id="9BU-GS-hpJ"/>
                         <outlet property="gotoOrangeButton" destination="NKI-qQ-kn5" id="98w-cJ-sRD"/>
@@ -164,7 +165,7 @@
         <!--OrangeViewController-->
         <scene sceneID="uW3-qu-0kt">
             <objects>
-                <viewController id="UxN-Fj-iQP" userLabel="OrangeViewController" sceneMemberID="viewController">
+                <viewController id="UxN-Fj-iQP" userLabel="OrangeViewController" customClass="OrangeViewController" customModule="SegueDongguo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bhF-YG-6Qe">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,6 +208,9 @@
                                         <rect key="frame" x="124" y="199.00000000000003" width="88" height="34.333333333333343"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Go Back"/>
+                                        <connections>
+                                            <segue destination="CcM-hv-t1W" kind="unwind" identifier="fromOrange" unwindAction="unwindToFirstVC:" id="gU3-eg-aH5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="biD-61-8qW" userLabel="Hidden">
                                         <rect key="frame" x="0.0" y="265.33333333333337" width="335.66666666666669" height="34.333333333333314"/>
@@ -229,8 +233,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fFZ-fL-ztg"/>
+                    <connections>
+                        <outlet property="goBackButton" destination="Zew-bz-D9z" id="LDe-tD-IjQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OQF-zQ-ok2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="CcM-hv-t1W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="68" y="777"/>
         </scene>
