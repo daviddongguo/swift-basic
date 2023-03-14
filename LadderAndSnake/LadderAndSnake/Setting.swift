@@ -9,7 +9,8 @@ import UIKit
 struct Setting {
     static let boardSize = 100
     static let maxNumberOfDice = 6
-    static let startPosition = 70
+    static let startPosition = 0
+    static let gameSpeed = 100
     static var numberOfPlayer: Int = 4
     static let palyerImages: [UIImage?] = [
         UIImage(named: "king.png"),

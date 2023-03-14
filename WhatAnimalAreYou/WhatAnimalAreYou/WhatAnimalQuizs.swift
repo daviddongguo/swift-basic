@@ -172,15 +172,16 @@ import Foundation
 let personality: Personality = Personality()
 let quiz1 = Quiz(personality: personality,
                  question: """
-                    Now, please imagine yourself in a forest.
-                    As you walk forward, you see a small cottage before you.
+                    Imagine yourself in a forest.
+                    As you walk forward,
+                    you see a small cottage before you.
                     And you notice...
                  """,
                  answers: [
-                    AnswerTrueOfFalse(personality: personality, id: 0, text: "A massive tree standing in front of it?",  animalLikehoods: [.owl, .lion], selected: false),
-                    AnswerTrueOfFalse(personality: personality, id: 1, text: "A vast meadow surrounding it?",  animalLikehoods: [.lion, .butterfly], selected: false),
-                    AnswerTrueOfFalse(personality: personality, id: 2, text: "A myriad of colorful flowers coverring it",  animalLikehoods: [.butterfly, .dolphin], selected: false),
-                    AnswerTrueOfFalse(personality: personality, id: 3, text: "The door is wide open",  animalLikehoods: [], selected: false),
+                    AnswerTrueOfFalse(personality: personality, id: 0, text: "A massive tree",  animalLikehoods: [.owl, .lion], selected: false),
+                    AnswerTrueOfFalse(personality: personality, id: 1, text: "A vast meadow",  animalLikehoods: [.lion, .butterfly], selected: false),
+                    AnswerTrueOfFalse(personality: personality, id: 2, text: "A myriad of colorful flowers",  animalLikehoods: [.butterfly, .dolphin], selected: false),
+                    AnswerTrueOfFalse(personality: personality, id: 3, text: "The door is open",  animalLikehoods: [], selected: false),
                  ])
 let quiz2 = Quiz(personality: personality,
                  question: """
@@ -202,10 +203,10 @@ let quiz3 = Quiz(personality: personality,
 
 let quiz4 = Quiz(personality: personality,
                  question: """
-                            As you walk around to the back of the cottage.
-                            You discover a small river running alongside it.
-                            You dip your toes in the water.
-                            The temperature of the water is:
+                            As you walk around to the back of it.
+                            You discover a small river.
+                            You dip your toes into the water.
+                            The temperature of it is:
                           """,
                  answers:  [AnswerSingleSelection(personality: personality, id: 0, selectedString: "", lionString: TemperatureOfRiverEnum.colder.rawValue, owlString: TemperatureOfRiverEnum.cold.rawValue, dophinString: TemperatureOfRiverEnum.normal.rawValue, butterflyString: TemperatureOfRiverEnum.warmer.rawValue)]
 )

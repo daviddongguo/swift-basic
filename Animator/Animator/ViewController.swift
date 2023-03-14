@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         let layer = CALayer()
         layer.backgroundColor = UIColor.systemRed.cgColor
         layer.frame = CGRect(x: 100, y: 100, width: 120, height: 120)
@@ -70,7 +71,13 @@ class ViewController: UIViewController {
         }
         //        animator.startAnimation()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0 ) {self.animateMovement(layer)}
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0 ) {self.animateMovement(layer)}
+        
+    }
+    
+
+    
+    func animateFun() {
         
     }
     
@@ -102,36 +109,7 @@ class ViewController: UIViewController {
     
     
     
-    //    func fadeIn(_ view: UIView, completion: @escaping () -> Void) {
-    //        guard alpha == 0 else { return completion() }
-    //        UIViewPropertyAnimator.runningPropertyAnimator(
-    //            withDuration: 3.0, delay: 2.0, options:[.curveLinear],
-    //            animations: {
-    //                view.alpha = 1
-    //            },
-    //            completion: completion
-    //        )
-    //    }
-    //
-    //    func fadeOut(_ view: UIView, completion: @escaping () -> Void) {
-    //        guard alpha == 1 else { return completion() }
-    //        UIViewPropertyAnimator.runningPropertyAnimator(
-    //            withDuration: 3.0, delay: 2.0, options:[.curveLinear],
-    //            animations: {
-    //                view.alpha = 0
-    //            },
-    //            completion: completion
-    //        )
-    //    }
-    //
-    //    func fadeSequence(_ view: UIView, repeat n: Int = 1) {
-    //        guard n > 0 else { return }
-    //        fadeIn(view) {
-    //            fadeOut(view) {
-    //                fadeSequence(view, repeat: n-1)
-    //            }
-    //        }
-    //    }
+
     
 }
 
