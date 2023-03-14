@@ -2,37 +2,51 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var holder: UIView!
+    @IBOutlet var boardHolder: UIView!
     
-    @IBOutlet weak var diceContainer: UIView!
+    @IBOutlet weak var diceHolder: UIView!
     
     var dice = RandomDice()
     var map = Board().map
     var currentIndex = 0
     var players: [Player] = []
-    // goto line 49
-    
     
     var diceWidthSize: Double = 0
-    var diceButton: UIButton!
-    var cellSize: Double = 0
+    var diceUI: UIButton!
+    var boardCellSize: Double = 0
     var playerButtons: [UIButton] = []
+    var currentPlayerUI: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
         for player in Setting.playerList {
             playerButtons.append(createPlayerButton(n: player.position, type: player.type, name: player.name))
             players.append(player)
         }
+        currentPlayerUI = playerButtons[0]
         
-        diceWidthSize = diceContainer.frame.size.width
-        cellSize = holder.frame.size.width / 10
-        diceButton = createDivce()
-        
+        diceWidthSize = diceHolder.frame.size.width
+        boardCellSize = boardHolder.frame.size.width / 10
+        diceUI = createDivce()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setupBoardPad()
+    }
+    
+    private func setupBoardPad() {
+        for button in playerButtons {
+            boardHolder.addSubview(button)
+        }
+        for i in 0..<Setting.numberOfPlayer {
+            players[i].position = Setting.startPosition
+        }
+        diceHolder.addSubview(diceUI)
+    }
+    
     
     private func createDivce() -> UIButton {
         let ui = UIButton( frame: CGRect( x: 0, y: 0, width: diceWidthSize, height: diceWidthSize))
@@ -41,82 +55,64 @@ class ViewController: UIViewController {
         return  ui
     }
     
-    @objc func dicePressed(_ sender: UIButton) {
+    @objc func dicePressed(_ diceUI: UIButton) {
         let steps: Int =  dice.roll()
-        let startPosition: Int = players[currentIndex].position
+        let currentPlayer = players[currentIndex]
+        let startPosition: Int = currentPlayer.position
+        currentPlayerUI = playerButtons[currentIndex]
         
-        // change dice background image on move
-        sender.setBackgroundImage(Setting.diceArray[steps - 1], for: UIControl.State.normal)
-        sender.isEnabled = false
+        // change dice background image and disable it until playerUI finish moving
+        diceUI.setBackgroundImage(Setting.diceArray[steps - 1], for: UIControl.State.normal)
+        diceUI.isEnabled = false
         
-        // move current player position
-        let debuggingMsg = "\(players[currentIndex].name) get \(steps) steps from  \(players[currentIndex].position)"
+        let debuggingMsg = "\(currentPlayer.name) get \(steps) steps from  \(startPosition)"
         print(debuggingMsg)
-        var endPosition: Int = players[currentIndex].position + steps
+        var endPosition: Int = currentPlayer.position + steps
         
-        let animator = createMoveAnimator(playerButtons[currentIndex], to: startPosition + 1)
-        var preAnimarot = animator
+        // move current player one step by one stey
+        let animator = createMoveAnimator(currentPlayerUI, to: startPosition + 1)
+        var preAnimator = animator
         if steps >= 2 {
             for i in 2...steps {
-                let currentAnimator = createMoveAnimator(playerButtons[currentIndex], to: startPosition + i)
-                preAnimarot.addCompletion{_ in currentAnimator.startAnimation()}
-                preAnimarot = currentAnimator
-                //            moveOnBoard(playerButtons[currentIndex], to: start + i)
+                let currentAnimator = createMoveAnimator(currentPlayerUI, to: startPosition + i)
+                preAnimator.addCompletion{_ in currentAnimator.startAnimation()}
+                preAnimator = currentAnimator
             }
         }
         
         
-        // continue move on the map of board
-        while true {
-            if let unwrapped = map[endPosition] {
-//                moveOnBoard(playerButtons[currentIndex], to: end)
-                endPosition = unwrapped
-                let animator = createMoveAnimator(playerButtons[currentIndex], to: endPosition)
-                preAnimarot.addCompletion{_ in animator.startAnimation()}
-                preAnimarot.addCompletion{_ in sender.isEnabled = true}
-            }else {
-                preAnimarot.addCompletion{_ in sender.isEnabled = true}
+        // continue move based on the map of board
+        repeat {
+            guard let unwrapped = map[endPosition] else {
+                addCompletionForNextPlayer(to: preAnimator)
                 break
             }
-        }
-        
+            endPosition = unwrapped
+            let animator = createMoveAnimator(currentPlayerUI, to: endPosition)
+            preAnimator.addCompletion{_ in animator.startAnimation()}
+            addCompletionForNextPlayer(to: preAnimator)
+        } while true
         animator.startAnimation()
-        // move the icon of the current player on board
+        
+        // modify player data
         players[currentIndex].moveTo(endPosition)
-        //        moveOnBoard(playerButtons[currentIndex], to: players[currentIndex].position)
-        playerButtons[currentIndex].backgroundColor = UIColor.clear
         
-        // prepare for the next player
-        if players[currentIndex].isWin {
-            sender.isEnabled = false
-            print("\(players[currentIndex].name) position:  \(players[currentIndex].position)")
-        }else {
-            currentIndex += 1
-            currentIndex = currentIndex % Setting.numberOfPlayer
-            playerButtons[currentIndex].backgroundColor = .black
+        
+        if currentPlayer.isWin {
+            diceUI.isEnabled = false
+            print("\(currentPlayer.name) position:  \(currentPlayer.position)")
         }
     }
     
-    
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        setupBoardPad()
-        
+    func addCompletionForNextPlayer(to animator: UIViewPropertyAnimator) {
+        animator.addCompletion{_ in self.diceUI.isEnabled = true}
+        animator.addCompletion{_ in self.currentPlayerUI.backgroundColor = UIColor.clear}
+        animator.addCompletion{_ in self.currentIndex = (self.currentIndex + 1) % Setting.numberOfPlayer}
+        animator.addCompletion{_ in self.playerButtons[self.currentIndex].backgroundColor = .purple}
     }
     
-    private func setupBoardPad() {
-        for button in playerButtons {
-            holder.addSubview(button)
-        }
-        for i in 0..<Setting.numberOfPlayer {
-            players[i].position = Setting.startPosition
-        }
-        diceContainer.addSubview(diceButton)
-    }
     
+
     func computerXY(from position: Int) -> (x: Int, y: Int) {
         let x = ((position - 1) / 10 % 2 == 0) ? (position - 1) % 10 : 9 - (position - 1) % 10
         let y = 9 - (position - 1) / 10
@@ -125,15 +121,15 @@ class ViewController: UIViewController {
     
     func createMoveAnimator(_ button: UIButton, to end: Int ) ->  UIViewPropertyAnimator{
         
-//        let endX = ((end - 1) / 10 % 2 == 0) ? (end - 1) % 10 : 9 - (end - 1) % 10
-//        let endY = 9 - (end - 1) / 10
         let (endX, endY) = computerXY(from: end)
         
         let animator: UIViewPropertyAnimator = UIViewPropertyAnimator(
             duration: 10.0 / Double(Setting.gameSpeed),
             curve: .linear,
             animations: {[self] in
-                button.frame = CGRectMake(self.cellSize * Double(endX), self.cellSize * Double(endY), self.cellSize, self.cellSize ) }
+                button.frame = CGRectMake(self.boardCellSize * Double(endX), self.boardCellSize * Double(endY), self.boardCellSize, self.boardCellSize )
+                button.backgroundColor = .purple
+            }
         )
         
         return animator
@@ -146,16 +142,15 @@ class ViewController: UIViewController {
         let (x, y) = computerXY(from: n)
         let button = UIButton(
             frame: CGRect(
-                x: cellSize * Double(x),
-                y: cellSize * Double(y),
-                width: cellSize,
-                height: cellSize))
+                x: boardCellSize * Double(x),
+                y: boardCellSize * Double(y),
+                width: boardCellSize,
+                height: boardCellSize))
         button.setTitle(name, for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.setBackgroundImage(image, for: UIControl.State.normal)
         
         return  button
-    }
-    
+    }    
 }
 

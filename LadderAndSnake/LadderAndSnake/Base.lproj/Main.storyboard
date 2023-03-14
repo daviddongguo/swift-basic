@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0zI-yg-Nk0">
-    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -14,18 +12,18 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MiniGameViewController" customModule="LadderAndSnake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWb-kr-jZI" userLabel="loginCard">
-                                <rect key="frame" x="176" y="279" width="1014" height="550"/>
+                                <rect key="frame" x="176" y="249" width="1334" height="238.66666666666663"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="550" id="PUB-mo-1rX"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unc-Xp-TQx">
-                                <rect key="frame" x="627.5" y="846" width="111" height="97"/>
+                                <rect key="frame" x="787.66666666666663" y="504.66666666666669" width="111" height="34.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="72" id="msb-9R-xkl"/>
                                 </constraints>
@@ -38,7 +36,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snake_ladder_icon" translatesAutoresizingMaskIntoConstraints="NO" id="HHH-ug-jf3">
-                                <rect key="frame" x="593" y="74" width="180" height="180"/>
+                                <rect key="frame" x="593" y="44" width="500" height="180"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="1oy-RS-G2t"/>
                                 </constraints>
@@ -74,11 +72,11 @@
             <objects>
                 <viewController id="nem-BP-lRI" customClass="ViewController" customModule="LadderAndSnake" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zYD-do-ioI">
-                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K6a-kf-wyA">
-                                <rect key="frame" x="219" y="112" width="928" height="800"/>
+                                <rect key="frame" x="-164" y="-100" width="928" height="800"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snakes-ladders-board-bg" translatesAutoresizingMaskIntoConstraints="NO" id="gEG-c5-u82" userLabel="board">
                                         <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
@@ -109,8 +107,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="91g-Hj-n7e"/>
                     <connections>
-                        <outlet property="diceContainer" destination="p8x-UR-XDb" id="kfn-D9-aXF"/>
-                        <outlet property="holder" destination="gEG-c5-u82" id="scE-uU-ZDL"/>
+                        <outlet property="boardHolder" destination="gEG-c5-u82" id="scE-uU-ZDL"/>
+                        <outlet property="diceHolder" destination="p8x-UR-XDb" id="kfn-D9-aXF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A4Z-d9-O2c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
