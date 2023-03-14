@@ -160,6 +160,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zmu-O9-Ywi"/>
+                    <connections>
+                        <outlet property="greenVCLabel" destination="3gM-s7-jtO" id="CMo-dJ-3OZ"/>
+                        <outlet property="greenVCTextField" destination="hiK-rq-B0w" id="eP2-Wh-fMO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c1w-4F-VCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="M5N-x7-ksD" userLabel="Exit" sceneMemberID="exit"/>

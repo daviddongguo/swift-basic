@@ -12,15 +12,28 @@ class GreenViewController: UIViewController {
     
     
     
+    @IBOutlet weak var greenVCLabel: UILabel!
+    
+    var text: String?
     
     
+    @IBOutlet weak var greenVCTextField: UITextField!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        if let unwrapped = text {
+            greenVCLabel.text = unwrapped
+        }
     }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let destination = segue.destination as? MainViewController {
+//            destination.text = greenVCLabel.text
+//        }
+//    }
     
 
     /*
