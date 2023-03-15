@@ -13,11 +13,11 @@
             <objects>
                 <viewController id="ehi-i9-27i" userLabel="LogMelnViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AF4-qq-vkE">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pIh-zB-GPF">
-                                <rect key="frame" x="16" y="163" width="361" height="314"/>
+                                <rect key="frame" x="16" y="119" width="361" height="314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N6x-if-pb7" userLabel="Hidden">
                                         <rect key="frame" x="155.66666666666666" y="0.0" width="50" height="50"/>
@@ -79,6 +79,9 @@
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                     <color key="baseBackgroundColor" systemColor="systemMintColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="BYZ-38-t0r" kind="show" id="NGD-ln-YWv"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLk-Zs-66R">
                                                 <rect key="frame" x="188" y="8" width="173" height="34.333333333333336"/>
@@ -87,6 +90,9 @@
                                                     <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                                     <color key="baseBackgroundColor" systemColor="systemMintColor"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <segue destination="Z1p-d1-E7J" kind="show" id="ISs-CN-aF8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -117,6 +123,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YaZ-r4-M8e"/>
+                    <connections>
+                        <segue destination="a9A-ej-lYS" kind="show" identifier="toListOfUsers" id="APb-2V-ehy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbJ-QX-uIO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,7 +136,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="SingupViewController" customClass="ViewController" customModule="dongguo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="nXG-us-7ei">
@@ -311,17 +320,18 @@
                             <constraint firstItem="nXG-us-7ei" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="aYb-6d-yE8"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nap-ds-nDc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031.2977099236641" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="-160" y="-786"/>
         </scene>
         <!--ForgotPasswordViewController-->
         <scene sceneID="iLy-A4-HGM">
             <objects>
                 <viewController id="Z1p-d1-E7J" userLabel="ForgotPasswordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="emT-yb-gDK">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0gB-FP-P4V">
@@ -445,17 +455,18 @@
                             <constraint firstItem="0gB-FP-P4V" firstAttribute="centerX" secondItem="emT-yb-gDK" secondAttribute="centerX" id="cmy-xy-tAO"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Yfk-WC-q2X"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZJg-FK-c95" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1770.2290076335878" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="253" y="682"/>
         </scene>
         <!--ListOfUsersView Controller-->
         <scene sceneID="dWe-4A-TRN">
             <objects>
                 <viewController id="a9A-ej-lYS" userLabel="ListOfUsersView Controller" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RPg-2h-8HU">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="A6G-pB-YQk">
@@ -497,6 +508,9 @@
                                             <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                             <color key="baseBackgroundColor" systemColor="systemMintColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="OrR-Ai-cOz" kind="show" identifier="toUpdatePassword" id="xSe-dT-loR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -513,17 +527,18 @@
                             <constraint firstItem="A6G-pB-YQk" firstAttribute="centerX" secondItem="RPg-2h-8HU" secondAttribute="centerX" id="uVe-fr-yWZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="vOX-GK-d3j"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIG-rC-kYB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2463.3587786259541" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1563" y="-513"/>
         </scene>
         <!--UpdatePasswordViewController-->
         <scene sceneID="L1p-rh-VHP">
             <objects>
                 <viewController id="OrR-Ai-cOz" userLabel="UpdatePasswordViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PZH-Z1-eF6">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FOg-ZI-YBl">
@@ -603,6 +618,9 @@
                                             <color key="baseForegroundColor" systemColor="systemBlueColor"/>
                                             <color key="baseBackgroundColor" systemColor="systemMintColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="ehi-i9-27i" kind="show" identifier="backLogin" id="xpW-52-dE3"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -619,10 +637,11 @@
                             <constraint firstItem="FOg-ZI-YBl" firstAttribute="leading" secondItem="uDs-81-gwG" secondAttribute="leading" constant="16" id="fEz-ow-L7W"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ZHG-kt-Tsq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZa-N7-ZA0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3188.5496183206105" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="1563" y="365"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ecn-O6-kfF">
@@ -643,6 +662,10 @@
             <point key="canvasLocation" x="-674.04580152671758" y="-27.464788732394368"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="APb-2V-ehy"/>
+        <segue reference="xpW-52-dE3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
