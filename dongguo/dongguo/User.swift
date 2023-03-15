@@ -9,7 +9,7 @@ enum UserError: Error{
 }
 
 class User: Equatable, CustomStringConvertible {
-    private(set) var id: Int = 1
+    private(set) var Id: Int = 1
     private(set) var firstName: String?
     private(set) var lastName: String?
     private(set) var userName: String
@@ -23,8 +23,7 @@ class User: Equatable, CustomStringConvertible {
         self.password = password
     }
     
-    init(id: Int, firstName: String, lastName: String, userName: String, password: String, question: String, answer: String) {
-        self.id = id
+    init(firstName: String, lastName: String, userName: String, password: String, question: String, answer: String) {
         self.firstName = firstName
         self.lastName = lastName
         self.password = password
@@ -35,6 +34,10 @@ class User: Equatable, CustomStringConvertible {
     
     func setUserName(_ userName: String) {
         self.userName = userName.lowercased()
+    }
+    
+    func setId(_ Id: Int) {
+        self.Id = Id
     }
     
     func isValidatedPassword(_ password: String) -> Bool {
@@ -54,18 +57,19 @@ class User: Equatable, CustomStringConvertible {
     }
     
     var description: String {
-        return "\(self.id): \(self.userName)"
+        return "\(self.Id): \(self.userName)"
     }
 }
 
-class ListOfUsers {
+class UserCollection {
     var list: [User]
-    init(_ list: [User] = []) {
-        self.list = list
+    private(set) var count = 0
+    init() {
+        self.list = []
     }
     
-    func find(_ id: Int) -> User? {
-        return self.list.first{$0.id == id}
+    func find(_ Id: Int) -> User? {
+        return self.list.first{$0.Id == Id}
     }
     
     func findByUserName(_ userName: String = "") -> User? {
@@ -80,11 +84,16 @@ class ListOfUsers {
         if IsExistedUserName(user.userName) {
             throw UserError.duplicateUserName(message: "Duplicate user name for \(user.userName)")
         }
+        user.setId(self.list.count)
         self.list.append(user)
+        
     }
     
-    func isValidatedPassword(_ user: User, password: String) -> Bool {
-        return user.password == password
+    func isValidatedPassword(_ user: User?, password: String) -> Bool {
+        guard let unwrapped = user else {
+            return false
+        }
+        return unwrapped.password == password
     }
     
     func updatePassword(id: Int, oldPassword: String, newPassword: String) -> Bool {
@@ -93,5 +102,12 @@ class ListOfUsers {
         }
         
         return user.updatePassword(oldPassword: oldPassword, newPassword: newPassword)
+    }
+    
+    func printUsers() {
+        print("users count: \(self.list.count)")
+        for user in self.list {
+            print(user.description)
+        }
     }
 }

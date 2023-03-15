@@ -309,7 +309,7 @@
                                             <color key="baseBackgroundColor" systemColor="systemMintColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="3Pn-ob-oFk" kind="unwind" unwindAction="unwindToLogin:" id="DSh-h3-khA"/>
+                                            <segue destination="3Pn-ob-oFk" kind="unwind" identifier="fromSignup" unwindAction="unwindToLogin:" id="DSh-h3-khA"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -331,6 +331,12 @@
                     <connections>
                         <outlet property="submitButton" destination="Noe-Eh-jlH" id="zGm-Qt-blL"/>
                         <outletCollection property="userTextFields" destination="dXO-LF-OPC" collectionClass="NSMutableArray" id="Dwv-7x-e38"/>
+                        <outletCollection property="userTextFields" destination="fy3-gc-Lj0" collectionClass="NSMutableArray" id="scd-ld-Zdp"/>
+                        <outletCollection property="userTextFields" destination="KsX-kM-ws8" collectionClass="NSMutableArray" id="8oP-FK-r6M"/>
+                        <outletCollection property="userTextFields" destination="rHJ-Am-0ee" collectionClass="NSMutableArray" id="WWF-2u-TVQ"/>
+                        <outletCollection property="userTextFields" destination="FMT-lP-Vd2" collectionClass="NSMutableArray" id="Abk-yu-aaS"/>
+                        <outletCollection property="userTextFields" destination="gdB-sJ-wsb" collectionClass="NSMutableArray" id="KZb-nQ-byk"/>
+                        <outletCollection property="userTextFields" destination="fvN-so-4qO" collectionClass="NSMutableArray" id="Lt9-SC-aVc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
