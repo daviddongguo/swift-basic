@@ -88,7 +88,7 @@ class ListOfUsers {
     }
     
     func updatePassword(id: Int, oldPassword: String, newPassword: String) -> Bool {
-        guard var user = find(id) else {
+        guard let user = find(id) else {
             return false
         }
         
