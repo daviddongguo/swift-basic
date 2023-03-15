@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		FCA3B18829C23FA50004CD14 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3B18729C23FA50004CD14 /* SignupViewController.swift */; };
 		FCA3B18A29C240950004CD14 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3B18929C240950004CD14 /* LogInViewController.swift */; };
+		FCA3B18C29C253A90004CD14 /* ListOfUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3B18B29C253A90004CD14 /* ListOfUsersViewController.swift */; };
+		FCA3B18E29C256840004CD14 /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3B18D29C256840004CD14 /* UpdatePasswordViewController.swift */; };
+		FCA3B19029C25CD40004CD14 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCA3B18F29C25CD40004CD14 /* ForgetPasswordViewController.swift */; };
 		FCF7818629C228CA00EAEA71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF7818529C228CA00EAEA71 /* AppDelegate.swift */; };
 		FCF7818829C228CA00EAEA71 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF7818729C228CA00EAEA71 /* SceneDelegate.swift */; };
 		FCF7818D29C228CA00EAEA71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF7818B29C228CA00EAEA71 /* Main.storyboard */; };
@@ -20,6 +23,9 @@
 /* Begin PBXFileReference section */
 		FCA3B18729C23FA50004CD14 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		FCA3B18929C240950004CD14 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		FCA3B18B29C253A90004CD14 /* ListOfUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfUsersViewController.swift; sourceTree = "<group>"; };
+		FCA3B18D29C256840004CD14 /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
+		FCA3B18F29C25CD40004CD14 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		FCF7818229C228CA00EAEA71 /* dongguo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dongguo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF7818529C228CA00EAEA71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF7818729C228CA00EAEA71 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,9 @@
 				FCF7819329C228CD00EAEA71 /* Info.plist */,
 				FCF7819929C2290800EAEA71 /* User.swift */,
 				FCA3B18729C23FA50004CD14 /* SignupViewController.swift */,
+				FCA3B18B29C253A90004CD14 /* ListOfUsersViewController.swift */,
+				FCA3B18D29C256840004CD14 /* UpdatePasswordViewController.swift */,
+				FCA3B18F29C25CD40004CD14 /* ForgetPasswordViewController.swift */,
 			);
 			path = dongguo;
 			sourceTree = "<group>";
@@ -144,10 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCA3B18C29C253A90004CD14 /* ListOfUsersViewController.swift in Sources */,
 				FCF7819A29C2290800EAEA71 /* User.swift in Sources */,
 				FCA3B18A29C240950004CD14 /* LogInViewController.swift in Sources */,
 				FCF7818629C228CA00EAEA71 /* AppDelegate.swift in Sources */,
+				FCA3B18E29C256840004CD14 /* UpdatePasswordViewController.swift in Sources */,
 				FCF7818829C228CA00EAEA71 /* SceneDelegate.swift in Sources */,
+				FCA3B19029C25CD40004CD14 /* ForgetPasswordViewController.swift in Sources */,
 				FCA3B18829C23FA50004CD14 /* SignupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

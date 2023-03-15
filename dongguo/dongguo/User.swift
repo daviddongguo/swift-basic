@@ -44,8 +44,20 @@ class User: Equatable, CustomStringConvertible {
         return self.password == password
     }
     
+    func isValidatedAnswer(_ answer: String) -> Bool {
+        return self.answer == answer
+    }
+    
     func updatePassword(oldPassword: String, newPassword: String) -> Bool {
-        if !isValidatedPassword(oldPassword) {
+        if !isValidatedPassword(oldPassword) || newPassword.isEmpty {
+            return false
+        }
+        self.password = newPassword
+        return true
+    }
+    
+    func updatePassword(answer: String, newPassword: String) -> Bool {
+        if !isValidatedAnswer(answer) || newPassword.isEmpty {
             return false
         }
         self.password = newPassword
@@ -57,7 +69,7 @@ class User: Equatable, CustomStringConvertible {
     }
     
     var description: String {
-        return "\(self.Id): \(self.userName)"
+        return "id: \(self.Id),\tusername: \(self.userName),\tpassword: \(self.password);"
     }
 }
 
@@ -102,6 +114,14 @@ class UserCollection {
         }
         
         return user.updatePassword(oldPassword: oldPassword, newPassword: newPassword)
+    }
+    
+    func updatePassword(userName: String, answer: String, newPassword: String) -> Bool {
+        guard let user = findByUserName(userName)  else {
+            return false
+        }
+     
+        return user.updatePassword(answer: answer, newPassword: newPassword)
     }
     
     func printUsers() {

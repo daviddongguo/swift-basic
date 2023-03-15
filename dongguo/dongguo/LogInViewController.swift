@@ -24,6 +24,14 @@ class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        do{
+            try server.add(User(userName: "a", password: "a"))
+            try server.add(User(userName: "b", password: "b"))
+            try server.add(User(firstName: "c", lastName: "c", userName: "c", password: "c", question: "which letter", answer: "c"))
+        }catch {
+            print("error")
+        }
+        
         server.printUsers()
     }
     
@@ -43,13 +51,26 @@ class LogInViewController: UIViewController {
         } else {
             return true
         }
-        
 
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? SignupViewController {
             destination.server = self.server
+        }
+        if let destination = segue.destination as? ForgetPasswordViewController {
+            destination.server = self.server
+        }
+        
+        if let destination = segue.destination as? ListOfUsersViewController {
+            destination.server = server
+            destination.currentUser = currentUser
+            
+            var string = ""
+            for user in server.list {
+                string += user.description + "\n"
+            }
+            destination.text = string
         }
     }
     
