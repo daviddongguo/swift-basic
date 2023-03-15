@@ -1,14 +1,9 @@
 //
-//  main.swift
-//  commandLine2
+//  User.swift
+//  dongguo
 //
 //  Created by map07 on 2023-03-15.
 //
-
-import Foundation
-
-print("Hello, World!")
-
 enum UserError: Error{
     case duplicateUserName(message: String = "... duplicate userName")
 }
@@ -100,25 +95,3 @@ class ListOfUsers {
         return user.updatePassword(oldPassword: oldPassword, newPassword: newPassword)
     }
 }
-
-
-
-
-// a. Initialize all inherited attributes plus all client attributes
-var listOfUsers = ListOfUsers()
-let user = User(userName: "john", password: "j")
-
-
-
-do {
-    try listOfUsers.add(user)
-    try listOfUsers.add(user)
-
-}catch UserError.duplicateUserName(let invalid) {
-    print("Error: \(invalid)")
-}catch {
-    print("Error: Unknown Error")
-}
-
-
-
