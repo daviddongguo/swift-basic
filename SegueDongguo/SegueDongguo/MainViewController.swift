@@ -73,10 +73,10 @@ class MainViewController: UIViewController {
         switch unwindSegue.identifier {
         case "fromGreen":
             let vc = unwindSegue.source as! GreenViewController
-            mainTextField.text = vc.greenVCTextField.text!
+            mainTextField.text = vc.greenVCTextField.text ?? ""
         case "fromYellow":
             let vc = unwindSegue.source as! YellowViewController
-            mainTextField.text = vc.yellowVCTextField.text!
+            mainTextField.text = vc.yellowVCTextField.text ?? ""
         default:
             mainTextField.text = ""
         }
