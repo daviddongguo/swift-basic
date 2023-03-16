@@ -12,13 +12,12 @@ class ListOfUsersViewController: UIViewController {
     var server: UserCollection?
     var currentUser: User?
     var text: String?
-
-    @IBOutlet weak var listOfUsersLabel: UILabel!
     
+    @IBOutlet weak var listOfUsersLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            listOfUsersLabel.text = text ?? ""
+        listOfUsersLabel.text = text ?? ""
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String,

@@ -88,13 +88,13 @@ class UserCollection {
         return self.list.first{$0.userName == userName}
     }
     
-    func IsExistedUserName(_ userName: String = "") -> Bool {
+    func isExistedUserName(_ userName: String = "") -> Bool {
         return findByUserName(userName) != nil
     }
     
     func add(_ user: User) throws {
-        if IsExistedUserName(user.userName) {
-            throw UserError.duplicateUserName(message: "Duplicate user name for \(user.userName)")
+        if isExistedUserName(user.userName) {
+            throw UserError.duplicateUserName(message: "Duplicate user name")
         }
         user.setId(self.list.count)
         self.list.append(user)

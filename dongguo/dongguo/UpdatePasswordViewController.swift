@@ -13,11 +13,8 @@ class UpdatePasswordViewController: UIViewController {
     var currentUser: User?
     
     @IBOutlet weak var oldPassword: UITextField!
-    
     @IBOutlet weak var newPassword: UITextField!
-    
     @IBOutlet weak var repeatedPassword: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
