@@ -12,29 +12,25 @@ class LogInViewController: UIViewController {
     var server: UserCollection = UserCollection()
     var currentUser: User? = nil
     
-    
+    @IBOutlet weak var errorMessageLabel: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
     
-    
     override func viewWillAppear(_ animated: Bool) {
+        do{
+            try server.add(User(firstName: "a", lastName: "a", userName: "a", password: "a", question: "answer is a", answer: "a"))
+            try server.add(User(firstName: "b", lastName: "b", userName: "b", password: "b", question: "answer is b", answer: "b"))
+            try server.add(User(firstName: "c", lastName: "c", userName: "c", password: "c", question: "answer is c", answer: "c"))
+        }catch {
+            print("Initialize user list error")
+        }
+        server.printUsers()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        do{
-            try server.add(User(firstName: "a", lastName: "a", userName: "a", password: "a", question: "which letter", answer: "a"))
-            try server.add(User(firstName: "b", lastName: "b", userName: "b", password: "b", question: "which letter", answer: "b"))
-            try server.add(User(firstName: "c", lastName: "c", userName: "c", password: "c", question: "which letter", answer: "c"))
-        }catch {
-            print("error")
-        }
-        
-        server.printUsers()
+        cleanTextFields()
     }
-    
     
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
@@ -45,13 +41,19 @@ class LogInViewController: UIViewController {
             guard let password = passwordTextField.text else {
                 return false
             }
-            currentUser = server.findByUserName(userName)
             
-            return server.isValidatedPassword(currentUser, password: password)
-        } else {
-            return true
+            currentUser = server.findByUserName(userName)
+            if !server.isValidatedPassword(currentUser, password: password) {
+                let errorMessage = "Your email/password combination is incorrect."
+                errorMessageLabel.text = errorMessage
+                errorMessageLabel.textColor = .red
+                errorMessageLabel.isHidden = false
+                return false
+            }
         }
-
+        
+        errorMessageLabel.isHidden = true
+        return true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -66,28 +68,22 @@ class LogInViewController: UIViewController {
             destination.server = server
             destination.currentUser = currentUser
             
-            var string = ""
+            var text = ""
             for user in server.list {
-                string += user.description + "\n"
+                text += user.description + "\n"
             }
-            destination.text = string
+            destination.text = text
         }
     }
     
-    
-    
-    
+    fileprivate func cleanTextFields() {
+        errorMessageLabel.isHidden = true
+        userNameTextField.text = ""
+        passwordTextField.text = ""
+    }
     
     @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
-        switch unwindSegue.identifier {
-        case "fromSignup":
-            let vc = unwindSegue.source as! SignupViewController
-            self.server = vc.server
-            self.server.printUsers()
-            //                server.add(<#T##user: User##User#>)
-        default:
-            userNameTextField.text = ""
-        }
+        cleanTextFields()
     }
     
     

@@ -102,10 +102,10 @@ class UserCollection {
     }
     
     func isValidatedPassword(_ user: User?, password: String) -> Bool {
-        guard let unwrapped = user else {
+        guard let user = user else {
             return false
         }
-        return unwrapped.password == password
+        return user.password == password
     }
     
     func updatePassword(id: Int, oldPassword: String, newPassword: String) -> Bool {
