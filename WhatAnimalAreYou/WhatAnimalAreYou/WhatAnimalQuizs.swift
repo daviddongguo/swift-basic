@@ -1,7 +1,5 @@
 import Foundation
 
-
-
 class Personality {
     var lionLikelihood: Int = 0
     var owlLikelihood: Int = 0
@@ -44,7 +42,6 @@ class Personality {
                 self.butterflyLikelihood += 10
             }
         }
-        
     }
     
 }
@@ -133,8 +130,6 @@ class AnswerNumberValue: Answer {
         super.init(personality: personality, id: id, text: text)
     }
     
-    
-    
     override func submit() {
         switch self.numberValue {
         case lionRange:
@@ -156,7 +151,6 @@ class AnswerNumberValue: Answer {
         
     }
     
-    
 }
 
 
@@ -167,7 +161,6 @@ struct Quiz {
 }
 
 
-import Foundation
 
 let personality: Personality = Personality()
 let quiz1 = Quiz(personality: personality,
