@@ -18,6 +18,9 @@
 		63A66C2829BD377600591D7E /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A66C2729BD377600591D7E /* Quiz.swift */; };
 		63A66C2A29BD3A7300591D7E /* WhatAnimalQuizs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A66C2929BD3A7300591D7E /* WhatAnimalQuizs.swift */; };
 		63FFCD6529BE2F6E000EB677 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FFCD6429BE2F6E000EB677 /* ResultViewController.swift */; };
+		FC4A952229C3918C00F65A7B /* FirstPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A952129C3918C00F65A7B /* FirstPageViewController.swift */; };
+		FC4A952429C3926E00F65A7B /* NumberValueQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A952329C3926E00F65A7B /* NumberValueQuizViewController.swift */; };
+		FC4A952629C3929F00F65A7B /* SingleSelectQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4A952529C3929F00F65A7B /* SingleSelectQuizViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		63A66C2729BD377600591D7E /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		63A66C2929BD3A7300591D7E /* WhatAnimalQuizs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatAnimalQuizs.swift; sourceTree = "<group>"; };
 		63FFCD6429BE2F6E000EB677 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		FC4A952129C3918C00F65A7B /* FirstPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPageViewController.swift; sourceTree = "<group>"; };
+		FC4A952329C3926E00F65A7B /* NumberValueQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NumberValueQuizViewController.swift; path = "../../../../../../../Users/map07/Documents/donguo/swift-basic/WhatAnimalAreYou/WhatAnimalAreYou/NumberValueQuizViewController.swift"; sourceTree = "<group>"; };
+		FC4A952529C3929F00F65A7B /* SingleSelectQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingleSelectQuizViewController.swift; path = "../../../../../../../Users/map07/Documents/donguo/swift-basic/WhatAnimalAreYou/WhatAnimalAreYou/SingleSelectQuizViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +72,7 @@
 		63A66C1029BD330B00591D7E /* WhatAnimalAreYou */ = {
 			isa = PBXGroup;
 			children = (
+				FC4A952129C3918C00F65A7B /* FirstPageViewController.swift */,
 				63A66C1129BD330B00591D7E /* AppDelegate.swift */,
 				63A66C1329BD330B00591D7E /* SceneDelegate.swift */,
 				63A66C1529BD330B00591D7E /* ViewController.swift */,
@@ -78,6 +85,8 @@
 				63A66C2529BD334200591D7E /* Personality.swift */,
 				63A66C2729BD377600591D7E /* Quiz.swift */,
 				63A66C2929BD3A7300591D7E /* WhatAnimalQuizs.swift */,
+				FC4A952329C3926E00F65A7B /* NumberValueQuizViewController.swift */,
+				FC4A952529C3929F00F65A7B /* SingleSelectQuizViewController.swift */,
 			);
 			path = WhatAnimalAreYou;
 			sourceTree = "<group>";
@@ -158,7 +167,10 @@
 				63FFCD6529BE2F6E000EB677 /* ResultViewController.swift in Sources */,
 				63A66C1229BD330B00591D7E /* AppDelegate.swift in Sources */,
 				63A66C2629BD334200591D7E /* Personality.swift in Sources */,
+				FC4A952629C3929F00F65A7B /* SingleSelectQuizViewController.swift in Sources */,
 				63A66C2A29BD3A7300591D7E /* WhatAnimalQuizs.swift in Sources */,
+				FC4A952429C3926E00F65A7B /* NumberValueQuizViewController.swift in Sources */,
+				FC4A952229C3918C00F65A7B /* FirstPageViewController.swift in Sources */,
 				638701A129BE803200D3FDAA /* Setting.swift in Sources */,
 				63A66C1429BD330B00591D7E /* SceneDelegate.swift in Sources */,
 			);
