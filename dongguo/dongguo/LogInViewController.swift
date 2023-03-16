@@ -25,8 +25,8 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         do{
-            try server.add(User(userName: "a", password: "a"))
-            try server.add(User(userName: "b", password: "b"))
+            try server.add(User(firstName: "a", lastName: "a", userName: "a", password: "a", question: "which letter", answer: "a"))
+            try server.add(User(firstName: "b", lastName: "b", userName: "b", password: "b", question: "which letter", answer: "b"))
             try server.add(User(firstName: "c", lastName: "c", userName: "c", password: "c", question: "which letter", answer: "c"))
         }catch {
             print("error")
