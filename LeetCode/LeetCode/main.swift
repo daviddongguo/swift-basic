@@ -29,18 +29,22 @@ enum OperationEnum: String {
     }
 }
 
+struct Quiz {
+    let id: Int
+    let title: String
+}
+
 struct MathQuiz : CustomStringConvertible{
     let leftOperand: Double
     let rightOperand: Double
     let operation: OperationEnum
     let answer: Double
     var userInput: String? = nil
-    var IsRight: Bool {
-        guard let userInputString = userInput else {
+    func IsRightAnswer(_ userAnser: String) -> Bool {
+        guard let userAnser = Double(userAnser) else {
             return false
         }
-        let userInputDouble = Double(userInputString)
-        return String(format: "%.2d",  arguments: [self.answer]) == String(format: "%.2d",  arguments: [userInputDouble])
+        return (userAnser - self.answer) > -0.01 &&  (userAnser - self.answer) < 0.01
     }
     
     private static let operations: [OperationEnum] = [.addition, .subtraction, .multiplication, .division]
@@ -76,5 +80,6 @@ struct MathQuiz : CustomStringConvertible{
 for _ in 1...5 {
     let quiz = MathQuiz()
     print(quiz.description)
+    print(quiz.IsRightAnswer("0.0"))
 }
 
