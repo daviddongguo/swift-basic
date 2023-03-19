@@ -40,7 +40,7 @@ struct MathQuiz : CustomStringConvertible{
             return false
         }
         let userInputDouble = Double(userInputString)
-        return String(format: "%.2d",  arguments: [self.answer]) == String(format: "%.2d",  arguments: [userInputDouble])
+        return true
     }
     
     private static let operations: [OperationEnum] = [.addition, .subtraction, .multiplication, .division]
@@ -69,6 +69,7 @@ struct MathQuiz : CustomStringConvertible{
   
     var description: String {
         return String(format: "%.0f \(self.operation.rawValue) %.0f = %.2F", self.leftOperand,  self.rightOperand, self.answer)
+//        return String(format: "%.2f %s %.2f = %.2f", )
     }
     
 }
