@@ -29,8 +29,8 @@ class SignupViewController: UIViewController {
     
     func isExistedUserName() -> Bool {
         guard let userName = userTextFields[2].text, !userName.isEmpty else {
-                return false
-            }
+            return false
+        }
         return server.isExistedUserName(userName)
     }
     
@@ -41,8 +41,6 @@ class SignupViewController: UIViewController {
         }
         updatePasswordErrorMessage()
     }
-    
-    
     
     @IBAction func secondPasswordFilled(_ sender: Any){
         let isUserTextFieldEmpty = userTextFields[3].text?.isEmpty ?? true
@@ -64,10 +62,7 @@ class SignupViewController: UIViewController {
     }
     
     fileprivate func twoPasswordsSame() -> Bool{
-        guard let password = userTextFields[3].text else {
-            return false
-        }
-        guard let repeatedPassword = userTextFields[4].text else {
+        guard let password = userTextFields[3].text,  let repeatedPassword = userTextFields[4].text else {
             return false
         }
         
