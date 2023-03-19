@@ -3,6 +3,7 @@
 import Foundation
 
 let operandMax = 1
+let Pricese_Value = 0.0001
 
 enum OperationEnum: String {
     case addition = "+"
@@ -27,9 +28,12 @@ enum OperationEnum: String {
 class Quiz: CustomStringConvertible {
     let id: Int
     let title: String
+    
+    @available(*, unavailable, message: "Subclasses must override this method")
     func IsRightAnser(_ userAnswer: String) -> Bool {
         return false
     }
+    
     init(id: Int, title: String) {
         self.id = id
         self.title = title
@@ -46,11 +50,20 @@ class MathQuiz : Quiz{
     let operation: OperationEnum
     let answer: Double
     var userAnswer: String? = nil
-    func IsRightAnswer(_ userAnswer: String) -> Bool {
-        guard let userAnser = Double(userAnswer) else {
+    
+    func enterUserAnswer(_ userAnswer: String) -> Void {
+        self.userAnswer = userAnswer
+    }
+
+    func IsRightAnser() -> Bool {
+        return self.IsRightAnser(self.userAnswer)
+    }
+    
+    func IsRightAnser(_ userAnswer: String? ) -> Bool {
+        guard let userAnswer = Double(userAnswer ?? "not a double string") else {
             return false
         }
-        return (userAnser - self.answer) > -0.01 &&  (userAnser - self.answer) < 0.01
+        return abs(userAnswer - self.answer) < Pricese_Value
     }
     
     
@@ -76,13 +89,41 @@ class RandomMathQuiz : MathQuiz{
     }
     
     override var description: String {
-        return super.description + " =  \(self.answer)"
+        return super.description + " =  \(self.userAnswer ?? "")"
     }
-  
 }
+
+
+
+struct MathQuizResults {
+    var userName: String?
+    var quizs: [MathQuiz] = []
+
+    mutating func addQuiz(_ quiz: MathQuiz) -> Void{
+        self.quizs.append(quiz)
+    }
+    var score: Double {
+        var numberOfRight = 0
+        for quiz in quizs {
+            if quiz.IsRightAnser("0.00") {
+                numberOfRight += 1
+            }
+        }
+        
+        return Double(numberOfRight) / Double(quizs.count)
+    }
+    var scoreString: String {
+        return String(format: "%d", Int(self.score * 100)) + "%"
+    }
+    
+}
+
+var result = MathQuizResults()
 
 for i in 1...50 {
     let quiz = RandomMathQuiz(id: i)
+    quiz.enterUserAnswer("0.0")
     print(quiz.description)
+    result.addQuiz(quiz)
+    print(result.scoreString)
 }
-
