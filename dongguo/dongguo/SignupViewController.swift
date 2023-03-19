@@ -42,7 +42,9 @@ class SignupViewController: UIViewController {
         updatePasswordErrorMessage()
     }
     
-    @IBAction func passwordsFilled(_ sender: Any){
+    
+    
+    @IBAction func secondPasswordFilled(_ sender: Any){
         let isUserTextFieldEmpty = userTextFields[3].text?.isEmpty ?? true
         if isUserTextFieldEmpty {
             return

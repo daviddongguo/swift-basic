@@ -270,7 +270,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
-                                                    <action selector="passwordsFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="0yl-5G-zCj"/>
+                                                    <action selector="secondPasswordFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="x8N-wo-lbo"/>
                                                 </connections>
                                             </textField>
                                         </subviews>
