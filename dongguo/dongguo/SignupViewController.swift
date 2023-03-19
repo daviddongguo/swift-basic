@@ -17,31 +17,51 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     
     @IBAction func userNameFilled(_ sender: Any) {
-        if !isExistedUserName() {
+        if isExistedUserName() {
             messageLable.text = "userName existed."
             messageLable.isHidden = false
+            submitButton.isEnabled = false
         }else {
             messageLable.isHidden = true
+            submitButton.isEnabled = true
         }
     }
     
     func isExistedUserName() -> Bool {
-        guard let userName = userTextFields[2].text else {
-            return false
-        }
-        return  server.isExistedUserName(userName)
+        guard let userName = userTextFields[2].text, !userName.isEmpty else {
+                return false
+            }
+        return server.isExistedUserName(userName)
     }
     
-    @IBAction func passwordsFilled(_ sender: Any) {
-        if !twoPasswordsValidated() {
+    @IBAction func firstPasswordFilled(_ sender: Any) {
+        let isUserTextFieldEmpty = userTextFields[4].text?.isEmpty ?? true
+        if isUserTextFieldEmpty {
+            return
+        }
+        updatePasswordErrorMessage()
+    }
+    
+    @IBAction func passwordsFilled(_ sender: Any){
+        let isUserTextFieldEmpty = userTextFields[3].text?.isEmpty ?? true
+        if isUserTextFieldEmpty {
+            return
+        }
+        updatePasswordErrorMessage()
+    }
+    
+    func updatePasswordErrorMessage() {
+        if !twoPasswordsSame() {
             messageLable.text = "two passwords are not the same."
             messageLable.isHidden = false
+            submitButton.isEnabled = false
         }else {
             messageLable.isHidden = true
+            submitButton.isEnabled = true
         }
     }
     
-    fileprivate func twoPasswordsValidated() -> Bool{
+    fileprivate func twoPasswordsSame() -> Bool{
         guard let password = userTextFields[3].text else {
             return false
         }
@@ -59,13 +79,13 @@ class SignupViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
-        if !isExistedUserName() {
+        if isExistedUserName() {
             messageLable.text = "userName existed."
             messageLable.isHidden = false
             return false
         }
         
-        if !twoPasswordsValidated() {
+        if !twoPasswordsSame() {
             messageLable.text = "two passwords are not the same."
             messageLable.isHidden = false
             return false

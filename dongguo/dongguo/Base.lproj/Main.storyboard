@@ -244,6 +244,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="firstPasswordFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="GmN-PZ-9KX"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
