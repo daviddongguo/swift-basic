@@ -26,65 +26,95 @@
             </objects>
             <point key="canvasLocation" x="-275.57251908396944" y="-187.32394366197184"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="XcY-9W-wq9">
             <objects>
-                <viewController id="0DB-dJ-2qo" sceneMemberID="viewController">
+                <viewController id="0DB-dJ-2qo" customClass="HomeCollectionViewController" customModule="Habits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fWN-pX-EE6">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="wb5-rG-Cer"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fsz-lu-YJF"/>
+                    <navigationItem key="navigationItem" title="Home" id="Fsz-lu-YJF"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iil-r2-PSd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1202" y="604"/>
         </scene>
-        <!--View Controller-->
+        <!--Habits-->
         <scene sceneID="obM-38-BcY">
             <objects>
-                <viewController id="ZoT-U1-1j1" sceneMemberID="viewController">
+                <viewController id="ZoT-U1-1j1" customClass="HabitCollectionViewController" customModule="Habits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rHi-DW-E6v">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="cI5-FL-zRA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="l3V-7Y-Xsc"/>
+                    <navigationItem key="navigationItem" title="Habits" id="l3V-7Y-Xsc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SLN-x1-CU7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-289" y="604"/>
         </scene>
-        <!--View Controller-->
+        <!--Habit Detail View Controller-->
+        <scene sceneID="ONo-BL-SzE">
+            <objects>
+                <viewController id="D7o-jN-7qL" customClass="HabitDetailViewController" customModule="Habits" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VQ4-5O-rIq">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="pXb-eE-RCf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eQm-a9-l9j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-274" y="1504"/>
+        </scene>
+        <!--User Detail View Controller-->
+        <scene sceneID="yVe-c2-TdB">
+            <objects>
+                <viewController id="tL4-FG-zkT" customClass="UserDetailViewController" customModule="Habits" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BrB-Cf-6Zi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gQa-h8-kK6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fqo-Zn-Dt9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="1504"/>
+        </scene>
+        <!--People-->
         <scene sceneID="dFv-r2-gSN">
             <objects>
-                <viewController id="WJR-9Z-Try" sceneMemberID="viewController">
+                <viewController id="WJR-9Z-Try" customClass="UserCollectionViewController" customModule="Habits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c8C-h2-sge">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Q0E-Ni-4XR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zPV-9S-2BW"/>
+                    <navigationItem key="navigationItem" title="People" id="zPV-9S-2BW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6P1-Ue-FFb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="737" y="584"/>
         </scene>
-        <!--View Controller-->
+        <!--Log Habit-->
         <scene sceneID="XOO-Rb-btP">
             <objects>
-                <viewController id="s40-ta-Mdi" sceneMemberID="viewController">
+                <viewController id="s40-ta-Mdi" customClass="LogHabitCollectionViewController" customModule="Habits" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Kx-DY-chS">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="IID-xq-r75"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="DsR-BO-A0Q"/>
+                    <navigationItem key="navigationItem" title="Log Habit" id="DsR-BO-A0Q"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yRh-sa-GIw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

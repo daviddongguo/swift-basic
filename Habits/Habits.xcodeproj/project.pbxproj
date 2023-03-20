@@ -16,6 +16,8 @@
 		FC5BAF3A29C8DA3C000813BB /* HabitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF3929C8DA3C000813BB /* HabitCollectionViewController.swift */; };
 		FC5BAF3C29C8DA4D000813BB /* UserCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF3B29C8DA4D000813BB /* UserCollectionViewController.swift */; };
 		FC5BAF3E29C8DA63000813BB /* LogHabitCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF3D29C8DA63000813BB /* LogHabitCollectionViewController.swift */; };
+		FC5BAF4029C8DBBE000813BB /* HabitDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF3F29C8DBBE000813BB /* HabitDetailViewController.swift */; };
+		FC5BAF4229C8DBD0000813BB /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF4129C8DBD0000813BB /* UserDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		FC5BAF3929C8DA3C000813BB /* HabitCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCollectionViewController.swift; sourceTree = "<group>"; };
 		FC5BAF3B29C8DA4D000813BB /* UserCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewController.swift; sourceTree = "<group>"; };
 		FC5BAF3D29C8DA63000813BB /* LogHabitCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogHabitCollectionViewController.swift; sourceTree = "<group>"; };
+		FC5BAF3F29C8DBBE000813BB /* HabitDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailViewController.swift; sourceTree = "<group>"; };
+		FC5BAF4129C8DBD0000813BB /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +50,6 @@
 		FC5BAF1729C8D218000813BB = {
 			isa = PBXGroup;
 			children = (
-				FC5BAF3D29C8DA63000813BB /* LogHabitCollectionViewController.swift */,
-				FC5BAF3B29C8DA4D000813BB /* UserCollectionViewController.swift */,
-				FC5BAF3929C8DA3C000813BB /* HabitCollectionViewController.swift */,
-				FC5BAF3729C8DA21000813BB /* HomeCollectionViewController.swift */,
 				FC5BAF2229C8D218000813BB /* Habits */,
 				FC5BAF2129C8D218000813BB /* Products */,
 			);
@@ -66,6 +66,12 @@
 		FC5BAF2229C8D218000813BB /* Habits */ = {
 			isa = PBXGroup;
 			children = (
+				FC5BAF3D29C8DA63000813BB /* LogHabitCollectionViewController.swift */,
+				FC5BAF3B29C8DA4D000813BB /* UserCollectionViewController.swift */,
+				FC5BAF3929C8DA3C000813BB /* HabitCollectionViewController.swift */,
+				FC5BAF3729C8DA21000813BB /* HomeCollectionViewController.swift */,
+				FC5BAF3F29C8DBBE000813BB /* HabitDetailViewController.swift */,
+				FC5BAF4129C8DBD0000813BB /* UserDetailViewController.swift */,
 				FC5BAF2329C8D218000813BB /* AppDelegate.swift */,
 				FC5BAF2529C8D218000813BB /* SceneDelegate.swift */,
 				FC5BAF2929C8D218000813BB /* Main.storyboard */,
@@ -149,9 +155,11 @@
 			files = (
 				FC5BAF3829C8DA21000813BB /* HomeCollectionViewController.swift in Sources */,
 				FC5BAF3C29C8DA4D000813BB /* UserCollectionViewController.swift in Sources */,
+				FC5BAF4229C8DBD0000813BB /* UserDetailViewController.swift in Sources */,
 				FC5BAF3A29C8DA3C000813BB /* HabitCollectionViewController.swift in Sources */,
 				FC5BAF2429C8D218000813BB /* AppDelegate.swift in Sources */,
 				FC5BAF3E29C8DA63000813BB /* LogHabitCollectionViewController.swift in Sources */,
+				FC5BAF4029C8DBBE000813BB /* HabitDetailViewController.swift in Sources */,
 				FC5BAF2629C8D218000813BB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
