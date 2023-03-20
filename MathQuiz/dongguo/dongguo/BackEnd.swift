@@ -107,13 +107,18 @@ struct MathQuizServer {
     mutating func addQuiz(_ quiz: MathQuiz) -> Void{
         self.quizs.append(quiz)
     }
+    mutating func generateQuiz() -> MathQuiz {
+        let quiz = RandomMathQuiz(id: self.quizs.count)
+        self.addQuiz(quiz)
+        return quiz
+    }
     var score: Double {
         if(quizs.isEmpty){
             return 0
         }
         var numberOfRight = 0
         for quiz in quizs {
-            if quiz.IsRightAnser("0.00") {
+            if quiz.IsRightAnser() {
                 numberOfRight += 1
             }
         }

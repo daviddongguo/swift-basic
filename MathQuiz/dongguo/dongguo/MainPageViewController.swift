@@ -15,10 +15,50 @@ class MainPageViewController: UIViewController {
     var quizs: [MathQuiz] = []
     
     @IBOutlet weak var mainTitleLabel: UILabel!
-    @IBAction func scoreButtonPressed(_ sender: Any) {
+    
+    @IBOutlet weak var userAnswerTextField: UITextField!
+    @IBOutlet weak var questionLabel: UILabel!
+    
+    @IBAction func userAnswerFilled(_ sender: UITextField) {
+    }
+    
+    @IBAction func generateButtonPressed(_ sender: Any) {
+        if currentQuiz?.userAnswer == nil {
+            return
+        }
+        updateQuiz()
+    }
+    
+    @IBAction func validateButtonPressed(_ sender: Any) {
+        guard let questionText = questionLabel.text  else {
+            return
+        }
+        if questionText.contains("X")   || questionText.contains("Y") {
+            return
+        }
         
+        guard let answer = userAnswerTextField.text, !answer.isEmpty,
+              let currentQuiz = currentQuiz else {
+            return
+        }
+        
+        currentQuiz.enterUserAnswer(answer)
+        questionLabel.text! +=  currentQuiz.IsRightAnser() ? "\(answer) Y" : "\(answer) X"
+    }
+    
+    
+    @IBAction func clearButtonPressed(_ sender: Any) {
+        userAnswerTextField.text = ""
+    }
+    
+    @IBAction func scoreButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "toResult", sender: self)
     }
+    
+    @IBAction func finishButtonPressed(_ sender: Any) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         server = MathQuizServer()
@@ -27,8 +67,10 @@ class MainPageViewController: UIViewController {
     }
     
     func updateQuiz() {
-        currentQuizId += 1
-        currentQuiz = RandomMathQuiz(id: currentQuizId)
+        currentQuiz = server.generateQuiz()
+        userAnswerTextField.text = ""
+        questionLabel.text = currentQuiz?.description
+        
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String,
@@ -48,12 +90,7 @@ class MainPageViewController: UIViewController {
         if unwindSegue.identifier == "fromResult" {
             let vc = unwindSegue.source as! ResultPageViewController
             mainTitleLabel.text = "\(vc.registerTextField.text ?? "") : \(vc.scoreLabel.text ?? "")"
-            
         }
-        
     }
-    
-    
-    
     
 }

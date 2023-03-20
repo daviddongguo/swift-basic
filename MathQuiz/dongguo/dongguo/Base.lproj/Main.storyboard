@@ -34,6 +34,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="userAnswerFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="RJU-uk-HrS"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 + 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-TL-WgB">
                                         <rect key="frame" x="160.66666666666666" y="91.333333333333343" width="39.666666666666657" height="43.333333333333343"/>
@@ -130,17 +133,26 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmL-tK-ICL">
                                                         <rect key="frame" x="0.0" y="0.0" width="116.33333333333333" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="GENERATE"/>
+                                                        <connections>
+                                                            <action selector="generateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Y3-tY-C9B"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dME-2w-JxV">
                                                         <rect key="frame" x="122.33333333333334" y="0.0" width="116.33333333333334" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="VALIDATE"/>
+                                                        <connections>
+                                                            <action selector="validateButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Td-dC-SYK"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3GN-Oc-v3C">
                                                         <rect key="frame" x="244.66666666666671" y="0.0" width="116.33333333333334" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="CLEAR"/>
+                                                        <connections>
+                                                            <action selector="clearButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ioi-8H-G8s"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -158,7 +170,10 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kTS-9E-DHp">
                                                         <rect key="frame" x="183.66666666666663" y="0.0" width="177.33333333333337" height="34.333333333333336"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="filled" title="Finish"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="FINISH"/>
+                                                        <connections>
+                                                            <action selector="finishButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ugl-Dw-Hl8"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -196,6 +211,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mainTitleLabel" destination="GoG-ev-95R" id="fjt-AZ-0QB"/>
+                        <outlet property="questionLabel" destination="Qaw-TL-WgB" id="m1p-kK-4TV"/>
+                        <outlet property="userAnswerTextField" destination="zt7-gZ-WB1" id="5LP-nt-xod"/>
                         <segue destination="7R4-Xy-LaG" kind="show" identifier="toResult" id="w1g-1p-aaG"/>
                     </connections>
                 </viewController>
