@@ -108,6 +108,9 @@ struct MathQuizServer {
         self.quizs.append(quiz)
     }
     var score: Double {
+        if(quizs.isEmpty){
+            return 0
+        }
         var numberOfRight = 0
         for quiz in quizs {
             if quiz.IsRightAnser("0.00") {
