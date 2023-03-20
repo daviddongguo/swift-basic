@@ -104,7 +104,7 @@ class RandomMathQuiz : MathQuiz{
 
 struct MathQuizServer {
     var userName: String?
-    var difficulty: Int?
+    var difficulty: Int!
     var quizs: [MathQuiz] = []
     
     init(difficulty: Int? = nil){
