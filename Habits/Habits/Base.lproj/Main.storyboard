@@ -13,8 +13,8 @@
             <objects>
                 <navigationController id="CDb-Sc-Lrl" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Teb-il-3PH"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YbS-qq-Ffy">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="YbS-qq-Ffy">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -93,8 +93,8 @@
         <scene sceneID="fD4-1Y-KSL">
             <objects>
                 <navigationController id="mE3-Ru-pFF" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="JbM-kK-rh4">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JbM-kK-rh4">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -109,8 +109,8 @@
         <scene sceneID="kFf-kL-e28">
             <objects>
                 <navigationController id="IjG-NF-wYV" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KF2-WL-jPw">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="KF2-WL-jPw">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -125,8 +125,8 @@
         <scene sceneID="4Ax-Sj-chU">
             <objects>
                 <navigationController id="aHD-uT-7Er" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vnS-Xh-Khd">
-                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="vnS-Xh-Khd">
+                        <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
