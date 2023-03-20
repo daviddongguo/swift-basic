@@ -8,6 +8,10 @@
 import UIKit
 
 class MainPageViewController: UIViewController {
+    
+    let server = MathQuizServer()
+    var currentQuiz: MathQuiz? = nil
+    var currentQuizId = 0
 
     @IBAction func scoreButtonPressed(_ sender: Any) {
         
@@ -15,8 +19,13 @@ class MainPageViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateQuiz()
+               
+    }
+    
+    func updateQuiz() {
+        currentQuizId += 1
+        currentQuiz = RandomMathQuiz(id: currentQuizId)        
     }
     
     
