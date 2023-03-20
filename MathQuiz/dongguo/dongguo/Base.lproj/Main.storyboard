@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="75P-TK-oTZ">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -34,9 +33,6 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="userAnswerFilled:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="RJU-uk-HrS"/>
-                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 + 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-TL-WgB">
                                         <rect key="frame" x="160.66666666666666" y="91.333333333333343" width="39.666666666666657" height="43.333333333333343"/>
@@ -213,6 +209,7 @@
                         <outlet property="mainTitleLabel" destination="GoG-ev-95R" id="fjt-AZ-0QB"/>
                         <outlet property="questionLabel" destination="Qaw-TL-WgB" id="m1p-kK-4TV"/>
                         <outlet property="userAnswerTextField" destination="zt7-gZ-WB1" id="5LP-nt-xod"/>
+                        <outletCollection property="numberButtons" destination="S21-pN-dcw" id="w6D-Qr-6lH"/>
                         <segue destination="7R4-Xy-LaG" kind="show" identifier="toResult" id="w1g-1p-aaG"/>
                     </connections>
                 </viewController>

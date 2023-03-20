@@ -19,8 +19,8 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var userAnswerTextField: UITextField!
     @IBOutlet weak var questionLabel: UILabel!
     
-    @IBAction func userAnswerFilled(_ sender: UITextField) {
-    }
+    @IBOutlet var numberButtons: [UIButton]!
+    
     
     @IBAction func generateButtonPressed(_ sender: Any) {
         if currentQuiz?.userAnswer == nil {
