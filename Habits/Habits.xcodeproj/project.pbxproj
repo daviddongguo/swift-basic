@@ -56,7 +56,6 @@
 		FC5BAF1729C8D218000813BB = {
 			isa = PBXGroup;
 			children = (
-				FC5BAF4729C8E7BB000813BB /* APIService.swift */,
 				FC5BAF2229C8D218000813BB /* Habits */,
 				FC5BAF2129C8D218000813BB /* Products */,
 			);
@@ -73,6 +72,7 @@
 		FC5BAF2229C8D218000813BB /* Habits */ = {
 			isa = PBXGroup;
 			children = (
+				FC5BAF4729C8E7BB000813BB /* APIService.swift */,
 				FC5BAF4529C8E3F5000813BB /* APIRequest.swift */,
 				FC5BAF4329C8E292000813BB /* Habit.swift */,
 				FC5BAF3D29C8DA63000813BB /* LogHabitCollectionViewController.swift */,

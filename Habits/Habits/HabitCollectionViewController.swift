@@ -8,6 +8,24 @@
 import UIKit
 
 class HabitCollectionViewController: UIViewController {
+    
+    typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section, ViewModel.Item>
+    
+    enum ViewModel {
+        enum Section: Hashable{
+            case favorites
+            case category(_ category: Category)
+        }
+        
+        typealias Item = Habit
+    }
+    
+    struct Model {
+        var habitsByName = [String: Habit]()
+    }
+    
+    var dataSource: DataSourceType!
+    var model = Model()
 
     override func viewDidLoad() {
         super.viewDidLoad()
