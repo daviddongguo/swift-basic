@@ -7,7 +7,6 @@
 
 import Foundation
 
-let operandMax = 1
 let Pricese_Value = 0.0001
 
 enum OperationEnum: String {
@@ -82,12 +81,15 @@ class MathQuiz : Quiz{
 }
 
 class RandomMathQuiz : MathQuiz{
+    
+    var difficulty: Int = 1
     private static let operations: [OperationEnum] = [.addition, .subtraction, .multiplication, .division]
     
-    init(id: Int) {
-        let leftOperand = Int.random(in: -operandMax...operandMax)
+    init(id: Int, difficulty: Int? = nil) {
+        self.difficulty = difficulty ?? self.difficulty
+        let leftOperand = Int.random(in: -self.difficulty...self.difficulty)
         let operation = RandomMathQuiz.operations.randomElement()!
-        let intArray = (-operandMax...operandMax).filter { operation != .division || $0 != 0 }
+        let intArray = (-self.difficulty...self.difficulty).filter { operation != .division || $0 != 0 }
         let rightOperand = intArray.randomElement()!
         
         super.init(id: id, leftOperand: leftOperand,  rightOperand: rightOperand,  operation: operation)
@@ -102,13 +104,22 @@ class RandomMathQuiz : MathQuiz{
 
 struct MathQuizServer {
     var userName: String?
+    var difficulty: Int?
     var quizs: [MathQuiz] = []
+    
+    init(difficulty: Int? = nil){
+        self.difficulty = difficulty ?? 1
+    }
+    
+    mutating func updateDifficulty(_ difficulty: Int){
+        self.difficulty = difficulty
+    }
 
     mutating func addQuiz(_ quiz: MathQuiz) -> Void{
         self.quizs.append(quiz)
     }
     mutating func generateQuiz() -> MathQuiz {
-        let quiz = RandomMathQuiz(id: self.quizs.count)
+        let quiz = RandomMathQuiz(id: self.quizs.count, difficulty: self.difficulty)
         self.addQuiz(quiz)
         return quiz
     }
