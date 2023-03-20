@@ -19,8 +19,8 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var userAnswerTextField: UITextField!
     @IBOutlet weak var questionLabel: UILabel!
     
-    @IBAction func userAnswerFilled(_ sender: UITextField) {
-    }
+    @IBOutlet var numberButtons: [UIButton]!
+    
     
     @IBAction func generateButtonPressed(_ sender: Any) {
         if currentQuiz?.userAnswer == nil {
@@ -43,7 +43,14 @@ class MainPageViewController: UIViewController {
         }
         
         currentQuiz.enterUserAnswer(answer)
-        questionLabel.text! +=  currentQuiz.IsRightAnser() ? "\(answer) Y" : "\(answer) X"
+        if currentQuiz.IsRightAnser() {
+            server.updateDifficulty(server.difficulty + 1)
+            questionLabel.text! += "\(answer) Y"
+            questionLabel.textColor = .green
+        }else{
+            questionLabel.text! += "\(answer) X"
+            questionLabel.textColor = .red
+        }
     }
     
     
@@ -70,7 +77,6 @@ class MainPageViewController: UIViewController {
         currentQuiz = server.generateQuiz()
         userAnswerTextField.text = ""
         questionLabel.text = currentQuiz?.description
-        
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String,
