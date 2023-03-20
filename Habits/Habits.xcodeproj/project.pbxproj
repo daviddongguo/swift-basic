@@ -21,6 +21,7 @@
 		FC5BAF4429C8E292000813BB /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF4329C8E292000813BB /* Habit.swift */; };
 		FC5BAF4629C8E3F5000813BB /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF4529C8E3F5000813BB /* APIRequest.swift */; };
 		FC5BAF4829C8E7BB000813BB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF4729C8E7BB000813BB /* APIService.swift */; };
+		FC5BAF4A29C8EFEA000813BB /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC5BAF4929C8EFEA000813BB /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		FC5BAF4329C8E292000813BB /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		FC5BAF4529C8E3F5000813BB /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		FC5BAF4729C8E7BB000813BB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		FC5BAF4929C8EFEA000813BB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				FC5BAF2C29C8D21A000813BB /* Assets.xcassets */,
 				FC5BAF2E29C8D21A000813BB /* LaunchScreen.storyboard */,
 				FC5BAF3129C8D21A000813BB /* Info.plist */,
+				FC5BAF4929C8EFEA000813BB /* Settings.swift */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				FC5BAF3A29C8DA3C000813BB /* HabitCollectionViewController.swift in Sources */,
 				FC5BAF4829C8E7BB000813BB /* APIService.swift in Sources */,
 				FC5BAF2429C8D218000813BB /* AppDelegate.swift in Sources */,
+				FC5BAF4A29C8EFEA000813BB /* Settings.swift in Sources */,
 				FC5BAF3E29C8DA63000813BB /* LogHabitCollectionViewController.swift in Sources */,
 				FC5BAF4429C8E292000813BB /* Habit.swift in Sources */,
 				FC5BAF4029C8DBBE000813BB /* HabitDetailViewController.swift in Sources */,

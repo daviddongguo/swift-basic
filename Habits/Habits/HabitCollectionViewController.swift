@@ -10,6 +10,8 @@ import UIKit
 class HabitCollectionViewController: UIViewController {
     
     typealias DataSourceType = UICollectionViewDiffableDataSource<ViewModel.Section, ViewModel.Item>
+    var habitsRequestTask: Task<Void, Never>? = nil
+    deinit { habitsRequestTask?.cancel() }
     
     enum ViewModel {
         enum Section: Hashable{
@@ -31,6 +33,25 @@ class HabitCollectionViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    func update() {
+        habitsRequestTask?.cancel()
+        habitsRequestTask = Task {
+            if let habits = try? await HabitRequest().send() {
+                self.model.habitsByName = habits
+            } else {
+                self.model.habitsByName = [:]
+            }
+            self.updateCollectionView()
+            
+            habitsRequestTask = nil
+        }
+    }
+    
+    func updateCollectionView() {
+        
     }
     
 
