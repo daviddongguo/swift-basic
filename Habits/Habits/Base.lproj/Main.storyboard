@@ -8,11 +8,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="9bm-uB-a6c">
             <objects>
-                <navigationController id="CDb-Sc-Lrl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hdw-Ev-NyK"/>
+                <navigationController id="CDb-Sc-Lrl" userLabel="Home" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="hdw-Ev-NyK"/>
                     <navigationItem key="navigationItem" id="Teb-il-3PH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="YbS-qq-Ffy">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
@@ -90,11 +90,11 @@
             </objects>
             <point key="canvasLocation" x="1720" y="626"/>
         </scene>
-        <!--Item-->
+        <!--Habits-->
         <scene sceneID="fD4-1Y-KSL">
             <objects>
                 <navigationController id="mE3-Ru-pFF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="pf0-xG-1IM"/>
+                    <tabBarItem key="tabBarItem" title="Habits" image="star.fill" catalog="system" id="pf0-xG-1IM"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="JbM-kK-rh4">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -107,11 +107,11 @@
             </objects>
             <point key="canvasLocation" x="646.56488549618314" y="-187.32394366197184"/>
         </scene>
-        <!--Item-->
+        <!--People-->
         <scene sceneID="kFf-kL-e28">
             <objects>
                 <navigationController id="IjG-NF-wYV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="XVr-QO-aAc"/>
+                    <tabBarItem key="tabBarItem" title="People" image="person.2.fill" catalog="system" id="XVr-QO-aAc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="KF2-WL-jPw">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -124,11 +124,11 @@
             </objects>
             <point key="canvasLocation" x="1675.5725190839694" y="-187.32394366197184"/>
         </scene>
-        <!--Item-->
+        <!--Log Habit-->
         <scene sceneID="4Ax-Sj-chU">
             <objects>
                 <navigationController id="aHD-uT-7Er" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="KcM-Nb-DzD"/>
+                    <tabBarItem key="tabBarItem" title="Log Habit" image="checkmark.square.fill" catalog="system" id="KcM-Nb-DzD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="vnS-Xh-Khd">
                         <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -163,6 +163,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.square.fill" catalog="system" width="128" height="114"/>
+        <image name="house.fill" catalog="system" width="128" height="104"/>
+        <image name="person.2.fill" catalog="system" width="128" height="81"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
