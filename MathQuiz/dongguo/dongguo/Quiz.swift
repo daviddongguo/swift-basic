@@ -32,17 +32,20 @@ enum OperationEnum: String {
 class Quiz: CustomStringConvertible {
     let id: Int
     let title: String
+    let answer: String?
+    var userAnswer: String? = nil
     
-    @available(*, unavailable, message: "Subclasses must override this method")
-    func IsRightAnser(_ userAnswer: String) -> Bool {
-        return false
-    }
-    
-    init(id: Int, title: String) {
+    init(id: Int, title: String, answer: String? = nil) {
         self.id = id
         self.title = title
+        self.answer = answer
     }
     
+    @available(*, unavailable, message: "Subclasses must override this method")
+    func IsRightAnser() -> Bool {
+        return false
+    }
+   
     var description: String {
         return self.title
     }
@@ -52,8 +55,6 @@ class MathQuiz : Quiz{
     let leftOperand: Int
     let rightOperand: Int
     let operation: OperationEnum
-    let answer: Double
-    var userAnswer: String? = nil
     
     func enterUserAnswer(_ userAnswer: String) -> Void {
         self.userAnswer = userAnswer
@@ -64,19 +65,20 @@ class MathQuiz : Quiz{
     }
     
     func IsRightAnser(_ userAnswer: String? ) -> Bool {
-        guard let userAnswer = Double(userAnswer ?? "not a double string") else {
+        guard let answer = Double(self.answer ?? "not a double string"),
+              let userAnswer = Double(userAnswer ?? "not a double string") else {
             return false
         }
-        return abs(userAnswer - self.answer) < Pricese_Value
+        return abs(userAnswer - answer) < Pricese_Value
     }
-    
     
     init(id: Int, leftOperand: Int, rightOperand: Int, operation: OperationEnum) {
         self.leftOperand = leftOperand
         self.rightOperand = rightOperand
         self.operation = operation
-        self.answer = self.operation.apply(Double(self.leftOperand), Double(self.rightOperand))
-        super.init(id: id, title: String(format: "%d %@ %@", self.leftOperand, self.operation.rawValue, self.rightOperand < 0 && self.operation == .subtraction ? "(\(self.rightOperand))" : "\(self.rightOperand)"))
+        let title = String(format: "%d %@ %@", self.leftOperand, self.operation.rawValue, self.rightOperand < 0 && self.operation == .subtraction ? "(\(self.rightOperand))" : "\(self.rightOperand)")
+        let answer = String(format: "%2f", self.operation.apply(Double(self.leftOperand), Double(self.rightOperand)))
+        super.init(id: id, title: title, answer: answer)
     }
 }
 
@@ -96,7 +98,7 @@ class RandomMathQuiz : MathQuiz{
     }
     
     override var description: String {
-        return super.description + " =  \(self.userAnswer ?? "")"
+        return super.description + " =  \(self.userAnswer ?? "?")"
     }
 }
 
@@ -117,12 +119,19 @@ struct MathQuizServer {
 
     mutating func addQuiz(_ quiz: MathQuiz) -> Void{
         self.quizs.append(quiz)
+        if let q = quizs.last {
+            print("\(q.id) : \(q.description); ")
+        }
+        
+        
     }
+    
     mutating func generateQuiz() -> MathQuiz {
         let quiz = RandomMathQuiz(id: self.quizs.count, difficulty: self.difficulty)
         self.addQuiz(quiz)
         return quiz
     }
+    
     var score: Double {
         if(quizs.isEmpty){
             return 0
@@ -136,6 +145,7 @@ struct MathQuizServer {
         
         return Double(numberOfRight) / Double(quizs.count)
     }
+    
     var scoreString: String {
         return String(format: "%d", Int(self.score * 100)) + "%"
     }
