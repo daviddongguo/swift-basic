@@ -14,6 +14,10 @@
 		630B11BB29CB5896003263DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 630B11BA29CB5896003263DB /* Assets.xcassets */; };
 		630B11BE29CB5896003263DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630B11BC29CB5896003263DB /* LaunchScreen.storyboard */; };
 		630B11C729CB58EA003263DB /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11C629CB58EA003263DB /* MediaModel.swift */; };
+		630B11CB29CB59BE003263DB /* EmojiTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11C829CB59BE003263DB /* EmojiTableTableViewController.swift */; };
+		630B11CC29CB59BE003263DB /* EmojiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11C929CB59BE003263DB /* EmojiTableViewCell.swift */; };
+		630B11CD29CB59BE003263DB /* AddEditEmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11CA29CB59BE003263DB /* AddEditEmojiTableViewController.swift */; };
+		630B11CF29CB59ED003263DB /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11CE29CB59ED003263DB /* Emoji.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		630B11BD29CB5896003263DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		630B11BF29CB5896003263DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		630B11C629CB58EA003263DB /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
+		630B11C829CB59BE003263DB /* EmojiTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmojiTableTableViewController.swift; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/EmojiTableTableViewController.swift"; sourceTree = "<group>"; };
+		630B11C929CB59BE003263DB /* EmojiTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmojiTableViewCell.swift; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/EmojiTableViewCell.swift"; sourceTree = "<group>"; };
+		630B11CA29CB59BE003263DB /* AddEditEmojiTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEditEmojiTableViewController.swift; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/AddEditEmojiTableViewController.swift"; sourceTree = "<group>"; };
+		630B11CE29CB59ED003263DB /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Emoji.swift; path = "../../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/Model/Emoji.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +74,9 @@
 				630B11BA29CB5896003263DB /* Assets.xcassets */,
 				630B11BC29CB5896003263DB /* LaunchScreen.storyboard */,
 				630B11BF29CB5896003263DB /* Info.plist */,
+				630B11CA29CB59BE003263DB /* AddEditEmojiTableViewController.swift */,
+				630B11C829CB59BE003263DB /* EmojiTableTableViewController.swift */,
+				630B11C929CB59BE003263DB /* EmojiTableViewCell.swift */,
 			);
 			path = Dongguo;
 			sourceTree = "<group>";
@@ -73,6 +84,7 @@
 		630B11C529CB58C6003263DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				630B11CE29CB59ED003263DB /* Emoji.swift */,
 				630B11C629CB58EA003263DB /* MediaModel.swift */,
 			);
 			path = Model;
@@ -151,8 +163,12 @@
 			files = (
 				630B11C729CB58EA003263DB /* MediaModel.swift in Sources */,
 				630B11B629CB5895003263DB /* ViewController.swift in Sources */,
+				630B11CF29CB59ED003263DB /* Emoji.swift in Sources */,
 				630B11B229CB5895003263DB /* AppDelegate.swift in Sources */,
 				630B11B429CB5895003263DB /* SceneDelegate.swift in Sources */,
+				630B11CC29CB59BE003263DB /* EmojiTableViewCell.swift in Sources */,
+				630B11CD29CB59BE003263DB /* AddEditEmojiTableViewController.swift in Sources */,
+				630B11CB29CB59BE003263DB /* EmojiTableTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
