@@ -34,15 +34,18 @@ class Quiz: CustomStringConvertible {
     let title: String
     let answer: String?
     var userAnswer: String? = nil
+    let difficulty: Int
     
-    init(id: Int, title: String, answer: String? = nil) {
+    
+    init(id: Int, title: String, answer: String? = nil, difficulty: Int =  1) {
         self.id = id
         self.title = title
         self.answer = answer
+        self.difficulty = difficulty
     }
     
     @available(*, unavailable, message: "Subclasses must override this method")
-    func IsRightAnser() -> Bool {
+    func IsRightAnswer() -> Bool {
         return false
     }
    
@@ -60,11 +63,11 @@ class MathQuiz : Quiz{
         self.userAnswer = userAnswer
     }
 
-    func IsRightAnser() -> Bool {
-        return self.IsRightAnser(self.userAnswer)
+    func IsRightAnswer() -> Bool {
+        return self.IsRightAnswer(self.userAnswer)
     }
     
-    func IsRightAnser(_ userAnswer: String? ) -> Bool {
+    func IsRightAnswer(_ userAnswer: String? ) -> Bool {
         guard let answer = Double(self.answer ?? "not a double string"),
               let userAnswer = Double(userAnswer ?? "not a double string") else {
             return false
@@ -72,29 +75,27 @@ class MathQuiz : Quiz{
         return abs(userAnswer - answer) < Pricese_Value
     }
     
-    init(id: Int, leftOperand: Int, rightOperand: Int, operation: OperationEnum) {
+    init(id: Int, leftOperand: Int, rightOperand: Int, operation: OperationEnum, difficulty: Int =  1) {
         self.leftOperand = leftOperand
         self.rightOperand = rightOperand
         self.operation = operation
         let title = String(format: "%d %@ %@", self.leftOperand, self.operation.rawValue, self.rightOperand < 0 && self.operation == .subtraction ? "(\(self.rightOperand))" : "\(self.rightOperand)")
-        let answer = String(format: "%2f", self.operation.apply(Double(self.leftOperand), Double(self.rightOperand)))
-        super.init(id: id, title: title, answer: answer)
+        let answer = String(format: "%.2f", self.operation.apply(Double(self.leftOperand), Double(self.rightOperand)))
+        super.init(id: id, title: title, answer: answer, difficulty: difficulty)
     }
 }
 
 class RandomMathQuiz : MathQuiz{
     
-    var difficulty: Int = 1
     private static let operations: [OperationEnum] = [.addition, .subtraction, .multiplication, .division]
     
-    init(id: Int, difficulty: Int? = nil) {
-        self.difficulty = difficulty ?? self.difficulty
-        let leftOperand = Int.random(in: -self.difficulty...self.difficulty)
+    init(id: Int, difficulty: Int = 1){
+        let leftOperand = Int.random(in: -difficulty...difficulty)
         let operation = RandomMathQuiz.operations.randomElement()!
-        let intArray = (-self.difficulty...self.difficulty).filter { operation != .division || $0 != 0 }
+        let intArray = (-difficulty...difficulty).filter { operation != .division || $0 != 0 }
         let rightOperand = intArray.randomElement()!
         
-        super.init(id: id, leftOperand: leftOperand,  rightOperand: rightOperand,  operation: operation)
+        super.init(id: id, leftOperand: leftOperand,  rightOperand: rightOperand,  operation: operation, difficulty: difficulty)
     }
     
     override var description: String {
@@ -138,7 +139,7 @@ struct MathQuizServer {
         }
         var numberOfRight = 0
         for quiz in quizs {
-            if quiz.IsRightAnser() {
+            if quiz.IsRightAnswer() {
                 numberOfRight += 1
             }
         }
@@ -148,6 +149,14 @@ struct MathQuizServer {
     
     var scoreString: String {
         return String(format: "%d", Int(self.score * 100)) + "%"
+    }
+    
+    var deguInfo: String {
+        var str = ""
+        for quiz in self.quizs {
+            str += "\(quiz.description) answer: \(quiz.answer ?? "?"), userAnswer: \(quiz.userAnswer ?? "?") , isRight: \(quiz.IsRightAnswer()), difficulty: \(quiz.difficulty)" + "\n"
+        }
+        return str
     }
     
 }

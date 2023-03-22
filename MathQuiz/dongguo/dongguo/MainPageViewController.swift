@@ -43,7 +43,7 @@ class MainPageViewController: UIViewController {
         }
         
         currentQuiz.enterUserAnswer(answer)
-        if currentQuiz.IsRightAnser() {
+        if currentQuiz.IsRightAnswer() {
             server.updateDifficulty(server.difficulty + 1)
             questionLabel.text! += "\(answer) Y"
             questionLabel.textColor = .green
@@ -63,7 +63,7 @@ class MainPageViewController: UIViewController {
     }
     
     @IBAction func finishButtonPressed(_ sender: Any) {
-        
+        print(server.deguInfo)
     }
     
     override func viewDidLoad() {
