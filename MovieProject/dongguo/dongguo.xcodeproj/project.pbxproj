@@ -9,31 +9,27 @@
 /* Begin PBXBuildFile section */
 		630B11B229CB5895003263DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11B129CB5895003263DB /* AppDelegate.swift */; };
 		630B11B429CB5895003263DB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11B329CB5895003263DB /* SceneDelegate.swift */; };
-		630B11B629CB5895003263DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11B529CB5895003263DB /* ViewController.swift */; };
 		630B11B929CB5895003263DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630B11B729CB5895003263DB /* Main.storyboard */; };
 		630B11BB29CB5896003263DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 630B11BA29CB5896003263DB /* Assets.xcassets */; };
 		630B11BE29CB5896003263DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630B11BC29CB5896003263DB /* LaunchScreen.storyboard */; };
 		630B11C729CB58EA003263DB /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11C629CB58EA003263DB /* MediaModel.swift */; };
-		630B11CB29CB59BE003263DB /* EmojiTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11C829CB59BE003263DB /* EmojiTableTableViewController.swift */; };
-		630B11CC29CB59BE003263DB /* EmojiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11C929CB59BE003263DB /* EmojiTableViewCell.swift */; };
-		630B11CD29CB59BE003263DB /* AddEditEmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11CA29CB59BE003263DB /* AddEditEmojiTableViewController.swift */; };
-		630B11CF29CB59ED003263DB /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11CE29CB59ED003263DB /* Emoji.swift */; };
+		630B11CB29CB59BE003263DB /* MediaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11C829CB59BE003263DB /* MediaTableViewController.swift */; };
+		630B11CC29CB59BE003263DB /* MediaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630B11C929CB59BE003263DB /* MediaTableViewCell.swift */; };
+		630B11CD29CB59BE003263DB /* AddEditMediaTableViewController in Sources */ = {isa = PBXBuildFile; fileRef = 630B11CA29CB59BE003263DB /* AddEditMediaTableViewController */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		630B11AE29CB5895003263DB /* Dongguo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dongguo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		630B11B129CB5895003263DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		630B11B329CB5895003263DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		630B11B529CB5895003263DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		630B11B829CB5895003263DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		630B11BA29CB5896003263DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		630B11BD29CB5896003263DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		630B11BF29CB5896003263DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		630B11C629CB58EA003263DB /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
-		630B11C829CB59BE003263DB /* EmojiTableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmojiTableTableViewController.swift; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/EmojiTableTableViewController.swift"; sourceTree = "<group>"; };
-		630B11C929CB59BE003263DB /* EmojiTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EmojiTableViewCell.swift; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/EmojiTableViewCell.swift"; sourceTree = "<group>"; };
-		630B11CA29CB59BE003263DB /* AddEditEmojiTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEditEmojiTableViewController.swift; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/AddEditEmojiTableViewController.swift"; sourceTree = "<group>"; };
-		630B11CE29CB59ED003263DB /* Emoji.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Emoji.swift; path = "../../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/Model/Emoji.swift"; sourceTree = "<group>"; };
+		630B11C829CB59BE003263DB /* MediaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaTableViewController.swift; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/MediaTableViewController.swift"; sourceTree = "<group>"; };
+		630B11C929CB59BE003263DB /* MediaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaTableViewCell.swift; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/MediaTableViewCell.swift"; sourceTree = "<group>"; };
+		630B11CA29CB59BE003263DB /* AddEditMediaTableViewController */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = AddEditMediaTableViewController; path = "../../../../../Downloads/10-TableView-Intermediate-Develope in Swift Datacollection 127/TableViewDemo/AddEditMediaTableViewController"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,14 +65,13 @@
 				630B11C529CB58C6003263DB /* Model */,
 				630B11B129CB5895003263DB /* AppDelegate.swift */,
 				630B11B329CB5895003263DB /* SceneDelegate.swift */,
-				630B11B529CB5895003263DB /* ViewController.swift */,
 				630B11B729CB5895003263DB /* Main.storyboard */,
 				630B11BA29CB5896003263DB /* Assets.xcassets */,
 				630B11BC29CB5896003263DB /* LaunchScreen.storyboard */,
 				630B11BF29CB5896003263DB /* Info.plist */,
-				630B11CA29CB59BE003263DB /* AddEditEmojiTableViewController.swift */,
-				630B11C829CB59BE003263DB /* EmojiTableTableViewController.swift */,
-				630B11C929CB59BE003263DB /* EmojiTableViewCell.swift */,
+				630B11CA29CB59BE003263DB /* AddEditMediaTableViewController */,
+				630B11C829CB59BE003263DB /* MediaTableViewController.swift */,
+				630B11C929CB59BE003263DB /* MediaTableViewCell.swift */,
 			);
 			path = Dongguo;
 			sourceTree = "<group>";
@@ -84,7 +79,6 @@
 		630B11C529CB58C6003263DB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				630B11CE29CB59ED003263DB /* Emoji.swift */,
 				630B11C629CB58EA003263DB /* MediaModel.swift */,
 			);
 			path = Model;
@@ -162,13 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				630B11C729CB58EA003263DB /* MediaModel.swift in Sources */,
-				630B11B629CB5895003263DB /* ViewController.swift in Sources */,
-				630B11CF29CB59ED003263DB /* Emoji.swift in Sources */,
 				630B11B229CB5895003263DB /* AppDelegate.swift in Sources */,
 				630B11B429CB5895003263DB /* SceneDelegate.swift in Sources */,
-				630B11CC29CB59BE003263DB /* EmojiTableViewCell.swift in Sources */,
-				630B11CD29CB59BE003263DB /* AddEditEmojiTableViewController.swift in Sources */,
-				630B11CB29CB59BE003263DB /* EmojiTableTableViewController.swift in Sources */,
+				630B11CC29CB59BE003263DB /* MediaTableViewCell.swift in Sources */,
+				630B11CD29CB59BE003263DB /* AddEditMediaTableViewController in Sources */,
+				630B11CB29CB59BE003263DB /* MediaTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,11 +21,17 @@ struct Media: Comparable, Equatable {
     let imagePath: String
     let publicationYear: Int
     let type: MediaTypeEnum = MediaTypeEnum.none
-    let author: Person?
-    let director: Person?
-    let singer: Person?
-    let description: String?
-    let URL: String?
+    let author: Person? = nil
+    let director: Person? = nil
+    let singer: Person? = nil
+    let description: String? = nil
+    let URL: String? = nil
+    
+    init(name: String, imagePath: String, publicationYear: Int) {
+        self.name = name
+        self.imagePath = imagePath
+        self.publicationYear = publicationYear
+    }
     
     static func < (lhs: Media, rhs: Media) -> Bool {
         return lhs.name < rhs.name
