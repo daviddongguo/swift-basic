@@ -63,12 +63,7 @@
 				6354B46729CB3FCD0056688A /* Controller */,
 				6354B46629CB3FC50056688A /* View */,
 				6354B46529CB3FB20056688A /* Model */,
-				6354B45129CB3F800056688A /* AppDelegate.swift */,
-				6354B45329CB3F800056688A /* SceneDelegate.swift */,
-				6354B45529CB3F800056688A /* ViewController.swift */,
-				6354B45729CB3F800056688A /* Main.storyboard */,
 				6354B45A29CB3F800056688A /* Assets.xcassets */,
-				6354B45C29CB3F800056688A /* LaunchScreen.storyboard */,
 				6354B45F29CB3F800056688A /* Info.plist */,
 			);
 			path = Dongguo;
@@ -86,6 +81,10 @@
 		6354B46629CB3FC50056688A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6354B45129CB3F800056688A /* AppDelegate.swift */,
+				6354B45329CB3F800056688A /* SceneDelegate.swift */,
+				6354B45729CB3F800056688A /* Main.storyboard */,
+				6354B45C29CB3F800056688A /* LaunchScreen.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -93,6 +92,7 @@
 		6354B46729CB3FCD0056688A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6354B45529CB3F800056688A /* ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
