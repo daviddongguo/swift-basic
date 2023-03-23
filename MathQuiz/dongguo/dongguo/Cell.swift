@@ -23,20 +23,12 @@ class Cell: UITableViewCell {
     @IBOutlet weak var redoButton: UIButton!
     
     @IBAction func redoButtonPressed(_ sender: Any) {
-        delegate?.didRedoButtonInCell(self)
+        delegate?.didRedoButtonInCell(currentQuiz)
     }
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        guard let currentQuiz = currentQuiz else {
-            return
-        }
-        quizTitleLabel.text = currentQuiz.description
-        userAnswerLabel.text = currentQuiz.userAnswer
-        quizDifficulty.text = String(currentQuiz.difficulty)
-        redoButton.isEnabled = !currentQuiz.IsRightAnswer()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

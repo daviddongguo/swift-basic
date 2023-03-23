@@ -6,5 +6,5 @@
 //
 
 protocol CellDelegate: ResultPageViewController  {
-    func didRedoButtonInCell(_ cell: Cell)
+    func didRedoButtonInCell(_ quiz: MathQuiz?)
 }

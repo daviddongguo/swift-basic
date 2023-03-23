@@ -9,7 +9,9 @@ import UIKit
 
 
 
-class ResultPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ResultPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CellDelegate {
+
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -18,16 +20,21 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
         cell.delegate = self
-        cell.currentQuiz = list[indexPath.row]
+        let quiz = list[indexPath.row]
+        cell.currentQuiz = quiz
+        cell.quizTitleLabel.text = quiz.description
+        cell.userAnswerLabel.text = quiz.userAnswer
+        cell.quizDifficulty.text = String(quiz.difficulty)
+        cell.redoButton.isEnabled = !quiz.IsRightAnswer()
         
         return cell
     }
+
     
-    func didRedoButtonInCell(_ cell: Cell) {
-        // Handle the button press here
-        if let indexPath = tableView.indexPath(for: cell) {
-            print("Button pressed in cell at row \(indexPath.row)")
-        }
+    func didRedoButtonInCell(_ quiz: MathQuiz?) {
+        currentQuiz = quiz
+        print(currentQuiz?.description ?? "no quiz found")
+        performSegue(withIdentifier: "fromRedo", sender: self)
     }
 
     

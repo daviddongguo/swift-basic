@@ -284,8 +284,7 @@
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="filled" title="Redo"/>
                                                                     <connections>
-                                                                        <action selector="redoButtonPressed:" destination="7R4-Xy-LaG" eventType="touchUpInside" id="MGA-z8-Odi"/>
-                                                                        <action selector="redoButtonPressed:" destination="9b6-6Z-9RS" eventType="touchUpInside" id="zJM-io-pwD"/>
+                                                                        <action selector="redoButtonPressed:" destination="9b6-6Z-9RS" eventType="touchUpInside" id="GPa-Gk-Qzt"/>
                                                                         <segue destination="aEt-I3-2GD" kind="unwind" identifier="fromRedo" unwindAction="unwindToMainPageViewController:" id="4Zf-FO-ZZM"/>
                                                                     </connections>
                                                                 </button>

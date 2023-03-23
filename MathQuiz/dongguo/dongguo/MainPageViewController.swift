@@ -20,13 +20,13 @@ class MainPageViewController: UIViewController {
         if currentQuiz?.userAnswer == nil {
             return
         }
-        updateQuiz()
+        currentQuiz = server.generateQuiz()
+        updateUI(currentQuiz!)
     }
     
-    func updateQuiz() {
-        currentQuiz = server.generateQuiz()
+    func updateUI(_ quiz: MathQuiz) {
         userAnswerTextField.text = ""
-        questionLabel.text = currentQuiz?.description
+        questionLabel.text = quiz.description
         
         generateQuizButton.isEnabled = false
         validateQuizbutton.isEnabled = false
@@ -82,10 +82,12 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
         
         server = MathQuizServer()
+        server.difficulty = 5
         var _ = server.generateQuiz()
+        server.difficulty = 15
         var _ = server.generateQuiz()
-        var _ = server.generateQuiz()
-        updateQuiz()
+        var quiz =  server.generateQuiz()
+        updateUI(quiz)
         for button in numberButtons {
             button.addTarget(self, action: #selector(numberButtonPressed(_ :)), for: .touchUpInside)
         }
@@ -135,6 +137,10 @@ class MainPageViewController: UIViewController {
         if unwindSegue.identifier == "fromRedo" {
             let vc = unwindSegue.source as! ResultPageViewController
             currentQuiz = vc.currentQuiz
+            guard let quiz = currentQuiz else {
+                return
+            }
+            updateUI(quiz)
         }
     }
     
