@@ -82,6 +82,9 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
         
         server = MathQuizServer()
+        var _ = server.generateQuiz()
+        var _ = server.generateQuiz()
+        var _ = server.generateQuiz()
         updateQuiz()
         for button in numberButtons {
             button.addTarget(self, action: #selector(numberButtonPressed(_ :)), for: .touchUpInside)
@@ -116,7 +119,8 @@ class MainPageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destination = segue.destination as? ResultPageViewController {
-            destination.server = self.server
+            destination.list = self.server.quizs
+            destination.score = self.self.server.scoreString
         }
         
     }
@@ -125,6 +129,12 @@ class MainPageViewController: UIViewController {
         if unwindSegue.identifier == "fromResult" {
             let vc = unwindSegue.source as! ResultPageViewController
             mainTitleLabel.text = "\(vc.registerTextField.text ?? "") : \(vc.scoreLabel.text ?? "")"
+        }
+        
+        // fromRedo
+        if unwindSegue.identifier == "fromRedo" {
+            let vc = unwindSegue.source as! ResultPageViewController
+            currentQuiz = vc.currentQuiz
         }
     }
     
