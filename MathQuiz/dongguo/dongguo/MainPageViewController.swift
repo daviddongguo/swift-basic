@@ -17,16 +17,13 @@ class MainPageViewController: UIViewController {
     @IBOutlet weak var validateQuizbutton: UIButton!
     
     @IBAction func generateButtonPressed(_ sender: Any) {
-        if currentQuiz?.userAnswer == nil {
-            return
-        }
         currentQuiz = server.generateQuiz()
-        updateUI(currentQuiz!)
+        updateUI()
     }
     
-    func updateUI(_ quiz: MathQuiz) {
+    func updateUI() {
         userAnswerTextField.text = ""
-        questionLabel.text = quiz.description
+        questionLabel.text = currentQuiz?.description ?? ""
         
         generateQuizButton.isEnabled = false
         validateQuizbutton.isEnabled = false
@@ -37,12 +34,12 @@ class MainPageViewController: UIViewController {
             return
         }
         guard let answer = userAnswerTextField.text, !answer.isEmpty,
-              let currentQuiz = currentQuiz else {
+              let quiz = currentQuiz else {
             return
         }
-        currentQuiz.enterUserAnswer(answer)
+        quiz.enterUserAnswer(answer)
         
-        if currentQuiz.IsRightAnswer() {
+        if quiz.IsRightAnswer() {
             questionLabel.text = String(quizText.dropLast()) + "\(answer) " + signRight
             questionLabel.textColor = .green
             server.updateDifficulty(server.difficulty + 1)
@@ -56,12 +53,14 @@ class MainPageViewController: UIViewController {
     }
     
     
+
     @IBAction func clearButtonSinglePressed(_ sender: Any) {
         guard let text = userAnswerTextField?.text else {
             return
         }
         userAnswerTextField.text = String(text.dropLast())
         print("clean single character")
+        
     }
     
     @IBAction func clearButtonDoublePressed(_ sender: Any) {
@@ -75,7 +74,9 @@ class MainPageViewController: UIViewController {
     }
     
     @IBAction func finishButtonPressed(_ sender: Any) {
+        server.difficulty += 5
         print(server.deguInfo)
+        print("add difficulty to : \(server.difficulty)")
     }
     
     override func viewDidLoad() {
@@ -86,8 +87,8 @@ class MainPageViewController: UIViewController {
         var _ = server.generateQuiz()
         server.difficulty = 15
         var _ = server.generateQuiz()
-        var quiz =  server.generateQuiz()
-        updateUI(quiz)
+        currentQuiz =  server.generateQuiz()
+        updateUI()
         for button in numberButtons {
             button.addTarget(self, action: #selector(numberButtonPressed(_ :)), for: .touchUpInside)
         }
@@ -137,10 +138,7 @@ class MainPageViewController: UIViewController {
         if unwindSegue.identifier == "fromRedo" {
             let vc = unwindSegue.source as! ResultPageViewController
             currentQuiz = vc.currentQuiz
-            guard let quiz = currentQuiz else {
-                return
-            }
-            updateUI(quiz)
+            updateUI()
         }
     }
     

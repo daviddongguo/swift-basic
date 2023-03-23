@@ -10,6 +10,14 @@ import UIKit
 
 
 class ResultPageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, CellDelegate {
+    
+    let images = [
+        UIImage(named: "star00.png"),
+        UIImage(named: "star01.png"),
+        UIImage(named: "star02.png"),
+        UIImage(named: "star03.png"),
+        UIImage(named: "star04.png"),
+    ]
 
     
     
@@ -23,7 +31,7 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
         let quiz = list[indexPath.row]
         cell.currentQuiz = quiz
         cell.quizTitleLabel.text = quiz.description
-        cell.quizDifficulty.text = String(quiz.difficulty)
+        cell.starImage.image = images[quiz.star]
         cell.redoButton.isEnabled = !quiz.IsRightAnswer()
         
         return cell

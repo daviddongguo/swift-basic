@@ -16,9 +16,8 @@ class Cell: UITableViewCell {
     
         
     @IBOutlet weak var quizTitleLabel: UILabel!
-    @IBOutlet weak var userAnswerLabel: UILabel!
    
-    @IBOutlet weak var quizDifficulty: UILabel!
+    @IBOutlet weak var starImage: UIImageView!
     
     @IBOutlet weak var redoButton: UIButton!
     
