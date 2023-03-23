@@ -1,83 +1,118 @@
-//
-//  MainPageViewController.swift
-//  dongguo
-//
-//  Created by david on 2023-03-19.
-//
-
 import UIKit
 
 class MainPageViewController: UIViewController {
     
     var server: MathQuizServer!
     var currentQuiz: MathQuiz? = nil
-    var currentQuizId = 0
-    var quizs: [MathQuiz] = []
+    
+    var signRight = "Y"
+    var signWrong = "X"
     
     @IBOutlet weak var mainTitleLabel: UILabel!
-    
     @IBOutlet weak var userAnswerTextField: UITextField!
     @IBOutlet weak var questionLabel: UILabel!
     
     @IBOutlet var numberButtons: [UIButton]!
-    
+    @IBOutlet weak var generateQuizButton: UIButton!
+    @IBOutlet weak var validateQuizbutton: UIButton!
     
     @IBAction func generateButtonPressed(_ sender: Any) {
-        if currentQuiz?.userAnswer == nil {
-            return
-        }
-        updateQuiz()
+        currentQuiz = server.generateQuiz()
+        updateUI()
     }
     
-    @IBAction func validateButtonPressed(_ sender: Any) {
-        guard let questionText = questionLabel.text  else {
-            return
-        }
-        if questionText.contains("X")   || questionText.contains("Y") {
-            return
-        }
+    func updateUI() {
+        userAnswerTextField.text = ""
+        questionLabel.text = currentQuiz?.description ?? ""
         
+        generateQuizButton.isEnabled = false
+        validateQuizbutton.isEnabled = false
+    }
+    
+    @IBAction func validateButtonPressed(_ sender: UIButton) {
+        guard let quizText = questionLabel.text, !quizText.contains(signRight)   && !quizText.contains(signWrong) else {
+            return
+        }
         guard let answer = userAnswerTextField.text, !answer.isEmpty,
-              let currentQuiz = currentQuiz else {
+              let quiz = currentQuiz else {
             return
         }
+        quiz.enterUserAnswer(answer)
         
-        currentQuiz.enterUserAnswer(answer)
-        if currentQuiz.IsRightAnswer() {
-            server.updateDifficulty(server.difficulty + 1)
-            questionLabel.text! += "\(answer) Y"
+        if quiz.IsRightAnswer() {
+            questionLabel.text = String(quizText.dropLast()) + "\(answer) " + signRight
             questionLabel.textColor = .green
+            server.updateDifficulty(server.difficulty + 1)
         }else{
-            questionLabel.text! += "\(answer) X"
+            questionLabel.text = String(quizText.dropLast()) + "\(answer) " + signWrong
             questionLabel.textColor = .red
         }
+        
+        sender.isEnabled = false
+        generateQuizButton.isEnabled = true
     }
     
     
-    @IBAction func clearButtonPressed(_ sender: Any) {
+
+    @IBAction func clearButtonSinglePressed(_ sender: Any) {
+        guard let text = userAnswerTextField?.text else {
+            return
+        }
+        userAnswerTextField.text = String(text.dropLast())
+        print("clean single character")
+        
+    }
+    
+    @IBAction func clearButtonDoublePressed(_ sender: Any) {
         userAnswerTextField.text = ""
+        print("clean all")
     }
+    
     
     @IBAction func scoreButtonPressed(_ sender: Any) {
         performSegue(withIdentifier: "toResult", sender: self)
     }
     
     @IBAction func finishButtonPressed(_ sender: Any) {
+        server.difficulty += 5
         print(server.deguInfo)
+        print("add difficulty to : \(String(describing: server.difficulty))")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        server = MathQuizServer()
-        updateQuiz()
         
+        server = MathQuizServer()
+        server.difficulty = 5
+        var _ = server.generateQuiz()
+        server.difficulty = 15
+        var _ = server.generateQuiz()
+        currentQuiz =  server.generateQuiz()
+        updateUI()
+        for button in numberButtons {
+            button.addTarget(self, action: #selector(numberButtonPressed(_ :)), for: .touchUpInside)
+        }
     }
     
-    func updateQuiz() {
-        currentQuiz = server.generateQuiz()
-        userAnswerTextField.text = ""
-        questionLabel.text = currentQuiz?.description
+    @objc func numberButtonPressed(_ sender: UIButton) {
+        guard let text = sender.titleLabel?.text,
+              var answerText = userAnswerTextField.text else {
+            return
+        }
+        switch text {
+        case "-" :
+            answerText += answerText.isEmpty ? text : ""
+        case "." :
+            answerText += answerText.contains(".") ? "" : text
+        default :
+            answerText += (answerText == "0") ? "" : text
+        }
+        
+        userAnswerTextField.text = answerText
+        validateQuizbutton.isEnabled = true
     }
+    
+
     
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
@@ -87,7 +122,8 @@ class MainPageViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if let destination = segue.destination as? ResultPageViewController {
-            destination.server = self.server
+            destination.list = self.server.quizs
+            destination.score = self.self.server.scoreString
         }
         
     }
@@ -96,6 +132,14 @@ class MainPageViewController: UIViewController {
         if unwindSegue.identifier == "fromResult" {
             let vc = unwindSegue.source as! ResultPageViewController
             mainTitleLabel.text = "\(vc.registerTextField.text ?? "") : \(vc.scoreLabel.text ?? "")"
+        }
+        
+        // fromRedo
+        if unwindSegue.identifier == "fromRedo" {
+            let vc = unwindSegue.source as! ResultPageViewController
+            currentQuiz = vc.currentQuiz
+            currentQuiz?.userAnswer = nil
+            updateUI()
         }
     }
     

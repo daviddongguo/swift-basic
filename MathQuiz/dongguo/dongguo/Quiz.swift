@@ -59,6 +59,44 @@ class MathQuiz : Quiz{
     let rightOperand: Int
     let operation: OperationEnum
     
+    var star: Int {
+        switch self.operation {
+        case .division :
+            if(self.leftOperand >= 50){
+                return 4
+            }
+            if(self.leftOperand >= 20){
+                return 3
+            }
+            if(self.leftOperand >= 10){
+                return 2
+            }
+            return 1
+        case .multiplication :
+            if(self.leftOperand >= 50){
+                return 4
+            }
+            if(self.leftOperand >= 20){
+                return 3
+            }
+            if(self.leftOperand >= 10){
+                return 2
+            }
+            return 1
+        default:
+            if(self.leftOperand >= 100){
+                return 3
+            }
+            if(self.leftOperand >= 20){
+                return 2
+            }
+            if(self.leftOperand >= 10){
+                return 1
+            }
+            return 0
+        }
+    }
+    
     func enterUserAnswer(_ userAnswer: String) -> Void {
         self.userAnswer = userAnswer
     }
