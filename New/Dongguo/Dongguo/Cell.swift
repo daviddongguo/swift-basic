@@ -13,12 +13,15 @@ class MediaTableViewCell: UITableViewCell {
     
 
     @IBOutlet weak var mediaImage: UIImageView!
-    
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var yearLabel: UILabel!
     
+    
+    func update(_ media: Media){
+        self.mediaImage.image = UIImage(named: media.imagePath)
+        self.titleLabel.text = media.name
+        self.yearLabel.text = "\(media.publicationYear)"
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

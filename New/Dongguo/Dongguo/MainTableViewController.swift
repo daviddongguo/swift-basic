@@ -17,11 +17,12 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MediaCell", for: indexPath) as! MediaTableViewCell
-        cell.mediaImage.image = UIImage(named: list[indexPath.row].imagePath)
-        cell.titleLabel.text = list[indexPath.row].name
-        cell.yearLabel.text = "\(list[indexPath.row].publicationYear)"
+        cell.update(list[indexPath.row])
+
         return cell
     }
+    
+    
     
     
     
@@ -52,6 +53,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         list = originList.filter{$0.type == .books}
         mediaTableView.reloadData()
     }
+
     
     
     override func viewDidLoad() {
@@ -62,10 +64,53 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         
         mediaTableView.dataSource = self
         mediaTableView.delegate = self
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editButtonTapped))
     }
     
+    @objc func editButtonTapped() {
+        mediaTableView.setEditing(!mediaTableView.isEditing, animated: true)
+    }
     
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    // Delete row
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            list.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }else if editingStyle == .insert {
+            
+        }
+    }
+    
+    // Move row
+    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        let movedMedia = list.remove(at: sourceIndexPath.row)
+        list.insert(movedMedia, at: proposedDestinationIndexPath.row)
+        return proposedDestinationIndexPath
+    }
+    
+
     @IBAction func unwindToFirstVC(_ unwindSegue: UIStoryboardSegue) {
+        
+        guard unwindSegue.identifier == "fromSave" else {
+            return
+        }
+        let sv = unwindSegue.source as! AddEditMediaViewController
+        
+        if let media = sv.currentMedia {
+            // edit
+//            if let selectedIndexPath = mediaTableView.indexPathForSelectedRow {
+//                list[selectedIndexPath] = media
+//                mediaTableView.reloadRows(at: [selectedIndexPath], with: .none)
+//            }
+        }
+        
+        
+        
 
     }
     

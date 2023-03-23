@@ -187,6 +187,19 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="M0s-ol-veG" id="TF4-SG-osJ">
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ok-Qk-PvR">
+                                                    <rect key="frame" x="20" y="-43" width="353" height="235"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="353" id="joM-fO-64r"/>
+                                                        <constraint firstAttribute="height" constant="235" id="mhW-3q-Jwp"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="8ok-Qk-PvR" firstAttribute="leading" secondItem="TF4-SG-osJ" secondAttribute="leadingMargin" id="YnA-XT-TCn"/>
+                                                <constraint firstItem="8ok-Qk-PvR" firstAttribute="top" secondItem="TF4-SG-osJ" secondAttribute="topMargin" constant="-54" id="wAb-Nx-DSR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PwZ-H0-xon">
@@ -237,7 +250,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nt3-Tp-CxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="ffg-pP-Bib" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2552" y="54"/>
+            <point key="canvasLocation" x="2551.9083969465646" y="53.521126760563384"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cCD-gV-qGL">
