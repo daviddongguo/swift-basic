@@ -268,9 +268,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="36"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQU-M0-58h">
-                                                        <rect key="frame" x="0.0" y="0.0" width="107.66666666666667" height="36"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="WNz-ZH-xMz"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="XN5-GO-83v"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Math Quiz"/>
@@ -279,7 +280,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzi-bH-yIp">
-                                                        <rect key="frame" x="126.66666666666666" y="0.0" width="107.66666666666666" height="36"/>
+                                                        <rect key="frame" x="154" y="0.0" width="98" height="36"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Diffculty"/>
                                                         <connections>
@@ -287,7 +288,10 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uay-Sm-dHH">
-                                                        <rect key="frame" x="253.33333333333329" y="0.0" width="107.66666666666666" height="36"/>
+                                                        <rect key="frame" x="271" y="0.0" width="90" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="piR-gn-evp"/>
+                                                        </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Right ?"/>
                                                         <connections>

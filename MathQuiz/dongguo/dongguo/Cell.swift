@@ -12,13 +12,9 @@ class Cell: UITableViewCell {
     weak var delegate: CellDelegate?
     
     var currentQuiz: MathQuiz?
-    
-    
         
     @IBOutlet weak var quizTitleLabel: UILabel!
-   
     @IBOutlet weak var starImage: UIImageView!
-    
     @IBOutlet weak var redoButton: UIButton!
     
     @IBAction func redoButtonPressed(_ sender: Any) {
@@ -32,8 +28,6 @@ class Cell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     override func prepareForReuse() {

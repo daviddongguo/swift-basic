@@ -6,7 +6,7 @@ class MainPageViewController: UIViewController {
     var currentQuiz: MathQuiz? = nil
     
     var signRight = "😀"
-    var signWrong = "🎲"
+    var signWrong = "😞"
     
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var userAnswerTextField: UITextField!
@@ -83,7 +83,6 @@ class MainPageViewController: UIViewController {
         super.viewDidLoad()
         
         // init quizzes
-        server.difficulty = 100
         server = MathQuizServer()
         server.difficulty = 25
         var _ = server.generateQuiz()
