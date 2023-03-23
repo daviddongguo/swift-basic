@@ -8,6 +8,9 @@
 import UIKit
 
 class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    var list: [Media]!
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
     }
@@ -24,7 +27,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var mediaTableView: UITableView!
     
-    var list: [Media] = [
+    let originList: [Media] = [
         Media(name: "first book", imagePath: "00.jpeg", publicationYear: 2021, type: .books),
         Media(name: "second book", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
         Media(name: "third book", imagePath: "00.jpeg", publicationYear: 2023, type: .books),
@@ -34,11 +37,32 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         Media(name: "no type", imagePath: "00.jpeg", publicationYear: 2022 )
     ]
     
+    
+    @IBAction func moviesButtonPressed(_ sender: Any) {
+        list = originList.filter{$0.type == .movies}
+        mediaTableView.reloadData()
+    }
+    
+    @IBAction func musicButtonPressed(_ sender: Any) {
+        list = originList.filter{$0.type == .music}
+        mediaTableView.reloadData()
+    }
+    
+    @IBAction func booksButtonPressed(_ sender: Any) {
+        list = originList.filter{$0.type == .books}
+        mediaTableView.reloadData()
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        list = originList
+        
         mediaTableView.dataSource = self
         mediaTableView.delegate = self
+        
+        
     }
 }

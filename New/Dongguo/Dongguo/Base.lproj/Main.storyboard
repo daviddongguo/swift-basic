@@ -93,16 +93,25 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="80.333333333333329" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Movies"/>
+                                                <connections>
+                                                    <action selector="moviesButtonPressed:" destination="wYB-GF-oMW" eventType="touchUpInside" id="6q5-Uw-qc3"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YG-JY-3pi">
                                                 <rect key="frame" x="140.33333333333334" y="0.0" width="80.333333333333343" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Music"/>
+                                                <connections>
+                                                    <action selector="musicButtonPressed:" destination="wYB-GF-oMW" eventType="touchUpInside" id="fF5-Cm-0CP"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynk-FH-Yju">
                                                 <rect key="frame" x="280.66666666666669" y="0.0" width="80.333333333333314" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Books"/>
+                                                <connections>
+                                                    <action selector="booksButtonPressed:" destination="wYB-GF-oMW" eventType="touchUpInside" id="Pph-ST-miq"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
