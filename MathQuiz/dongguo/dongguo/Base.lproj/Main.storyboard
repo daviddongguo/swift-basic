@@ -258,29 +258,29 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="361" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="1Gf-yR-9qe">
+                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="1Gf-yR-9qe">
                                                             <rect key="frame" x="16" y="4.6666666666666679" width="329" height="34.333333333333329"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 1 + 1 = " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dza-JH-PXE">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="57.333333333333336" height="34.333333333333336"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="97t-VT-R0S">
-                                                                    <rect key="frame" x="89.333333333333329" y="0.0" width="29.666666666666671" height="34.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="34.333333333333336"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="120" id="yoM-rf-RX9"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="defficulty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PYM-nh-sQC">
-                                                                    <rect key="frame" x="151" y="0.0" width="71.666666666666686" height="34.333333333333336"/>
+                                                                    <rect key="frame" x="152" y="0.0" width="73" height="34.333333333333336"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlA-ca-hQ0">
-                                                                    <rect key="frame" x="254.66666666666671" y="0.0" width="74.333333333333343" height="34.333333333333336"/>
+                                                                    <rect key="frame" x="257" y="0.0" width="72" height="34.333333333333336"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="72" id="waE-yA-riU"/>
+                                                                    </constraints>
                                                                     <state key="normal" title="Button"/>
                                                                     <buttonConfiguration key="configuration" style="filled" title="Redo"/>
                                                                     <connections>
@@ -289,6 +289,10 @@
                                                                     </connections>
                                                                 </button>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Dza-JH-PXE" firstAttribute="leading" secondItem="1Gf-yR-9qe" secondAttribute="leading" id="MQo-fB-sQb"/>
+                                                                <constraint firstAttribute="trailing" secondItem="jlA-ca-hQ0" secondAttribute="trailing" id="rJ3-wm-1gS"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
                                                     <constraints>
@@ -302,7 +306,6 @@
                                                     <outlet property="quizDifficulty" destination="PYM-nh-sQC" id="k2I-Sb-Qnu"/>
                                                     <outlet property="quizTitleLabel" destination="Dza-JH-PXE" id="Fpo-lX-3Dm"/>
                                                     <outlet property="redoButton" destination="jlA-ca-hQ0" id="xyl-6I-eOS"/>
-                                                    <outlet property="userAnswerLabel" destination="97t-VT-R0S" id="WP3-Tb-Tyg"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>

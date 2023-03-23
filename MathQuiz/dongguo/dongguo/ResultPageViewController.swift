@@ -23,7 +23,6 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
         let quiz = list[indexPath.row]
         cell.currentQuiz = quiz
         cell.quizTitleLabel.text = quiz.description
-        cell.userAnswerLabel.text = quiz.userAnswer
         cell.quizDifficulty.text = String(quiz.difficulty)
         cell.redoButton.isEnabled = !quiz.IsRightAnswer()
         
