@@ -108,9 +108,11 @@ class MainPageViewController: UIViewController {
         case "-" :
             answerText += answerText.isEmpty ? text : ""
         case "." :
-            answerText += answerText.contains(".") ? "" : text
+            answerText += (answerText.isEmpty || answerText == "-" || answerText.contains(".")) ? "" : text
+        case "0" :
+            answerText += (answerText == "0" || answerText == "-0") ? "" : text
         default :
-            answerText += (answerText == "0") ? "" : text
+            answerText +=  text
         }
         
         userAnswerTextField.text = answerText
