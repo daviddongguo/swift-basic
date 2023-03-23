@@ -76,7 +76,7 @@ class MainPageViewController: UIViewController {
     @IBAction func finishButtonPressed(_ sender: Any) {
         server.difficulty += 5
         print(server.deguInfo)
-        print("add difficulty to : \(server.difficulty)")
+        print("add difficulty to : \(String(describing: server.difficulty))")
     }
     
     override func viewDidLoad() {
@@ -138,6 +138,7 @@ class MainPageViewController: UIViewController {
         if unwindSegue.identifier == "fromRedo" {
             let vc = unwindSegue.source as! ResultPageViewController
             currentQuiz = vc.currentQuiz
+            currentQuiz?.userAnswer = nil
             updateUI()
         }
     }
