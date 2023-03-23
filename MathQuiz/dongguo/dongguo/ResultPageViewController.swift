@@ -48,6 +48,7 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
         resultsTableView.reloadData()
     }
     
+    
     @IBAction func quizRightButton(_ sender: Any) {
         isSortedByQuizAnswerRight = !isSortedByQuizAnswerRight
         if isSortedByQuizAnswerRight {
@@ -57,6 +58,7 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
         }
         resultsTableView.reloadData()
     }
+    
     
     
     
@@ -70,6 +72,11 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
         let quiz = list[indexPath.row]
         cell.currentQuiz = quiz
         cell.quizTitleLabel.text = quiz.description
+        if !quiz.IsRightAnswer() {
+            cell.quizTitleLabel.textColor = .red
+        }else{
+            cell.quizTitleLabel.textColor = .black
+        }
         cell.starImage.image = images[quiz.star]
         cell.redoButton.isEnabled = !quiz.IsRightAnswer()
         
