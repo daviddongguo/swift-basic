@@ -67,9 +67,10 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-         scoreLabel.text = score
         resultsTableView.dataSource = self
         resultsTableView.delegate = self
+        scoreLabel.text = score
+        list = list.sorted{$0.id > $1.id}
     }
 
 }
