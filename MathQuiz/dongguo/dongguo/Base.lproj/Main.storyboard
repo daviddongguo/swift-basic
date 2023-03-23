@@ -254,16 +254,25 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Math Quiz"/>
+                                                        <connections>
+                                                            <action selector="quizTitleButtonPressed:" destination="7R4-Xy-LaG" eventType="touchDownRepeat" id="H6d-kH-cEa"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzi-bH-yIp">
                                                         <rect key="frame" x="126.66666666666666" y="0.0" width="107.66666666666666" height="36"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Diffculty"/>
+                                                        <connections>
+                                                            <action selector="quizDiffcultyButtonPressed:" destination="7R4-Xy-LaG" eventType="touchDownRepeat" id="7jv-XD-PuF"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uay-Sm-dHH">
                                                         <rect key="frame" x="253.33333333333329" y="0.0" width="107.66666666666666" height="36"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Right ?"/>
+                                                        <connections>
+                                                            <action selector="quizRightButton:" destination="7R4-Xy-LaG" eventType="touchDownRepeat" id="le0-RZ-f2j"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -413,6 +422,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Result" leftItemsSupplementBackButton="YES" id="V2d-Dr-oGn"/>
                     <connections>
+                        <outlet property="quizDifficultyButton" destination="Hzi-bH-yIp" id="ftu-y3-a7c"/>
+                        <outlet property="quizRightButton" destination="Uay-Sm-dHH" id="H3i-Yn-eil"/>
+                        <outlet property="quizTitleButton" destination="JQU-M0-58h" id="nag-Hv-dzK"/>
                         <outlet property="registerTextField" destination="Dcy-eP-3KV" id="rt1-pi-Gr0"/>
                         <outlet property="resultsTableView" destination="F96-5Z-a2d" id="NSK-ga-9k5"/>
                         <outlet property="scoreLabel" destination="pbJ-uH-18I" id="hy2-hy-QnY"/>

@@ -18,7 +18,46 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
         UIImage(named: "star03.png"),
         UIImage(named: "star04.png"),
     ]
+    
+    var isSortedByQuizLength = false
+    var isSortedByQuizDifficult = false
+    var isSortedByQuizAnswerRight = false
 
+    @IBOutlet weak var quizTitleButton: UIButton!
+    @IBOutlet weak var quizDifficultyButton: UIButton!
+    @IBOutlet weak var quizRightButton: UIButton!
+   
+    
+    @IBAction func quizTitleButtonPressed(_ sender: Any) {
+        isSortedByQuizLength = !isSortedByQuizLength
+        if isSortedByQuizLength {
+            list = list.sorted{$0.description.count < $1.description.count}
+        }else {
+            list = list.sorted{$0.description.count > $1.description.count}
+        }
+        resultsTableView.reloadData()
+    }
+    
+    @IBAction func quizDiffcultyButtonPressed(_ sender: Any) {
+        isSortedByQuizDifficult = !isSortedByQuizDifficult
+        if isSortedByQuizDifficult {
+            list = list.sorted{$0.star < $1.star}
+        }else {
+            list = list.sorted{$0.star > $1.star}
+        }
+        resultsTableView.reloadData()
+    }
+    
+    @IBAction func quizRightButton(_ sender: Any) {
+        isSortedByQuizAnswerRight = !isSortedByQuizAnswerRight
+        if isSortedByQuizAnswerRight {
+            list = list.sorted{$0.IsRightAnswer() && !$1.IsRightAnswer()}
+        }else {
+            list = list.sorted{!$0.IsRightAnswer() && $1.IsRightAnswer()}
+        }
+        resultsTableView.reloadData()
+    }
+    
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
