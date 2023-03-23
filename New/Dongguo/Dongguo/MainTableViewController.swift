@@ -25,12 +25,13 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var mediaTableView: UITableView!
     
     var list: [Media] = [
-        Media(name: "A", imagePath: "00.jpeg", publicationYear: 2021),
-        Media(name: "A", imagePath: "00.jpeg", publicationYear: 2022),
-        Media(name: "A", imagePath: "00.jpeg", publicationYear: 2023),
-        Media(name: "A", imagePath: "00.jpeg", publicationYear: 2024),
-        Media(name: "A", imagePath: "00.jpeg", publicationYear: 2025),
-        Media(name: "A", imagePath: "00.jpeg", publicationYear: 2026)
+        Media(name: "first book", imagePath: "00.jpeg", publicationYear: 2021, type: .books),
+        Media(name: "second book", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
+        Media(name: "third book", imagePath: "00.jpeg", publicationYear: 2023, type: .books),
+        Media(name: "forth book", imagePath: "00.jpeg", publicationYear: 2024, type: .books),
+        Media(name: "A Movie", imagePath: "00.jpeg", publicationYear: 2021, type: .movies),
+        Media(name: "A Music", imagePath: "00.jpeg", publicationYear: 2022, type: .music),
+        Media(name: "no type", imagePath: "00.jpeg", publicationYear: 2022 )
     ]
     
     override func viewDidLoad() {

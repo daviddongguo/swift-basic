@@ -20,16 +20,17 @@ struct Media: Comparable, Equatable {
     let name: String
     let imagePath: String
     let publicationYear: Int
-    let type: MediaTypeEnum = MediaTypeEnum.none
+    let type: MediaTypeEnum
     let author: Person? = nil
     let director: Person? = nil
     let singer: Person? = nil
     let description: String? = nil
     let URL: String? = nil
     
-    init(name: String, imagePath: String, publicationYear: Int) {
+    init(name: String, imagePath: String, publicationYear: Int, type: MediaTypeEnum? = nil ) {
         self.name = name
         self.imagePath = imagePath
+        self.type = type ?? MediaTypeEnum.none
         self.publicationYear = publicationYear
     }
     
