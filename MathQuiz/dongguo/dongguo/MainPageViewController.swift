@@ -143,7 +143,7 @@ class MainPageViewController: UIViewController {
             mainTitleLabel.text = "\(vc.registerTextField.text ?? "") : \(vc.scoreLabel.text ?? "")"
         }
         
-        // fromRedo insid cell
+        // from Redo button inside a cell
         if unwindSegue.identifier == "fromRedo" {
             let vc = unwindSegue.source as! ResultPageViewController
             currentQuiz = vc.currentQuiz

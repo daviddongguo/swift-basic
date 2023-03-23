@@ -64,31 +64,17 @@ class ResultPageViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! Cell
-        
-        // the redo function in cell will be delegated to table view controller
+        // the cell will delegate tableView do a task named didRedoButtonPressedInCell
         cell.delegate = self
-        let quiz = list[indexPath.row]
-        cell.currentQuiz = quiz
-        cell.quizTitleLabel.text = quiz.description
-        if !quiz.IsRightAnswer() {
-            cell.quizTitleLabel.textColor = .red
-        }else{
-            cell.quizTitleLabel.textColor = .black
-        }
-        cell.starImage.image = starImages[quiz.star]
-        cell.redoButton.isEnabled = !quiz.IsRightAnswer()
-        
+        cell.update(with: list[indexPath.row])
         return cell
     }
     
-    
-    func didRedoButtonInCell(_ quiz: MathQuiz?) {
+    func didRedoButtonPressedInCell(_ quiz: MathQuiz?) {
         currentQuiz = quiz
-        print(currentQuiz?.description ?? "no quiz found")
         performSegue(withIdentifier: "fromRedo", sender: self)
     }
-    
-    
+        
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Get the selected cell using the indexPath
         let selectedCell = tableView.cellForRow(at: indexPath)
