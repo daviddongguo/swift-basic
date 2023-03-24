@@ -92,17 +92,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     fileprivate func initList() -> [Media] {
-        manager.AddEdit(
-            Media(name: "A", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
-            Media(name: "A", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
-            Media(name: "b book", imagePath: "00.jpeg", publicationYear: 2023, type: .books),
-            Media(name: "c book", imagePath: "00.jpeg", publicationYear: 2024, type: .books),
-            Media(name: "A Movie", imagePath: "00.jpeg", publicationYear: 2021, type: .movies),
-            Media(name: "A Music", imagePath: "00.jpeg", publicationYear: 2022, type: .music),
-            Media(name: "no type", imagePath: "00.jpeg", publicationYear: 2022 )
-        )
-        
-        return manager.list
+        return items
     }
     
     @objc func editButtonTapped() {

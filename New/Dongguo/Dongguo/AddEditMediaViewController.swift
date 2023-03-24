@@ -7,12 +7,13 @@
 
 import UIKit
 
-class AddEditMediaViewController: UITableViewController {
+class AddEditMediaViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
     var currentMedia: Media?
     var currentMediaType: MediaTypeEnum = .books
     var manager: MediaManager?
     
+    @IBOutlet weak var mediaImageUI: UIImageView!
     @IBOutlet weak var nameErrorMessageLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var publicationYearTextField: UITextField!
@@ -21,6 +22,28 @@ class AddEditMediaViewController: UITableViewController {
     
     let mediaTypes = MediaTypeEnum.allCases
     var id: Int = -1
+    
+    
+    
+    
+    @IBAction func ChangeImage(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.sourceType = .photoLibrary
+                present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[.originalImage] as? UIImage else {
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        //:TODO save image
+
+        
+        mediaImageUI.image = selectedImage
+        dismiss(animated: true, completion: nil)
+    }
     
     
     @IBAction func DidEditingName(_ sender: Any) {
