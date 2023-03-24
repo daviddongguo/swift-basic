@@ -81,7 +81,7 @@
                                                     <outlet property="mediaImage" destination="nnG-s0-p7z" id="h9Q-V8-IaM"/>
                                                     <outlet property="titleLabel" destination="QTG-nS-js3" id="vms-0H-5bu"/>
                                                     <outlet property="yearLabel" destination="RCL-os-WHg" id="LEZ-dk-sUa"/>
-                                                    <segue destination="tdY-tZ-5Vi" kind="presentation" id="AZU-bk-acK"/>
+                                                    <segue destination="tdY-tZ-5Vi" kind="presentation" identifier="toEditMedia" id="AZU-bk-acK"/>
                                                     <segue destination="FNA-dI-1b6" kind="showDetail" trigger="accessoryAction" id="HE6-f3-590"/>
                                                 </connections>
                                             </tableViewCell>
@@ -129,9 +129,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="x2v-tE-9EO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="owk-MO-4vl"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hA1-MT-u20">
                             <connections>
-                                <segue destination="tdY-tZ-5Vi" kind="presentation" id="hTN-GF-hF2"/>
+                                <segue destination="tdY-tZ-5Vi" kind="presentation" identifier="toAddMedia" id="hTN-GF-hF2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -173,7 +174,7 @@
         <!--Root View Controller-->
         <scene sceneID="iIX-f1-BlJ">
             <objects>
-                <tableViewController id="wBK-CL-7l3" sceneMemberID="viewController">
+                <tableViewController id="wBK-CL-7l3" customClass="AddEditMediaViewController" customModule="Dongguo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3hT-Qo-ehA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -288,7 +289,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="AZU-bk-acK"/>
+        <segue reference="hTN-GF-hF2"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

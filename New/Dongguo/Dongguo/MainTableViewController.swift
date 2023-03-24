@@ -9,7 +9,6 @@ import UIKit
 
 class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var list: [Media]!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return list.count
@@ -18,17 +17,12 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MediaCell", for: indexPath) as! MediaTableViewCell
         cell.update(list[indexPath.row])
-
         return cell
     }
     
-    
-    
-    
-    
     @IBOutlet weak var mediaTableView: UITableView!
     
-    let originList: [Media] = [
+    var list: [Media] = [
         Media(name: "first book", imagePath: "00.jpeg", publicationYear: 2021, type: .books),
         Media(name: "second book", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
         Media(name: "third book", imagePath: "00.jpeg", publicationYear: 2023, type: .books),
@@ -40,28 +34,25 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     @IBAction func moviesButtonPressed(_ sender: Any) {
-        list = originList.filter{$0.type == .movies}
-        mediaTableView.reloadData()
+//        list = originList.filter{$0.type == .movies}
+//        mediaTableView.reloadData()
     }
     
     @IBAction func musicButtonPressed(_ sender: Any) {
-        list = originList.filter{$0.type == .music}
-        mediaTableView.reloadData()
+//        list = originList.filter{$0.type == .music}
+//        mediaTableView.reloadData()
     }
     
     @IBAction func booksButtonPressed(_ sender: Any) {
-        list = originList.filter{$0.type == .books}
-        mediaTableView.reloadData()
+//        list = originList.filter{$0.type == .books}
+//        mediaTableView.reloadData()
     }
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        list = originList
-        
         mediaTableView.dataSource = self
         mediaTableView.delegate = self
         
@@ -94,24 +85,39 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
 
-    @IBAction func unwindToFirstVC(_ unwindSegue: UIStoryboardSegue) {
+    @IBAction func unwindToFirstVC(_ segue: UIStoryboardSegue) {
         
-        guard unwindSegue.identifier == "fromSave" else {
+        guard segue.identifier == "fromSave" else {
             return
         }
-        let sv = unwindSegue.source as! AddEditMediaViewController
-        
-        if let media = sv.currentMedia {
-            // edit
-//            if let selectedIndexPath = mediaTableView.indexPathForSelectedRow {
-//                list[selectedIndexPath] = media
-//                mediaTableView.reloadRows(at: [selectedIndexPath], with: .none)
-//            }
+        guard let sourceViewcontroller = segue.source as? AddEditMediaViewController else {
+            print("error: source is not view controller")
+            return
         }
         
-        
-        
+        if let media = sourceViewcontroller.currentMedia {
+            // edit
+            if let selectedIndexPath = mediaTableView.indexPathForSelectedRow {
+                list[selectedIndexPath.row] = media
+                mediaTableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }else{
+                // add
+                let newIndexPath = IndexPath(row: list.count, section: 0)
+                list.append(media)
+                mediaTableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        if segue.identifier == "toEditMedia" {
+            
+            let navVC = segue.destination as! UINavigationController
+            let addEditMediaTableViewController = navVC.viewControllers.first as! AddEditMediaViewController
 
+            addEditMediaTableViewController.currentMedia = list[mediaTableView.indexPathForSelectedRow!.row]
+        }
     }
     
 }

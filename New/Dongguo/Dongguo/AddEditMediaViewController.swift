@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddEditMediaViewController: UIViewController {
+class AddEditMediaViewController: UITableViewController {
     
     var currentMedia: Media?
 
@@ -15,17 +15,23 @@ class AddEditMediaViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        currentMedia = Media(name: "new book", imagePath: "00.jpeg", publicationYear: 2021, type: .books)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func updateSavebuttonState() {
+        
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard segue.identifier == "fromSave" else {
+            return
+        }
+        
+        currentMedia = Media(name: "add a new music", imagePath: "00.jpeg", publicationYear: 2022, type: .music )
+        
+        
+    }
+    
 }
