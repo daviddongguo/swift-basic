@@ -9,7 +9,7 @@ import UIKit
 
 class MediaTableViewCell: UITableViewCell {
     
-    
+    var currentMedia: Media?
     
 
     @IBOutlet weak var mediaImage: UIImageView!
@@ -18,6 +18,7 @@ class MediaTableViewCell: UITableViewCell {
     
     
     func update(_ media: Media){
+        currentMedia = media
         self.mediaImage.image = UIImage(named: media.imagePath)
         self.titleLabel.text = media.name
         self.yearLabel.text = "\(media.publicationYear)"

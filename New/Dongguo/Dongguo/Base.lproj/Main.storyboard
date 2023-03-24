@@ -87,19 +87,27 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="bkX-yI-GJY">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="bkX-yI-GJY">
                                         <rect key="frame" x="0.0" y="620.66666666666663" width="361" height="34.333333333333371"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Log-GS-NWM">
-                                                <rect key="frame" x="0.0" y="0.0" width="80.333333333333329" height="34.333333333333336"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="79" height="34.333333333333336"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="All"/>
+                                                <connections>
+                                                    <action selector="showAllMediaButtonPressed:" destination="wYB-GF-oMW" eventType="touchUpInside" id="nZO-0t-Mux"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IIL-Ou-TFo">
+                                                <rect key="frame" x="94" y="0.0" width="79" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Movies"/>
                                                 <connections>
-                                                    <action selector="moviesButtonPressed:" destination="wYB-GF-oMW" eventType="touchUpInside" id="6q5-Uw-qc3"/>
+                                                    <action selector="moviesButtonPressed:" destination="wYB-GF-oMW" eventType="touchUpInside" id="VDO-sC-D2o"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0YG-JY-3pi">
-                                                <rect key="frame" x="140.33333333333334" y="0.0" width="80.333333333333343" height="34.333333333333336"/>
+                                                <rect key="frame" x="188" y="0.0" width="79" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Music"/>
                                                 <connections>
@@ -107,7 +115,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ynk-FH-Yju">
-                                                <rect key="frame" x="280.66666666666669" y="0.0" width="80.333333333333314" height="34.333333333333336"/>
+                                                <rect key="frame" x="282" y="0.0" width="79" height="34.333333333333336"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Books"/>
                                                 <connections>
@@ -289,7 +297,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="hTN-GF-hF2"/>
+        <segue reference="AZU-bk-acK"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
