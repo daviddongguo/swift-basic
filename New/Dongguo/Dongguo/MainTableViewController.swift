@@ -78,11 +78,11 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     // Move row
-    func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedMedia = list.remove(at: sourceIndexPath.row)
-        list.insert(movedMedia, at: proposedDestinationIndexPath.row)
-        return proposedDestinationIndexPath
+        list.insert(movedMedia, at: destinationIndexPath.row)
     }
+    
     
 
     @IBAction func unwindToFirstVC(_ segue: UIStoryboardSegue) {
