@@ -59,7 +59,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBAction func showAllMediaButtonPressed(_ sender: Any) {
         filteredArray = list
-        mediaTableView.reloadData()        
+        mediaTableView.reloadData()
     }
     
     @IBAction func moviesButtonPressed(_ sender: Any) {
