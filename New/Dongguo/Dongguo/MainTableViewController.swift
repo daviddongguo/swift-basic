@@ -9,6 +9,8 @@ import UIKit
 
 class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let manager = MediaManager()
+    var list: [Media]!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredArray.count
@@ -45,30 +47,23 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var mediaTableView: UITableView!
     
-    var list: [Media] = [
-        Media(name: "first book", imagePath: "00.jpeg", publicationYear: 2021, type: .books),
-        Media(name: "second book", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
-        Media(name: "third book", imagePath: "00.jpeg", publicationYear: 2023, type: .books),
-        Media(name: "forth book", imagePath: "00.jpeg", publicationYear: 2024, type: .books),
-        Media(name: "A Movie", imagePath: "00.jpeg", publicationYear: 2021, type: .movies),
-        Media(name: "A Music", imagePath: "00.jpeg", publicationYear: 2022, type: .music),
-        Media(name: "no type", imagePath: "00.jpeg", publicationYear: 2022 )
-    ]
+
+    
     
     var filteredArray: [Media]!
     
     @IBAction func showAllMediaButtonPressed(_ sender: Any) {
-        filteredArray = list
+        filteredArray = list.sorted()
         mediaTableView.reloadData()
     }
     
     @IBAction func moviesButtonPressed(_ sender: Any) {
-        filteredArray  = list.filter{$0.type == .movies}
+        filteredArray  = list.filter{$0.type == .movies}.sorted()
         mediaTableView.reloadData()
     }
     
     @IBAction func musicButtonPressed(_ sender: Any) {
-        filteredArray  = list.filter{$0.type == .music}
+        filteredArray  = list.filter{$0.type == .music}.sorted()
         mediaTableView.reloadData()
     }
     
@@ -82,6 +77,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        list = initList().sorted()
         filteredArray = list
         
         mediaTableView.dataSource = self
@@ -93,6 +89,20 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         mediaTableView.reloadData()
+    }
+    
+    fileprivate func initList() -> [Media] {
+        manager.AddEdit(
+            Media(name: "first book", imagePath: "00.jpeg", publicationYear: 2021, type: .books),
+            Media(name: "second book", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
+            Media(name: "third book", imagePath: "00.jpeg", publicationYear: 2023, type: .books),
+            Media(name: "forth book", imagePath: "00.jpeg", publicationYear: 2024, type: .books),
+            Media(name: "A Movie", imagePath: "00.jpeg", publicationYear: 2021, type: .movies),
+            Media(name: "A Music", imagePath: "00.jpeg", publicationYear: 2022, type: .music),
+            Media(name: "no type", imagePath: "00.jpeg", publicationYear: 2022 )
+        )
+        
+        return manager.list
     }
     
     @objc func editButtonTapped() {
@@ -112,13 +122,17 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         if let media = sourceViewcontroller.currentMedia {
             // edit
             if let selectedIndexPath = mediaTableView.indexPathForSelectedRow {
-                list[selectedIndexPath.row] = media
+                if let index = list.firstIndex(where: { $0.id == media.id }) {
+                    list[index] = media
+                }
+                filteredArray[selectedIndexPath.row] = media
                 mediaTableView.reloadRows(at: [selectedIndexPath], with: .none)
             }else{
                 // add
-                let newIndexPath = IndexPath(row: list.count, section: 0)
                 list.append(media)
-                mediaTableView.insertRows(at: [newIndexPath], with: .automatic)
+                mediaTableView.reloadData()
+//                let newIndexPath = IndexPath(row: filteredArray.count, section: 0)
+//                mediaTableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
     }
@@ -130,13 +144,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
             let navVC = segue.destination as! UINavigationController
             let addEditMediaTableViewController = navVC.viewControllers.first as! AddEditMediaViewController
             
-//            let media = list[mediaTableView.indexPathForSelectedRow!.row]
-            
             let mediaToEdit = filteredArray[mediaTableView.indexPathForSelectedRow!.row]
-//            list = list.filter{$0.name != mediaToEdit.name}
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-            
-            
             addEditMediaTableViewController.currentMedia = mediaToEdit
         }
     }

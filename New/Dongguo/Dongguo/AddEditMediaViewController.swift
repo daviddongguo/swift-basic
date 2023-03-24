@@ -10,16 +10,15 @@ import UIKit
 class AddEditMediaViewController: UITableViewController {
     
     var currentMedia: Media?
-    var currentMediaType: MediaTypeEnum = .none
+    var currentMediaType: MediaTypeEnum = .books
     
     @IBOutlet weak var nameTextField: UITextField!
-
     @IBOutlet weak var publicationYearTextField: UITextField!
-    
-    
     @IBOutlet weak var mediaTypeLabel: UILabel!
     @IBOutlet weak var mediaTypePikcer: UIPickerView!
+    
     let mediaTypes = MediaTypeEnum.allCases
+    var id: Int = -1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +29,11 @@ class AddEditMediaViewController: UITableViewController {
         guard let currentMedia = currentMedia else {
             return
         }
-        update(currentMedia)
+        updateUI(currentMedia)
     }
     
-    func update(_ media: Media){
+    func updateUI(_ media: Media){
+        id = media.id
         nameTextField.text = media.name
         publicationYearTextField.text = String(media.publicationYear)
         currentMediaType = media.type
@@ -60,11 +60,8 @@ class AddEditMediaViewController: UITableViewController {
                   return
               }
         
-        currentMedia = Media(name: name, imagePath: "00.jpeg", publicationYear: publicationYear, type: currentMediaType )
-        
-        
+        currentMedia = Media(id: id, name: name, imagePath: "00.jpeg", publicationYear: publicationYear, type: currentMediaType )
     }
-    
 }
 
 extension AddEditMediaViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -82,6 +79,6 @@ extension AddEditMediaViewController: UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedValue = pickerView.selectedRow(inComponent: component)
         currentMediaType = mediaTypes[selectedValue]
-        mediaTypeLabel.text = "Meida type: " + currentMediaType.rawValue
+//        mediaTypeLabel.text = "Meida type: " + currentMediaType.rawValue
     }
 }
