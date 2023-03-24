@@ -26,9 +26,19 @@ class MediaManager {
     var count: Int{
         return list.count
     }
+    
+    func isExisted(name: String) -> Bool {
+        for media in self.list {
+            if media.name.lowercased() == name.lowercased() {
+                return true
+            }
+        }
+        return false
+    }
+    
     func AddEdit(_ medias: Media...) -> Void {
         for media in medias{
-            if media.id == -1 {
+            if media.id == -1 && !self.isExisted(name: media.name){
                 list.append(Media(id: self.count + 1, name: media.name, imagePath: media.imagePath, publicationYear: media.publicationYear, type: media.type, description: media.description))
             }else{
                 for i in 0..<list.count {

@@ -219,7 +219,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="nfq-rZ-XOq">
-                                                    <rect key="frame" x="20" y="24.000000000000004" width="353" height="60.333333333333343"/>
+                                                    <rect key="frame" x="20" y="23.999999999999993" width="353" height="84.333333333333314"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15V-5z-Bsz">
                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="20.333333333333332"/>
@@ -227,11 +227,20 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="name" borderStyle="roundedRect" placeholder="Enter media name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S7O-xI-eKz">
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter media name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S7O-xI-eKz">
                                                             <rect key="frame" x="0.0" y="26.333333333333336" width="353" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="DidEditingName:" destination="wBK-CL-7l3" eventType="editingDidEnd" id="wju-co-mV0"/>
+                                                            </connections>
                                                         </textField>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLo-k7-Y3L">
+                                                            <rect key="frame" x="0.0" y="66.333333333333329" width="99.333333333333329" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="S7O-xI-eKz" secondAttribute="trailing" id="Mee-26-69W"/>
@@ -261,7 +270,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2023" borderStyle="roundedRect" placeholder="Enter publication year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7sR-4s-jEu">
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter publication year" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7sR-4s-jEu">
                                                             <rect key="frame" x="0.0" y="26.333333333333336" width="373" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
@@ -332,6 +341,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mediaTypePikcer" destination="cZy-mQ-xBh" id="hbe-My-ZqB"/>
+                        <outlet property="nameErrorMessageLabel" destination="qLo-k7-Y3L" id="EM1-jA-NNd"/>
                         <outlet property="nameTextField" destination="S7O-xI-eKz" id="zjc-d6-4yd"/>
                         <outlet property="publicationYearTextField" destination="7sR-4s-jEu" id="WwJ-dg-PWg"/>
                     </connections>

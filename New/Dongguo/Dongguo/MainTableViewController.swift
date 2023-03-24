@@ -93,10 +93,10 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     fileprivate func initList() -> [Media] {
         manager.AddEdit(
-            Media(name: "first book", imagePath: "00.jpeg", publicationYear: 2021, type: .books),
-            Media(name: "second book", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
-            Media(name: "third book", imagePath: "00.jpeg", publicationYear: 2023, type: .books),
-            Media(name: "forth book", imagePath: "00.jpeg", publicationYear: 2024, type: .books),
+            Media(name: "A", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
+            Media(name: "A", imagePath: "00.jpeg", publicationYear: 2022, type: .books),
+            Media(name: "b book", imagePath: "00.jpeg", publicationYear: 2023, type: .books),
+            Media(name: "c book", imagePath: "00.jpeg", publicationYear: 2024, type: .books),
             Media(name: "A Movie", imagePath: "00.jpeg", publicationYear: 2021, type: .movies),
             Media(name: "A Music", imagePath: "00.jpeg", publicationYear: 2022, type: .music),
             Media(name: "no type", imagePath: "00.jpeg", publicationYear: 2022 )
@@ -146,6 +146,16 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
             
             let mediaToEdit = filteredArray[mediaTableView.indexPathForSelectedRow!.row]
             addEditMediaTableViewController.currentMedia = mediaToEdit
+            addEditMediaTableViewController.manager = manager
+        }
+        
+        if segue.identifier == "toAddMedia" {
+            
+            let navVC = segue.destination as! UINavigationController
+            let addEditMediaTableViewController = navVC.viewControllers.first as! AddEditMediaViewController
+                      
+            addEditMediaTableViewController.currentMedia = nil
+            addEditMediaTableViewController.manager = manager
         }
     }
     
