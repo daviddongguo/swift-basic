@@ -99,10 +99,6 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         mediaTableView.setEditing(!mediaTableView.isEditing, animated: true)
     }
     
-    
-    
-    
-
     @IBAction func unwindToFirstVC(_ segue: UIStoryboardSegue) {
         
         guard segue.identifier == "fromSave" else {
@@ -133,8 +129,15 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
             
             let navVC = segue.destination as! UINavigationController
             let addEditMediaTableViewController = navVC.viewControllers.first as! AddEditMediaViewController
-
-            addEditMediaTableViewController.currentMedia = list[mediaTableView.indexPathForSelectedRow!.row]
+            
+//            let media = list[mediaTableView.indexPathForSelectedRow!.row]
+            
+            let mediaToEdit = filteredArray[mediaTableView.indexPathForSelectedRow!.row]
+//            list = list.filter{$0.name != mediaToEdit.name}
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            
+            addEditMediaTableViewController.currentMedia = mediaToEdit
         }
     }
     

@@ -7,11 +7,15 @@
 
 import Foundation
 
-enum MediaTypeEnum: String {
+enum MediaTypeEnum: String, CaseIterable {
     case movies = "Movies"
     case music = "Music"
     case books = "Books"
     case none = "Not Known"
+    
+    var description: String {
+            return self.rawValue
+        }
 }
 
 struct Media: Comparable, Equatable {
@@ -21,9 +25,9 @@ struct Media: Comparable, Equatable {
     let imagePath: String
     let publicationYear: Int
     let type: MediaTypeEnum
-    let author: Person? = nil
-    let director: Person? = nil
-    let singer: Person? = nil
+    let author: String? = nil
+    let director: String? = nil
+    let singer: String? = nil
     let description: String? = nil
     let URL: String? = nil
     
@@ -43,7 +47,4 @@ struct Media: Comparable, Equatable {
     }
 }
 
-struct Person {
-    let id: Int = -1
-    let name: String
-}
+

@@ -10,12 +10,39 @@ import UIKit
 class AddEditMediaViewController: UITableViewController {
     
     var currentMedia: Media?
+    var currentMediaType: MediaTypeEnum = .none
+    
+    @IBOutlet weak var nameTextField: UITextField!
 
+    @IBOutlet weak var publicationYearTextField: UITextField!
+    
+    
+    @IBOutlet weak var mediaTypeLabel: UILabel!
+    @IBOutlet weak var mediaTypePikcer: UIPickerView!
+    let mediaTypes = MediaTypeEnum.allCases
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        currentMedia = Media(name: "new book", imagePath: "00.jpeg", publicationYear: 2021, type: .books)
+        
+        mediaTypePikcer.delegate = self
+        mediaTypePikcer.dataSource = self
+        
+        guard let currentMedia = currentMedia else {
+            return
+        }
+        update(currentMedia)
+    }
+    
+    func update(_ media: Media){
+        nameTextField.text = media.name
+        publicationYearTextField.text = String(media.publicationYear)
+        currentMediaType = media.type
+        for i in 0..<mediaTypes.count {
+            if mediaTypes[i] == currentMediaType {
+                mediaTypePikcer.selectRow(i, inComponent: 0, animated: false)
+                break
+            }
+        }
     }
     
     func updateSavebuttonState() {
@@ -28,10 +55,33 @@ class AddEditMediaViewController: UITableViewController {
         guard segue.identifier == "fromSave" else {
             return
         }
+        guard let name = nameTextField.text,
+              let publicationYear = Int(publicationYearTextField.text ?? "no valid data") else {
+                  return
+              }
         
-        currentMedia = Media(name: "add a new music", imagePath: "00.jpeg", publicationYear: 2022, type: .music )
+        currentMedia = Media(name: name, imagePath: "00.jpeg", publicationYear: publicationYear, type: currentMediaType )
         
         
     }
     
+}
+
+extension AddEditMediaViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return mediaTypes.count
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return mediaTypes[row].description
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedValue = pickerView.selectedRow(inComponent: component)
+        currentMediaType = mediaTypes[selectedValue]
+        mediaTypeLabel.text = "Meida type: " + currentMediaType.rawValue
+    }
 }
