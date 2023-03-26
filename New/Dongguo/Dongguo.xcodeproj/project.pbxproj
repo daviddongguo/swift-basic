@@ -13,9 +13,9 @@
 		63CABE5E29CB8A3B00865FA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63CABE5D29CB8A3B00865FA7 /* Assets.xcassets */; };
 		63CABE6129CB8A3B00865FA7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63CABE5F29CB8A3B00865FA7 /* LaunchScreen.storyboard */; };
 		63CABE6A29CB8E3300865FA7 /* MediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CABE6929CB8E3300865FA7 /* MediaModel.swift */; };
-		63CABE6C29CB8FAF00865FA7 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CABE6B29CB8FAF00865FA7 /* MainTableViewController.swift */; };
+		63CABE6C29CB8FAF00865FA7 /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CABE6B29CB8FAF00865FA7 /* MainTableView.swift */; };
 		63CABE6E29CB91A200865FA7 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CABE6D29CB91A200865FA7 /* Cell.swift */; };
-		63D1283729CCD88200B0048F /* AddEditMediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1283629CCD88200B0048F /* AddEditMediaViewController.swift */; };
+		63D1283729CCD88200B0048F /* DetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1283629CCD88200B0048F /* DetailTableView.swift */; };
 		63D1283929CE3F0D00B0048F /* items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D1283829CE3F0D00B0048F /* items.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,9 +28,9 @@
 		63CABE6029CB8A3B00865FA7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		63CABE6229CB8A3B00865FA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63CABE6929CB8E3300865FA7 /* MediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaModel.swift; sourceTree = "<group>"; };
-		63CABE6B29CB8FAF00865FA7 /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		63CABE6B29CB8FAF00865FA7 /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		63CABE6D29CB91A200865FA7 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
-		63D1283629CCD88200B0048F /* AddEditMediaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditMediaViewController.swift; sourceTree = "<group>"; };
+		63D1283629CCD88200B0048F /* DetailTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableView.swift; sourceTree = "<group>"; };
 		63D1283829CE3F0D00B0048F /* items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = items.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,8 +71,8 @@
 				63CABE5D29CB8A3B00865FA7 /* Assets.xcassets */,
 				63CABE5F29CB8A3B00865FA7 /* LaunchScreen.storyboard */,
 				63CABE6229CB8A3B00865FA7 /* Info.plist */,
-				63CABE6B29CB8FAF00865FA7 /* MainTableViewController.swift */,
-				63D1283629CCD88200B0048F /* AddEditMediaViewController.swift */,
+				63CABE6B29CB8FAF00865FA7 /* MainTableView.swift */,
+				63D1283629CCD88200B0048F /* DetailTableView.swift */,
 				63CABE6D29CB91A200865FA7 /* Cell.swift */,
 			);
 			path = Dongguo;
@@ -158,11 +158,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D1283729CCD88200B0048F /* AddEditMediaViewController.swift in Sources */,
+				63D1283729CCD88200B0048F /* DetailTableView.swift in Sources */,
 				63CABE6A29CB8E3300865FA7 /* MediaModel.swift in Sources */,
 				63D1283929CE3F0D00B0048F /* items.swift in Sources */,
 				63CABE5529CB8A3A00865FA7 /* AppDelegate.swift in Sources */,
-				63CABE6C29CB8FAF00865FA7 /* MainTableViewController.swift in Sources */,
+				63CABE6C29CB8FAF00865FA7 /* MainTableView.swift in Sources */,
 				63CABE5729CB8A3A00865FA7 /* SceneDelegate.swift in Sources */,
 				63CABE6E29CB91A200865FA7 /* Cell.swift in Sources */,
 			);

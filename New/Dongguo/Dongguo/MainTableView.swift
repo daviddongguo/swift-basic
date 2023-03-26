@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainTableView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let manager = MediaManager()
     var list: [Media]!
@@ -47,7 +47,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var mediaTableView: UITableView!
     
-
+    
     
     
     var filteredArray: [Media]!
@@ -71,11 +71,11 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         filteredArray  = list.filter{$0.type == .books}
         mediaTableView.reloadData()
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         list = initList().sorted()
         filteredArray = list
@@ -104,7 +104,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         guard segue.identifier == "fromSave" else {
             return
         }
-        guard let sourceViewcontroller = segue.source as? AddEditMediaViewController else {
+        guard let sourceViewcontroller = segue.source as? DetailTableView else {
             print("error: source is not view controller")
             return
         }
@@ -121,18 +121,16 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
                 // add
                 list.append(media)
                 mediaTableView.reloadData()
-//                let newIndexPath = IndexPath(row: filteredArray.count, section: 0)
-//                mediaTableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       
+        
         if segue.identifier == "toEditMedia" {
             
             let navVC = segue.destination as! UINavigationController
-            let addEditMediaTableViewController = navVC.viewControllers.first as! AddEditMediaViewController
+            let addEditMediaTableViewController = navVC.viewControllers.first as! DetailTableView
             
             let mediaToEdit = filteredArray[mediaTableView.indexPathForSelectedRow!.row]
             addEditMediaTableViewController.currentMedia = mediaToEdit
@@ -142,8 +140,8 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
         if segue.identifier == "toAddMedia" {
             
             let navVC = segue.destination as! UINavigationController
-            let addEditMediaTableViewController = navVC.viewControllers.first as! AddEditMediaViewController
-                      
+            let addEditMediaTableViewController = navVC.viewControllers.first as! DetailTableView
+            
             addEditMediaTableViewController.currentMedia = nil
             addEditMediaTableViewController.manager = manager
         }

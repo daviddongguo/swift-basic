@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Table View Controller-->
+        <!--Main Table View-->
         <scene sceneID="Xx2-b8-2O0">
             <objects>
-                <viewController id="wYB-GF-oMW" customClass="MainTableViewController" customModule="Dongguo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="wYB-GF-oMW" customClass="MainTableView" customModule="Dongguo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fgg-4R-kPa">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -182,7 +182,7 @@
         <!--Root View Controller-->
         <scene sceneID="iIX-f1-BlJ">
             <objects>
-                <tableViewController id="wBK-CL-7l3" customClass="AddEditMediaViewController" customModule="Dongguo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="wBK-CL-7l3" customClass="DetailTableView" customModule="Dongguo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="3hT-Qo-ehA">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -247,6 +247,7 @@
                                                             <textInputTraits key="textInputTraits"/>
                                                             <connections>
                                                                 <action selector="DidEditingName:" destination="wBK-CL-7l3" eventType="editingDidEnd" id="wju-co-mV0"/>
+                                                                <action selector="nameChanged:" destination="wBK-CL-7l3" eventType="editingChanged" id="dwB-fn-56T"/>
                                                             </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qLo-k7-Y3L">
@@ -288,6 +289,9 @@
                                                             <rect key="frame" x="0.0" y="26.333333333333336" width="373" height="34"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="yearChanged:" destination="wBK-CL-7l3" eventType="editingDidEnd" id="wVZ-RW-bIZ"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -333,6 +337,44 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="351" id="Dtb-Go-TtZ">
+                                        <rect key="frame" x="0.0" y="710" width="393" height="351"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dtb-Go-TtZ" id="QO1-Er-Yvz">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="351"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="7Dt-Wb-dHr">
+                                                    <rect key="frame" x="20" y="24" width="353" height="154.33333333333334"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2e-lF-kSE">
+                                                            <rect key="frame" x="0.0" y="0.0" width="87.333333333333329" height="20.333333333333332"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mSf-Hc-QlZ">
+                                                            <rect key="frame" x="0.0" y="26.333333333333343" width="353" height="128"/>
+                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <color key="textColor" systemColor="labelColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="mSf-Hc-QlZ" secondAttribute="trailing" id="i12-dh-yUN"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="7Dt-Wb-dHr" secondAttribute="bottom" constant="172.66666666666666" id="5d1-He-Gc0"/>
+                                                <constraint firstItem="7Dt-Wb-dHr" firstAttribute="leading" secondItem="QO1-Er-Yvz" secondAttribute="leadingMargin" id="EBy-E6-FeC"/>
+                                                <constraint firstItem="7Dt-Wb-dHr" firstAttribute="top" secondItem="QO1-Er-Yvz" secondAttribute="topMargin" constant="13" id="NWF-Fq-G40"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7Dt-Wb-dHr" secondAttribute="trailing" id="XRF-2e-Rao"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -354,11 +396,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="descriptionChanged" destination="mSf-Hc-QlZ" id="5gq-cw-dMW"/>
+                        <outlet property="descriptionTextView" destination="mSf-Hc-QlZ" id="aj3-IC-2nP"/>
                         <outlet property="mediaImageUI" destination="8ok-Qk-PvR" id="TBt-E7-pw4"/>
                         <outlet property="mediaTypePikcer" destination="cZy-mQ-xBh" id="hbe-My-ZqB"/>
                         <outlet property="nameErrorMessageLabel" destination="qLo-k7-Y3L" id="EM1-jA-NNd"/>
                         <outlet property="nameTextField" destination="S7O-xI-eKz" id="zjc-d6-4yd"/>
                         <outlet property="publicationYearTextField" destination="7sR-4s-jEu" id="WwJ-dg-PWg"/>
+                        <outlet property="saveButton" destination="udx-zF-S7G" id="ah6-gT-KlC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nt3-Tp-CxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -406,6 +451,9 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="00" width="715" height="1080"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

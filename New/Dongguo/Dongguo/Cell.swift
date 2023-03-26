@@ -11,7 +11,7 @@ class MediaTableViewCell: UITableViewCell {
     
     var currentMedia: Media?
     
-
+    
     @IBOutlet weak var mediaImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
@@ -28,11 +28,10 @@ class MediaTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
-
 }
