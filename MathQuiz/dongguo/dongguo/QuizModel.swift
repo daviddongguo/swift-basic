@@ -34,14 +34,14 @@ class Quiz: CustomStringConvertible {
     let title: String
     let answer: String?
     var userAnswer: String? = nil
-    let difficulty: Int
+    let maxMyInt: Int
     
     
     init(id: Int, title: String, answer: String? = nil, difficulty: Int =  1) {
         self.id = id
         self.title = title
         self.answer = answer
-        self.difficulty = difficulty
+        self.maxMyInt = difficulty
     }
     
     @available(*, unavailable, message: "Subclasses must override this method")
@@ -192,7 +192,7 @@ struct MathQuizServer {
     var deguInfo: String {
         var str = ""
         for quiz in self.quizs {
-            str += "\(quiz.description) answer: \(quiz.answer ?? "?"), userAnswer: \(quiz.userAnswer ?? "?") , isRight: \(quiz.IsRightAnswer()), difficulty: \(quiz.difficulty)" + "\n"
+            str += "\(quiz.description) answer: \(quiz.answer ?? "?"), userAnswer: \(quiz.userAnswer ?? "?") , isRight: \(quiz.IsRightAnswer()), difficulty: \(quiz.maxMyInt)" + "\n"
         }
         return str
     }

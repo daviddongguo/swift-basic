@@ -5,8 +5,8 @@ class MainPageViewController: UIViewController {
     var server: MathQuizServer!
     var currentQuiz: MathQuiz? = nil
     
-    var signRight = "Y"
-    var signWrong = "X"
+    var signRight = "😀"
+    var signWrong = "😞"
     
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var userAnswerTextField: UITextField!
@@ -53,7 +53,7 @@ class MainPageViewController: UIViewController {
     }
     
     
-
+    
     @IBAction func clearButtonSinglePressed(_ sender: Any) {
         guard let text = userAnswerTextField?.text else {
             return
@@ -82,10 +82,11 @@ class MainPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // init quizzes
         server = MathQuizServer()
-        server.difficulty = 5
+        server.difficulty = 25
         var _ = server.generateQuiz()
-        server.difficulty = 15
+        server.difficulty = 1
         var _ = server.generateQuiz()
         currentQuiz =  server.generateQuiz()
         updateUI()
@@ -94,25 +95,31 @@ class MainPageViewController: UIViewController {
         }
     }
     
+    
+    
     @objc func numberButtonPressed(_ sender: UIButton) {
         guard let text = sender.titleLabel?.text,
               var answerText = userAnswerTextField.text else {
             return
         }
+        
+        // validate user input
         switch text {
         case "-" :
             answerText += answerText.isEmpty ? text : ""
         case "." :
-            answerText += answerText.contains(".") ? "" : text
+            answerText += (answerText.isEmpty || answerText == "-" || answerText.contains(".")) ? "" : text
+        case "0" :
+            answerText += (answerText == "0" || answerText == "-0") ? "" : text
         default :
-            answerText += (answerText == "0") ? "" : text
+            answerText +=  text
         }
         
         userAnswerTextField.text = answerText
         validateQuizbutton.isEnabled = true
     }
     
-
+    
     
     override func shouldPerformSegue(withIdentifier identifier: String,
                                      sender: Any?) -> Bool {
@@ -129,12 +136,14 @@ class MainPageViewController: UIViewController {
     }
     
     @IBAction func unwindToMainPageViewController(_ unwindSegue: UIStoryboardSegue) {
+        
+        // from result view controller
         if unwindSegue.identifier == "fromResult" {
             let vc = unwindSegue.source as! ResultPageViewController
             mainTitleLabel.text = "\(vc.registerTextField.text ?? "") : \(vc.scoreLabel.text ?? "")"
         }
         
-        // fromRedo
+        // from Redo button inside a cell
         if unwindSegue.identifier == "fromRedo" {
             let vc = unwindSegue.source as! ResultPageViewController
             currentQuiz = vc.currentQuiz

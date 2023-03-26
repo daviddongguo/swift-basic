@@ -12,12 +12,12 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" userLabel="MainPageViewController" customClass="MainPageViewController" customModule="dongguo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="BOk-CI-iJz">
-                                <rect key="frame" x="16" y="120" width="361" height="568"/>
+                                <rect key="frame" x="16" y="120" width="361" height="612"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Math Quiz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoG-ev-95R">
                                         <rect key="frame" x="141.66666666666666" y="0.0" width="78" height="60"/>
@@ -29,24 +29,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="233" placeholderIntrinsicWidth="37" placeholderIntrinsicHeight="36" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zt7-gZ-WB1">
-                                        <rect key="frame" x="0.0" y="66" width="361" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="l4S-sT-yc3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <rect key="frame" x="0.0" y="66" width="361" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 + 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qaw-TL-WgB">
-                                        <rect key="frame" x="160.66666666666666" y="122" width="39.666666666666657" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Wfv-bw-InJ"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="156.66666666666666" y="117" width="48" height="99"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="YYA-HR-EYU">
-                                        <rect key="frame" x="0.0" y="178" width="361" height="390"/>
+                                        <rect key="frame" x="0.0" y="222" width="361" height="390"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="cjY-kK-qpD">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="60"/>
@@ -76,9 +70,6 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXZ-Ut-Cio">
                                                         <rect key="frame" x="0.0" y="0.0" width="116.33333333333333" height="60"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="60" id="DPX-Of-bMt"/>
-                                                        </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="4"/>
                                                     </button>
@@ -271,9 +262,10 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="36"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JQU-M0-58h">
-                                                        <rect key="frame" x="0.0" y="0.0" width="107.66666666666667" height="36"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="135" height="36"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="36" id="WNz-ZH-xMz"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="135" id="XN5-GO-83v"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Math Quiz"/>
@@ -282,15 +274,18 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzi-bH-yIp">
-                                                        <rect key="frame" x="126.66666666666666" y="0.0" width="107.66666666666666" height="36"/>
+                                                        <rect key="frame" x="154" y="0.0" width="98" height="36"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="Diffculty"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Difficulty"/>
                                                         <connections>
                                                             <action selector="quizDiffcultyButtonPressed:" destination="7R4-Xy-LaG" eventType="touchDownRepeat" id="PiF-N5-Qjz"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uay-Sm-dHH">
-                                                        <rect key="frame" x="253.33333333333329" y="0.0" width="107.66666666666666" height="36"/>
+                                                        <rect key="frame" x="271" y="0.0" width="90" height="36"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="piR-gn-evp"/>
+                                                        </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" title="Right ?"/>
                                                         <connections>
@@ -456,7 +451,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQc-D0-HEr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="aEt-I3-2GD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1921.3740458015266" y="-5.6338028169014089"/>
+            <point key="canvasLocation" x="1656" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gPz-52-ei3">
